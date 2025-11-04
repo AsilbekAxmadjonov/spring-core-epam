@@ -1,9 +1,14 @@
 package org.example.model;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+
 import java.time.LocalDate;
 
 public class Trainee extends User{
+
+    @JsonAlias("birthDate")
     private LocalDate dateOfBirth;
+
     private String address;
 
     public Trainee() {

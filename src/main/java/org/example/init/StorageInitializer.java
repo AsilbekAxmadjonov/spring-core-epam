@@ -1,20 +1,19 @@
 package org.example.init;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.model.Trainee;
 import org.example.model.Trainer;
 import org.example.model.Training;
-import org.example.model.TrainingType;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
 
 @Component
@@ -29,11 +28,8 @@ public class StorageInitializer implements BeanPostProcessor {
     @Value("${data.trainings.path}")
     private String trainingsFilePath;
 
-    private final ResourceLoader resourceLoader;
-
-    public StorageInitializer(ResourceLoader resourceLoader) {
-        this.resourceLoader = resourceLoader;
-    }
+    private final ObjectMapper objectMapper = new ObjectMapper()
+            .registerModule(new JavaTimeModule());
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
@@ -51,71 +47,30 @@ public class StorageInitializer implements BeanPostProcessor {
         return bean;
     }
 
-    private void loadTrainers(Map<String, Trainer> storage, String path) {
-        loadFile(storage, path, parts -> {
-            if (parts.length >= 4) {
-                Trainer trainer = new Trainer(
-                        parts[0].trim(),
-                        parts[1].trim(),
-                        parts[2].trim(),
-                        parts[3].trim()
-                );
-                storage.put(trainer.getUsername(), trainer);
-            }
-        });
+    private void loadTrainers(Map<String, Trainer> storage, String path) throws Exception {
+        List<Trainer> trainers = objectMapper.readValue(
+                new ClassPathResource(path).getInputStream(),
+                new TypeReference<List<Trainer>>() {}
+        );
+        trainers.forEach(t -> storage.put(t.getUsername(), t));
+        System.out.println("Loaded " + trainers.size() + " trainers from JSON.");
     }
 
-    private void loadTrainees(Map<String, Trainee> storage, String path) {
-        loadFile(storage, path, parts -> {
-            if (parts.length >= 5) {
-                Trainee trainee = new Trainee(
-                        parts[0].trim(),
-                        parts[1].trim(),
-                        parts[2].trim(),
-                        LocalDate.parse(parts[3].trim()),
-                        parts[4].trim()
-                );
-                storage.put(trainee.getUsername(), trainee);
-            }
-        });
+    private void loadTrainees(Map<String, Trainee> storage, String path) throws Exception {
+        List<Trainee> trainees = objectMapper.readValue(
+                new ClassPathResource(path).getInputStream(),
+                new TypeReference<List<Trainee>>() {}
+        );
+        trainees.forEach(t -> storage.put(t.getUsername(), t));
+        System.out.println("Loaded " + trainees.size() + " trainees from JSON.");
     }
 
-    private void loadTrainings(Map<String, Training> storage, String path) {
-        loadFile(storage, path, parts -> {
-            if (parts.length >= 6) {
-                Training training = new Training(
-                        parts[0].trim(),
-                        parts[1].trim(),
-                        parts[2].trim(),
-                        new TrainingType(parts[3].trim()),
-                        LocalDate.parse(parts[4].trim()),
-                        Integer.parseInt(parts[5].trim())
-                );
-                storage.put(training.getTrainingName(), training);
-            }
-        });
-    }
-
-    private void loadFile(Map<String, ?> storage, String path, LineParser parser) {
-        Resource resource = resourceLoader.getResource(path);
-        if (!resource.exists()) {
-            System.err.println("Resource not found: " + path);
-            return;
-        }
-
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(resource.getInputStream()))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                parser.parse(line.split(","));
-            }
-            System.out.println("Loaded data from: " + path);
-        } catch (IOException e) {
-            System.err.println("Failed to read resource: " + path);
-        }
-    }
-
-    @FunctionalInterface
-    private interface LineParser {
-        void parse(String[] parts);
+    private void loadTrainings(Map<String, Training> storage, String path) throws Exception {
+        List<Training> trainings = objectMapper.readValue(
+                new ClassPathResource(path).getInputStream(),
+                new TypeReference<List<Training>>() {}
+        );
+        trainings.forEach(t -> storage.put(t.getTrainingName(), t));
+        System.out.println("Loaded " + trainings.size() + " trainings from JSON.");
     }
 }

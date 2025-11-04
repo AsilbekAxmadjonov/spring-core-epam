@@ -1,14 +1,23 @@
 package org.example.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.LocalDate;
 
 public class Training {
-    private String traineeId;
+    @JsonProperty("trainerUsername")
     private String trainerId;
+
+    @JsonProperty("traineeUsername")
+    private String traineeId;
     private String trainingName;
     private TrainingType trainingType;
+    @JsonProperty("startDate")
     private LocalDate trainingDate;
+    @JsonProperty("duration")
     private Integer trainingDuration;
+
+    public Training() {}
 
     public Training(String traineeId, String trainerId, String trainingName, TrainingType trainingType, LocalDate trainingDate, int trainingDuration) {
         this.traineeId = traineeId;

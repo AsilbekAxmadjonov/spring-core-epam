@@ -1,7 +1,12 @@
 package org.example.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class TrainingType {
+    @JsonProperty("typeName")
     private String trainingTypeName;
+
+    public TrainingType() {}
 
     public TrainingType(String trainingTypeName) {
         this.trainingTypeName = trainingTypeName;
