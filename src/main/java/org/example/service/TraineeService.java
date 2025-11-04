@@ -42,17 +42,17 @@ public class TraineeService {
     }
 
     public void createTrainee(Trainee trainee){
-        logger.info("Creating new Trainee: ", trainee.getUsername());
+        logger.info("Creating new Trainee: {}", trainee.getUsername());
         traineeDao.save(trainee);
     }
 
     public void updateTrainee(Trainee trainee){
-        logger.info("Updating Trainee: ", trainee.getUsername());
+        logger.info("Updating Trainee: {}", trainee.getUsername());
         traineeDao.update(trainee);
     }
 
     public Trainee getTrainee(String username){
-        logger.debug("Getting Trainee by username: ", username);
+        logger.debug("Getting Trainee by username: {}", username);
         return traineeDao.findByUsername(username);
     }
 

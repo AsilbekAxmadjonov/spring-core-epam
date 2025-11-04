@@ -23,12 +23,12 @@ public class TrainingService {
     }
 
     public void createTraining(Training training){
-        logger.info("Creating new Training: ", training.getTrainingName());
+        logger.info("Creating new Training: {}", training.getTrainingName());
         trainingDao.save(training);
     }
 
     public Training getTraining(String name){
-        logger.debug("Getting Training by name: ", name);
+        logger.debug("Getting Training by name: {}", name);
         return trainingDao.findByName(name);
     }
 
