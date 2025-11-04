@@ -1,0 +1,16 @@
+[
+  {
+    "username": "trainee01",
+    "firstName": "Emily",
+    "lastName": "Davis",
+    "dateOfBirth": "2000-03-10",
+    "address": "Tashkent"
+  },
+  {
+    "username": "trainee02",
+    "firstName": "Michael",
+    "lastName": "Brown",
+    "dateOfBirth": "1998-09-15",
+    "address": "Samarkand"
+  }
+]

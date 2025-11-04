@@ -52,6 +52,11 @@ public class TraineeService {
         traineeDao.update(trainee);
     }
 
+    public void deleteTrainee(Trainee trainee){
+        logger.info("Deleted Trainee: {}", trainee.getUsername());
+        traineeDao.delete(trainee);
+    }
+
     public Trainee getTrainee(String username){
         logger.debug("Getting Trainee by username: ", username);
         return traineeDao.findByUsername(username);
