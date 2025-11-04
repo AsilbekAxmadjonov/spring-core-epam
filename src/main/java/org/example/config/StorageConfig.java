@@ -12,18 +12,23 @@ import java.util.Map;
 @Configuration
 public class StorageConfig {
 
-    @Bean("trainerStorage")
+    public static final String TRAINER_STORAGE_BEAN = "trainerStorage";
+    public static final String TRAINEE_STORAGE_BEAN = "traineeStorage";
+    public static final String TRAINING_STORAGE_BEAN = "trainingStorage";
+
+    @Bean(name = TRAINER_STORAGE_BEAN)
     public Map<String, Trainer> trainerStorage() {
         return new HashMap<>();
     }
 
-    @Bean("traineeStorage")
+    @Bean(name = TRAINEE_STORAGE_BEAN)
     public Map<String, Trainee> traineeStorage() {
         return new HashMap<>();
     }
 
-    @Bean("trainingStorage")
+    @Bean(name = TRAINING_STORAGE_BEAN)
     public Map<String, Training> trainingStorage() {
         return new HashMap<>();
     }
 }
+
