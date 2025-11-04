@@ -1,3 +1,0 @@
-emma_jones,john_doe,LegDay,Strength,2024-01-10,60
-daniel_lee,sara_kim,MorningYoga,Yoga,2024-03-15,45
-olivia_brown,alex_smith,CardioBlast,Cardio,2024-05-20,50
