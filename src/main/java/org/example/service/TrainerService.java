@@ -41,17 +41,17 @@ public class TrainerService {
     }
 
     public void createTrainer(Trainer trainer){
-        logger.info("Creating new Trainer: ", trainer.getUsername());
+        logger.info("Creating new Trainer: {}", trainer.getUsername());
         trainerDao.save(trainer);
     }
 
     public void updateTrainer(Trainer trainer){
-        logger.info("Updating trainer: ", trainer.getUsername());
+        logger.info("Updating trainer: {}", trainer.getUsername());
         trainerDao.update(trainer);
     }
 
     public Trainer getTrainer(String username){
-        logger.info("Getting trainer with username: ", username);
+        logger.info("Getting trainer with username: {}", username);
         return trainerDao.findByUsername(username);
     }
 
