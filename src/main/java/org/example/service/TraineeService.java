@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -29,10 +28,7 @@ public class TraineeService {
         traineeDao.update(trainee);
     }
 
-    public void deleteTrainee(Trainee trainee) {
-        traineeDao.delete(trainee);
-    }
-    public void deleteTrainee(Trainee trainee) {
+    public void delete(Trainee trainee) {
         if (trainee != null) {
             traineeDao.delete(trainee);
         }
