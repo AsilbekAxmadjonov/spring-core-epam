@@ -29,6 +29,14 @@ public class TraineeService {
         traineeDao.update(trainee);
     }
 
+    public void deleteTrainee(Trainee trainee) {
+        traineeDao.delete(trainee);
+    }
+    public void deleteTrainee(Trainee trainee) {
+        if (trainee != null) {
+            traineeDao.delete(trainee);
+        }
+    }
     public Trainee getTrainee(String username){
         return traineeDao.findByUsername(username);
     }
