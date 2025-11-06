@@ -2,9 +2,10 @@ package org.example.model;
 
 import lombok.*;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = "trainingTypeName")
 @ToString
 @Builder
 public class TrainingType {

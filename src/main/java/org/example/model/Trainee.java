@@ -3,11 +3,10 @@ package org.example.model;
 import lombok.*;
 import java.time.LocalDate;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+@EqualsAndHashCode(callSuper = true)
 public class Trainee extends User {
 
     private LocalDate dateOfBirth;
@@ -19,4 +18,3 @@ public class Trainee extends User {
         this.address = address;
     }
 }
-
