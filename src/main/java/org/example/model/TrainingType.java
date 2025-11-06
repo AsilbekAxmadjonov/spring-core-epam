@@ -1,15 +1,13 @@
 package org.example.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
-@Getter
-@Setter
-@NoArgsConstructor  // << needed for Jackson
+@Data
+@NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = "trainingTypeName")
 @ToString
 @Builder
 public class TrainingType {
-    @JsonProperty("typeName")
     private String trainingTypeName;
 }
