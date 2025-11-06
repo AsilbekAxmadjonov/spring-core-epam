@@ -1,17 +1,14 @@
 package org.example.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-
 import java.time.LocalDate;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+@EqualsAndHashCode(callSuper = true)
 public class Trainee extends User {
-    @JsonProperty("dateOfBirth")
+
     private LocalDate dateOfBirth;
     private String address;
 
@@ -21,4 +18,3 @@ public class Trainee extends User {
         this.address = address;
     }
 }
-

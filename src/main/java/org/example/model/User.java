@@ -3,10 +3,10 @@ package org.example.model;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = "username")
 @ToString
 @SuperBuilder
 public class User {
