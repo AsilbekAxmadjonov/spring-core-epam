@@ -8,7 +8,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "username")
 @SuperBuilder
-public class User {
+public abstract class User {
     private String firstName;
     private String lastName;
     private String username;
