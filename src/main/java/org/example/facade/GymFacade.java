@@ -67,11 +67,11 @@ public class GymFacade {
         List<Training> trainings = trainingService.listAll();
         for (Training training : trainings) {
             System.out.println("   Training Name : " + training.getTrainingName());
-            System.out.println("   Trainee ID    : " + training.getTraineeId());
-            System.out.println("   Trainer ID    : " + training.getTrainerId());
+            System.out.println("   Trainee ID    : " + training.getTraineeUsername());
+            System.out.println("   Trainer ID    : " + training.getTrainerUsername());
             System.out.println("   Type          : " + training.getTrainingType());
             System.out.println("   Date          : " + training.getTrainingDate());
-            System.out.println("   Duration (min): " + training.getTrainingDuration());
+            System.out.println("   Duration (min): " + training.getTrainingDurationMinutes());
             System.out.println("------------------------------");
         }
     }
