@@ -15,6 +15,7 @@ public class TrainerDaoImpl implements TrainerDao {
     private Map<String, Trainer> trainerStorage;
 
     // Setter-based injection for trainerStorage
+    @Autowired
     public void setTrainerStorage(@Qualifier("trainerStorage") Map<String, Trainer> trainerStorage) {
         this.trainerStorage = trainerStorage;
     }

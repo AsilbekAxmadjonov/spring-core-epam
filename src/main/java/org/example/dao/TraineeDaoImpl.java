@@ -15,6 +15,7 @@ public class TraineeDaoImpl implements TraineeDao {
     private Map<String, Trainee> traineeStorage;
 
     // Setter-based injection for the storage map
+    @Autowired
     public void setTraineeStorage(@Qualifier("traineeStorage") Map<String, Trainee> traineeStorage) {
         this.traineeStorage = traineeStorage;
     }
