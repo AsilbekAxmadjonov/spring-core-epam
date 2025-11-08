@@ -6,8 +6,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = {"traineeId", "trainerId", "trainingDate"})
-@ToString
+@EqualsAndHashCode(of = {"trainingName"})
 @Builder
 public class Training {
     private String traineeId;

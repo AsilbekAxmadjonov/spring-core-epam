@@ -6,8 +6,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "trainingTypeName")
-@ToString
-@Builder
 public class TrainingType {
     private String trainingTypeName;
 }
