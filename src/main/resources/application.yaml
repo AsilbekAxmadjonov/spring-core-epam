@@ -1,0 +1,7 @@
+data:
+  trainers:
+    path: data/trainers.json
+  trainees:
+    path: data/trainees.json
+  trainings:
+    path: data/trainings.json
