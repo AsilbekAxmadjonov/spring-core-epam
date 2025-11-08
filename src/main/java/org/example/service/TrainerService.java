@@ -1,39 +1,18 @@
 package org.example.service;
 
-import org.example.dao.TrainerDao;
 import org.example.model.Trainer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class TrainerService {
+public interface TrainerService {
 
-    @Autowired
-    public final TrainerDao trainerDao;
+    void createTrainerProfile(String firstName, String lastName, String specialization);
 
-    @Autowired
-    public TrainerService(TrainerDao trainerDao){
-        this.trainerDao = trainerDao;
-    }
+    void createTrainer(Trainer trainer);
 
+    void updateTrainer(Trainer trainer);
 
-    public void createTrainer(Trainer trainer){
-        trainerDao.save(trainer);
-    }
+    Trainer getTrainer(String username);
 
-    public void updateTrainer(Trainer trainer){
-        trainerDao.update(trainer);
-    }
-
-    public Trainer getTrainer(String username){
-        return trainerDao.findByUsername(username);
-    }
-
-    public List<Trainer> listAll(){
-        return trainerDao.findAll();
-    }
+    List<Trainer> listAll();
 }

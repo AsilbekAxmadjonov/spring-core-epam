@@ -1,43 +1,21 @@
 package org.example.service;
 
-import org.example.dao.TraineeDao;
 import org.example.model.Trainee;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
-@Service
-public class TraineeService {
+public interface TraineeService {
 
-    @Autowired
-    private final TraineeDao traineeDao;
+    void createTraineeProfile(String firstName, String lastName, LocalDate dateOfBirth, String address);
 
-    @Autowired
-    public TraineeService(TraineeDao traineeDao) {
-        this.traineeDao = traineeDao;
-    }
+    void createTrainee(Trainee trainee);
 
-    public void createTrainee(Trainee trainee){
-        traineeDao.save(trainee);
-    }
+    void updateTrainee(Trainee trainee);
 
-    public void updateTrainee(Trainee trainee){
-        traineeDao.update(trainee);
-    }
+    void deleteTrainee(Trainee trainee);
 
-    public void delete(Trainee trainee) {
-        if (trainee != null) {
-            traineeDao.delete(trainee);
-        }
-    }
-    public Trainee getTrainee(String username){
-        return traineeDao.findByUsername(username);
-    }
+    Trainee getTrainee(String username);
 
-    public List<Trainee> listAll(){
-        return traineeDao.findAll();
-    }
+    List<Trainee> listAll();
 }
