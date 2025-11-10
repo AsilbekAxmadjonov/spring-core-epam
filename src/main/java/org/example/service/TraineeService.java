@@ -7,8 +7,6 @@ import java.util.List;
 
 public interface TraineeService {
 
-    void createTraineeProfile(String firstName, String lastName, LocalDate dateOfBirth, String address);
-
     void createTrainee(Trainee trainee);
 
     void updateTrainee(Trainee trainee);

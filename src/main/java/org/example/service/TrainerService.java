@@ -6,8 +6,6 @@ import java.util.List;
 
 public interface TrainerService {
 
-    void createTrainerProfile(String firstName, String lastName, String specialization);
-
     void createTrainer(Trainer trainer);
 
     void updateTrainer(Trainer trainer);

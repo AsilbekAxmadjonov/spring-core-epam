@@ -23,27 +23,6 @@ public class TraineeServiceImpl implements TraineeService {
     }
 
     @Override
-    public void createTraineeProfile(String firstName, String lastName, LocalDate dateOfBirth, String address) {
-        List<String> existingUsernames = traineeDao.findAll().stream()
-                .map(Trainee::getUsername)
-                .toList();
-
-        String username = ProfileGenerator.generateUsername(firstName, lastName, existingUsernames);
-        String password = ProfileGenerator.generateRandomPassword();
-
-        Trainee trainee = new Trainee();
-        trainee.setFirstName(firstName);
-        trainee.setLastName(lastName);
-        trainee.setUsername(username);
-        trainee.setPassword(password);
-        trainee.setDateOfBirth(dateOfBirth);
-        trainee.setAddress(address);
-
-        traineeDao.save(trainee);
-        log.info("Created new Trainee profile: {}", username);
-    }
-
-    @Override
     public void createTrainee(Trainee trainee) {
         log.info("Creating new Trainee: {}", trainee.getUsername());
         traineeDao.save(trainee);

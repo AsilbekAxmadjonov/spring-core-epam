@@ -22,27 +22,6 @@ public class TrainerServiceImpl implements TrainerService {
     }
 
     @Override
-    public void createTrainerProfile(String firstName, String lastName, String specialization) {
-        List<String> existingUsernames = trainerDao.findAll().stream()
-                .map(Trainer::getUsername)
-                .toList();
-
-        String username = ProfileGenerator.generateUsername(firstName, lastName, existingUsernames);
-        String password = ProfileGenerator.generateRandomPassword();
-
-        Trainer trainer = new Trainer();
-        trainer.setFirstName(firstName);
-        trainer.setLastName(lastName);
-        trainer.setUsername(username);
-        trainer.setPassword(password);
-        trainer.setSpecialization(specialization);
-
-        trainerDao.save(trainer);
-
-        log.info("Created new Trainer profile: {}", username);
-    }
-
-    @Override
     public void createTrainer(Trainer trainer) {
         log.info("Creating new Trainer: {}", trainer.getUsername());
         trainerDao.save(trainer);
