@@ -13,7 +13,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <!-- ✅ Import Spring BOM -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -27,7 +26,6 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- ✅ Spring dependencies (no version needed now) -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -39,7 +37,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- ✅ Testing dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -54,7 +51,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- ✅ Utilities -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
