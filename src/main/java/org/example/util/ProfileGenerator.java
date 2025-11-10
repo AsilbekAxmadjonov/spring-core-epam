@@ -5,7 +5,6 @@ import java.util.List;
 
 public class ProfileGenerator {
 
-    private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     private static final int PASSWORD_LENGTH = 10;
     private static final SecureRandom random = new SecureRandom();
 
@@ -22,13 +21,23 @@ public class ProfileGenerator {
         return username;
     }
 
-    // Generate random password
-    public static String generateRandomPassword() {
-        StringBuilder password = new StringBuilder(PASSWORD_LENGTH);
+    // Generate random password using ASCII math
+    public static char[] generateRandomPassword() {
+        char[] password = new char[PASSWORD_LENGTH];
+
         for (int i = 0; i < PASSWORD_LENGTH; i++) {
-            int index = random.nextInt(CHARACTERS.length());
-            password.append(CHARACTERS.charAt(index));
+            int type = random.nextInt(3); // 0=upper, 1=lower, 2=digit
+            switch (type) {
+                case 0 -> password[i] = (char) ('A' + random.nextInt(26));
+                case 1 -> password[i] = (char) ('a' + random.nextInt(26));
+                case 2 -> password[i] = (char) ('0' + random.nextInt(10));
+            }
         }
-        return password.toString();
+        return password;
+    }
+
+    // Optional helper to convert char[] to String when needed
+    public static String passwordToString(char[] password) {
+        return new String(password);
     }
 }
