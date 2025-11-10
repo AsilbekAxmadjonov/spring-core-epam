@@ -1,4 +1,4 @@
-import org.example.dao.TraineeDao;
+import org.example.dao.TraineeDaoImpl;
 import org.example.model.Trainee;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,20 +10,33 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TraineeDaoTest {
+class TraineeDaoImplTest {
 
-    private TraineeDao traineeDao;
+    private TraineeDaoImpl traineeDao;
     private Map<String, Trainee> traineeStorage;
 
     @BeforeEach
     void setUp() {
         traineeStorage = new HashMap<>();
-        traineeDao = new TraineeDao(traineeStorage);
+        traineeDao = new TraineeDaoImpl();
+        traineeDao.setTraineeStorage(traineeStorage); // manual injection
+    }
+
+    private Trainee createTrainee(String username, String first, String last, String address) {
+        return Trainee.builder()
+                .username(username)
+                .firstName(first)
+                .lastName(last)
+                .password("pass123".toCharArray())
+                .isActive(true)
+                .dateOfBirth(LocalDate.of(2000, 1, 1))
+                .address(address)
+                .build();
     }
 
     @Test
     void testSaveTrainee() {
-        Trainee trainee = new Trainee("john01", "John", "Doe", LocalDate.of(1998, 5, 10), "123 Main St");
+        Trainee trainee = createTrainee("john01", "John", "Doe", "123 Main St");
         traineeDao.save(trainee);
 
         assertEquals(1, traineeStorage.size());
@@ -33,10 +46,9 @@ class TraineeDaoTest {
 
     @Test
     void testUpdateTrainee() {
-        Trainee trainee = new Trainee("john01", "John", "Doe", LocalDate.of(1998, 5, 10), "123 Main St");
+        Trainee trainee = createTrainee("john01", "John", "Doe", "123 Main St");
         traineeDao.save(trainee);
 
-        // Update address
         trainee.setAddress("456 Elm St");
         traineeDao.update(trainee);
 
@@ -45,8 +57,27 @@ class TraineeDaoTest {
     }
 
     @Test
+    void testDeleteTrainee() {
+        Trainee trainee = createTrainee("john01", "John", "Doe", "123 Main St");
+        traineeDao.save(trainee);
+
+        traineeDao.delete(trainee);
+
+        assertFalse(traineeStorage.containsKey("john01"));
+        assertTrue(traineeStorage.isEmpty());
+    }
+
+    @Test
+    void testDeleteTrainee_NotExist() {
+        Trainee trainee = createTrainee("ghost01", "Ghost", "User", "Nowhere");
+        traineeDao.delete(trainee);
+
+        assertTrue(traineeStorage.isEmpty());
+    }
+
+    @Test
     void testFindByUsername() {
-        Trainee trainee = new Trainee("alice01", "Alice", "Brown", LocalDate.of(2000, 8, 12), "77 Sunset Blvd");
+        Trainee trainee = createTrainee("alice01", "Alice", "Brown", "77 Sunset Blvd");
         traineeDao.save(trainee);
 
         Trainee found = traineeDao.findByUsername("alice01");
@@ -62,8 +93,8 @@ class TraineeDaoTest {
 
     @Test
     void testFindAll() {
-        Trainee t1 = new Trainee("t1", "John", "Smith", LocalDate.of(1995, 2, 14), "Address1");
-        Trainee t2 = new Trainee("t2", "Jane", "Doe", LocalDate.of(1997, 6, 22), "Address2");
+        Trainee t1 = createTrainee("t1", "John", "Smith", "Address1");
+        Trainee t2 = createTrainee("t2", "Jane", "Doe", "Address2");
 
         traineeDao.save(t1);
         traineeDao.save(t2);

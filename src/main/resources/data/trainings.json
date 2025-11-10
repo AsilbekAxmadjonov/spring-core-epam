@@ -1,0 +1,22 @@
+[
+  {
+    "trainingName": "Spring Boot Basics",
+    "trainerUsername": "trainer01",
+    "traineeUsername": "trainee01",
+    "trainingType": {
+      "trainingTypeName": "Backend"
+    },
+    "trainingDate": "2025-02-01",
+    "trainingDurationMinutes": 30
+  },
+  {
+    "trainingName": "Python for Data",
+    "trainerUsername": "trainer02",
+    "traineeUsername": "trainee02",
+    "trainingType": {
+      "trainingTypeName": "Data Science"
+    },
+    "trainingDate": "2025-01-25",
+    "trainingDurationMinutes": 45
+  }
+]

@@ -1,3 +1,0 @@
-john_doe,John,Doe,Strength
-sara_kim,Sara,Kim,Yoga
-alex_smith,Alex,Smith,Cardio

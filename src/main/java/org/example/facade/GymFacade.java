@@ -9,34 +9,55 @@ import org.example.service.TrainingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Component
 public class GymFacade {
+
     private final TrainerService trainerService;
     private final TraineeService traineeService;
     private final TrainingService trainingService;
+//    private final ProfileService profileService;
 
     @Autowired
-    public GymFacade(TraineeService traineeService, TrainerService trainerService, TrainingService trainingService){
+    public GymFacade(TraineeService traineeService,
+                     TrainerService trainerService,
+                     TrainingService trainingService
+                     /*ProfileService profileService*/) {
         this.traineeService = traineeService;
         this.trainerService = trainerService;
         this.trainingService = trainingService;
+//        this.profileService = profileService;
     }
 
-    public void createTrainerProfile(String firstName, String lastName, String specialization) {
-        trainerService.createTrainerProfile(firstName, lastName, specialization);
-        System.out.println("✅ Trainer profile created successfully for " + firstName + " " + lastName);
-    }
+//    // ------------------- Profile Creation -------------------
+//
+//    public void createTrainerProfile(String firstName, String lastName, String specialization) {
+//        Trainer trainer = new Trainer();
+//        trainer.setFirstName(firstName);
+//        trainer.setLastName(lastName);
+//        trainer.setSpecialization(specialization);
+//
+//        profileService.createProfile(trainer);
+//
+//        System.out.println("✅ Trainer profile created successfully for " + firstName + " " + lastName);
+//    }
+//
+//    public void createTraineeProfile(String firstName, String lastName, LocalDate dateOfBirth, String address) {
+//        Trainee trainee = new Trainee();
+//        trainee.setFirstName(firstName);
+//        trainee.setLastName(lastName);
+//        trainee.setDateOfBirth(dateOfBirth);
+//        trainee.setAddress(address);
+//
+//        profileService.createProfile(trainee);
+//
+//        System.out.println("✅ Trainee profile created successfully for " + firstName + " " + lastName);
+//    }
 
-    public void createTraineeProfile(String firstName, String lastName, LocalDate dateOfBirth, String address) {
-        traineeService.createTraineeProfile(firstName, lastName, dateOfBirth, address);
-        System.out.println("✅ Trainee profile created successfully for " + firstName + " " + lastName);
-    }
+    // ------------------- Display Methods -------------------
 
     public void showAllTrainers() {
-
         System.out.println("          All Trainers:");
         List<Trainer> trainers = trainerService.listAll();
         for (Trainer trainer : trainers) {
@@ -48,8 +69,7 @@ public class GymFacade {
         }
     }
 
-    public void showAllTrainees(){
-
+    public void showAllTrainees() {
         System.out.println("          All Trainees:");
         List<Trainee> trainees = traineeService.listAll();
         for (Trainee trainee : trainees) {
@@ -61,17 +81,16 @@ public class GymFacade {
         }
     }
 
-    public void showAllTraining(){
-
+    public void showAllTraining() {
         System.out.println("          All Trainings:");
         List<Training> trainings = trainingService.listAll();
         for (Training training : trainings) {
             System.out.println("   Training Name : " + training.getTrainingName());
-            System.out.println("   Trainee ID    : " + training.getTraineeId());
-            System.out.println("   Trainer ID    : " + training.getTrainerId());
+            System.out.println("   Trainee ID    : " + training.getTraineeUsername());
+            System.out.println("   Trainer ID    : " + training.getTrainerUsername());
             System.out.println("   Type          : " + training.getTrainingType());
             System.out.println("   Date          : " + training.getTrainingDate());
-            System.out.println("   Duration (min): " + training.getTrainingDuration());
+            System.out.println("   Duration (min): " + training.getTrainingDurationMinutes());
             System.out.println("------------------------------");
         }
     }

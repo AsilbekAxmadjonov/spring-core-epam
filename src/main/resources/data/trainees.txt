@@ -1,3 +1,0 @@
-emma_jones,Emma,Jones,2001-05-17,New York
-daniel_lee,Daniel,Lee,1999-09-09,Los Angeles
-olivia_brown,Olivia,Brown,2003-01-30,Chicago

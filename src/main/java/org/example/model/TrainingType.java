@@ -1,21 +1,14 @@
 package org.example.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "trainingTypeName")
 public class TrainingType {
     private String trainingTypeName;
-
-    public TrainingType(String trainingTypeName) {
-        this.trainingTypeName = trainingTypeName;
-    }
-
-    public String getTrainingTypeName() {
-        return trainingTypeName;
-    }
-    public void setTrainingTypeName(String trainingTypeName) {
-        this.trainingTypeName = trainingTypeName;
-    }
-
-    @Override
-    public String toString() {
-        return trainingTypeName;
-    }
 }
