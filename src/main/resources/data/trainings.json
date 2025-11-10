@@ -1,22 +1,22 @@
 [
   {
     "trainingName": "Spring Boot Basics",
-    "trainerId": "trainer01",
-    "traineeId": "trainee01",
+    "trainerUsername": "trainer01",
+    "traineeUsername": "trainee01",
     "trainingType": {
       "trainingTypeName": "Backend"
     },
     "trainingDate": "2025-02-01",
-    "trainingDuration": 30
+    "trainingDurationMinutes": 30
   },
   {
     "trainingName": "Python for Data",
-    "trainerId": "trainer02",
-    "traineeId": "trainee02",
+    "trainerUsername": "trainer02",
+    "traineeUsername": "trainee02",
     "trainingType": {
       "trainingTypeName": "Data Science"
     },
     "trainingDate": "2025-01-25",
-    "trainingDuration": 45
+    "trainingDurationMinutes": 45
   }
 ]

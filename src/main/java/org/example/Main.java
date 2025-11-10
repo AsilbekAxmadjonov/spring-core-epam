@@ -5,8 +5,6 @@ import org.example.config.AppConfig;
 import org.example.facade.GymFacade;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.time.LocalDate;
-
 @Slf4j
 public class Main {
 
