@@ -2,7 +2,6 @@ package org.example.service;
 
 import org.example.dao.TrainerDao;
 import org.example.model.Trainer;
-import org.example.util.ProfileGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,25 +20,6 @@ public class TrainerServiceImpl implements TrainerService {
     @Autowired
     public void setTrainerDao(TrainerDao trainerDao) {
         this.trainerDao = trainerDao;
-    }
-
-    @Override
-    public void createTrainerProfile(String firstName, String lastName, String specialization) {
-        List<String> existingUsernames = trainerDao.findAll().stream()
-                .map(Trainer::getUsername)
-                .toList();
-
-        String username = ProfileGenerator.generateUsername(firstName, lastName, existingUsernames);
-        String password = ProfileGenerator.generateRandomPassword();
-
-        Trainer trainer = new Trainer();
-        trainer.setFirstName(firstName);
-        trainer.setLastName(lastName);
-        trainer.setUsername(username);
-        trainer.setPassword(password);
-        trainer.setSpecialization(specialization);
-
-        trainerDao.save(trainer);
     }
 
     @Override

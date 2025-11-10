@@ -2,12 +2,9 @@ package org.example.service;
 
 import org.example.model.Trainee;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public interface TraineeService {
-
-    void createTraineeProfile(String firstName, String lastName, LocalDate dateOfBirth, String address);
 
     void createTrainee(Trainee trainee);
 

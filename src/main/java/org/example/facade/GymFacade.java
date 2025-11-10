@@ -3,6 +3,8 @@ package org.example.facade;
 import org.example.model.Trainee;
 import org.example.model.Trainer;
 import org.example.model.Training;
+import org.example.model.User;
+import org.example.service.ProfileService;
 import org.example.service.TraineeService;
 import org.example.service.TrainerService;
 import org.example.service.TrainingService;
@@ -14,29 +16,51 @@ import java.util.List;
 
 @Component
 public class GymFacade {
+
     private final TrainerService trainerService;
     private final TraineeService traineeService;
     private final TrainingService trainingService;
+    private final ProfileService profileService;
 
     @Autowired
-    public GymFacade(TraineeService traineeService, TrainerService trainerService, TrainingService trainingService){
+    public GymFacade(TraineeService traineeService,
+                     TrainerService trainerService,
+                     TrainingService trainingService,
+                     ProfileService profileService) {
         this.traineeService = traineeService;
         this.trainerService = trainerService;
         this.trainingService = trainingService;
+        this.profileService = profileService;
     }
 
+    // ------------------- Profile Creation -------------------
+
     public void createTrainerProfile(String firstName, String lastName, String specialization) {
-        trainerService.createTrainerProfile(firstName, lastName, specialization);
+        Trainer trainer = new Trainer();
+        trainer.setFirstName(firstName);
+        trainer.setLastName(lastName);
+        trainer.setSpecialization(specialization);
+
+        profileService.createProfile(trainer);
+
         System.out.println("✅ Trainer profile created successfully for " + firstName + " " + lastName);
     }
 
     public void createTraineeProfile(String firstName, String lastName, LocalDate dateOfBirth, String address) {
-        traineeService.createTraineeProfile(firstName, lastName, dateOfBirth, address);
+        Trainee trainee = new Trainee();
+        trainee.setFirstName(firstName);
+        trainee.setLastName(lastName);
+        trainee.setDateOfBirth(dateOfBirth);
+        trainee.setAddress(address);
+
+        profileService.createProfile(trainee);
+
         System.out.println("✅ Trainee profile created successfully for " + firstName + " " + lastName);
     }
 
-    public void showAllTrainers() {
+    // ------------------- Display Methods -------------------
 
+    public void showAllTrainers() {
         System.out.println("          All Trainers:");
         List<Trainer> trainers = trainerService.listAll();
         for (Trainer trainer : trainers) {
@@ -48,8 +72,7 @@ public class GymFacade {
         }
     }
 
-    public void showAllTrainees(){
-
+    public void showAllTrainees() {
         System.out.println("          All Trainees:");
         List<Trainee> trainees = traineeService.listAll();
         for (Trainee trainee : trainees) {
@@ -61,8 +84,7 @@ public class GymFacade {
         }
     }
 
-    public void showAllTraining(){
-
+    public void showAllTraining() {
         System.out.println("          All Trainings:");
         List<Training> trainings = trainingService.listAll();
         for (Training training : trainings) {
