@@ -1,13 +1,14 @@
 package org.example.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "trainingTypeName")
-@ToString
-@Builder
 public class TrainingType {
     private String trainingTypeName;
 }

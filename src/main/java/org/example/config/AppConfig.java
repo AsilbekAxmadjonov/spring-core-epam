@@ -8,7 +8,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @Configuration
 @ComponentScan(basePackages = "org.example")
-@PropertySource("classpath:application.properties")
+@PropertySource(value = "classpath:application.yaml", factory = YamlPropertySourceFactory.class)
 public class AppConfig {
 
     // Enables Spring to read property placeholders like ${data.trainers.path}
