@@ -12,7 +12,7 @@
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
+  
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -111,5 +111,16 @@
             </plugin>
         </plugins>
     </build>
+
+</project>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.42</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
 
 </project>
