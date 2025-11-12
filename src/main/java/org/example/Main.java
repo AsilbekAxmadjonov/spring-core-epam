@@ -5,6 +5,8 @@ import org.example.config.AppConfig;
 import org.example.facade.GymFacade;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.time.LocalDate;
+
 @Slf4j
 public class Main {
 
@@ -26,8 +28,5 @@ public class Main {
         } catch (Exception e) {
             log.error("Application failed to start", e);
         }
-public class Main {
-    static void main() {
-
     }
 }
