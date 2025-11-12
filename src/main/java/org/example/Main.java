@@ -26,5 +26,8 @@ public class Main {
         } catch (Exception e) {
             log.error("Application failed to start", e);
         }
+public class Main {
+    static void main() {
+
     }
 }

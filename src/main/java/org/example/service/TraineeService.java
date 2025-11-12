@@ -2,6 +2,7 @@ package org.example.service;
 
 import org.example.model.Trainee;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface TraineeService {

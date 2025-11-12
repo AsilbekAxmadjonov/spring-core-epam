@@ -1,7 +1,6 @@
 package org.example.model;
 
 import lombok.*;
-
 import java.time.LocalDate;
 
 @Data
@@ -12,6 +11,8 @@ import java.time.LocalDate;
 public class Training {
     private String traineeUsername;
     private String trainerUsername;
+    private String traineeId;
+    private String trainerId;
     private String trainingName;
     private TrainingType trainingType;
     private LocalDate trainingDate;

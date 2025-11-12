@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @Data
@@ -16,5 +17,6 @@ public abstract class User {
     private String lastName;
     private String username;
     private char[] password;
+    private String password;
     private boolean isActive;
 }
