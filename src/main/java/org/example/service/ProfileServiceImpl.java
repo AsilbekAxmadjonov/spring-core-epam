@@ -39,7 +39,7 @@ public class ProfileServiceImpl implements ProfileService {
         }
 
         String username = ProfileGenerator.generateUsername(user.getFirstName(), user.getLastName(), existingUsernames);
-        String password = ProfileGenerator.generateRandomPassword();
+        char[] password = ProfileGenerator.generateRandomPassword();
 
         user.setUsername(username);
         user.setPassword(password);

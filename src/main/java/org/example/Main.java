@@ -18,8 +18,8 @@ public class Main {
 
             GymFacade facade = context.getBean(GymFacade.class);
 
-//            facade.createTrainerProfile("John", "Doe", "Strength");
-//            facade.createTraineeProfile("Ali", "Aliyev", LocalDate.of(2005, 6, 18), "Tashkent");
+            facade.createTrainerProfile("John", "Doe", "Strength");
+            facade.createTraineeProfile("Ali", "Aliyev", LocalDate.of(2005, 6, 18), "Tashkent");
             facade.showAllTrainers();
             facade.showAllTrainees();
             facade.showAllTraining();
