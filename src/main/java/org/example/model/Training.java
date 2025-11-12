@@ -9,6 +9,8 @@ import java.time.LocalDate;
 @EqualsAndHashCode(of = {"trainingName"})
 @Builder
 public class Training {
+    private String traineeUsername;
+    private String trainerUsername;
     private String traineeId;
     private String trainerId;
     private String trainingName;
