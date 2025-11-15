@@ -7,7 +7,7 @@ import org.example.model.Trainee;
 import org.example.model.Trainer;
 import org.example.model.Training;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
 import jakarta.annotation.PostConstruct;
@@ -19,16 +19,15 @@ import java.util.Map;
 public class StorageInitializer {
 
     @Value("${data.trainers.path}")
-    private String trainersFilePath;
+    private Resource trainersFile;
 
     @Value("${data.trainees.path}")
-    private String traineesFilePath;
+    private Resource traineesFile;
 
     @Value("${data.trainings.path}")
-    private String trainingsFilePath;
+    private Resource trainingsFile;
 
     private final ObjectMapper objectMapper;
-
     private final Map<String, Trainer> trainerStorage;
     private final Map<String, Trainee> traineeStorage;
     private final Map<String, Training> trainingStorage;
@@ -37,7 +36,6 @@ public class StorageInitializer {
                               Map<String, Trainer> trainerStorage,
                               Map<String, Trainee> traineeStorage,
                               Map<String, Training> trainingStorage) {
-
         this.objectMapper = objectMapper;
         this.trainerStorage = trainerStorage;
         this.traineeStorage = traineeStorage;
@@ -57,7 +55,7 @@ public class StorageInitializer {
 
     private void loadTrainers() throws Exception {
         List<Trainer> trainers = objectMapper.readValue(
-                new ClassPathResource(trainersFilePath).getInputStream(),
+                trainersFile.getInputStream(),
                 new TypeReference<List<Trainer>>() {}
         );
         trainers.forEach(t -> trainerStorage.put(t.getUsername(), t));
@@ -66,7 +64,7 @@ public class StorageInitializer {
 
     private void loadTrainees() throws Exception {
         List<Trainee> trainees = objectMapper.readValue(
-                new ClassPathResource(traineesFilePath).getInputStream(),
+                traineesFile.getInputStream(),
                 new TypeReference<List<Trainee>>() {}
         );
         trainees.forEach(t -> traineeStorage.put(t.getUsername(), t));
@@ -75,7 +73,7 @@ public class StorageInitializer {
 
     private void loadTrainings() throws Exception {
         List<Training> trainings = objectMapper.readValue(
-                new ClassPathResource(trainingsFilePath).getInputStream(),
+                trainingsFile.getInputStream(),
                 new TypeReference<List<Training>>() {}
         );
         trainings.forEach(t -> trainingStorage.put(t.getTrainingName(), t));
