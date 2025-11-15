@@ -1,6 +1,7 @@
-package org.example.dao;
+package org.example.dao.impl;
 
 import lombok.extern.slf4j.Slf4j;
+import org.example.dao.TraineeDao;
 import org.example.model.Trainee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,7 +16,6 @@ public class TraineeDaoImpl implements TraineeDao {
 
     private Map<String, Trainee> traineeStorage;
 
-    // Setter-based injection for the storage map
     @Autowired
     public void setTraineeStorage(@Qualifier("traineeStorage") Map<String, Trainee> traineeStorage) {
         this.traineeStorage = traineeStorage;
