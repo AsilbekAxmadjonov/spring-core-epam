@@ -1,3 +1,5 @@
+package serviceTest;
+
 import org.example.dao.TrainingDao;
 import org.example.model.Training;
 import org.example.model.TrainingType;

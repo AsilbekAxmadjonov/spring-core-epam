@@ -1,3 +1,5 @@
+package daoTest;
+
 import org.example.dao.impl.TrainingDaoImpl;
 import org.example.model.Training;
 import org.example.model.TrainingType;
