@@ -35,9 +35,4 @@ public class ProfileGenerator {
         }
         return password;
     }
-
-    // Optional helper to convert char[] to String when needed
-    public static String passwordToString(char[] password) {
-        return new String(password);
-    }
 }
