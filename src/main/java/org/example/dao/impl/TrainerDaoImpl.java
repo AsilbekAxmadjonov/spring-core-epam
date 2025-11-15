@@ -1,6 +1,7 @@
-package org.example.dao;
+package org.example.dao.impl;
 
 import lombok.extern.slf4j.Slf4j;
+import org.example.dao.TrainerDao;
 import org.example.model.Trainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,7 +16,6 @@ public class TrainerDaoImpl implements TrainerDao {
 
     private Map<String, Trainer> trainerStorage;
 
-    // Setter-based injection for trainerStorage
     @Autowired
     public void setTrainerStorage(@Qualifier("trainerStorage") Map<String, Trainer> trainerStorage) {
         this.trainerStorage = trainerStorage;
