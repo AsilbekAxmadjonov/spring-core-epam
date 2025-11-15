@@ -1,4 +1,6 @@
-import org.example.dao.TrainerDaoImpl;
+package daoTest;
+
+import org.example.dao.impl.TrainerDaoImpl;
 import org.example.model.Trainer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

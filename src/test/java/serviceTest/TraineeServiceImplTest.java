@@ -1,3 +1,5 @@
+package serviceTest;
+
 import org.example.dao.TraineeDao;
 import org.example.model.Trainee;
 import org.example.service.TraineeServiceImpl;
