@@ -2,7 +2,7 @@ package org.example.service.serviceTest;
 
 import org.example.dao.ProfileSavableDao;
 import org.example.model.Trainee;
-import org.example.service.ProfileServiceImpl;
+import org.example.service.impl.ProfileServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;

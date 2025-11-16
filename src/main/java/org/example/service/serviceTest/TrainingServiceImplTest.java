@@ -3,7 +3,7 @@ package org.example.service.serviceTest;
 import org.example.dao.TrainingDao;
 import org.example.model.Training;
 import org.example.model.TrainingType;
-import org.example.service.TrainingServiceImpl;
+import org.example.service.impl.TrainingServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;

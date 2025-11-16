@@ -1,8 +1,9 @@
-package org.example.service;
+package org.example.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.dao.ProfileSavableDao;
 import org.example.model.User;
+import org.example.service.ProfileService;
 import org.example.util.ProfileGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
