@@ -1,4 +1,4 @@
-package utilTest;
+package org.example.util.utilTest;
 
 import org.example.util.ProfileGenerator;
 import org.junit.jupiter.api.Test;

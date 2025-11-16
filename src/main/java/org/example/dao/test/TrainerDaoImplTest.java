@@ -1,4 +1,4 @@
-package daoTest;
+package org.example.dao.test;
 
 import org.example.dao.impl.TrainerDaoImpl;
 import org.example.model.Trainer;

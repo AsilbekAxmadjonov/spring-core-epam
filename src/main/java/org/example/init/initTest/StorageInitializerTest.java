@@ -1,4 +1,4 @@
-package initTest;
+package org.example.init.initTest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.init.StorageInitializer;

@@ -1,4 +1,4 @@
-package serviceTest;
+package org.example.service.serviceTest;
 
 import org.example.dao.TrainingDao;
 import org.example.model.Training;
