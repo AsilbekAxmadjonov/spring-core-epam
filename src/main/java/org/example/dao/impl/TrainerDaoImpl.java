@@ -44,4 +44,9 @@ public class TrainerDaoImpl implements TrainerDao {
         log.info("Fetching all Trainers. Total count: {}", trainerStorage.size());
         return trainerStorage.values().stream().toList();
     }
+
+    @Override
+    public Class<Trainer> getEntityClass() {
+        return Trainer.class;
+    }
 }

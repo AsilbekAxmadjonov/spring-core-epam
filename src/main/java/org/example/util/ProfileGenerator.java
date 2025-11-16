@@ -1,5 +1,7 @@
 package org.example.util;
 
+import org.example.model.User;
+
 import java.security.SecureRandom;
 import java.util.List;
 
@@ -9,7 +11,7 @@ public class ProfileGenerator {
     private static final SecureRandom random = new SecureRandom();
 
     // Generate username from first and last name
-    public static String generateUsername(String firstName, String lastName, List<String> existingUsernames) {
+    public static String generateUsername(String firstName, String lastName, List<User> existingUsernames) {
         String baseUsername = firstName + "." + lastName;
         String username = baseUsername;
 
