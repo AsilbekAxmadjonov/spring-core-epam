@@ -1,8 +1,9 @@
-package org.example.service;
+package org.example.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.dao.TraineeDao;
 import org.example.model.Trainee;
+import org.example.service.TraineeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

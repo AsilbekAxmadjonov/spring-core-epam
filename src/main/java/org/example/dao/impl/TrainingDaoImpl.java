@@ -1,6 +1,7 @@
-package org.example.dao;
+package org.example.dao.impl;
 
 import lombok.extern.slf4j.Slf4j;
+import org.example.dao.TrainingDao;
 import org.example.model.Training;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,7 +16,6 @@ public class TrainingDaoImpl implements TrainingDao {
 
     private Map<String, Training> trainingStorage;
 
-    // Setter-based injection for trainingStorage
     @Autowired
     public void setTrainingStorage(@Qualifier("trainingStorage") Map<String, Training> trainingStorage) {
         this.trainingStorage = trainingStorage;
@@ -37,5 +37,10 @@ public class TrainingDaoImpl implements TrainingDao {
     public List<Training> findAll() {
         log.info("Fetching all Trainings. Total count: {}", trainingStorage.size());
         return trainingStorage.values().stream().toList();
+    }
+
+    @Override
+    public Class<Training> getEntityClass() {
+        return Training.class;
     }
 }
