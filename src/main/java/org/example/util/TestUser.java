@@ -1,4 +1,4 @@
-package org.example.util.utilTest;
+package org.example.util;
 
 import org.example.model.User;
 

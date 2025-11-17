@@ -1,6 +1,5 @@
-package org.example.util.utilTest;
+package org.example.util;
 
-import org.example.util.ProfileGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

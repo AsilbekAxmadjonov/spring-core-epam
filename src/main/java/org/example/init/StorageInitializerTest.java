@@ -1,7 +1,6 @@
-package org.example.init.initTest;
+package org.example.init;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.init.StorageInitializer;
 import org.example.model.Trainee;
 import org.example.model.Trainer;
 import org.example.model.Training;

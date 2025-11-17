@@ -1,8 +1,7 @@
-package org.example.service.serviceTest;
+package org.example.service.impl;
 
 import org.example.dao.TraineeDao;
 import org.example.model.Trainee;
-import org.example.service.impl.TraineeServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
