@@ -1,9 +1,9 @@
 package org.example.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.dao.ProfileSavableDao;
 import org.example.model.User;
 import org.example.service.ProfileService;
+import org.example.service.UserService;
 import org.example.util.ProfileGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,30 +14,31 @@ import java.util.List;
 @Service
 public class ProfileServiceImpl implements ProfileService {
 
-    private ProfileSavableDao profileSavableDao;
+    private UserService userService;
 
     @Autowired
-    public void setProfileSavableDao(ProfileSavableDao profileSavableDao) {
-        this.profileSavableDao = profileSavableDao;
+    public void setUserService(UserService userService) {
+        this.userService = userService;
     }
 
     @Override
     public void createProfile(User user) {
         log.info("Creating profile for user: {} {}", user.getFirstName(), user.getLastName());
 
-        List<String> existingUsernames = profileSavableDao.findAllUsernames();
+        List<User> existingUsers = userService.findAll();
 
         String username = ProfileGenerator.generateUsername(
                 user.getFirstName(),
                 user.getLastName(),
-                existingUsernames
+                existingUsers
         );
+
         char[] password = ProfileGenerator.generateRandomPassword();
 
         user.setUsername(username);
         user.setPassword(password);
 
-        profileSavableDao.save(user);
+        userService.save(user);
 
         log.info("Profile created successfully for username: {}", username);
     }

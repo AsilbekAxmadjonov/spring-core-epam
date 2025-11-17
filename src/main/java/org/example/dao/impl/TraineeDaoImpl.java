@@ -59,4 +59,9 @@ public class TraineeDaoImpl implements TraineeDao {
         log.info("Fetching all Trainees. Total count: {}", traineeStorage.size());
         return traineeStorage.values().stream().toList();
     }
+
+    @Override
+    public Class<Trainee> getEntityClass() {
+        return Trainee.class;
+    }
 }

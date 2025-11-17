@@ -1,7 +1,8 @@
 package org.example.service.serviceTest;
 
-import org.example.dao.ProfileSavableDao;
 import org.example.model.Trainee;
+import org.example.model.User;
+import org.example.service.UserService;
 import org.example.service.impl.ProfileServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,31 +17,32 @@ import static org.mockito.Mockito.*;
 class ProfileServiceImplTest {
 
     private ProfileServiceImpl service;
-    private ProfileSavableDao profileDao;
+    private UserService userService;
 
     @BeforeEach
     void setup() {
         service = new ProfileServiceImpl();
-        profileDao = Mockito.mock(ProfileSavableDao.class);
-        service.setProfileSavableDao(profileDao);
+        userService = Mockito.mock(UserService.class);
+        service.setUserService(userService);
     }
 
     @Test
     void testCreateProfileAssignsUsernameAndPassword() {
-        // Use a concrete subclass instead of abstract User
         Trainee trainee = new Trainee();
         trainee.setFirstName("John");
         trainee.setLastName("Doe");
 
-        // Simulate existing usernames
-        when(profileDao.findAllUsernames()).thenReturn(List.of("John.Doe"));
+        // Simulate existing users
+        User existingUser = new Trainee();
+        existingUser.setUsername("John.Doe");
+        when(userService.findAll()).thenReturn(List.of(existingUser));
 
         service.createProfile(trainee);
 
-        ArgumentCaptor<Trainee> captor = ArgumentCaptor.forClass(Trainee.class);
-        verify(profileDao, times(1)).save(captor.capture());
+        ArgumentCaptor<User> captor = ArgumentCaptor.forClass(User.class);
+        verify(userService, times(1)).save(captor.capture());
 
-        Trainee saved = captor.getValue();
+        User saved = captor.getValue();
         assertEquals("John.Doe1", saved.getUsername());
         assertEquals(10, saved.getPassword().length);
     }
