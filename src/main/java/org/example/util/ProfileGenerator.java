@@ -11,17 +11,27 @@ public class ProfileGenerator {
     private static final SecureRandom random = new SecureRandom();
 
     // Generate username from first and last name
-    public static String generateUsername(String firstName, String lastName, List<User> existingUsernames) {
+    public static String generateUsername(String firstName, String lastName, List<User> existingUsers) {
         String baseUsername = firstName + "." + lastName;
         String username = baseUsername;
 
         int counter = 1;
-        while (existingUsernames.contains(username)) {
-            username = baseUsername + counter;
-            counter++;
+        boolean exists = true;
+        while (exists) {
+            exists = false;
+            for (User u : existingUsers) {
+                if (username.equals(u.getUsername())) {
+                    exists = true;
+                    username = baseUsername + counter;
+                    counter++;
+                    break;
+                }
+            }
         }
+
         return username;
     }
+
 
     // Generate random password using ASCII math
     public static char[] generateRandomPassword() {
