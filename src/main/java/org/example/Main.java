@@ -2,6 +2,7 @@ package org.example;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.config.AppConfig;
+import org.example.config.DataSourceConfig;
 import org.example.facade.GymFacade;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -28,5 +29,11 @@ public class Main {
         } catch (Exception e) {
             log.error("Application failed to start", e);
         }
+
+        AnnotationConfigApplicationContext context =
+                new AnnotationConfigApplicationContext(DataSourceConfig.class);
+
+        System.out.println("Spring context started!");
+        context.close();
     }
 }
