@@ -11,13 +11,16 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@EqualsAndHashCode(of = {"id"})
 public class Trainer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String specialization;
+    @ManyToOne
+    @JoinColumn(name = "training_type_id", nullable = false)
+    private TrainingType specialization;
 
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false)

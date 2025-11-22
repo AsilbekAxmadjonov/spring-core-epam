@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@EqualsAndHashCode(of = {"id"})
 public class Training {
 
     @Id
@@ -35,6 +36,6 @@ public class Training {
     private LocalDate trainingDate;
 
     @Column(nullable = false)
-    private Integer trainingDuration;
+    private Integer trainingDurationMinutes;
 }
 

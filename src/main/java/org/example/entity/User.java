@@ -2,6 +2,7 @@ package org.example.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.example.entity.converter.PasswordConverter;
 
 
 @Entity
@@ -10,6 +11,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@EqualsAndHashCode(of = {"id"})
 public class User {
 
     @Id
@@ -26,15 +28,11 @@ public class User {
     private String username;
 
     @Column(nullable = false)
-    private String password;
+    @Convert(converter = PasswordConverter.class)
+    @ToString.Exclude
+    private char[] password;
 
     @Column(nullable = false)
     private Boolean isActive;
-
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    private Trainee trainee;
-
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    private Trainer trainer;
 }
 

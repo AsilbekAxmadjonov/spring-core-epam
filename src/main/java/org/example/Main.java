@@ -30,10 +30,6 @@ public class Main {
             log.error("Application failed to start", e);
         }
 
-        AnnotationConfigApplicationContext context =
-                new AnnotationConfigApplicationContext(DataSourceConfig.class);
-
         System.out.println("Spring context started!");
-        context.close();
     }
 }
