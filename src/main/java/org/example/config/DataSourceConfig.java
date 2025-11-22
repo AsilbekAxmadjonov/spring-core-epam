@@ -19,7 +19,7 @@ public class DataSourceConfig {
         HikariDataSource ds = new HikariDataSource();
         ds.setJdbcUrl("jdbc:mysql://127.0.0.1:3306/hibernate");
         ds.setUsername("root");
-        ds.setPassword("");
+        ds.setPassword("root");
         ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
         return ds;
     }
