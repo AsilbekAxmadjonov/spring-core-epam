@@ -2,7 +2,6 @@ package org.example;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.config.AppConfig;
-import org.example.config.DataSourceConfig;
 import org.example.facade.GymFacade;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
