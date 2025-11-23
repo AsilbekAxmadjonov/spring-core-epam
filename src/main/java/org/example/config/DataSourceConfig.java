@@ -32,12 +32,12 @@ public class DataSourceConfig {
 
     @Bean
     public DataSource dataSource() {
-        HikariDataSource ds = new HikariDataSource();
-        ds.setJdbcUrl(url);
-        ds.setUsername(username);
-        ds.setPassword(password);
-        ds.setDriverClassName(driverClassName);
-        return ds;
+        HikariDataSource dataSource = new HikariDataSource();
+        dataSource.setJdbcUrl(url);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
+        dataSource.setDriverClassName(driverClassName);
+        return dataSource;
     }
 
     @Bean
@@ -47,21 +47,21 @@ public class DataSourceConfig {
         entityManagerFactoryBean.setPackagesToScan("org.example.entity");
         entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 
-        Properties props = new Properties();
-        props.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-        props.put("hibernate.show_sql", "true");
-        props.put("hibernate.hbm2ddl.auto", "update");
-        props.put("hibernate.jdbc.time_zone", "UTC");
+        Properties properties = new Properties();
+        properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+        properties.put("hibernate.show_sql", "true");
+        properties.put("hibernate.hbm2ddl.auto", "update");
+        properties.put("hibernate.jdbc.time_zone", "UTC");
 
-        entityManagerFactoryBean.setJpaProperties(props);
+        entityManagerFactoryBean.setJpaProperties(properties);
         return entityManagerFactoryBean;
     }
 
     @Bean
     public JpaTransactionManager transactionManager(LocalContainerEntityManagerFactoryBean emf) {
-        JpaTransactionManager tm = new JpaTransactionManager();
-        tm.setEntityManagerFactory(emf.getObject());
-        return tm;
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(emf.getObject());
+        return transactionManager;
     }
 }
 
