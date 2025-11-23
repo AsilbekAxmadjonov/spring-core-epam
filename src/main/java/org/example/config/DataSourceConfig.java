@@ -17,41 +17,36 @@ import com.zaxxer.hikari.HikariDataSource;
 @PropertySource(value = "classpath:application.yaml", factory = YamlPropertySourceFactory.class)
 public class DataSourceConfig {
 
-    @Value("${spring.datasource.url}")
-    private String url;
+    private final DatabaseConnectionProperties databaseConnectionProperties;
+    private final HibernateProperties hibernateProps;
 
-    @Value("${spring.datasource.username}")
-    private String username;
-
-    @Value("${spring.datasource.password}")
-    private String password;
-
-    @Value("${spring.datasource.driver-class-name}")
-    private String driverClassName;
-
+    public DataSourceConfig(DatabaseConnectionProperties databaseConnectionProperties, HibernateProperties hibernateProps) {
+        this.databaseConnectionProperties = databaseConnectionProperties;
+        this.hibernateProps = hibernateProps;
+    }
 
     @Bean
     public DataSource dataSource() {
         HikariDataSource dataSource = new HikariDataSource();
-        dataSource.setJdbcUrl(url);
-        dataSource.setUsername(username);
-        dataSource.setPassword(password);
-        dataSource.setDriverClassName(driverClassName);
+        dataSource.setJdbcUrl(databaseConnectionProperties.getUrl());
+        dataSource.setUsername(databaseConnectionProperties.getUsername());
+        dataSource.setPassword(databaseConnectionProperties.getPassword());
+        dataSource.setDriverClassName(databaseConnectionProperties.getDriverClassName());
         return dataSource;
     }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, HibernateProperties hibernateProperties) {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource);
         entityManagerFactoryBean.setPackagesToScan("org.example.entity");
         entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 
         Properties properties = new Properties();
-        properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-        properties.put("hibernate.show_sql", "true");
-        properties.put("hibernate.hbm2ddl.auto", "update");
-        properties.put("hibernate.jdbc.time_zone", "UTC");
+        properties.put("hibernate.show_sql", hibernateProps.isShowSql());
+        properties.put("hibernate.hbm2ddl.auto", hibernateProps.getDdlAuto());
+        properties.put("hibernate.jdbc.time_zone", hibernateProps.getJdbcTimeZone());
+        properties.put("hibernate.physical_naming_strategy", hibernateProps.getPhysicalNamingStrategy());
 
         entityManagerFactoryBean.setJpaProperties(properties);
         return entityManagerFactoryBean;
