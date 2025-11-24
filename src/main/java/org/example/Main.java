@@ -28,5 +28,7 @@ public class Main {
         } catch (Exception e) {
             log.error("Application failed to start", e);
         }
+
+        System.out.println("Spring context started!");
     }
 }

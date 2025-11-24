@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @ComponentScan(basePackages = "org.example")
-@PropertySource(value = "classpath:application.yaml", factory = YamlPropertySourceFactory.class)
 @EnableTransactionManagement
 public class AppConfig {
 

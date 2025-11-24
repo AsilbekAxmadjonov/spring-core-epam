@@ -1,3 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hibernate
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.example.config.SnakeCasePhysicalNamingStrategy
+      ddl-auto: update
+    show-sql: true
+    jdbc:
+      time_zone: UTC
+
 data:
   trainers:
     path: data/trainers.json
