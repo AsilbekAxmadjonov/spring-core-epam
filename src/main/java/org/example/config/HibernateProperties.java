@@ -8,13 +8,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class HibernateProperties {
 
-    @Value("${spring.jpa.hibernate.show_sql}")
+    @Value("${spring.jpa.show-sql}")
     private boolean showSql;
 
     @Value("${spring.jpa.hibernate.ddl-auto}")
     private String ddlAuto;
 
-    @Value("${spring.jpa.hibernate.jdbc.time_zone}")
+    @Value("${spring.jpa.jdbc.time_zone}")
     private String jdbcTimeZone;
 
     @Value("${spring.jpa.hibernate.naming.physical-strategy}")
