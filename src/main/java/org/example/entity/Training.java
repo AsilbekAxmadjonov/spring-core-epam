@@ -43,7 +43,7 @@ public class Training {
     private LocalDate trainingDate;
 
     @NotNull(message = "Training duration is required")
-    @Min(value = 20, message = "Training duration must be at least 1 minute")
+    @Min(value = 1, message = "Training duration must be at least 1 minute")
     @Max(value = 600, message = "Training duration cannot exceed 600 minutes")
     @Column(nullable = false)
     private Integer trainingDurationMinutes;

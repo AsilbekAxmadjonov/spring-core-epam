@@ -24,10 +24,8 @@ public class Trainee {
     private Long id;
 
     @Past(message = "Date of birth must be in the past")
-    @NotNull(message = "Date of birth cannot be null")
     private LocalDate dateOfBirth;
 
-    @NotBlank(message = "Address cannot be empty")
     @Size(min = 3, max = 255, message = "Address must be between 3 and 255 characters")
     private String address;
 

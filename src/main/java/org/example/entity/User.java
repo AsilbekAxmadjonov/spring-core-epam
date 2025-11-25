@@ -37,7 +37,7 @@ public class User {
     private String username;
 
     @NotNull(message = "Password cannot be null")
-    @Size(min = 6, max = 100, message = "Password must be between 6 and 100 characters")
+    @Size(min = 10, max = 100, message = "Password must be between 6 and 100 characters")
     @Column(nullable = false)
     @Convert(converter = PasswordConverter.class)
     @ToString.Exclude
