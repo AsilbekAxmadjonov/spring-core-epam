@@ -1,6 +1,7 @@
 package org.example.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.List;
@@ -18,10 +19,12 @@ public class Trainer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "Training specialization is required")
     @ManyToOne
     @JoinColumn(name = "training_type_id", nullable = false)
     private TrainingType specialization;
 
+    @NotNull(message = "User cannot be null")
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
