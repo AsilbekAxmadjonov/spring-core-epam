@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 @EqualsAndHashCode(of = {"id"})
-public class Training {
+public class TrainingEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,12 +21,12 @@ public class Training {
     @NotNull(message = "Trainee is required")
     @ManyToOne
     @JoinColumn(name = "trainee_id", nullable = false)
-    private Trainee trainee;
+    private TraineeEntity traineeEntity;
 
     @NotNull(message = "Trainer is required")
     @ManyToOne
     @JoinColumn(name = "trainer_id", nullable = false)
-    private Trainer trainer;
+    private TrainerEntity trainerEntity;
 
     @NotBlank(message = "Training name cannot be blank")
     @Size(min = 2, max = 100, message = "Training name must be between 2 and 100 characters")
@@ -36,7 +36,7 @@ public class Training {
     @NotNull(message = "Training type is required")
     @ManyToOne
     @JoinColumn(name = "training_type_id", nullable = false)
-    private TrainingType trainingType;
+    private TrainingTypeEntity trainingTypeEntity;
 
     @NotNull(message = "Training date is required")
     @Column(nullable = false)

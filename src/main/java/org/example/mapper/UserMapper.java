@@ -1,0 +1,19 @@
+package org.example.mapper;
+
+import org.example.entity.UserEntity;
+import org.example.model.User;
+import org.mapstruct.InheritInverseConfiguration;
+import org.mapstruct.Mapper;
+
+import java.util.List;
+
+@Mapper(componentModel = "spring")
+public interface UserMapper {
+
+    User toModel(UserEntity userEntity);
+
+    @InheritInverseConfiguration
+    UserEntity toEntity(User userModel);
+
+    List<User> toModels(List<UserEntity> userEntityEntities);
+}
