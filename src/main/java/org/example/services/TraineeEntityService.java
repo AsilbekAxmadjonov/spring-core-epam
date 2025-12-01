@@ -1,9 +1,7 @@
 package org.example.services;
 
 import org.example.model.Trainee;
-import org.example.model.Training;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 

@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.entity.TraineeEntity;
 import org.example.mapper.TraineeMapper;
-import org.example.mapper.TrainingMapper;
 import org.example.model.Trainee;
 import org.example.repository.TraineeRepo;
 import org.example.services.TraineeEntityService;
@@ -22,7 +21,6 @@ public class TraineeEntityServiceImpl implements TraineeEntityService {
 
     private final TraineeRepo traineeRepo;
     private final TraineeMapper traineeMapper;
-    private final TrainingMapper trainingMapper;
 
     @Override
     public Trainee createTrainee(Trainee traineeModel) {
