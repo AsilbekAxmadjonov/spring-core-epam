@@ -12,7 +12,6 @@ public interface TrainingTypeMapper {
 
     TrainingType toModel(TrainingTypeEntity trainingTypeEntity);
 
-    @InheritInverseConfiguration
     TrainingTypeEntity toEntity(TrainingType trainingTypeModel);
 
     List<TrainingType> toModels(List<TrainingTypeEntity> trainingTypeEntityEntities);

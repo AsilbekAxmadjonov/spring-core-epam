@@ -12,7 +12,6 @@ public interface UserMapper {
 
     User toModel(UserEntity userEntity);
 
-    @InheritInverseConfiguration
     UserEntity toEntity(User userModel);
 
     List<User> toModels(List<UserEntity> userEntityEntities);
