@@ -1,7 +1,6 @@
 package org.example.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
@@ -17,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @EqualsAndHashCode(of = {"id"})
-public class Trainee {
+public class TraineeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,8 +32,8 @@ public class Trainee {
     @NotNull(message = "User cannot be null")
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private UserEntity userEntity;
 
     @OneToMany(mappedBy = "trainee", cascade = CascadeType.ALL)
-    private List<Training> trainings;
+    private List<TrainingEntity> trainingEntities;
 }

@@ -15,7 +15,7 @@ import org.example.entity.converter.PasswordConverter;
 @AllArgsConstructor
 @Builder
 @EqualsAndHashCode(of = {"id"})
-public class User {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
