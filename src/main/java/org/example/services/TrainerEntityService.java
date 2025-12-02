@@ -12,12 +12,11 @@ public interface TrainerEntityService {
 
     Trainer updateTrainer(String username, Trainer trainer);
 
-    boolean checkCredentials(String username, char[] password);
+    boolean passwordMatches(String username, char[] password);
 
     Trainer changePassword(String username, char[] newPassword);
 
-    Trainer activateTrainer(String username);
-    Trainer deactivateTrainer(String username);
+    Trainer setActiveStatus(String username, boolean active);
 
     List<Trainer> getAllTrainers();
 }

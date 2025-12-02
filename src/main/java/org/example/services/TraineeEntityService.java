@@ -12,11 +12,13 @@ public interface TraineeEntityService {
     Trainee updateTrainee(String username, Trainee trainee);
 
     void deleteTraineeByUsername(String username);
-    boolean checkCredentials(String username, char[] password);
+
+    boolean passwordMatches(String username, char[] password);
+
     Trainee changePassword(String username, char[] newPassword);
 
-    Trainee activateTrainee(String username);
-    Trainee deactivateTrainee(String username);
+    Trainee setActiveStatus(String username, boolean active);
+
 
     List<Trainee> getAllTrainees();
 

@@ -3,7 +3,7 @@ package org.example.services.impl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.entity.TrainerEntity;
-import org.example.entity.TrainingTypeEntity;
+import org.example.exception.UserNotFoundException;
 import org.example.mapper.TrainerMapper;
 import org.example.model.Trainer;
 import org.example.repository.TrainerRepo;
@@ -51,26 +51,10 @@ public class TrainerEntityServiceImpl implements TrainerEntityService {
         TrainerEntity trainerEntity = trainerRepo.findByUsername(username)
                 .orElseThrow(() -> {
                     log.error("Trainer not found for update: {}", username);
-                    return new RuntimeException("Trainer not found");
+                    return new UserNotFoundException("Trainer not found with username: " + username);
                 });
 
-        if (updatedTrainer.getFirstName() != null) {
-            trainerEntity.getUserEntity().setFirstName(updatedTrainer.getFirstName());
-        }
-        if (updatedTrainer.getLastName() != null) {
-            trainerEntity.getUserEntity().setLastName(updatedTrainer.getLastName());
-        }
-
-        if (updatedTrainer.getSpecialization() != null) {
-            TrainingTypeEntity type = trainingTypeRepo
-                    .findByName(updatedTrainer.getSpecialization())
-                    .orElseThrow(() -> {
-                        log.error("Training type not found: {}", updatedTrainer.getSpecialization());
-                        return new RuntimeException("Invalid training specialization: " + updatedTrainer.getSpecialization());
-                    });
-            trainerEntity.setSpecialization(type);
-            log.debug("Updated specialization for {} to {}", username, type.getTrainingTypeName());
-        }
+        trainerMapper.updateEntity(updatedTrainer, trainerEntity);
 
         TrainerEntity saved = trainerRepo.save(trainerEntity);
         log.info("Trainer updated successfully: {}", username);
@@ -80,7 +64,7 @@ public class TrainerEntityServiceImpl implements TrainerEntityService {
 
     @Override
     @Transactional(readOnly = true)
-    public boolean checkCredentials(String username, char[] password) {
+    public boolean passwordMatches(String username, char[] password) {
         log.debug("Checking credentials for username: {}", username);
         boolean valid = trainerRepo.findByUsername(username)
                 .map(t -> java.util.Arrays.equals(t.getUserEntity().getPassword(), password))
@@ -96,8 +80,8 @@ public class TrainerEntityServiceImpl implements TrainerEntityService {
 
         TrainerEntity trainerEntity = trainerRepo.findByUsername(username)
                 .orElseThrow(() -> {
-                    log.error("Trainer not found for password change: {}", username);
-                    return new RuntimeException("Trainer not found");
+                    log.error("Trainer not found for update: {}", username);
+                    return new UserNotFoundException("Trainer not found with username: " + username);
                 });
 
         trainerEntity.getUserEntity().setPassword(newPassword);
@@ -108,37 +92,15 @@ public class TrainerEntityServiceImpl implements TrainerEntityService {
     }
 
     @Override
-    public Trainer activateTrainer(String username) {
-        log.info("Activating trainer: {}", username);
-
+    public Trainer setActiveStatus(String username, boolean active) {
         TrainerEntity trainer = trainerRepo.findByUsername(username)
-                .orElseThrow(() -> {
-                    log.error("Trainer not found for activation: {}", username);
-                    return new RuntimeException("Trainer not found");
-                });
+                .orElseThrow(() -> new UserNotFoundException("Trainer not found: " + username));
 
-        trainer.getUserEntity().setIsActive(true);
-        Trainer activated = trainerMapper.toTrainerModel(trainerRepo.save(trainer));
+        trainer.getUserEntity().setIsActive(active);
+        TrainerEntity saved = trainerRepo.save(trainer);
 
-        log.info("Trainer activated: {}", username);
-        return activated;
-    }
-
-    @Override
-    public Trainer deactivateTrainer(String username) {
-        log.info("Deactivating trainer: {}", username);
-
-        TrainerEntity trainer = trainerRepo.findByUsername(username)
-                .orElseThrow(() -> {
-                    log.error("Trainer not found for deactivation: {}", username);
-                    return new RuntimeException("Trainer not found");
-                });
-
-        trainer.getUserEntity().setIsActive(false);
-        Trainer deactivated = trainerMapper.toTrainerModel(trainerRepo.save(trainer));
-
-        log.info("Trainer deactivated: {}", username);
-        return deactivated;
+        log.info("Trainer {} set active={}", username, active);
+        return trainerMapper.toTrainerModel(saved);
     }
 
     @Override

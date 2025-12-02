@@ -3,6 +3,7 @@ package org.example.services.impl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.entity.TraineeEntity;
+import org.example.exception.UserNotFoundException;
 import org.example.mapper.TraineeMapper;
 import org.example.model.Trainee;
 import org.example.repository.TraineeRepo;
@@ -49,21 +50,10 @@ public class TraineeEntityServiceImpl implements TraineeEntityService {
         TraineeEntity traineeEntity = traineeRepo.findByUsername(username)
                 .orElseThrow(() -> {
                     log.error("Trainee not found for update: {}", username);
-                    return new RuntimeException("Trainee not found");
+                    return new UserNotFoundException("Trainee not found with username: " + username);
                 });
 
-        if (updatedTrainee.getDateOfBirth() != null) {
-            traineeEntity.setDateOfBirth(updatedTrainee.getDateOfBirth());
-        }
-        if (updatedTrainee.getAddress() != null) {
-            traineeEntity.setAddress(updatedTrainee.getAddress());
-        }
-        if (updatedTrainee.getFirstName() != null) {
-            traineeEntity.getUserEntity().setFirstName(updatedTrainee.getFirstName());
-        }
-        if (updatedTrainee.getLastName() != null) {
-            traineeEntity.getUserEntity().setLastName(updatedTrainee.getLastName());
-        }
+        traineeMapper.updateEntity(updatedTrainee, traineeEntity);
 
         TraineeEntity saved = traineeRepo.save(traineeEntity);
         log.info("Trainee updated successfully: {}", username);
@@ -88,7 +78,7 @@ public class TraineeEntityServiceImpl implements TraineeEntityService {
 
     @Override
     @Transactional(readOnly = true)
-    public boolean checkCredentials(String username, char[] password) {
+    public boolean passwordMatches(String username, char[] password) {
         log.debug("Checking credentials for username: {}", username);
         boolean valid = traineeRepo.findByUsername(username)
                 .map(t -> java.util.Arrays.equals(t.getUserEntity().getPassword(), password))
@@ -102,8 +92,8 @@ public class TraineeEntityServiceImpl implements TraineeEntityService {
         log.info("Changing password for trainee: {}", username);
         TraineeEntity traineeEntity = traineeRepo.findByUsername(username)
                 .orElseThrow(() -> {
-                    log.error("Trainee not found for password change: {}", username);
-                    return new RuntimeException("Trainee not found");
+                    log.error("Trainee not found for update: {}", username);
+                    return new UserNotFoundException("Trainee not found with username: " + username);
                 });
 
         traineeEntity.getUserEntity().setPassword(newPassword);
@@ -113,33 +103,15 @@ public class TraineeEntityServiceImpl implements TraineeEntityService {
     }
 
     @Override
-    public Trainee activateTrainee(String username) {
-        log.info("Activating trainee: {}", username);
+    public Trainee setActiveStatus(String username, boolean active) {
         TraineeEntity trainee = traineeRepo.findByUsername(username)
-                .orElseThrow(() -> {
-                    log.error("Trainee not found for activation: {}", username);
-                    return new RuntimeException("Trainee not found");
-                });
+                .orElseThrow(() -> new UserNotFoundException("Trainee not found: " + username));
 
-        trainee.getUserEntity().setIsActive(true);
-        Trainee activated = traineeMapper.toTraineeModel(traineeRepo.save(trainee));
-        log.info("Trainee activated: {}", username);
-        return activated;
-    }
+        trainee.getUserEntity().setIsActive(active);
+        TraineeEntity saved = traineeRepo.save(trainee);
 
-    @Override
-    public Trainee deactivateTrainee(String username) {
-        log.info("Deactivating trainee: {}", username);
-        TraineeEntity trainee = traineeRepo.findByUsername(username)
-                .orElseThrow(() -> {
-                    log.error("Trainee not found for deactivation: {}", username);
-                    return new RuntimeException("Trainee not found");
-                });
-
-        trainee.getUserEntity().setIsActive(false);
-        Trainee deactivated = traineeMapper.toTraineeModel(traineeRepo.save(trainee));
-        log.info("Trainee deactivated: {}", username);
-        return deactivated;
+        log.info("Trainee {} set active={}", username, active);
+        return traineeMapper.toTraineeModel(saved);
     }
 
     @Override
