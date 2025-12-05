@@ -17,4 +17,6 @@ public interface UserEntityService {
     List<User> getAllUsers();
 
     User changeActiveStatus(String username, boolean isActive);
+
+    User authenticate(String username, char[] rawPassword);
 }
