@@ -8,6 +8,7 @@ import org.example.repository.UserRepo;
 import org.example.services.UserEntityService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,13 +20,15 @@ class UserEntityServiceImplTest {
 
     private UserRepo userRepo;
     private UserMapper userMapper;
+    private PasswordEncoder passwordEncoder;
     private UserEntityService service;
 
     @BeforeEach
     void setUp() {
         userRepo = mock(UserRepo.class);
         userMapper = mock(UserMapper.class);
-        service = new UserEntityServiceImpl(userRepo, userMapper);
+        passwordEncoder = mock(PasswordEncoder.class);
+        service = new UserEntityServiceImpl(userRepo, userMapper, passwordEncoder);
     }
 
     @Test
@@ -65,6 +68,8 @@ class UserEntityServiceImplTest {
         UserEntity entity = new UserEntity();
         UserEntity savedEntity = new UserEntity();
 
+        // Use anyString() to match any password input
+        when(passwordEncoder.encode(anyString())).thenReturn("hashedPassword");
         when(userMapper.toEntity(model)).thenReturn(entity);
         when(userRepo.save(entity)).thenReturn(savedEntity);
         when(userMapper.toModel(savedEntity)).thenReturn(model);
@@ -72,6 +77,7 @@ class UserEntityServiceImplTest {
         User result = service.createUser(model);
 
         assertNotNull(result);
+        verify(passwordEncoder).encode(anyString());
         verify(userRepo).save(entity);
         verify(userMapper).toModel(savedEntity);
     }
@@ -89,6 +95,7 @@ class UserEntityServiceImplTest {
         UserEntity entity = new UserEntity();
 
         when(userRepo.findByUsername("john")).thenReturn(Optional.of(entity));
+        when(passwordEncoder.encode(new String(updated.getPassword()))).thenReturn("hashedPass");
         when(userRepo.save(entity)).thenReturn(entity);
         when(userMapper.toModel(entity)).thenReturn(updated);
 
@@ -97,9 +104,10 @@ class UserEntityServiceImplTest {
         assertNotNull(result);
         assertEquals("New", entity.getFirstName());
         assertEquals("Name", entity.getLastName());
-        assertArrayEquals("newpass123".toCharArray(), entity.getPassword());
+        assertArrayEquals("hashedPass".toCharArray(), entity.getPassword());
         assertFalse(entity.getIsActive());
 
+        verify(passwordEncoder).encode(new String(updated.getPassword()));
         verify(userRepo).save(entity);
     }
 
@@ -113,9 +121,6 @@ class UserEntityServiceImplTest {
         );
     }
 
-    // ------------------------------------------------------------
-    //  deleteUser()
-    // ------------------------------------------------------------
     @Test
     void testDeleteUserSuccess() {
         UserEntity entity = new UserEntity();
@@ -135,9 +140,6 @@ class UserEntityServiceImplTest {
         );
     }
 
-    // ------------------------------------------------------------
-    //  getAllUsers()
-    // ------------------------------------------------------------
     @Test
     void testGetAllUsers() {
         List<UserEntity> entities = List.of(new UserEntity(), new UserEntity());
@@ -153,9 +155,6 @@ class UserEntityServiceImplTest {
         verify(userMapper).toModels(entities);
     }
 
-    // ------------------------------------------------------------
-    //  changeActiveStatus()
-    // ------------------------------------------------------------
     @Test
     void testChangeActiveStatus() {
         UserEntity entity = new UserEntity();
@@ -181,5 +180,42 @@ class UserEntityServiceImplTest {
         assertThrows(UserNotFoundException.class,
                 () -> service.changeActiveStatus("unknown", true)
         );
+    }
+
+    @Test
+    void testAuthenticateSuccess() {
+        UserEntity entity = new UserEntity();
+        entity.setPassword("hashedPassword".toCharArray());
+
+        User model = new User();
+
+        when(userRepo.findByUsername("john")).thenReturn(Optional.of(entity));
+        when(passwordEncoder.matches("password123", "hashedPassword")).thenReturn(true);
+        when(userMapper.toModel(entity)).thenReturn(model);
+
+        User result = service.authenticate("john", "password123".toCharArray());
+
+        assertNotNull(result);
+        verify(passwordEncoder).matches("password123", "hashedPassword");
+    }
+
+    @Test
+    void testAuthenticateFail() {
+        UserEntity entity = new UserEntity();
+        entity.setPassword("hashedPassword".toCharArray());
+
+        when(userRepo.findByUsername("john")).thenReturn(Optional.of(entity));
+        when(passwordEncoder.matches("wrongPass", "hashedPassword")).thenReturn(false);
+
+        assertThrows(IllegalArgumentException.class,
+                () -> service.authenticate("john", "wrongPass".toCharArray()));
+    }
+
+    @Test
+    void testAuthenticateNotFound() {
+        when(userRepo.findByUsername("unknown")).thenReturn(Optional.empty());
+
+        assertThrows(UserNotFoundException.class,
+                () -> service.authenticate("unknown", "anyPass".toCharArray()));
     }
 }
