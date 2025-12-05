@@ -28,9 +28,6 @@ class UserEntityServiceImplTest {
         service = new UserEntityServiceImpl(userRepo, userMapper);
     }
 
-    // ------------------------------------------------------------
-    //  getByUsername()
-    // ------------------------------------------------------------
     @Test
     void testGetByUsernameSuccess() {
         UserEntity entity = new UserEntity();
@@ -55,9 +52,6 @@ class UserEntityServiceImplTest {
         );
     }
 
-    // ------------------------------------------------------------
-    //  createUser()
-    // ------------------------------------------------------------
     @Test
     void testCreateUser() {
         User model = User.builder()
@@ -82,9 +76,6 @@ class UserEntityServiceImplTest {
         verify(userMapper).toModel(savedEntity);
     }
 
-    // ------------------------------------------------------------
-    //  updateUser()
-    // ------------------------------------------------------------
     @Test
     void testUpdateUserSuccess() {
         User updated = User.builder()
