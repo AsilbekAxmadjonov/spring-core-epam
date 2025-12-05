@@ -1,6 +1,7 @@
-package org.example.security;
+package org.example.security.service;
 
 import lombok.RequiredArgsConstructor;
+import org.example.security.GymUserDetails;
 import org.example.services.UserEntityService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -9,13 +10,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class CustomUserDetailsService implements UserDetailsService {
+public class GymUserDetailsService implements UserDetailsService {
 
     private final UserEntityService userEntityService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return new CustomUserDetails(
+        return new GymUserDetails(
                 userEntityService.getByUsername(username)
         );
     }

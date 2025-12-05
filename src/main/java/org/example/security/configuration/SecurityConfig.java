@@ -1,5 +1,6 @@
-package org.example.security;
+package org.example.security.configuration;
 
+import org.example.security.service.GymUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,9 +11,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class SecurityConfig {
 
-    private final CustomUserDetailsService userDetailsService;
+    private final GymUserDetailsService userDetailsService;
 
-    public SecurityConfig(CustomUserDetailsService userDetailsService) {
+    public SecurityConfig(GymUserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
 
