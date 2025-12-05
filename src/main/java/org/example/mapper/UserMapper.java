@@ -2,7 +2,6 @@ package org.example.mapper;
 
 import org.example.entity.UserEntity;
 import org.example.model.User;
-import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 
 import java.util.List;
