@@ -8,6 +8,7 @@ import org.example.repository.UserRepo;
 import org.example.services.UserEntityService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
@@ -207,7 +208,7 @@ class UserEntityServiceImplTest {
         when(userRepo.findByUsername("john")).thenReturn(Optional.of(entity));
         when(passwordEncoder.matches("wrongPass", "hashedPassword")).thenReturn(false);
 
-        assertThrows(IllegalArgumentException.class,
+        assertThrows(BadCredentialsException.class,
                 () -> service.authenticate("john", "wrongPass".toCharArray()));
     }
 
