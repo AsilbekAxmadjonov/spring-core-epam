@@ -7,7 +7,8 @@ import org.example.exception.UserNotFoundException;
 import org.example.mapper.TraineeMapper;
 import org.example.model.Trainee;
 import org.example.repository.TraineeRepo;
-import org.example.services.TraineeEntityService;
+import org.example.services.TraineeService;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,9 +17,10 @@ import java.util.Optional;
 
 @Slf4j
 @Service
+@Primary
 @RequiredArgsConstructor
 @Transactional
-public class TraineeEntityServiceImpl implements TraineeEntityService {
+public class TraineeServiceDbImpl implements TraineeService {
 
     private final TraineeRepo traineeRepo;
     private final TraineeMapper traineeMapper;

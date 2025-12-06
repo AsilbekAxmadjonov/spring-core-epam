@@ -5,8 +5,9 @@ import org.example.model.Trainee;
 import java.util.List;
 import java.util.Optional;
 
-public interface TraineeEntityService {
+public interface TraineeService {
     Trainee createTrainee(Trainee trainee);
+
     Optional<Trainee> getTraineeByUsername(String username);
 
     Trainee updateTrainee(String username, Trainee trainee);
@@ -18,7 +19,6 @@ public interface TraineeEntityService {
     Trainee changePassword(String username, char[] newPassword);
 
     Trainee setActiveStatus(String username, boolean active);
-
 
     List<Trainee> getAllTrainees();
 

@@ -11,7 +11,8 @@ import org.example.model.Training;
 import org.example.repository.TraineeRepo;
 import org.example.repository.TrainerRepo;
 import org.example.repository.TrainingRepo;
-import org.example.services.TrainingEntityService;
+import org.example.services.TrainingService;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,9 +20,10 @@ import java.util.List;
 
 @Slf4j
 @Service
+@Primary
 @RequiredArgsConstructor
 @Transactional
-public class TrainingEntityServiceImpl implements TrainingEntityService {
+public class TrainingServiceDbImpl implements TrainingService {
 
     private final TrainingRepo trainingRepo;
     private final TraineeRepo traineeRepo;
@@ -95,4 +97,24 @@ public class TrainingEntityServiceImpl implements TrainingEntityService {
 
         return trainingMapper.toTrainingModel(saved);
     }
+
+    @Override
+    public void createTraining(Training training) {
+        addTraining(training); // reuse addTraining
+    }
+
+    @Override
+    public Training getTraining(String name) {
+        TrainingEntity entity = trainingRepo.findByTrainingName(name)
+                .orElseThrow(() -> new UserNotFoundException("Training not found: " + name));
+        return trainingMapper.toTrainingModel(entity);
+    }
+
+    @Override
+    public List<Training> listAll() {
+        List<TrainingEntity> entities = trainingRepo.findAll();
+        return trainingMapper.toTrainingModels(entities);
+    }
+
+
 }

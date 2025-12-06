@@ -10,7 +10,7 @@ import org.example.model.TrainingType;
 import org.example.repository.TraineeRepo;
 import org.example.repository.TrainerRepo;
 import org.example.repository.TrainingRepo;
-import org.example.services.TrainingEntityService;
+import org.example.services.TrainingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -21,14 +21,14 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-class TrainingEntityServiceImplTest {
+class TrainingServiceDbImplTest {
 
     private TrainingRepo trainingRepo;
     private TraineeRepo traineeRepo;
     private TrainerRepo trainerRepo;
     private TrainingMapper trainingMapper;
 
-    private TrainingEntityService service;
+    private TrainingService service;
 
     @BeforeEach
     void setUp() {
@@ -37,7 +37,7 @@ class TrainingEntityServiceImplTest {
         trainerRepo = mock(TrainerRepo.class);
         trainingMapper = mock(TrainingMapper.class);
 
-        service = new TrainingEntityServiceImpl(
+        service = new TrainingServiceDbImpl(
                 trainingRepo,
                 traineeRepo,
                 trainerRepo,

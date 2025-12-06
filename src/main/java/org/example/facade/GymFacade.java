@@ -3,11 +3,10 @@ package org.example.facade;
 import org.example.model.Trainee;
 import org.example.model.Trainer;
 import org.example.model.Training;
-import org.example.model.User;
-import org.example.service.ProfileService;
-import org.example.service.TraineeService;
-import org.example.service.TrainerService;
-import org.example.service.TrainingService;
+import org.example.services.ProfileService;
+import org.example.services.TraineeService;
+import org.example.services.TrainerService;
+import org.example.services.TrainingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -62,7 +61,7 @@ public class GymFacade {
 
     public void showAllTrainers() {
         System.out.println("          All Trainers:");
-        List<Trainer> trainers = trainerService.listAll();
+        List<Trainer> trainers = trainerService.getAllTrainers();
         for (Trainer trainer : trainers) {
             System.out.println("Username      : " + trainer.getUsername());
             System.out.println("First Name    : " + trainer.getFirstName());
@@ -74,7 +73,7 @@ public class GymFacade {
 
     public void showAllTrainees() {
         System.out.println("          All Trainees:");
-        List<Trainee> trainees = traineeService.listAll();
+        List<Trainee> trainees = traineeService.getAllTrainees();
         for (Trainee trainee : trainees) {
             System.out.println("   Username   : " + trainee.getUsername());
             System.out.println("   Name       : " + trainee.getFirstName() + " " + trainee.getLastName());

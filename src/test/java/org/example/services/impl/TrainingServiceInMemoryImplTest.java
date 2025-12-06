@@ -1,4 +1,4 @@
-package org.example.service.impl;
+package org.example.services.impl;
 
 import org.example.dao.TrainingDao;
 import org.example.model.Training;
@@ -13,15 +13,15 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-class TrainingServiceImplTest {
+class TrainingServiceInMemoryImplTest {
 
     private TrainingDao trainingDao;
-    private TrainingServiceImpl trainingService;
+    private TrainingServiceInMemoryImpl trainingService;
 
     @BeforeEach
     void setUp() {
         trainingDao = mock(TrainingDao.class);
-        trainingService = new TrainingServiceImpl();
+        trainingService = new TrainingServiceInMemoryImpl();
         trainingService.setTrainingDao(trainingDao);
     }
 
