@@ -8,7 +8,8 @@ import org.example.mapper.TrainerMapper;
 import org.example.model.Trainer;
 import org.example.repository.TrainerRepo;
 import org.example.repository.TrainingTypeRepo;
-import org.example.services.TrainerEntityService;
+import org.example.services.TrainerService;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,9 +18,10 @@ import java.util.Optional;
 
 @Slf4j
 @Service
+@Primary
 @RequiredArgsConstructor
 @Transactional
-public class TrainerEntityServiceImpl implements TrainerEntityService {
+public class TrainerServiceDbImpl implements TrainerService {
 
     private final TrainerRepo trainerRepo;
     private final TrainerMapper trainerMapper;

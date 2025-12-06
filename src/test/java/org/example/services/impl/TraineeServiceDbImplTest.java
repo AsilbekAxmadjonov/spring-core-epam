@@ -24,7 +24,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class TraineeEntityServiceImplTest {
+class TraineeServiceDbImplTest {
 
     @Mock
     private TraineeRepo traineeRepo;
@@ -33,7 +33,7 @@ class TraineeEntityServiceImplTest {
     private TraineeMapper traineeMapper;
 
     @InjectMocks
-    private TraineeEntityServiceImpl traineeService;
+    private TraineeServiceDbImpl traineeService;
 
     private Trainee traineeModel;
     private TraineeEntity traineeEntity;

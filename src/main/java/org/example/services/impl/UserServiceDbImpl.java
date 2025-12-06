@@ -7,7 +7,8 @@ import org.example.exception.UserNotFoundException;
 import org.example.mapper.UserMapper;
 import org.example.model.User;
 import org.example.repository.UserRepo;
-import org.example.services.UserEntityService;
+import org.example.services.UserService;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -17,9 +18,10 @@ import java.util.List;
 
 @Slf4j
 @Service
+@Primary
 @RequiredArgsConstructor
 @Transactional
-public class UserEntityServiceImpl implements UserEntityService {
+public class UserServiceDbImpl implements UserService {
 
     private final UserRepo userRepo;
     private final UserMapper userMapper;
@@ -54,10 +56,7 @@ public class UserEntityServiceImpl implements UserEntityService {
         UserEntity entity = userRepo.findByUsername(username)
                 .orElseThrow(() -> new UserNotFoundException("User not found: " + username));
 
-        entity.setFirstName(updatedUser.getFirstName());
-        entity.setLastName(updatedUser.getLastName());
-        entity.setPassword(updatedUser.getPassword());
-        entity.setIsActive(updatedUser.isActive());
+        userMapper.updateEntityFromModel(updatedUser, entity);
 
         entity.setPassword(passwordEncoder.encode(new String(updatedUser.getPassword())).toCharArray());
 
@@ -66,7 +65,7 @@ public class UserEntityServiceImpl implements UserEntityService {
     }
 
     @Override
-    public void deleteUser(String username) {
+    public void deleteByUsername(String username) {
         log.info("Deleting user with username: {}", username);
 
         UserEntity entity = userRepo.findByUsername(username)
@@ -76,7 +75,7 @@ public class UserEntityServiceImpl implements UserEntityService {
     }
 
     @Override
-    public List<User> getAllUsers() {
+    public List<User> fetchAll() {
         log.info("Fetching all users");
 
         List<UserEntity> entities = userRepo.findAll();
@@ -84,7 +83,7 @@ public class UserEntityServiceImpl implements UserEntityService {
     }
 
     @Override
-    public User changeActiveStatus(String username, boolean isActive) {
+    public User changeUserActiveStatus(String username, boolean isActive) {
         log.info("Changing active status of {} to {}", username, isActive);
 
         UserEntity entity = userRepo.findByUsername(username)
@@ -107,6 +106,11 @@ public class UserEntityServiceImpl implements UserEntityService {
 
 
         return userMapper.toModel(entity);
+    }
+
+    @Override
+    public void save(User user){
+        throw new UnsupportedOperationException("Not supported in in-memory service");
     }
 
 }

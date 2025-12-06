@@ -4,7 +4,7 @@ import org.example.model.User;
 
 import java.util.List;
 
-public interface UserEntityService {
+public interface UserService {
 
     User getByUsername(String username);
 
@@ -12,11 +12,13 @@ public interface UserEntityService {
 
     User updateUser(String username, User user);
 
-    void deleteUser(String username);
+    void deleteByUsername(String username);
 
-    List<User> getAllUsers();
+    List<User> fetchAll();
 
-    User changeActiveStatus(String username, boolean isActive);
+    User changeUserActiveStatus(String username, boolean isActive);
 
     User authenticate(String username, char[] rawPassword);
+
+    void save(User user);
 }

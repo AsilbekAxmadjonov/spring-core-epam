@@ -1,9 +1,9 @@
-package org.example.service.impl;
+package org.example.services.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.model.User;
-import org.example.service.ProfileService;
-import org.example.service.UserService;
+import org.example.services.ProfileService;
+import org.example.services.UserService;
 import org.example.util.ProfileGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +25,7 @@ public class ProfileServiceImpl implements ProfileService {
     public void createProfile(User user) {
         log.info("Creating profile for user: {} {}", user.getFirstName(), user.getLastName());
 
-        List<User> existingUsers = userService.findAll();
+        List<User> existingUsers = userService.fetchAll();
 
         String username = ProfileGenerator.generateUsername(
                 user.getFirstName(),

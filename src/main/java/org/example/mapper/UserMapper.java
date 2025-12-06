@@ -3,6 +3,7 @@ package org.example.mapper;
 import org.example.entity.UserEntity;
 import org.example.model.User;
 import org.mapstruct.Mapper;
+import org.mapstruct.MappingTarget;
 
 import java.util.List;
 
@@ -14,4 +15,6 @@ public interface UserMapper {
     UserEntity toEntity(User userModel);
 
     List<User> toModels(List<UserEntity> userEntityEntities);
+
+    void updateEntityFromModel(User source, @MappingTarget UserEntity target);
 }
