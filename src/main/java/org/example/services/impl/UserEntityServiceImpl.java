@@ -8,6 +8,8 @@ import org.example.mapper.UserMapper;
 import org.example.model.User;
 import org.example.repository.UserRepo;
 import org.example.services.UserEntityService;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +23,8 @@ public class UserEntityServiceImpl implements UserEntityService {
 
     private final UserRepo userRepo;
     private final UserMapper userMapper;
+    private final PasswordEncoder passwordEncoder;
+
 
     @Override
     public User getByUsername(String username) {
@@ -36,8 +40,9 @@ public class UserEntityServiceImpl implements UserEntityService {
     public User createUser(User user) {
         log.info("Creating new user with username: {}", user.getUsername());
 
-        UserEntity entity = userMapper.toEntity(user);
+        user.setPassword(passwordEncoder.encode(new String(user.getPassword())).toCharArray());
 
+        UserEntity entity = userMapper.toEntity(user);
         UserEntity saved = userRepo.save(entity);
         return userMapper.toModel(saved);
     }
@@ -53,6 +58,8 @@ public class UserEntityServiceImpl implements UserEntityService {
         entity.setLastName(updatedUser.getLastName());
         entity.setPassword(updatedUser.getPassword());
         entity.setIsActive(updatedUser.isActive());
+
+        entity.setPassword(passwordEncoder.encode(new String(updatedUser.getPassword())).toCharArray());
 
         UserEntity saved = userRepo.save(entity);
         return userMapper.toModel(saved);
@@ -88,4 +95,18 @@ public class UserEntityServiceImpl implements UserEntityService {
         UserEntity saved = userRepo.save(entity);
         return userMapper.toModel(saved);
     }
+
+    @Override
+    public User authenticate(String username, char[] rawPassword) {
+        UserEntity entity = userRepo.findByUsername(username)
+                .orElseThrow(() -> new UserNotFoundException("User not found: " + username));
+
+        if (!passwordEncoder.matches(new String(rawPassword), new String(entity.getPassword()))) {
+            throw new BadCredentialsException("Invalid username or password");
+        }
+
+
+        return userMapper.toModel(entity);
+    }
+
 }
