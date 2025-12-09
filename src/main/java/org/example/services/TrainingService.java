@@ -5,7 +5,7 @@ import org.example.model.Training;
 import java.time.LocalDate;
 import java.util.List;
 
-public interface TrainingEntityService {
+public interface TrainingService {
 
     List<Training> getTraineeTrainings(
             String traineeUsername,
@@ -23,4 +23,11 @@ public interface TrainingEntityService {
     );
 
     Training addTraining(Training training);
+
+    void createTraining(Training training);
+
+    Training getTraining(String name);
+
+    List<Training> listAll();
+
 }

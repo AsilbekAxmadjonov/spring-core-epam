@@ -1,8 +1,8 @@
-package org.example.service.impl;
+package org.example.services.impl;
 
 import org.example.model.Trainee;
 import org.example.model.User;
-import org.example.service.UserService;
+import org.example.services.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -34,7 +34,7 @@ class ProfileServiceImplTest {
         // Simulate existing users
         User existingUser = new Trainee();
         existingUser.setUsername("John.Doe");
-        when(userService.findAll()).thenReturn(List.of(existingUser));
+        when(userService.fetchAll()).thenReturn(List.of(existingUser));
 
         service.createProfile(trainee);
 

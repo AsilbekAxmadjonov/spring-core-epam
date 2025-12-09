@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 public interface TrainingRepo extends JpaRepository<TrainingEntity, Long> {
 
@@ -40,5 +41,7 @@ public interface TrainingRepo extends JpaRepository<TrainingEntity, Long> {
             @Param("toDate") LocalDate toDate,
             @Param("traineeName") String traineeName
     );
+
+    Optional<TrainingEntity> findByTrainingName(String trainingName);
 }
 
