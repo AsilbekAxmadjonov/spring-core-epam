@@ -25,42 +25,64 @@ public class TrainingServiceInMemoryImpl implements TrainingService {
 
     @Override
     public void createTraining(Training training) {
-        log.info("Creating new Training: {}", training.getTrainingName());
+        log.debug("Attempting to create new Training: {}", training.getTrainingName());
+
         trainingDao.save(training);
+
+        log.info("Training created: {}", training.getTrainingName());
     }
 
     @Override
     public Training getTraining(String name) {
-        log.debug("Getting Training by name: {}", name);
+        log.debug("Fetching Training by name: {}", name);
+
         Training training = trainingDao.findByName(name);
         if (training == null) {
-            log.error("Training not found: {}", name);
+            log.warn("Training not found: {}", name);
             throw new NoSuchElementException("Training not found: " + name);
         }
+
+        log.info("Training retrieved: {}", name);
         return training;
     }
 
     @Override
     public List<Training> listAll() {
-        log.info("Listing all Trainings");
-        return trainingDao.findAll();
+        log.debug("Fetching all Trainings from in-memory store");
+
+        List<Training> trainings = trainingDao.findAll();
+
+        log.info("Fetched {} trainings", trainings.size());
+        return trainings;
     }
 
     @Override
-    public List<Training> getTraineeTrainings(String traineeUsername, LocalDate fromDate, LocalDate toDate,
-                                              String trainerName, String trainingType) {
+    public List<Training> getTraineeTrainings(String traineeUsername,
+                                              LocalDate fromDate,
+                                              LocalDate toDate,
+                                              String trainerName,
+                                              String trainingType) {
+        log.debug("Attempted filtering trainee trainings in in-memory service (not supported)");
         throw new UnsupportedOperationException("Filtering not supported in in-memory implementation");
     }
 
     @Override
-    public List<Training> getTrainerTrainings(String trainerUsername, LocalDate fromDate, LocalDate toDate,
+    public List<Training> getTrainerTrainings(String trainerUsername,
+                                              LocalDate fromDate,
+                                              LocalDate toDate,
                                               String traineeName) {
+        log.debug("Attempted filtering trainer trainings in in-memory service (not supported)");
         throw new UnsupportedOperationException("Filtering not supported in in-memory implementation");
     }
 
     @Override
     public Training addTraining(Training training) {
-        createTraining(training); // reuse simple save
+        log.debug("Adding new Training: {}", training.getTrainingName());
+
+        createTraining(training);
+
+        log.info("Training added: {}", training.getTrainingName());
         return training;
     }
+
 }

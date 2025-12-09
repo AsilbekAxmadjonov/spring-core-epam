@@ -2,12 +2,12 @@ package org.example.services.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.dao.TrainerDao;
-import org.example.model.Trainee;
 import org.example.model.Trainer;
 import org.example.services.TrainerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -16,7 +16,7 @@ import java.util.Optional;
 @Service
 public class TrainerServiceInMemoryImpl implements TrainerService {
 
-    private TrainerDao trainerDao; // cannot be final with setter injection
+    private TrainerDao trainerDao;
 
     // Setter-based injection
     @Autowired
@@ -49,7 +49,7 @@ public class TrainerServiceInMemoryImpl implements TrainerService {
     public boolean passwordMatches(String username, char[] password) {
         Trainer trainer = trainerDao.findByUsername(username);
         if (trainer == null) return false;
-        return java.util.Arrays.equals(trainer.getPassword(), password);
+        return Arrays.equals(trainer.getPassword(), password);
     }
 
     @Override

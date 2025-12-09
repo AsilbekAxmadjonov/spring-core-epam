@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,9 +28,11 @@ public class TraineeServiceDbImpl implements TraineeService {
 
     @Override
     public Trainee createTrainee(Trainee traineeModel) {
-        log.info("Creating trainee with username: {}", traineeModel.getUsername());
+        log.debug("Starting creation of trainee: {}", traineeModel.getUsername());
+
         TraineeEntity traineeEntity = traineeMapper.toTraineeEntity(traineeModel);
         traineeRepo.save(traineeEntity);
+
         log.info("Trainee created successfully: {}", traineeModel.getUsername());
         return traineeMapper.toTraineeModel(traineeEntity);
     }
@@ -37,17 +40,17 @@ public class TraineeServiceDbImpl implements TraineeService {
     @Override
     public Optional<Trainee> getTraineeByUsername(String username) {
         log.debug("Fetching trainee by username: {}", username);
+
         return traineeRepo.findByUsername(username)
-                .map(t -> {
+                .map(traineeEntity -> {
                     log.debug("Trainee found: {}", username);
-                    return traineeMapper.toTraineeModel(t);
+                    return traineeMapper.toTraineeModel(traineeEntity);
                 });
     }
 
-
     @Override
     public Trainee updateTrainee(String username, Trainee updatedTrainee) {
-        log.info("Updating trainee: {}", username);
+        log.debug("Starting update for trainee: {}", username);
 
         TraineeEntity traineeEntity = traineeRepo.findByUsername(username)
                 .orElseThrow(() -> {
@@ -56,18 +59,16 @@ public class TraineeServiceDbImpl implements TraineeService {
                 });
 
         traineeMapper.updateEntity(updatedTrainee, traineeEntity);
-
         TraineeEntity saved = traineeRepo.save(traineeEntity);
-        log.info("Trainee updated successfully: {}", username);
 
+        log.info("Trainee updated successfully: {}", username);
         return traineeMapper.toTraineeModel(saved);
     }
-
 
     @Override
     @Transactional
     public void deleteTraineeByUsername(String username) {
-        log.info("Deleting trainee by username: {}", username);
+        log.debug("Attempting to delete trainee: {}", username);
 
         boolean exists = traineeRepo.findByUsername(username).isPresent();
         if (exists) {
@@ -81,36 +82,43 @@ public class TraineeServiceDbImpl implements TraineeService {
     @Override
     @Transactional(readOnly = true)
     public boolean passwordMatches(String username, char[] password) {
-        log.debug("Checking credentials for username: {}", username);
+        log.debug("Checking password for trainee: {}", username);
+
         boolean valid = traineeRepo.findByUsername(username)
-                .map(t -> java.util.Arrays.equals(t.getUserEntity().getPassword(), password))
+                .map(traineeEntity -> Arrays.equals(
+                        traineeEntity.getUserEntity().getPassword(), password))
                 .orElse(false);
-        log.debug("Credentials valid for {}: {}", username, valid);
+
+        log.debug("Password match for {}: {}", username, valid);
         return valid;
     }
 
     @Override
     public Trainee changePassword(String username, char[] newPassword) {
-        log.info("Changing password for trainee: {}", username);
+        log.debug("Starting password change for trainee: {}", username);
+
         TraineeEntity traineeEntity = traineeRepo.findByUsername(username)
                 .orElseThrow(() -> {
-                    log.error("Trainee not found for update: {}", username);
+                    log.error("Trainee not found for password change: {}", username);
                     return new UserNotFoundException("Trainee not found with username: " + username);
                 });
 
         traineeEntity.getUserEntity().setPassword(newPassword);
         TraineeEntity saved = traineeRepo.save(traineeEntity);
+
         log.info("Password changed successfully for trainee: {}", username);
         return traineeMapper.toTraineeModel(saved);
     }
 
     @Override
     public Trainee setActiveStatus(String username, boolean active) {
-        TraineeEntity trainee = traineeRepo.findByUsername(username)
+        log.debug("Setting active status for trainee: {}, active={}", username, active);
+
+        TraineeEntity traineeEntity = traineeRepo.findByUsername(username)
                 .orElseThrow(() -> new UserNotFoundException("Trainee not found: " + username));
 
-        trainee.getUserEntity().setIsActive(active);
-        TraineeEntity saved = traineeRepo.save(trainee);
+        traineeEntity.getUserEntity().setIsActive(active);
+        TraineeEntity saved = traineeRepo.save(traineeEntity);
 
         log.info("Trainee {} set active={}", username, active);
         return traineeMapper.toTraineeModel(saved);
@@ -118,10 +126,13 @@ public class TraineeServiceDbImpl implements TraineeService {
 
     @Override
     public List<Trainee> getAllTrainees() {
-        log.info("Fetching all trainees");
+        log.debug("Fetching all trainees");
+
         List<TraineeEntity> traineeEntities = traineeRepo.findAll();
         List<Trainee> trainees = traineeMapper.toTraineeModels(traineeEntities);
+
         log.info("Total trainees fetched: {}", trainees.size());
         return trainees;
     }
+
 }

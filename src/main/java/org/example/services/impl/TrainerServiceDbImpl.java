@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,14 +38,16 @@ public class TrainerServiceDbImpl implements TrainerService {
     }
 
     @Override
-    public Optional<Trainer> getTrainerByUsername(String username){
+    public Optional<Trainer> getTrainerByUsername(String username) {
         log.debug("Fetching trainer by username: {}", username);
+
         return trainerRepo.findByUsername(username)
-                .map(t -> {
+                .map(trainerEntity -> {
                     log.debug("Trainer found: {}", username);
-                    return trainerMapper.toTrainerModel(t);
+                    return trainerMapper.toTrainerModel(trainerEntity);
                 });
     }
+
 
     @Override
     public Trainer updateTrainer(String username, Trainer updatedTrainer) {
@@ -69,7 +72,7 @@ public class TrainerServiceDbImpl implements TrainerService {
     public boolean passwordMatches(String username, char[] password) {
         log.debug("Checking credentials for username: {}", username);
         boolean valid = trainerRepo.findByUsername(username)
-                .map(t -> java.util.Arrays.equals(t.getUserEntity().getPassword(), password))
+                .map(trainerEntity -> Arrays.equals(trainerEntity.getUserEntity().getPassword(), password))
                 .orElse(false);
 
         log.debug("Credentials valid for {}: {}", username, valid);

@@ -30,28 +30,31 @@ public class UserServiceDbImpl implements UserService {
 
     @Override
     public User getByUsername(String username) {
-        log.info("Fetching user by username: {}", username);
+        log.debug("Fetching user by username: {}", username);
 
         UserEntity entity = userRepo.findByUsername(username)
                 .orElseThrow(() -> new UserNotFoundException("User not found: " + username));
 
+        log.info("User fetched: {}", username);
         return userMapper.toModel(entity);
     }
 
     @Override
     public User createUser(User user) {
-        log.info("Creating new user with username: {}", user.getUsername());
+        log.debug("Creating new user with username: {}", user.getUsername());
 
         user.setPassword(passwordEncoder.encode(new String(user.getPassword())).toCharArray());
 
         UserEntity entity = userMapper.toEntity(user);
         UserEntity saved = userRepo.save(entity);
+
+        log.info("User created: {}", saved.getUsername());
         return userMapper.toModel(saved);
     }
 
     @Override
     public User updateUser(String username, User updatedUser) {
-        log.info("Updating user with username: {}", username);
+        log.debug("Updating user with username: {}", username);
 
         UserEntity entity = userRepo.findByUsername(username)
                 .orElseThrow(() -> new UserNotFoundException("User not found: " + username));
@@ -61,30 +64,36 @@ public class UserServiceDbImpl implements UserService {
         entity.setPassword(passwordEncoder.encode(new String(updatedUser.getPassword())).toCharArray());
 
         UserEntity saved = userRepo.save(entity);
+
+        log.info("User updated: {}", username);
         return userMapper.toModel(saved);
     }
 
     @Override
     public void deleteByUsername(String username) {
-        log.info("Deleting user with username: {}", username);
+        log.debug("Deleting user with username: {}", username);
 
         UserEntity entity = userRepo.findByUsername(username)
                 .orElseThrow(() -> new UserNotFoundException("User not found: " + username));
 
         userRepo.delete(entity);
+
+        log.info("User deleted: {}", username);
     }
 
     @Override
     public List<User> fetchAll() {
-        log.info("Fetching all users");
+        log.debug("Fetching all users");
 
         List<UserEntity> entities = userRepo.findAll();
+
+        log.info("Fetched {} users", entities.size());
         return userMapper.toModels(entities);
     }
 
     @Override
     public User changeUserActiveStatus(String username, boolean isActive) {
-        log.info("Changing active status of {} to {}", username, isActive);
+        log.debug("Changing active status of {} to {}", username, isActive);
 
         UserEntity entity = userRepo.findByUsername(username)
                 .orElseThrow(() -> new UserNotFoundException("User not found: " + username));
@@ -92,19 +101,24 @@ public class UserServiceDbImpl implements UserService {
         entity.setIsActive(isActive);
 
         UserEntity saved = userRepo.save(entity);
+
+        log.info("Active status changed for {} to {}", username, isActive);
         return userMapper.toModel(saved);
     }
 
     @Override
     public User authenticate(String username, char[] rawPassword) {
+        log.debug("Authenticating user: {}", username);
+
         UserEntity entity = userRepo.findByUsername(username)
                 .orElseThrow(() -> new UserNotFoundException("User not found: " + username));
 
         if (!passwordEncoder.matches(new String(rawPassword), new String(entity.getPassword()))) {
+            log.debug("Authentication failed for {}", username);
             throw new BadCredentialsException("Invalid username or password");
         }
 
-
+        log.info("Authentication successful for {}", username);
         return userMapper.toModel(entity);
     }
 
@@ -112,5 +126,6 @@ public class UserServiceDbImpl implements UserService {
     public void save(User user){
         throw new UnsupportedOperationException("Not supported in in-memory service");
     }
+
 
 }

@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Slf4j
@@ -33,14 +34,15 @@ public class TrainingServiceDbImpl implements TrainingService {
     @Override
     public List<Training> getTraineeTrainings(
             String traineeUsername,
-            java.time.LocalDate fromDate,
-            java.time.LocalDate toDate,
+            LocalDate fromDate,
+            LocalDate toDate,
             String trainerName,
             String trainingType
     ) {
-        log.info("Fetching trainee trainings for username: {}", traineeUsername);
+        log.debug("Fetching trainee trainings: username={}, from={}, to={}, trainerName={}, trainingType={}",
+                traineeUsername, fromDate, toDate, trainerName, trainingType);
 
-        List<TrainingEntity> list = trainingRepo.findTraineeTrainings(
+        List<TrainingEntity> trainingEntities = trainingRepo.findTraineeTrainings(
                 traineeUsername,
                 fromDate,
                 toDate,
@@ -48,73 +50,90 @@ public class TrainingServiceDbImpl implements TrainingService {
                 trainingType
         );
 
-        return trainingMapper.toTrainingModels(list);
+        log.info("Fetched {} trainee trainings for username={}", trainingEntities.size(), traineeUsername);
+
+        return trainingMapper.toTrainingModels(trainingEntities);
     }
 
     @Override
     public List<Training> getTrainerTrainings(
             String trainerUsername,
-            java.time.LocalDate fromDate,
-            java.time.LocalDate toDate,
+            LocalDate fromDate,
+            LocalDate toDate,
             String traineeName
     ) {
-        log.info("Fetching trainer trainings for username: {}", trainerUsername);
+        log.debug("Fetching trainer trainings: username={}, from={}, to={}, traineeName={}",
+                trainerUsername, fromDate, toDate, traineeName);
 
-        List<TrainingEntity> list = trainingRepo.findTrainerTrainings(
+        List<TrainingEntity> trainingEntities = trainingRepo.findTrainerTrainings(
                 trainerUsername,
                 fromDate,
                 toDate,
                 traineeName
         );
 
-        return trainingMapper.toTrainingModels(list);
+        log.info("Fetched {} trainer trainings for username={}", trainingEntities.size(), trainerUsername);
+
+        return trainingMapper.toTrainingModels(trainingEntities);
     }
 
     @Override
     public Training addTraining(Training training) {
-        log.info("Adding new training for trainee={}, trainer={}, name={}",
+        log.debug("Starting training creation: trainee={}, trainer={}, name={}",
                 training.getTraineeUsername(),
                 training.getTrainerUsername(),
                 training.getTrainingName()
         );
 
-        TraineeEntity trainee = traineeRepo.findByUsername(training.getTraineeUsername())
+        TraineeEntity traineeEntity = traineeRepo.findByUsername(training.getTraineeUsername())
                 .orElseThrow(() ->
                         new UserNotFoundException("Trainee not found: " + training.getTraineeUsername()));
 
-        TrainerEntity trainer = trainerRepo.findByUsername(training.getTrainerUsername())
+        TrainerEntity trainerEntity = trainerRepo.findByUsername(training.getTrainerUsername())
                 .orElseThrow(() ->
                         new UserNotFoundException("Trainer not found: " + training.getTrainerUsername()));
 
-        TrainingEntity entity = trainingMapper.toTrainingEntity(training);
+        TrainingEntity trainingEntity = trainingMapper.toTrainingEntity(training);
 
-        entity.setTraineeEntity(trainee);
-        entity.setTrainerEntity(trainer);
+        trainingEntity.setTraineeEntity(traineeEntity);
+        trainingEntity.setTrainerEntity(trainerEntity);
 
-        TrainingEntity saved = trainingRepo.save(entity);
+        TrainingEntity savedTrainingEntity = trainingRepo.save(trainingEntity);
 
-        log.info("Training saved with ID {}", saved.getId());
+        log.info("Training created successfully with ID {}", savedTrainingEntity.getId());
 
-        return trainingMapper.toTrainingModel(saved);
+        return trainingMapper.toTrainingModel(savedTrainingEntity);
     }
 
     @Override
     public void createTraining(Training training) {
-        addTraining(training); // reuse addTraining
+        log.debug("Delegating createTraining to addTraining()");
+        addTraining(training);
     }
 
     @Override
     public Training getTraining(String name) {
-        TrainingEntity entity = trainingRepo.findByTrainingName(name)
+        log.debug("Fetching training by name: {}", name);
+
+        TrainingEntity trainingEntity = trainingRepo.findByTrainingName(name)
                 .orElseThrow(() -> new UserNotFoundException("Training not found: " + name));
-        return trainingMapper.toTrainingModel(entity);
+
+        log.info("Training found: {}", name);
+
+        return trainingMapper.toTrainingModel(trainingEntity);
     }
 
     @Override
     public List<Training> listAll() {
-        List<TrainingEntity> entities = trainingRepo.findAll();
-        return trainingMapper.toTrainingModels(entities);
+        log.debug("Fetching all trainings");
+
+        List<TrainingEntity> trainingEntities = trainingRepo.findAll();
+
+        log.info("Fetched {} total trainings", trainingEntities.size());
+
+        return trainingMapper.toTrainingModels(trainingEntities);
     }
+
 
 
 }
