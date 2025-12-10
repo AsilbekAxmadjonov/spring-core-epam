@@ -1,5 +1,6 @@
 package org.example.services.impl;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.entity.TrainerEntity;
@@ -8,10 +9,12 @@ import org.example.mapper.TrainerMapper;
 import org.example.model.Trainer;
 import org.example.repository.TrainerRepo;
 import org.example.repository.TrainingTypeRepo;
+import org.example.services.AuthenticationService;
 import org.example.services.TrainerService;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,6 +23,7 @@ import java.util.Optional;
 @Slf4j
 @Service
 @Primary
+@Validated
 @RequiredArgsConstructor
 @Transactional
 public class TrainerServiceDbImpl implements TrainerService {
@@ -27,9 +31,10 @@ public class TrainerServiceDbImpl implements TrainerService {
     private final TrainerRepo trainerRepo;
     private final TrainerMapper trainerMapper;
     private final TrainingTypeRepo trainingTypeRepo;
+    private final AuthenticationService authenticationService;
 
     @Override
-    public Trainer createTrainer(Trainer trainer){
+    public Trainer createTrainer(@Valid Trainer trainer){
         log.info("Creating trainer with username: {}", trainer.getUsername());
         TrainerEntity trainerEntity = trainerMapper.toTrainerEntity(trainer);
         trainerRepo.save(trainerEntity);
@@ -38,7 +43,9 @@ public class TrainerServiceDbImpl implements TrainerService {
     }
 
     @Override
-    public Optional<Trainer> getTrainerByUsername(String username) {
+    public Optional<Trainer> getTrainerByUsername(String username, char[] password) {
+        authenticationService.authenticate(username, password);
+
         log.debug("Fetching trainer by username: {}", username);
 
         return trainerRepo.findByUsername(username)
@@ -50,7 +57,9 @@ public class TrainerServiceDbImpl implements TrainerService {
 
 
     @Override
-    public Trainer updateTrainer(String username, Trainer updatedTrainer) {
+    public Trainer updateTrainer(String username, char[] password, @Valid Trainer updatedTrainer) {
+        authenticationService.authenticate(username, password);
+
         log.info("Updating trainer: {}", username);
 
         TrainerEntity trainerEntity = trainerRepo.findByUsername(username)
@@ -68,47 +77,6 @@ public class TrainerServiceDbImpl implements TrainerService {
     }
 
     @Override
-    @Transactional(readOnly = true)
-    public boolean passwordMatches(String username, char[] password) {
-        log.debug("Checking credentials for username: {}", username);
-        boolean valid = trainerRepo.findByUsername(username)
-                .map(trainerEntity -> Arrays.equals(trainerEntity.getUserEntity().getPassword(), password))
-                .orElse(false);
-
-        log.debug("Credentials valid for {}: {}", username, valid);
-        return valid;
-    }
-
-    @Override
-    public Trainer changePassword(String username, char[] newPassword) {
-        log.info("Changing password for trainer: {}", username);
-
-        TrainerEntity trainerEntity = trainerRepo.findByUsername(username)
-                .orElseThrow(() -> {
-                    log.error("Trainer not found for update: {}", username);
-                    return new UserNotFoundException("Trainer not found with username: " + username);
-                });
-
-        trainerEntity.getUserEntity().setPassword(newPassword);
-        TrainerEntity saved = trainerRepo.save(trainerEntity);
-
-        log.info("Password changed successfully for trainer: {}", username);
-        return trainerMapper.toTrainerModel(saved);
-    }
-
-    @Override
-    public Trainer setActiveStatus(String username, boolean active) {
-        TrainerEntity trainer = trainerRepo.findByUsername(username)
-                .orElseThrow(() -> new UserNotFoundException("Trainer not found: " + username));
-
-        trainer.getUserEntity().setIsActive(active);
-        TrainerEntity saved = trainerRepo.save(trainer);
-
-        log.info("Trainer {} set active={}", username, active);
-        return trainerMapper.toTrainerModel(saved);
-    }
-
-    @Override
     public List<Trainer> getAllTrainers() {
         log.info("Fetching all trainers");
         List<TrainerEntity> trainerEntities = trainerRepo.findAll();
@@ -118,5 +86,5 @@ public class TrainerServiceDbImpl implements TrainerService {
         return trainers;
     }
 
-    
+
 }

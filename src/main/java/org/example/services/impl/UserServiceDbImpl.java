@@ -1,5 +1,6 @@
 package org.example.services.impl;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.entity.UserEntity;
@@ -7,29 +8,48 @@ import org.example.exception.UserNotFoundException;
 import org.example.mapper.UserMapper;
 import org.example.model.User;
 import org.example.repository.UserRepo;
+import org.example.services.AuthenticationService;
 import org.example.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 
 @Slf4j
 @Service
 @Primary
-@RequiredArgsConstructor
+@Validated
 @Transactional
 public class UserServiceDbImpl implements UserService {
 
     private final UserRepo userRepo;
     private final UserMapper userMapper;
     private final PasswordEncoder passwordEncoder;
+    private final AuthenticationService authenticationService;
+
+    public UserServiceDbImpl(
+            UserRepo userRepo,
+            UserMapper userMapper,
+            PasswordEncoder passwordEncoder,
+            @Lazy AuthenticationService authenticationService) {
+        this.userRepo = userRepo;
+        this.userMapper = userMapper;
+        this.passwordEncoder = passwordEncoder;
+        this.authenticationService = authenticationService;
+    }
 
 
     @Override
-    public User getByUsername(String username) {
+    public User getByUsername(String username, char[] password) {
+        authenticationService.authenticate(username, password);
+
         log.debug("Fetching user by username: {}", username);
 
         UserEntity entity = userRepo.findByUsername(username)
@@ -40,7 +60,18 @@ public class UserServiceDbImpl implements UserService {
     }
 
     @Override
-    public User createUser(User user) {
+    public User getByUsername(String username) {
+        log.debug("Fetching user by username (no auth): {}", username);
+
+        UserEntity entity = userRepo.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
+
+        return userMapper.toModel(entity);
+    }
+
+
+    @Override
+    public User createUser(@Valid User user) {
         log.debug("Creating new user with username: {}", user.getUsername());
 
         user.setPassword(passwordEncoder.encode(new String(user.getPassword())).toCharArray());
@@ -53,7 +84,9 @@ public class UserServiceDbImpl implements UserService {
     }
 
     @Override
-    public User updateUser(String username, User updatedUser) {
+    public User updateUser(String username, char[] password, @Valid User updatedUser) {
+        authenticationService.authenticate(username, password);
+
         log.debug("Updating user with username: {}", username);
 
         UserEntity entity = userRepo.findByUsername(username)
@@ -70,7 +103,9 @@ public class UserServiceDbImpl implements UserService {
     }
 
     @Override
-    public void deleteByUsername(String username) {
+    public void deleteByUsername(String username, char[] password) {
+        authenticationService.authenticate(username, password);
+
         log.debug("Deleting user with username: {}", username);
 
         UserEntity entity = userRepo.findByUsername(username)
@@ -92,7 +127,9 @@ public class UserServiceDbImpl implements UserService {
     }
 
     @Override
-    public User changeUserActiveStatus(String username, boolean isActive) {
+    public User changeUserActiveStatus(String username, char[] password, boolean isActive) {
+        authenticationService.authenticate(username, password);
+
         log.debug("Changing active status of {} to {}", username, isActive);
 
         UserEntity entity = userRepo.findByUsername(username)
@@ -107,24 +144,8 @@ public class UserServiceDbImpl implements UserService {
     }
 
     @Override
-    public User authenticate(String username, char[] rawPassword) {
-        log.debug("Authenticating user: {}", username);
-
-        UserEntity entity = userRepo.findByUsername(username)
-                .orElseThrow(() -> new UserNotFoundException("User not found: " + username));
-
-        if (!passwordEncoder.matches(new String(rawPassword), new String(entity.getPassword()))) {
-            log.debug("Authentication failed for {}", username);
-            throw new BadCredentialsException("Invalid username or password");
-        }
-
-        log.info("Authentication successful for {}", username);
-        return userMapper.toModel(entity);
-    }
-
-    @Override
-    public void save(User user){
-        throw new UnsupportedOperationException("Not supported in in-memory service");
+    public void save(@Valid User user){
+        throw new UnsupportedOperationException("Not supported in DB service");
     }
 
 

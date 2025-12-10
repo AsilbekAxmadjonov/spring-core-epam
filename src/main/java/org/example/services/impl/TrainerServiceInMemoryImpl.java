@@ -1,11 +1,14 @@
 package org.example.services.impl;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.example.dao.TrainerDao;
 import org.example.model.Trainer;
+import org.example.services.AuthenticationService;
 import org.example.services.TrainerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,67 +17,44 @@ import java.util.Optional;
 
 @Slf4j
 @Service
+@Validated
 public class TrainerServiceInMemoryImpl implements TrainerService {
 
     private TrainerDao trainerDao;
+    private AuthenticationService authenticationService;
 
-    // Setter-based injection
     @Autowired
     public void setTrainerDao(TrainerDao trainerDao) {
         this.trainerDao = trainerDao;
     }
 
+    @Autowired
+    public void setAuthenticationService(AuthenticationService authenticationService) {
+        this.authenticationService = authenticationService;
+    }
+
     @Override
-    public Trainer createTrainer(Trainer trainer) {
+    public Trainer createTrainer(@Valid Trainer trainer) {
         log.info("Creating new Trainer: {}", trainer.getUsername());
         trainerDao.save(trainer);
         return trainer;
     }
 
     @Override
-    public Optional<Trainer> getTrainerByUsername(String username) {
+    public Optional<Trainer> getTrainerByUsername(String username, char[] password) {
+        authenticationService.authenticate(username, password);
+
         log.debug("Getting Trainer by username: {}", username);
         Trainer trainer = trainerDao.findByUsername(username);
         return Optional.ofNullable(trainer);
     }
 
     @Override
-    public Trainer updateTrainer(String username, Trainer trainer) {
-        log.info("Updating Trainee: {}", username);
-        trainerDao.update(trainer);
-        return trainer;
-    }
+    public Trainer updateTrainer(String username, char[] password, @Valid Trainer trainer) {
+        authenticationService.authenticate(username, password);
 
-    @Override
-    public boolean passwordMatches(String username, char[] password) {
-        Trainer trainer = trainerDao.findByUsername(username);
-        if (trainer == null) return false;
-        return Arrays.equals(trainer.getPassword(), password);
-    }
-
-    @Override
-    public Trainer changePassword(String username, char[] newPassword) {
-        Trainer trainer = trainerDao.findByUsername(username);
-        if (trainer == null) {
-            log.error("Trainer not found for password change: {}", username);
-            throw new NoSuchElementException("Trainer not found: " + username);
-        }
-        trainer.setPassword(newPassword);
+        log.info("Updating Trainer: {}", username);
         trainerDao.update(trainer);
-        log.info("Password changed for trainer: {}", username);
-        return trainer;
-    }
-
-    @Override
-    public Trainer setActiveStatus(String username, boolean active) {
-        Trainer trainer = trainerDao.findByUsername(username);
-        if (trainer == null) {
-            log.error("Trainer not found for status change: {}", username);
-            throw new NoSuchElementException("Trainer not found: " + username);
-        }
-        trainer.setActive(active);
-        trainerDao.update(trainer);
-        log.info("Trainer {} set active={}", username, active);
         return trainer;
     }
 

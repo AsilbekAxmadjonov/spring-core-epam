@@ -29,7 +29,7 @@ public class TrainerEntity {
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity userEntity;
 
-    @OneToMany(mappedBy = "trainer", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "trainerEntity", cascade = CascadeType.ALL)
     private List<TrainingEntity> trainingEntities;
 }
 

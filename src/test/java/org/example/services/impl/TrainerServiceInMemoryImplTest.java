@@ -2,11 +2,11 @@ package org.example.services.impl;
 
 import org.example.dao.TrainerDao;
 import org.example.model.Trainer;
+import org.example.services.AuthenticationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,13 +15,17 @@ import static org.mockito.Mockito.*;
 class TrainerServiceInMemoryImplTest {
 
     private TrainerDao trainerDao;
+    private AuthenticationService authenticationService;
     private TrainerServiceInMemoryImpl trainerService;
+    private final char[] dummyPassword = "dummyPass".toCharArray();
 
     @BeforeEach
     void setUp() {
-        trainerDao = mock(TrainerDao.class); // mock dependency
+        trainerDao = mock(TrainerDao.class);
+        authenticationService = mock(AuthenticationService.class);
         trainerService = new TrainerServiceInMemoryImpl();
-        trainerService.setTrainerDao(trainerDao); // inject mock
+        trainerService.setTrainerDao(trainerDao);
+        trainerService.setAuthenticationService(authenticationService);
     }
 
     private Trainer createTrainer(String username, String first, String last) {
@@ -45,69 +49,42 @@ class TrainerServiceInMemoryImplTest {
     }
 
     @Test
-    void testGetTrainerByUsername() {
+    void testGetTrainerByUsername_Found() {
         Trainer trainer = createTrainer("alice01", "Alice", "Brown");
         when(trainerDao.findByUsername("alice01")).thenReturn(trainer);
+        when(authenticationService.authenticate("alice01", dummyPassword)).thenReturn(trainer);
 
-        Optional<Trainer> result = trainerService.getTrainerByUsername("alice01");
+        Optional<Trainer> result = trainerService.getTrainerByUsername("alice01", dummyPassword);
 
         assertTrue(result.isPresent());
         assertEquals("Alice", result.get().getFirstName());
+        verify(authenticationService, times(1)).authenticate("alice01", dummyPassword);
         verify(trainerDao, times(1)).findByUsername("alice01");
+    }
+
+    @Test
+    void testGetTrainerByUsername_NotFound() {
+        Trainer mockUser = createTrainer("unknown", "Unknown", "User");
+        when(trainerDao.findByUsername("unknown")).thenReturn(null);
+        when(authenticationService.authenticate("unknown", dummyPassword)).thenReturn(mockUser);
+
+        Optional<Trainer> result = trainerService.getTrainerByUsername("unknown", dummyPassword);
+
+        assertTrue(result.isEmpty());
+        verify(authenticationService, times(1)).authenticate("unknown", dummyPassword);
+        verify(trainerDao, times(1)).findByUsername("unknown");
     }
 
     @Test
     void testUpdateTrainer() {
         Trainer trainer = createTrainer("bob01", "Bob", "Smith");
+        when(authenticationService.authenticate("bob01", dummyPassword)).thenReturn(trainer);
 
-        Trainer result = trainerService.updateTrainer("bob01", trainer);
+        Trainer result = trainerService.updateTrainer("bob01", dummyPassword, trainer);
 
+        verify(authenticationService, times(1)).authenticate("bob01", dummyPassword);
         verify(trainerDao, times(1)).update(trainer);
         assertEquals(trainer, result);
-    }
-
-    @Test
-    void testPasswordMatches() {
-        Trainer trainer = createTrainer("charlie01", "Charlie", "Jones");
-        when(trainerDao.findByUsername("charlie01")).thenReturn(trainer);
-
-        boolean match = trainerService.passwordMatches("charlie01", "123".toCharArray());
-        boolean notMatch = trainerService.passwordMatches("charlie01", "456".toCharArray());
-
-        assertTrue(match);
-        assertFalse(notMatch);
-        verify(trainerDao, times(2)).findByUsername("charlie01");
-    }
-
-    @Test
-    void testChangePassword() {
-        Trainer trainer = createTrainer("dave01", "Dave", "Miller");
-        when(trainerDao.findByUsername("dave01")).thenReturn(trainer);
-
-        char[] newPassword = "456".toCharArray();
-        Trainer result = trainerService.changePassword("dave01", newPassword);
-
-        verify(trainerDao, times(1)).update(trainer);
-        assertArrayEquals(newPassword, result.getPassword());
-    }
-
-    @Test
-    void testChangePassword_TrainerNotFound() {
-        when(trainerDao.findByUsername("unknown")).thenReturn(null);
-
-        assertThrows(NoSuchElementException.class,
-                () -> trainerService.changePassword("unknown", "123".toCharArray()));
-    }
-
-    @Test
-    void testSetActiveStatus() {
-        Trainer trainer = createTrainer("eve01", "Eve", "White");
-        when(trainerDao.findByUsername("eve01")).thenReturn(trainer);
-
-        Trainer result = trainerService.setActiveStatus("eve01", false);
-
-        verify(trainerDao, times(1)).update(trainer);
-        assertFalse(result.isActive());
     }
 
     @Test
@@ -122,14 +99,5 @@ class TrainerServiceInMemoryImplTest {
         assertTrue(trainers.contains(t1));
         assertTrue(trainers.contains(t2));
         verify(trainerDao, times(1)).findAll();
-    }
-
-    @Test
-    void testGetTrainerByUsername_NotFound() {
-        when(trainerDao.findByUsername("unknown")).thenReturn(null);
-
-        Optional<Trainer> result = trainerService.getTrainerByUsername("unknown");
-
-        assertTrue(result.isEmpty());
     }
 }

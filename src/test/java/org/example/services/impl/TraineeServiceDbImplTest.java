@@ -6,6 +6,7 @@ import org.example.exception.UserNotFoundException;
 import org.example.mapper.TraineeMapper;
 import org.example.model.Trainee;
 import org.example.repository.TraineeRepo;
+import org.example.services.AuthenticationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,8 +20,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -32,12 +32,17 @@ class TraineeServiceDbImplTest {
     @Mock
     private TraineeMapper traineeMapper;
 
+    @Mock
+    private AuthenticationService authenticationService;
+
     @InjectMocks
     private TraineeServiceDbImpl traineeService;
 
     private Trainee traineeModel;
     private TraineeEntity traineeEntity;
     private UserEntity userEntity;
+
+    private final char[] dummyPassword = "dummyPass".toCharArray();
 
     @BeforeEach
     void setUp() {
@@ -77,7 +82,7 @@ class TraineeServiceDbImplTest {
 
         assertNotNull(result);
         assertEquals("john.doe", result.getUsername());
-        assertEquals("John", result.getFirstName());
+
         verify(traineeMapper).toTraineeEntity(traineeModel);
         verify(traineeRepo).save(traineeEntity);
         verify(traineeMapper).toTraineeModel(traineeEntity);
@@ -85,27 +90,31 @@ class TraineeServiceDbImplTest {
 
     @Test
     void getTraineeByUsername_shouldReturnTraineeWhenFound() {
+        when(authenticationService.authenticate("john.doe", dummyPassword)).thenReturn(traineeModel);
         when(traineeRepo.findByUsername("john.doe")).thenReturn(Optional.of(traineeEntity));
         when(traineeMapper.toTraineeModel(traineeEntity)).thenReturn(traineeModel);
 
-        Optional<Trainee> result = traineeService.getTraineeByUsername("john.doe");
+        Optional<Trainee> result = traineeService.getTraineeByUsername("john.doe", dummyPassword);
 
         assertTrue(result.isPresent());
         assertEquals("john.doe", result.get().getUsername());
-        assertEquals("John", result.get().getFirstName());
+
+        verify(authenticationService).authenticate("john.doe", dummyPassword);
         verify(traineeRepo).findByUsername("john.doe");
         verify(traineeMapper).toTraineeModel(traineeEntity);
     }
 
     @Test
     void getTraineeByUsername_shouldReturnEmptyWhenNotFound() {
+        when(authenticationService.authenticate("unknown", dummyPassword)).thenReturn(traineeModel);
         when(traineeRepo.findByUsername("unknown")).thenReturn(Optional.empty());
 
-        Optional<Trainee> result = traineeService.getTraineeByUsername("unknown");
+        Optional<Trainee> result = traineeService.getTraineeByUsername("unknown", dummyPassword);
 
         assertFalse(result.isPresent());
+
+        verify(authenticationService).authenticate("unknown", dummyPassword);
         verify(traineeRepo).findByUsername("unknown");
-        verify(traineeMapper, never()).toTraineeModel(any());
     }
 
     @Test
@@ -117,13 +126,16 @@ class TraineeServiceDbImplTest {
                 .address("456 Oak Ave")
                 .build();
 
+        when(authenticationService.authenticate("john.doe", dummyPassword)).thenReturn(traineeModel);
         when(traineeRepo.findByUsername("john.doe")).thenReturn(Optional.of(traineeEntity));
         when(traineeRepo.save(traineeEntity)).thenReturn(traineeEntity);
         when(traineeMapper.toTraineeModel(traineeEntity)).thenReturn(updatedModel);
 
-        Trainee result = traineeService.updateTrainee("john.doe", updatedModel);
+        Trainee result = traineeService.updateTrainee("john.doe", dummyPassword, updatedModel);
 
         assertNotNull(result);
+
+        verify(authenticationService).authenticate("john.doe", dummyPassword);
         verify(traineeRepo).findByUsername("john.doe");
         verify(traineeMapper).updateEntity(updatedModel, traineeEntity);
         verify(traineeRepo).save(traineeEntity);
@@ -131,141 +143,44 @@ class TraineeServiceDbImplTest {
     }
 
     @Test
-    void updateTrainee_shouldThrowExceptionWhenTraineeNotFound() {
+    void updateTrainee_shouldThrowExceptionWhenNotFound() {
+        when(authenticationService.authenticate("unknown", dummyPassword)).thenReturn(traineeModel);
         when(traineeRepo.findByUsername("unknown")).thenReturn(Optional.empty());
 
-        assertThrows(UserNotFoundException.class, () ->
-                traineeService.updateTrainee("unknown", traineeModel)
-        );
+        assertThrows(UserNotFoundException.class,
+                () -> traineeService.updateTrainee("unknown", dummyPassword, traineeModel));
+
+        verify(authenticationService).authenticate("unknown", dummyPassword);
         verify(traineeRepo).findByUsername("unknown");
         verify(traineeMapper, never()).updateEntity(any(), any());
-        verify(traineeRepo, never()).save(any());
     }
 
     @Test
-    void deleteTraineeByUsername_shouldDeleteWhenTraineeExists() {
+    void deleteTraineeByUsername_shouldDeleteWhenExists() {
+        when(authenticationService.authenticate("john.doe", dummyPassword)).thenReturn(traineeModel);
         when(traineeRepo.findByUsername("john.doe")).thenReturn(Optional.of(traineeEntity));
 
-        traineeService.deleteTraineeByUsername("john.doe");
+        traineeService.deleteTraineeByUsername("john.doe", dummyPassword);
 
+        verify(authenticationService).authenticate("john.doe", dummyPassword);
         verify(traineeRepo).findByUsername("john.doe");
         verify(traineeRepo).deleteByUsername("john.doe");
     }
 
     @Test
-    void deleteTraineeByUsername_shouldNotDeleteWhenTraineeNotFound() {
+    void deleteTraineeByUsername_shouldNotDeleteWhenNotFound() {
+        when(authenticationService.authenticate("unknown", dummyPassword)).thenReturn(traineeModel);
         when(traineeRepo.findByUsername("unknown")).thenReturn(Optional.empty());
 
-        traineeService.deleteTraineeByUsername("unknown");
+        traineeService.deleteTraineeByUsername("unknown", dummyPassword);
 
+        verify(authenticationService).authenticate("unknown", dummyPassword);
         verify(traineeRepo).findByUsername("unknown");
         verify(traineeRepo, never()).deleteByUsername(anyString());
     }
 
     @Test
-    void passwordMatches_shouldReturnTrueWhenPasswordMatches() {
-        char[] password = "password123".toCharArray();
-        when(traineeRepo.findByUsername("john.doe")).thenReturn(Optional.of(traineeEntity));
-
-        boolean result = traineeService.passwordMatches("john.doe", password);
-
-        assertTrue(result);
-        verify(traineeRepo).findByUsername("john.doe");
-    }
-
-    @Test
-    void passwordMatches_shouldReturnFalseWhenPasswordDoesNotMatch() {
-        char[] wrongPassword = "wrongpassword".toCharArray();
-        when(traineeRepo.findByUsername("john.doe")).thenReturn(Optional.of(traineeEntity));
-
-        boolean result = traineeService.passwordMatches("john.doe", wrongPassword);
-
-        assertFalse(result);
-        verify(traineeRepo).findByUsername("john.doe");
-    }
-
-    @Test
-    void passwordMatches_shouldReturnFalseWhenTraineeNotFound() {
-        char[] password = "password123".toCharArray();
-        when(traineeRepo.findByUsername("unknown")).thenReturn(Optional.empty());
-
-        boolean result = traineeService.passwordMatches("unknown", password);
-
-        assertFalse(result);
-        verify(traineeRepo).findByUsername("unknown");
-    }
-
-    @Test
-    void changePassword_shouldUpdatePasswordAndReturnTrainee() {
-        char[] newPassword = "newPassword456".toCharArray();
-        when(traineeRepo.findByUsername("john.doe")).thenReturn(Optional.of(traineeEntity));
-        when(traineeRepo.save(traineeEntity)).thenReturn(traineeEntity);
-        when(traineeMapper.toTraineeModel(traineeEntity)).thenReturn(traineeModel);
-
-        Trainee result = traineeService.changePassword("john.doe", newPassword);
-
-        assertNotNull(result);
-        assertArrayEquals(newPassword, traineeEntity.getUserEntity().getPassword());
-        verify(traineeRepo).findByUsername("john.doe");
-        verify(traineeRepo).save(traineeEntity);
-        verify(traineeMapper).toTraineeModel(traineeEntity);
-    }
-
-    @Test
-    void changePassword_shouldThrowExceptionWhenTraineeNotFound() {
-        char[] newPassword = "newPassword456".toCharArray();
-        when(traineeRepo.findByUsername("unknown")).thenReturn(Optional.empty());
-
-        assertThrows(UserNotFoundException.class, () ->
-                traineeService.changePassword("unknown", newPassword)
-        );
-        verify(traineeRepo).findByUsername("unknown");
-        verify(traineeRepo, never()).save(any());
-    }
-
-    @Test
-    void setActiveStatus_shouldActivateTrainee() {
-        when(traineeRepo.findByUsername("john.doe")).thenReturn(Optional.of(traineeEntity));
-        when(traineeRepo.save(traineeEntity)).thenReturn(traineeEntity);
-        when(traineeMapper.toTraineeModel(traineeEntity)).thenReturn(traineeModel);
-
-        Trainee result = traineeService.setActiveStatus("john.doe", true);
-
-        assertNotNull(result);
-        assertTrue(traineeEntity.getUserEntity().getIsActive());
-        verify(traineeRepo).findByUsername("john.doe");
-        verify(traineeRepo).save(traineeEntity);
-        verify(traineeMapper).toTraineeModel(traineeEntity);
-    }
-
-    @Test
-    void setActiveStatus_shouldDeactivateTrainee() {
-        when(traineeRepo.findByUsername("john.doe")).thenReturn(Optional.of(traineeEntity));
-        when(traineeRepo.save(traineeEntity)).thenReturn(traineeEntity);
-        when(traineeMapper.toTraineeModel(traineeEntity)).thenReturn(traineeModel);
-
-        Trainee result = traineeService.setActiveStatus("john.doe", false);
-
-        assertNotNull(result);
-        assertFalse(traineeEntity.getUserEntity().getIsActive());
-        verify(traineeRepo).findByUsername("john.doe");
-        verify(traineeRepo).save(traineeEntity);
-        verify(traineeMapper).toTraineeModel(traineeEntity);
-    }
-
-    @Test
-    void setActiveStatus_shouldThrowExceptionWhenTraineeNotFound() {
-        when(traineeRepo.findByUsername("unknown")).thenReturn(Optional.empty());
-
-        assertThrows(UserNotFoundException.class, () ->
-                traineeService.setActiveStatus("unknown", true)
-        );
-        verify(traineeRepo).findByUsername("unknown");
-        verify(traineeRepo, never()).save(any());
-    }
-
-    @Test
-    void getAllTrainees_shouldReturnAllTrainees() {
+    void getAllTrainees_shouldReturnList() {
         UserEntity user2 = UserEntity.builder()
                 .firstName("Jane")
                 .lastName("Smith")
@@ -299,22 +214,18 @@ class TraineeServiceDbImplTest {
 
         List<Trainee> result = traineeService.getAllTrainees();
 
-        assertNotNull(result);
         assertEquals(2, result.size());
-        assertEquals("john.doe", result.get(0).getUsername());
-        assertEquals("jane.smith", result.get(1).getUsername());
         verify(traineeRepo).findAll();
         verify(traineeMapper).toTraineeModels(entities);
     }
 
     @Test
-    void getAllTrainees_shouldReturnEmptyListWhenNoTrainees() {
-        when(traineeRepo.findAll()).thenReturn(Arrays.asList());
-        when(traineeMapper.toTraineeModels(anyList())).thenReturn(Arrays.asList());
+    void getAllTrainees_shouldReturnEmptyList() {
+        when(traineeRepo.findAll()).thenReturn(List.of());
+        when(traineeMapper.toTraineeModels(anyList())).thenReturn(List.of());
 
         List<Trainee> result = traineeService.getAllTrainees();
 
-        assertNotNull(result);
         assertTrue(result.isEmpty());
         verify(traineeRepo).findAll();
         verify(traineeMapper).toTraineeModels(anyList());

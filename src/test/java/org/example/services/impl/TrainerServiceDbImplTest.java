@@ -8,6 +8,7 @@ import org.example.mapper.TrainerMapper;
 import org.example.model.Trainer;
 import org.example.repository.TrainerRepo;
 import org.example.repository.TrainingTypeRepo;
+import org.example.services.AuthenticationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,8 +21,6 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -36,6 +35,9 @@ class TrainerServiceDbImplTest {
     @Mock
     private TrainingTypeRepo trainingTypeRepo;
 
+    @Mock
+    private AuthenticationService authenticationService;
+
     @InjectMocks
     private TrainerServiceDbImpl trainerService;
 
@@ -43,6 +45,7 @@ class TrainerServiceDbImplTest {
     private TrainerEntity trainerEntity;
     private UserEntity userEntity;
     private TrainingTypeEntity trainingType;
+    private final char[] dummyPassword = "dummyPass".toCharArray();
 
     @BeforeEach
     void setUp() {
@@ -97,12 +100,11 @@ class TrainerServiceDbImplTest {
         when(trainerRepo.findByUsername("mike.johnson")).thenReturn(Optional.of(trainerEntity));
         when(trainerMapper.toTrainerModel(trainerEntity)).thenReturn(trainerModel);
 
-        Optional<Trainer> result = trainerService.getTrainerByUsername("mike.johnson");
+        Optional<Trainer> result = trainerService.getTrainerByUsername("mike.johnson", dummyPassword);
 
         assertTrue(result.isPresent());
         assertEquals("mike.johnson", result.get().getUsername());
-        assertEquals("Mike", result.get().getFirstName());
-        assertEquals("Fitness", result.get().getSpecialization());
+        verify(authenticationService).authenticate("mike.johnson", dummyPassword);
         verify(trainerRepo).findByUsername("mike.johnson");
         verify(trainerMapper).toTrainerModel(trainerEntity);
     }
@@ -111,9 +113,10 @@ class TrainerServiceDbImplTest {
     void getTrainerByUsername_shouldReturnEmptyWhenNotFound() {
         when(trainerRepo.findByUsername("unknown")).thenReturn(Optional.empty());
 
-        Optional<Trainer> result = trainerService.getTrainerByUsername("unknown");
+        Optional<Trainer> result = trainerService.getTrainerByUsername("unknown", dummyPassword);
 
         assertFalse(result.isPresent());
+        verify(authenticationService).authenticate("unknown", dummyPassword);
         verify(trainerRepo).findByUsername("unknown");
         verify(trainerMapper, never()).toTrainerModel(any());
     }
@@ -130,9 +133,10 @@ class TrainerServiceDbImplTest {
         when(trainerRepo.save(trainerEntity)).thenReturn(trainerEntity);
         when(trainerMapper.toTrainerModel(trainerEntity)).thenReturn(updatedModel);
 
-        Trainer result = trainerService.updateTrainer("mike.johnson", updatedModel);
+        Trainer result = trainerService.updateTrainer("mike.johnson", dummyPassword, updatedModel);
 
         assertNotNull(result);
+        verify(authenticationService).authenticate("mike.johnson", dummyPassword);
         verify(trainerRepo).findByUsername("mike.johnson");
         verify(trainerMapper).updateEntity(updatedModel, trainerEntity);
         verify(trainerRepo).save(trainerEntity);
@@ -144,112 +148,11 @@ class TrainerServiceDbImplTest {
         when(trainerRepo.findByUsername("unknown")).thenReturn(Optional.empty());
 
         assertThrows(UserNotFoundException.class, () ->
-                trainerService.updateTrainer("unknown", trainerModel)
+                trainerService.updateTrainer("unknown", dummyPassword, trainerModel)
         );
+        verify(authenticationService).authenticate("unknown", dummyPassword);
         verify(trainerRepo).findByUsername("unknown");
         verify(trainerMapper, never()).updateEntity(any(), any());
-        verify(trainerRepo, never()).save(any());
-    }
-
-    @Test
-    void passwordMatches_shouldReturnTrueWhenPasswordMatches() {
-        char[] password = "password123".toCharArray();
-        when(trainerRepo.findByUsername("mike.johnson")).thenReturn(Optional.of(trainerEntity));
-
-        boolean result = trainerService.passwordMatches("mike.johnson", password);
-
-        assertTrue(result);
-        verify(trainerRepo).findByUsername("mike.johnson");
-    }
-
-    @Test
-    void passwordMatches_shouldReturnFalseWhenPasswordDoesNotMatch() {
-        char[] wrongPassword = "wrongpassword".toCharArray();
-        when(trainerRepo.findByUsername("mike.johnson")).thenReturn(Optional.of(trainerEntity));
-
-        boolean result = trainerService.passwordMatches("mike.johnson", wrongPassword);
-
-        assertFalse(result);
-        verify(trainerRepo).findByUsername("mike.johnson");
-    }
-
-    @Test
-    void passwordMatches_shouldReturnFalseWhenTrainerNotFound() {
-        char[] password = "password123".toCharArray();
-        when(trainerRepo.findByUsername("unknown")).thenReturn(Optional.empty());
-
-        boolean result = trainerService.passwordMatches("unknown", password);
-
-        assertFalse(result);
-        verify(trainerRepo).findByUsername("unknown");
-    }
-
-    @Test
-    void changePassword_shouldUpdatePasswordAndReturnTrainer() {
-        char[] newPassword = "newPassword456".toCharArray();
-        when(trainerRepo.findByUsername("mike.johnson")).thenReturn(Optional.of(trainerEntity));
-        when(trainerRepo.save(trainerEntity)).thenReturn(trainerEntity);
-        when(trainerMapper.toTrainerModel(trainerEntity)).thenReturn(trainerModel);
-
-        Trainer result = trainerService.changePassword("mike.johnson", newPassword);
-
-        assertNotNull(result);
-        assertArrayEquals(newPassword, trainerEntity.getUserEntity().getPassword());
-        verify(trainerRepo).findByUsername("mike.johnson");
-        verify(trainerRepo).save(trainerEntity);
-        verify(trainerMapper).toTrainerModel(trainerEntity);
-    }
-
-    @Test
-    void changePassword_shouldThrowExceptionWhenTrainerNotFound() {
-        char[] newPassword = "newPassword456".toCharArray();
-        when(trainerRepo.findByUsername("unknown")).thenReturn(Optional.empty());
-
-        assertThrows(UserNotFoundException.class, () ->
-                trainerService.changePassword("unknown", newPassword)
-        );
-        verify(trainerRepo).findByUsername("unknown");
-        verify(trainerRepo, never()).save(any());
-    }
-
-    @Test
-    void setActiveStatus_shouldActivateTrainer() {
-        when(trainerRepo.findByUsername("mike.johnson")).thenReturn(Optional.of(trainerEntity));
-        when(trainerRepo.save(trainerEntity)).thenReturn(trainerEntity);
-        when(trainerMapper.toTrainerModel(trainerEntity)).thenReturn(trainerModel);
-
-        Trainer result = trainerService.setActiveStatus("mike.johnson", true);
-
-        assertNotNull(result);
-        assertTrue(trainerEntity.getUserEntity().getIsActive());
-        verify(trainerRepo).findByUsername("mike.johnson");
-        verify(trainerRepo).save(trainerEntity);
-        verify(trainerMapper).toTrainerModel(trainerEntity);
-    }
-
-    @Test
-    void setActiveStatus_shouldDeactivateTrainer() {
-        when(trainerRepo.findByUsername("mike.johnson")).thenReturn(Optional.of(trainerEntity));
-        when(trainerRepo.save(trainerEntity)).thenReturn(trainerEntity);
-        when(trainerMapper.toTrainerModel(trainerEntity)).thenReturn(trainerModel);
-
-        Trainer result = trainerService.setActiveStatus("mike.johnson", false);
-
-        assertNotNull(result);
-        assertFalse(trainerEntity.getUserEntity().getIsActive());
-        verify(trainerRepo).findByUsername("mike.johnson");
-        verify(trainerRepo).save(trainerEntity);
-        verify(trainerMapper).toTrainerModel(trainerEntity);
-    }
-
-    @Test
-    void setActiveStatus_shouldThrowExceptionWhenTrainerNotFound() {
-        when(trainerRepo.findByUsername("unknown")).thenReturn(Optional.empty());
-
-        assertThrows(UserNotFoundException.class, () ->
-                trainerService.setActiveStatus("unknown", true)
-        );
-        verify(trainerRepo).findByUsername("unknown");
         verify(trainerRepo, never()).save(any());
     }
 

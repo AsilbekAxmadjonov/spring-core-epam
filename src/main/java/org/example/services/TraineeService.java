@@ -8,17 +8,11 @@ import java.util.Optional;
 public interface TraineeService {
     Trainee createTrainee(Trainee trainee);
 
-    Optional<Trainee> getTraineeByUsername(String username);
+    Optional<Trainee> getTraineeByUsername(String username, char[] password);
 
-    Trainee updateTrainee(String username, Trainee trainee);
+    Trainee updateTrainee(String username, char[] password, Trainee trainee);
 
-    void deleteTraineeByUsername(String username);
-
-    boolean passwordMatches(String username, char[] password);
-
-    Trainee changePassword(String username, char[] newPassword);
-
-    Trainee setActiveStatus(String username, boolean active);
+    void deleteTraineeByUsername(String username, char[] password);
 
     List<Trainee> getAllTrainees();
 

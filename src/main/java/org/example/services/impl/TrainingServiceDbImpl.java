@@ -1,5 +1,6 @@
 package org.example.services.impl;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.entity.TraineeEntity;
@@ -15,6 +16,7 @@ import org.example.services.TrainingService;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.annotation.Validated;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -22,6 +24,7 @@ import java.util.List;
 @Slf4j
 @Service
 @Primary
+@Validated
 @RequiredArgsConstructor
 @Transactional
 public class TrainingServiceDbImpl implements TrainingService {
@@ -78,7 +81,7 @@ public class TrainingServiceDbImpl implements TrainingService {
     }
 
     @Override
-    public Training addTraining(Training training) {
+    public Training addTraining(@Valid Training training) {
         log.debug("Starting training creation: trainee={}, trainer={}, name={}",
                 training.getTraineeUsername(),
                 training.getTrainerUsername(),
@@ -106,7 +109,7 @@ public class TrainingServiceDbImpl implements TrainingService {
     }
 
     @Override
-    public void createTraining(Training training) {
+    public void createTraining(@Valid Training training) {
         log.debug("Delegating createTraining to addTraining()");
         addTraining(training);
     }

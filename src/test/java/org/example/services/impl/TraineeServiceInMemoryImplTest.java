@@ -2,6 +2,7 @@ package org.example.services.impl;
 
 import org.example.dao.TraineeDao;
 import org.example.model.Trainee;
+import org.example.services.AuthenticationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,13 +15,19 @@ import static org.mockito.Mockito.*;
 class TraineeServiceInMemoryImplTest {
 
     private TraineeDao traineeDao;
+    private AuthenticationService authenticationService;
     private TraineeServiceInMemoryImpl traineeService;
+
+    private final char[] dummyPassword = "dummyPass".toCharArray();
 
     @BeforeEach
     void setUp() {
         traineeDao = mock(TraineeDao.class);
+        authenticationService = mock(AuthenticationService.class);
+
         traineeService = new TraineeServiceInMemoryImpl();
         traineeService.setTraineeDao(traineeDao);
+        traineeService.setAuthenticationService(authenticationService);
     }
 
     @Test
@@ -35,16 +42,31 @@ class TraineeServiceInMemoryImplTest {
     }
 
     @Test
-    void testGetTraineeByUsername() {
+    void testGetTraineeByUsername_Found() {
         Trainee trainee = new Trainee();
         trainee.setUsername("john");
 
         when(traineeDao.findByUsername("john")).thenReturn(trainee);
 
-        Optional<Trainee> found = traineeService.getTraineeByUsername("john");
+        Optional<Trainee> found = traineeService.getTraineeByUsername("john", dummyPassword);
 
         assertTrue(found.isPresent());
         assertEquals("john", found.get().getUsername());
+
+        verify(authenticationService).authenticate("john", dummyPassword);
+        verify(traineeDao).findByUsername("john");
+    }
+
+    @Test
+    void testGetTraineeByUsername_NotFound() {
+        when(traineeDao.findByUsername("unknown")).thenReturn(null);
+
+        Optional<Trainee> found = traineeService.getTraineeByUsername("unknown", dummyPassword);
+
+        assertFalse(found.isPresent());
+
+        verify(authenticationService).authenticate("unknown", dummyPassword);
+        verify(traineeDao).findByUsername("unknown");
     }
 
     @Test
@@ -52,21 +74,23 @@ class TraineeServiceInMemoryImplTest {
         Trainee updated = new Trainee();
         updated.setUsername("john");
 
-        Trainee result = traineeService.updateTrainee("john", updated);
+        Trainee result = traineeService.updateTrainee("john", dummyPassword, updated);
 
+        verify(authenticationService).authenticate("john", dummyPassword);
         verify(traineeDao).update(updated);
         assertEquals("john", result.getUsername());
     }
 
     @Test
-    void testDeleteTraineeByUsername() {
+    void testDeleteTraineeByUsername_Found() {
         Trainee trainee = new Trainee();
         trainee.setUsername("john");
 
         when(traineeDao.findByUsername("john")).thenReturn(trainee);
 
-        traineeService.deleteTraineeByUsername("john");
+        traineeService.deleteTraineeByUsername("john", dummyPassword);
 
+        verify(authenticationService).authenticate("john", dummyPassword);
         verify(traineeDao).delete(trainee);
     }
 
@@ -74,57 +98,10 @@ class TraineeServiceInMemoryImplTest {
     void testDeleteTraineeByUsername_NotFound() {
         when(traineeDao.findByUsername("unknown")).thenReturn(null);
 
-        traineeService.deleteTraineeByUsername("unknown");
+        traineeService.deleteTraineeByUsername("unknown", dummyPassword);
 
+        verify(authenticationService).authenticate("unknown", dummyPassword);
         verify(traineeDao, never()).delete(any());
-    }
-
-    @Test
-    void testPasswordMatches_Correct() {
-        Trainee trainee = new Trainee();
-        trainee.setPassword("123".toCharArray());
-
-        when(traineeDao.findByUsername("john")).thenReturn(trainee);
-
-        assertTrue(traineeService.passwordMatches("john", "123".toCharArray()));
-    }
-
-    @Test
-    void testPasswordMatches_Incorrect() {
-        Trainee trainee = new Trainee();
-        trainee.setPassword("123".toCharArray());
-
-        when(traineeDao.findByUsername("john")).thenReturn(trainee);
-
-        assertFalse(traineeService.passwordMatches("john", "999".toCharArray()));
-    }
-
-    @Test
-    void testChangePassword() {
-        Trainee trainee = new Trainee();
-        trainee.setUsername("john");
-
-        when(traineeDao.findByUsername("john")).thenReturn(trainee);
-
-        char[] newPass = "newpass".toCharArray();
-
-        Trainee result = traineeService.changePassword("john", newPass);
-
-        assertArrayEquals(newPass, result.getPassword());
-        verify(traineeDao).update(trainee);
-    }
-
-    @Test
-    void testSetActiveStatus() {
-        Trainee trainee = new Trainee();
-        trainee.setUsername("john");
-
-        when(traineeDao.findByUsername("john")).thenReturn(trainee);
-
-        Trainee result = traineeService.setActiveStatus("john", true);
-
-        assertTrue(result.isActive());
-        verify(traineeDao).update(trainee);
     }
 
     @Test
@@ -137,5 +114,6 @@ class TraineeServiceInMemoryImplTest {
         List<Trainee> list = traineeService.getAllTrainees();
 
         assertEquals(2, list.size());
+        verify(traineeDao).findAll();
     }
 }

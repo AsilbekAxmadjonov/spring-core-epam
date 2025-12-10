@@ -9,15 +9,9 @@ public interface TrainerService {
 
     Trainer createTrainer(Trainer trainer);
 
-    Optional<Trainer> getTrainerByUsername(String username);
+    Optional<Trainer> getTrainerByUsername(String username, char[] password);
 
-    Trainer updateTrainer(String username, Trainer trainer);
-
-    boolean passwordMatches(String username, char[] password);
-
-    Trainer changePassword(String username, char[] newPassword);
-
-    Trainer setActiveStatus(String username, boolean active);
+    Trainer updateTrainer(String username, char[] password, Trainer updatedTrainer);
 
     List<Trainer> getAllTrainers();
 }

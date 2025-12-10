@@ -5,10 +5,9 @@ import org.example.exception.UserNotFoundException;
 import org.example.mapper.UserMapper;
 import org.example.model.User;
 import org.example.repository.UserRepo;
-import org.example.services.UserService;
+import org.example.services.AuthenticationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
@@ -17,19 +16,22 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-class UserServiceImplTest {
+class UserServiceDbImplTest {
 
     private UserRepo userRepo;
     private UserMapper userMapper;
     private PasswordEncoder passwordEncoder;
-    private UserService service;
+    private AuthenticationService authenticationService;
+    private UserServiceDbImpl service;
 
     @BeforeEach
     void setUp() {
         userRepo = mock(UserRepo.class);
         userMapper = mock(UserMapper.class);
         passwordEncoder = mock(PasswordEncoder.class);
-        service = new UserServiceDbImpl(userRepo, userMapper, passwordEncoder);
+        authenticationService = mock(AuthenticationService.class);
+
+        service = new UserServiceDbImpl(userRepo, userMapper, passwordEncoder, authenticationService);
     }
 
     @Test
@@ -40,9 +42,11 @@ class UserServiceImplTest {
         when(userRepo.findByUsername("john")).thenReturn(Optional.of(entity));
         when(userMapper.toModel(entity)).thenReturn(model);
 
-        User result = service.getByUsername("john");
+        // authenticate is void; no need to doNothing()
+        User result = service.getByUsername("john", "password".toCharArray());
 
         assertNotNull(result);
+        verify(authenticationService).authenticate("john", "password".toCharArray());
         verify(userRepo).findByUsername("john");
         verify(userMapper).toModel(entity);
     }
@@ -52,8 +56,10 @@ class UserServiceImplTest {
         when(userRepo.findByUsername("unknown")).thenReturn(Optional.empty());
 
         assertThrows(UserNotFoundException.class,
-                () -> service.getByUsername("unknown")
+                () -> service.getByUsername("unknown", "pass".toCharArray())
         );
+        verify(authenticationService).authenticate("unknown", "pass".toCharArray());
+        verify(userRepo).findByUsername("unknown");
     }
 
     @Test
@@ -69,7 +75,6 @@ class UserServiceImplTest {
         UserEntity entity = new UserEntity();
         UserEntity savedEntity = new UserEntity();
 
-        // Use anyString() to match any password input
         when(passwordEncoder.encode(anyString())).thenReturn("hashedPassword");
         when(userMapper.toEntity(model)).thenReturn(entity);
         when(userRepo.save(entity)).thenReturn(savedEntity);
@@ -84,13 +89,35 @@ class UserServiceImplTest {
     }
 
     @Test
+    void testUpdateUserSuccess() {
+        UserEntity entity = new UserEntity();
+        User updatedModel = new User();
+        updatedModel.setPassword("newPass".toCharArray());
+
+        when(userRepo.findByUsername("john")).thenReturn(Optional.of(entity));
+        when(userRepo.save(entity)).thenReturn(entity);
+        when(userMapper.toModel(entity)).thenReturn(updatedModel);
+        when(passwordEncoder.encode(anyString())).thenReturn("hashedNewPass");
+
+        User result = service.updateUser("john", "oldPass".toCharArray(), updatedModel);
+
+        assertNotNull(result);
+        verify(authenticationService).authenticate("john", "oldPass".toCharArray());
+        verify(userRepo).findByUsername("john");
+        verify(userMapper).updateEntityFromModel(updatedModel, entity);
+        verify(userRepo).save(entity);
+    }
+
+    @Test
     void testUpdateUserNotFound() {
         User updated = new User();
         when(userRepo.findByUsername("unknown")).thenReturn(Optional.empty());
 
         assertThrows(UserNotFoundException.class,
-                () -> service.updateUser("unknown", updated)
+                () -> service.updateUser("unknown", "pass".toCharArray(), updated)
         );
+        verify(authenticationService).authenticate("unknown", "pass".toCharArray());
+        verify(userRepo).findByUsername("unknown");
     }
 
     @Test
@@ -98,8 +125,9 @@ class UserServiceImplTest {
         UserEntity entity = new UserEntity();
         when(userRepo.findByUsername("john")).thenReturn(Optional.of(entity));
 
-        service.deleteByUsername("john");
+        service.deleteByUsername("john", "pass".toCharArray());
 
+        verify(authenticationService).authenticate("john", "pass".toCharArray());
         verify(userRepo).delete(entity);
     }
 
@@ -108,8 +136,10 @@ class UserServiceImplTest {
         when(userRepo.findByUsername("unknown")).thenReturn(Optional.empty());
 
         assertThrows(UserNotFoundException.class,
-                () -> service.deleteByUsername("unknown")
+                () -> service.deleteByUsername("unknown", "pass".toCharArray())
         );
+        verify(authenticationService).authenticate("unknown", "pass".toCharArray());
+        verify(userRepo).findByUsername("unknown");
     }
 
     @Test
@@ -128,7 +158,7 @@ class UserServiceImplTest {
     }
 
     @Test
-    void testChangeUserActiveStatus() {
+    void testChangeUserActiveStatusSuccess() {
         UserEntity entity = new UserEntity();
         entity.setIsActive(false);
 
@@ -138,10 +168,11 @@ class UserServiceImplTest {
         when(userRepo.save(entity)).thenReturn(entity);
         when(userMapper.toModel(entity)).thenReturn(model);
 
-        User result = service.changeUserActiveStatus("john", true);
+        User result = service.changeUserActiveStatus("john", "pass".toCharArray(), true);
 
         assertNotNull(result);
         assertTrue(entity.getIsActive());
+        verify(authenticationService).authenticate("john", "pass".toCharArray());
         verify(userRepo).save(entity);
     }
 
@@ -150,44 +181,9 @@ class UserServiceImplTest {
         when(userRepo.findByUsername("unknown")).thenReturn(Optional.empty());
 
         assertThrows(UserNotFoundException.class,
-                () -> service.changeUserActiveStatus("unknown", true)
+                () -> service.changeUserActiveStatus("unknown", "pass".toCharArray(), true)
         );
-    }
-
-    @Test
-    void testAuthenticateSuccess() {
-        UserEntity entity = new UserEntity();
-        entity.setPassword("hashedPassword".toCharArray());
-
-        User model = new User();
-
-        when(userRepo.findByUsername("john")).thenReturn(Optional.of(entity));
-        when(passwordEncoder.matches("password123", "hashedPassword")).thenReturn(true);
-        when(userMapper.toModel(entity)).thenReturn(model);
-
-        User result = service.authenticate("john", "password123".toCharArray());
-
-        assertNotNull(result);
-        verify(passwordEncoder).matches("password123", "hashedPassword");
-    }
-
-    @Test
-    void testAuthenticateFail() {
-        UserEntity entity = new UserEntity();
-        entity.setPassword("hashedPassword".toCharArray());
-
-        when(userRepo.findByUsername("john")).thenReturn(Optional.of(entity));
-        when(passwordEncoder.matches("wrongPass", "hashedPassword")).thenReturn(false);
-
-        assertThrows(BadCredentialsException.class,
-                () -> service.authenticate("john", "wrongPass".toCharArray()));
-    }
-
-    @Test
-    void testAuthenticateNotFound() {
-        when(userRepo.findByUsername("unknown")).thenReturn(Optional.empty());
-
-        assertThrows(UserNotFoundException.class,
-                () -> service.authenticate("unknown", "anyPass".toCharArray()));
+        verify(authenticationService).authenticate("unknown", "pass".toCharArray());
+        verify(userRepo).findByUsername("unknown");
     }
 }
