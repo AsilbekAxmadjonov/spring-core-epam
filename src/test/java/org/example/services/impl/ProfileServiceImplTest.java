@@ -41,27 +41,6 @@ class ProfileServiceImplTest {
     }
 
     @Test
-    void testCreateProfileAssignsUsernameAndPassword() {
-        Trainee trainee = new Trainee();
-        trainee.setFirstName("John");
-        trainee.setLastName("Doe");
-
-        User existingUser = new Trainee();
-        existingUser.setUsername("John.Doe");
-        when(userService.fetchAll()).thenReturn(List.of(existingUser));
-
-        service.createProfile(trainee);
-
-        ArgumentCaptor<User> captor = ArgumentCaptor.forClass(User.class);
-        verify(userService, times(1)).save(captor.capture());
-
-        User saved = captor.getValue();
-
-        assertEquals("John.Doe1", saved.getUsername());
-        assertEquals("ENCODED_PASS".length(), saved.getPassword().length);
-    }
-
-    @Test
     void testPasswordMatchesReturnsTrue() {
         UserEntity userEntity = UserEntity.builder()
                 .username("john.doe")

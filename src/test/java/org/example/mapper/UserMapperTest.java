@@ -39,7 +39,7 @@ class UserMapperTest {
         assertEquals("Doe", result.getLastName());
         assertEquals("john.doe", result.getUsername());
         assertArrayEquals("password123".toCharArray(), result.getPassword());
-        assertTrue(result.isActive());
+        assertTrue(result.getIsActive());
     }
 
     @Test
@@ -63,7 +63,7 @@ class UserMapperTest {
         User result = userMapper.toModel(entity);
 
         assertNotNull(result);
-        assertFalse(result.isActive());
+        assertFalse(result.getIsActive());
     }
 
     @Test
@@ -148,13 +148,13 @@ class UserMapperTest {
         assertEquals(3, result.size());
 
         assertEquals("user1", result.get(0).getUsername());
-        assertTrue(result.get(0).isActive());
+        assertTrue(result.get(0).getIsActive());
 
         assertEquals("user2", result.get(1).getUsername());
-        assertFalse(result.get(1).isActive());
+        assertFalse(result.get(1).getIsActive());
 
         assertEquals("user3", result.get(2).getUsername());
-        assertTrue(result.get(2).isActive());
+        assertTrue(result.get(2).getIsActive());
     }
 
     @Test
@@ -231,7 +231,7 @@ class UserMapperTest {
         assertEquals(originalModel.getLastName(), modelAgain.getLastName());
         assertEquals(originalModel.getUsername(), modelAgain.getUsername());
         assertArrayEquals(originalModel.getPassword(), modelAgain.getPassword());
-        assertEquals(originalModel.isActive(), modelAgain.isActive());
+        assertEquals(originalModel.getIsActive(), modelAgain.getIsActive());
     }
 
     @Test
@@ -293,8 +293,8 @@ class UserMapperTest {
         User activeModel = userMapper.toModel(activeEntity);
         User inactiveModel = userMapper.toModel(inactiveEntity);
 
-        assertTrue(activeModel.isActive());
-        assertFalse(inactiveModel.isActive());
+        assertTrue(activeModel.getIsActive());
+        assertFalse(inactiveModel.getIsActive());
     }
 
     @Test
@@ -333,7 +333,7 @@ class UserMapperTest {
         assertEquals("complete.test", model.getUsername());
         assertNotNull(model.getPassword());
         assertArrayEquals("completePassword".toCharArray(), model.getPassword());
-        assertTrue(model.isActive());
+        assertTrue(model.getIsActive());
     }
 
     @Test
