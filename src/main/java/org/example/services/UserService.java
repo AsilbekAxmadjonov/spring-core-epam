@@ -6,19 +6,15 @@ import java.util.List;
 
 public interface UserService {
 
-    User getByUsername(String username, char[] password);
-
     User getByUsername(String username);
 
     User createUser(User user);
 
-    User updateUser(String username, char[] password, User updatedUser);
+    User updateUser(String username, User updatedUser);
 
-    void deleteByUsername(String username, char[] password);
+    void deleteByUsername(String username);
 
     List<User> fetchAll();
-
-    User changeUserActiveStatus(String username, char[] password, boolean isActive);
 
     void save(User user);
 }

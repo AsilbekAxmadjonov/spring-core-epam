@@ -1,4 +1,4 @@
-package org.example.services.impl;
+package org.example.services.impl.dbImpl;
 
 import org.example.entity.TrainerEntity;
 import org.example.entity.TrainingTypeEntity;

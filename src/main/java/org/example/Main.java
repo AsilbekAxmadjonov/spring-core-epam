@@ -13,11 +13,13 @@ public class Main {
     public static void main(String[] args) {
         log.info("Application starting...");
 
-        try (AnnotationConfigApplicationContext context =
-                     new AnnotationConfigApplicationContext(AppConfig.class)) {
+        AnnotationConfigApplicationContext context =
+                new AnnotationConfigApplicationContext(AppConfig.class);
+        try {
 
             GymFacade facade = context.getBean(GymFacade.class);
 
+            facade.showAllTrainingTypes();
             facade.createTrainerProfile("John", "Doe", "Strength");
             facade.createTraineeProfile("Ali", "Aliyev", LocalDate.of(2005, 6, 18), "Tashkent");
             facade.showAllTrainers();

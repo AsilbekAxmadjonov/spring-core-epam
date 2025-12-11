@@ -7,12 +7,15 @@ import org.example.exception.UserNotFoundException;
 import org.example.mapper.UserMapper;
 import org.example.model.User;
 import org.example.repository.UserRepo;
+import org.example.security.AuthenticationContext;
 import org.example.services.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
+
+import javax.naming.AuthenticationException;
 
 @Slf4j
 @Service
@@ -31,15 +34,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         UserEntity entity = userRepo.findByUsername(username)
                 .orElseThrow(() -> new UserNotFoundException("User not found: " + username));
 
-        boolean matches = passwordEncoder.matches(
-                new String(rawPassword),
-                new String(entity.getPassword())
-        );
-
-        if (!matches) {
-            log.debug("Authentication failed: {}", username);
-            throw new BadCredentialsException("Invalid username or password");
+        if (!passwordEncoder.matches(new String(rawPassword), new String(entity.getPassword()))) {
+            throw new UserNotFoundException("Invalid username or password");
         }
+
+        AuthenticationContext.setAuthenticatedUser(username);
 
         log.info("Authentication successful: {}", username);
         return userMapper.toModel(entity);

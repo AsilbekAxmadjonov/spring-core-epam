@@ -7,7 +7,7 @@ import org.example.entity.UserEntity;
 import org.example.exception.UserNotFoundException;
 import org.example.model.User;
 import org.example.repository.UserRepo;
-import org.example.services.AuthenticationService;
+import org.example.security.AuthenticationContext;
 import org.example.services.ProfileService;
 import org.example.services.UserService;
 import org.example.util.ProfileGenerator;
@@ -27,7 +27,6 @@ public class ProfileServiceImpl implements ProfileService {
     private final UserService userService;
     private final UserRepo userRepo;
     private final PasswordEncoder passwordEncoder;
-    private final AuthenticationService authenticationService;
 
 
     @Override
@@ -70,9 +69,13 @@ public class ProfileServiceImpl implements ProfileService {
 
     @Override
     @Transactional
-    public void changePassword(String username,char[] oldPassword, char[] newPassword) {
+    public void changePassword(String username, char[] newPassword) {
 
-        authenticationService.authenticate(username, oldPassword);
+        String authenticated = AuthenticationContext.getAuthenticatedUser();
+
+        if (authenticated == null || !authenticated.equals(username)) {
+            throw new SecurityException("User not authenticated");
+        }
 
         log.debug("Changing password for {}", username);
 
@@ -90,26 +93,26 @@ public class ProfileServiceImpl implements ProfileService {
 
     @Override
     @Transactional
-    public void setActiveStatus(String username,char[] password, boolean active) {
+    public boolean toggleUserActiveStatus(String username) {
 
-        authenticationService.authenticate(username, password);
+        String authenticated = AuthenticationContext.getAuthenticatedUser();
 
-        log.debug("Setting active status for {} -> {}", username, active);
+        if (authenticated == null || !authenticated.equals(username)) {
+            throw new SecurityException("User not authenticated");
+        }
+
+        log.debug("Toggling active status for {}", username);
 
         UserEntity user = userRepo.findByUsername(username)
                 .orElseThrow(() -> new UserNotFoundException("User not found: " + username));
 
-        if (user.getIsActive() == active) {
-            throw new IllegalStateException(
-                    String.format("User %s is already %s",
-                            username,
-                            active ? "active" : "inactive")
-            );
-        }
+        boolean newStatus = !user.getIsActive();
+        user.setIsActive(newStatus);
 
-        user.setIsActive(active);
         userRepo.save(user);
 
-        log.info("Active status updated for {}", username);
+        log.info("Active status toggled for {} -> {}", username, newStatus);
+
+        return newStatus;
     }
 }

@@ -1,21 +1,22 @@
-package org.example.services.impl;
+package org.example.services.impl.dbImpl;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.entity.TraineeEntity;
+import org.example.entity.UserEntity;
 import org.example.exception.UserNotFoundException;
 import org.example.mapper.TraineeMapper;
 import org.example.model.Trainee;
 import org.example.repository.TraineeRepo;
-import org.example.services.AuthenticationService;
+import org.example.repository.UserRepo;
+import org.example.security.AuthenticationContext;
 import org.example.services.TraineeService;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,22 +30,35 @@ public class TraineeServiceDbImpl implements TraineeService {
 
     private final TraineeRepo traineeRepo;
     private final TraineeMapper traineeMapper;
-    private final AuthenticationService authenticationService;
+    private final UserRepo userRepo;  // Add UserRepo dependency
 
     @Override
     public Trainee createTrainee(@Valid Trainee traineeModel) {
         log.debug("Starting creation of trainee: {}", traineeModel.getUsername());
 
-        TraineeEntity traineeEntity = traineeMapper.toTraineeEntity(traineeModel);
-        traineeRepo.save(traineeEntity);
+        UserEntity userEntity = userRepo.findByUsername(traineeModel.getUsername())
+                .orElseThrow(() -> new UserNotFoundException(
+                        "User not found with username: " + traineeModel.getUsername()));
 
+        TraineeEntity traineeEntity = new TraineeEntity();
+        traineeEntity.setUserEntity(userEntity);
+        traineeEntity.setDateOfBirth(traineeModel.getDateOfBirth());
+        traineeEntity.setAddress(traineeModel.getAddress());
+
+        TraineeEntity savedTrainee = traineeRepo.save(traineeEntity);
         log.info("Trainee created successfully: {}", traineeModel.getUsername());
-        return traineeMapper.toTraineeModel(traineeEntity);
+
+        return traineeMapper.toTraineeModel(savedTrainee);
     }
 
     @Override
-    public Optional<Trainee> getTraineeByUsername(String username, char[] password) {
-        authenticationService.authenticate(username, password);
+    @Transactional(readOnly = true)
+    public Optional<Trainee> getTraineeByUsername(String username) {
+        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
+
+        if (authenticatedUser == null || !authenticatedUser.equals(username)) {
+            throw new SecurityException("Trainee not authenticated");
+        }
 
         log.debug("Fetching trainee by username: {}", username);
 
@@ -56,8 +70,12 @@ public class TraineeServiceDbImpl implements TraineeService {
     }
 
     @Override
-    public Trainee updateTrainee(String username, char[] password, Trainee updatedTrainee) {
-        authenticationService.authenticate(username, password);
+    public Trainee updateTrainee(String username, Trainee updatedTrainee) {
+        String authenticated = AuthenticationContext.getAuthenticatedUser();
+
+        if (authenticated == null || !authenticated.equals(username)) {
+            throw new SecurityException("User not authenticated");
+        }
 
         log.debug("Starting update for trainee: {}", username);
 
@@ -76,8 +94,13 @@ public class TraineeServiceDbImpl implements TraineeService {
 
     @Override
     @Transactional
-    public void deleteTraineeByUsername(String username, char[] password) {
-        authenticationService.authenticate(username, password);
+    public void deleteTraineeByUsername(String username) {
+
+        String authenticated = AuthenticationContext.getAuthenticatedUser();
+
+        if (authenticated == null || !authenticated.equals(username)) {
+            throw new SecurityException("User not authenticated");
+        }
 
         log.debug("Attempting to delete trainee: {}", username);
 
@@ -91,6 +114,7 @@ public class TraineeServiceDbImpl implements TraineeService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Trainee> getAllTrainees() {
         log.debug("Fetching all trainees");
 

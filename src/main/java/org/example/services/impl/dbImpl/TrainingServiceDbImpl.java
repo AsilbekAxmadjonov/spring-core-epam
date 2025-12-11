@@ -1,4 +1,4 @@
-package org.example.services.impl;
+package org.example.services.impl.dbImpl;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -35,6 +35,7 @@ public class TrainingServiceDbImpl implements TrainingService {
     private final TrainingMapper trainingMapper;
 
     @Override
+    @Transactional(readOnly = true)
     public List<Training> getTraineeTrainings(
             String traineeUsername,
             LocalDate fromDate,
@@ -59,6 +60,7 @@ public class TrainingServiceDbImpl implements TrainingService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Training> getTrainerTrainings(
             String trainerUsername,
             LocalDate fromDate,
@@ -115,6 +117,7 @@ public class TrainingServiceDbImpl implements TrainingService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Training getTraining(String name) {
         log.debug("Fetching training by name: {}", name);
 

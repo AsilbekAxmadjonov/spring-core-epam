@@ -1,4 +1,4 @@
-package org.example.services.impl;
+package org.example.services.impl.inMemoryImpl;
 
 import org.example.dao.GenericDao;
 import org.example.exception.UnsupportedDataAccessObjectException;
@@ -24,7 +24,6 @@ class UserServiceInMemoryImplTest {
         authenticationServiceMock = mock(AuthenticationService.class);
         when(userDaoMock.getEntityClass()).thenReturn(User.class);
         userService = new UserServiceInMemoryImpl(List.of(userDaoMock));
-        userService.setAuthenticationService(authenticationServiceMock);
     }
 
     @Test
@@ -41,7 +40,6 @@ class UserServiceInMemoryImplTest {
     @Test
     void testCreateUserNoDao() {
         UserServiceInMemoryImpl serviceWithoutDao = new UserServiceInMemoryImpl(List.of());
-        serviceWithoutDao.setAuthenticationService(authenticationServiceMock);
         User user = new User();
 
         assertThrows(UnsupportedDataAccessObjectException.class, () -> serviceWithoutDao.createUser(user));
@@ -61,26 +59,16 @@ class UserServiceInMemoryImplTest {
     }
 
     @Test
-    void testGetByUsernameThrowsUnsupported() {
-        assertThrows(UnsupportedOperationException.class, () -> userService.getByUsername("john"));
-        assertThrows(UnsupportedOperationException.class, () -> userService.getByUsername("john", "pass".toCharArray()));
-    }
-
-    @Test
     void testUpdateUserThrowsUnsupported() {
         User user = new User();
-        assertThrows(UnsupportedOperationException.class, () -> userService.updateUser("john", "pass".toCharArray(), user));
+        assertThrows(UnsupportedOperationException.class, () -> userService.updateUser("john", user));
     }
 
     @Test
     void testDeleteByUsernameThrowsUnsupported() {
-        assertThrows(UnsupportedOperationException.class, () -> userService.deleteByUsername("john", "pass".toCharArray()));
+        assertThrows(UnsupportedOperationException.class, () -> userService.deleteByUsername("john"));
     }
 
-    @Test
-    void testChangeUserActiveStatusThrowsUnsupported() {
-        assertThrows(UnsupportedOperationException.class, () -> userService.changeUserActiveStatus("john", "pass".toCharArray(), true));
-    }
 
     @Test
     void testAuthenticationCalledOnCreateAndUpdateMethods() {

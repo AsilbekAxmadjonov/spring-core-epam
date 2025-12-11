@@ -1,4 +1,4 @@
-package org.example.services.impl;
+package org.example.services.impl.inMemoryImpl;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;

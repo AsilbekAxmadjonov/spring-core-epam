@@ -1,10 +1,10 @@
-package org.example.services.impl;
+package org.example.services.impl.inMemoryImpl;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.example.dao.TraineeDao;
 import org.example.model.Trainee;
-import org.example.services.AuthenticationService;
+import org.example.security.AuthenticationContext;
 import org.example.services.TraineeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,16 +19,10 @@ import java.util.Optional;
 public class TraineeServiceInMemoryImpl implements TraineeService {
 
     private TraineeDao traineeDao;
-    private AuthenticationService authenticationService; // ADD THIS
 
     @Autowired
     public void setTraineeDao(TraineeDao traineeDao) {
         this.traineeDao = traineeDao;
-    }
-
-    @Autowired
-    public void setAuthenticationService(AuthenticationService authenticationService) {
-        this.authenticationService = authenticationService;
     }
 
     @Override
@@ -42,8 +36,12 @@ public class TraineeServiceInMemoryImpl implements TraineeService {
     }
 
     @Override
-    public Optional<Trainee> getTraineeByUsername(String username, char[] password) {
-        authenticationService.authenticate(username, password);
+    public Optional<Trainee> getTraineeByUsername(String username) {
+        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
+
+        if (authenticatedUser == null || !authenticatedUser.equals(username)) {
+            throw new SecurityException("User not authenticated");
+        }
 
         log.debug("Fetching Trainee by username: {}", username);
 
@@ -59,8 +57,12 @@ public class TraineeServiceInMemoryImpl implements TraineeService {
     }
 
     @Override
-    public Trainee updateTrainee(String username, char[] password, @Valid Trainee updatedTrainee) {
-        authenticationService.authenticate(username, password);
+    public Trainee updateTrainee(String username, @Valid Trainee updatedTrainee) {
+        String authenticated = AuthenticationContext.getAuthenticatedUser();
+
+        if (authenticated == null || !authenticated.equals(username)) {
+            throw new SecurityException("User not authenticated");
+        }
 
         log.debug("Starting update for Trainee: {}", username);
 
@@ -71,8 +73,12 @@ public class TraineeServiceInMemoryImpl implements TraineeService {
     }
 
     @Override
-    public void deleteTraineeByUsername(String username, char[] password) {
-        authenticationService.authenticate(username, password);
+    public void deleteTraineeByUsername(String username) {
+        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
+
+        if (authenticatedUser == null || !authenticatedUser.equals(username)) {
+            throw new SecurityException("User not authenticated");
+        }
 
         log.debug("Attempting to delete Trainee: {}", username);
 

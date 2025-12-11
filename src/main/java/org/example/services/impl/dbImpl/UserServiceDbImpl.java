@@ -1,19 +1,15 @@
-package org.example.services.impl;
+package org.example.services.impl.dbImpl;
 
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.entity.UserEntity;
 import org.example.exception.UserNotFoundException;
 import org.example.mapper.UserMapper;
 import org.example.model.User;
 import org.example.repository.UserRepo;
-import org.example.services.AuthenticationService;
+import org.example.security.AuthenticationContext;
 import org.example.services.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Primary;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -32,36 +28,26 @@ public class UserServiceDbImpl implements UserService {
     private final UserRepo userRepo;
     private final UserMapper userMapper;
     private final PasswordEncoder passwordEncoder;
-    private final AuthenticationService authenticationService;
 
     public UserServiceDbImpl(
             UserRepo userRepo,
             UserMapper userMapper,
-            PasswordEncoder passwordEncoder,
-            @Lazy AuthenticationService authenticationService) {
+            PasswordEncoder passwordEncoder) {
         this.userRepo = userRepo;
         this.userMapper = userMapper;
         this.passwordEncoder = passwordEncoder;
-        this.authenticationService = authenticationService;
-    }
-
-
-    @Override
-    public User getByUsername(String username, char[] password) {
-        authenticationService.authenticate(username, password);
-
-        log.debug("Fetching user by username: {}", username);
-
-        UserEntity entity = userRepo.findByUsername(username)
-                .orElseThrow(() -> new UserNotFoundException("User not found: " + username));
-
-        log.info("User fetched: {}", username);
-        return userMapper.toModel(entity);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public User getByUsername(String username) {
         log.debug("Fetching user by username (no auth): {}", username);
+
+        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
+
+        if (authenticatedUser == null || !authenticatedUser.equals(username)) {
+            throw new SecurityException("User not authenticated");
+        }
 
         UserEntity entity = userRepo.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
@@ -84,8 +70,7 @@ public class UserServiceDbImpl implements UserService {
     }
 
     @Override
-    public User updateUser(String username, char[] password, @Valid User updatedUser) {
-        authenticationService.authenticate(username, password);
+    public User updateUser(String username, @Valid User updatedUser) {
 
         log.debug("Updating user with username: {}", username);
 
@@ -94,17 +79,27 @@ public class UserServiceDbImpl implements UserService {
 
         userMapper.updateEntityFromModel(updatedUser, entity);
 
-        entity.setPassword(passwordEncoder.encode(new String(updatedUser.getPassword())).toCharArray());
+        if (updatedUser.getPassword() != null && updatedUser.getPassword().length > 0) {
+            entity.setPassword(
+                    passwordEncoder.encode(new String(updatedUser.getPassword())).toCharArray()
+            );
+        }
 
         UserEntity saved = userRepo.save(entity);
 
         log.info("User updated: {}", username);
+
         return userMapper.toModel(saved);
     }
 
+
     @Override
-    public void deleteByUsername(String username, char[] password) {
-        authenticationService.authenticate(username, password);
+    public void deleteByUsername(String username) {
+        String authenticated = AuthenticationContext.getAuthenticatedUser();
+
+        if (authenticated == null || !authenticated.equals(username)) {
+            throw new SecurityException("User not authenticated");
+        }
 
         log.debug("Deleting user with username: {}", username);
 
@@ -124,23 +119,6 @@ public class UserServiceDbImpl implements UserService {
 
         log.info("Fetched {} users", entities.size());
         return userMapper.toModels(entities);
-    }
-
-    @Override
-    public User changeUserActiveStatus(String username, char[] password, boolean isActive) {
-        authenticationService.authenticate(username, password);
-
-        log.debug("Changing active status of {} to {}", username, isActive);
-
-        UserEntity entity = userRepo.findByUsername(username)
-                .orElseThrow(() -> new UserNotFoundException("User not found: " + username));
-
-        entity.setIsActive(isActive);
-
-        UserEntity saved = userRepo.save(entity);
-
-        log.info("Active status changed for {} to {}", username, isActive);
-        return userMapper.toModel(saved);
     }
 
     @Override

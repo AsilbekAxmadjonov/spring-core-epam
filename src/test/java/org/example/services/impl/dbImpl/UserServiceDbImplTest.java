@@ -1,4 +1,4 @@
-package org.example.services.impl;
+package org.example.services.impl.dbImpl;
 
 import org.example.entity.UserEntity;
 import org.example.exception.UserNotFoundException;
@@ -29,37 +29,8 @@ class UserServiceDbImplTest {
         userRepo = mock(UserRepo.class);
         userMapper = mock(UserMapper.class);
         passwordEncoder = mock(PasswordEncoder.class);
-        authenticationService = mock(AuthenticationService.class);
 
-        service = new UserServiceDbImpl(userRepo, userMapper, passwordEncoder, authenticationService);
-    }
-
-    @Test
-    void testGetByUsernameSuccess() {
-        UserEntity entity = new UserEntity();
-        User model = new User();
-
-        when(userRepo.findByUsername("john")).thenReturn(Optional.of(entity));
-        when(userMapper.toModel(entity)).thenReturn(model);
-
-        // authenticate is void; no need to doNothing()
-        User result = service.getByUsername("john", "password".toCharArray());
-
-        assertNotNull(result);
-        verify(authenticationService).authenticate("john", "password".toCharArray());
-        verify(userRepo).findByUsername("john");
-        verify(userMapper).toModel(entity);
-    }
-
-    @Test
-    void testGetByUsernameNotFound() {
-        when(userRepo.findByUsername("unknown")).thenReturn(Optional.empty());
-
-        assertThrows(UserNotFoundException.class,
-                () -> service.getByUsername("unknown", "pass".toCharArray())
-        );
-        verify(authenticationService).authenticate("unknown", "pass".toCharArray());
-        verify(userRepo).findByUsername("unknown");
+        service = new UserServiceDbImpl(userRepo, userMapper, passwordEncoder);
     }
 
     @Test
@@ -99,10 +70,9 @@ class UserServiceDbImplTest {
         when(userMapper.toModel(entity)).thenReturn(updatedModel);
         when(passwordEncoder.encode(anyString())).thenReturn("hashedNewPass");
 
-        User result = service.updateUser("john", "oldPass".toCharArray(), updatedModel);
+        User result = service.updateUser("john", updatedModel);
 
         assertNotNull(result);
-        verify(authenticationService).authenticate("john", "oldPass".toCharArray());
         verify(userRepo).findByUsername("john");
         verify(userMapper).updateEntityFromModel(updatedModel, entity);
         verify(userRepo).save(entity);
@@ -114,9 +84,8 @@ class UserServiceDbImplTest {
         when(userRepo.findByUsername("unknown")).thenReturn(Optional.empty());
 
         assertThrows(UserNotFoundException.class,
-                () -> service.updateUser("unknown", "pass".toCharArray(), updated)
+                () -> service.updateUser("unknown", updated)
         );
-        verify(authenticationService).authenticate("unknown", "pass".toCharArray());
         verify(userRepo).findByUsername("unknown");
     }
 
@@ -125,7 +94,7 @@ class UserServiceDbImplTest {
         UserEntity entity = new UserEntity();
         when(userRepo.findByUsername("john")).thenReturn(Optional.of(entity));
 
-        service.deleteByUsername("john", "pass".toCharArray());
+        service.deleteByUsername("john");
 
         verify(authenticationService).authenticate("john", "pass".toCharArray());
         verify(userRepo).delete(entity);
@@ -136,7 +105,7 @@ class UserServiceDbImplTest {
         when(userRepo.findByUsername("unknown")).thenReturn(Optional.empty());
 
         assertThrows(UserNotFoundException.class,
-                () -> service.deleteByUsername("unknown", "pass".toCharArray())
+                () -> service.deleteByUsername("unknown")
         );
         verify(authenticationService).authenticate("unknown", "pass".toCharArray());
         verify(userRepo).findByUsername("unknown");
@@ -157,33 +126,4 @@ class UserServiceDbImplTest {
         verify(userMapper).toModels(entities);
     }
 
-    @Test
-    void testChangeUserActiveStatusSuccess() {
-        UserEntity entity = new UserEntity();
-        entity.setIsActive(false);
-
-        User model = new User();
-
-        when(userRepo.findByUsername("john")).thenReturn(Optional.of(entity));
-        when(userRepo.save(entity)).thenReturn(entity);
-        when(userMapper.toModel(entity)).thenReturn(model);
-
-        User result = service.changeUserActiveStatus("john", "pass".toCharArray(), true);
-
-        assertNotNull(result);
-        assertTrue(entity.getIsActive());
-        verify(authenticationService).authenticate("john", "pass".toCharArray());
-        verify(userRepo).save(entity);
-    }
-
-    @Test
-    void testChangeUserActiveStatusNotFound() {
-        when(userRepo.findByUsername("unknown")).thenReturn(Optional.empty());
-
-        assertThrows(UserNotFoundException.class,
-                () -> service.changeUserActiveStatus("unknown", "pass".toCharArray(), true)
-        );
-        verify(authenticationService).authenticate("unknown", "pass".toCharArray());
-        verify(userRepo).findByUsername("unknown");
-    }
 }

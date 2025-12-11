@@ -3,10 +3,8 @@ package org.example.facade;
 import org.example.model.Trainee;
 import org.example.model.Trainer;
 import org.example.model.Training;
-import org.example.services.ProfileService;
-import org.example.services.TraineeService;
-import org.example.services.TrainerService;
-import org.example.services.TrainingService;
+import org.example.model.TrainingType;
+import org.example.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,19 +18,20 @@ public class GymFacade {
     private final TraineeService traineeService;
     private final TrainingService trainingService;
     private final ProfileService profileService;
+    private final TrainingTypeService trainingTypeService;
 
     @Autowired
     public GymFacade(TraineeService traineeService,
                      TrainerService trainerService,
                      TrainingService trainingService,
-                     ProfileService profileService) {
+                     ProfileService profileService,
+                     TrainingTypeService trainingTypeService) {
         this.traineeService = traineeService;
         this.trainerService = trainerService;
         this.trainingService = trainingService;
         this.profileService = profileService;
+        this.trainingTypeService = trainingTypeService;
     }
-
-    // ------------------- Profile Creation -------------------
 
     public void createTrainerProfile(String firstName, String lastName, String specialization) {
         Trainer trainer = new Trainer();
@@ -41,6 +40,7 @@ public class GymFacade {
         trainer.setSpecialization(specialization);
 
         profileService.createProfile(trainer);
+        trainerService.createTrainer(trainer);
 
         System.out.println("✅ Trainer profile created successfully for " + firstName + " " + lastName);
     }
@@ -53,11 +53,10 @@ public class GymFacade {
         trainee.setAddress(address);
 
         profileService.createProfile(trainee);
+        traineeService.createTrainee(trainee);
 
         System.out.println("✅ Trainee profile created successfully for " + firstName + " " + lastName);
     }
-
-    // ------------------- Display Methods -------------------
 
     public void showAllTrainers() {
         System.out.println("          All Trainers:");
@@ -93,6 +92,15 @@ public class GymFacade {
             System.out.println("   Type          : " + training.getTrainingType());
             System.out.println("   Date          : " + training.getTrainingDate());
             System.out.println("   Duration (min): " + training.getTrainingDurationMinutes());
+            System.out.println("------------------------------");
+        }
+    }
+
+    public void showAllTrainingTypes() {
+        System.out.println("          All Training Types:");
+        List<TrainingType> trainingTypes = trainingTypeService.getAllTrainingTypes();
+        for (TrainingType type : trainingTypes) {
+            System.out.println("   Training Type : " + type.getTrainingTypeName());
             System.out.println("------------------------------");
         }
     }

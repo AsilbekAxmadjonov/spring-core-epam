@@ -1,18 +1,16 @@
-package org.example.services.impl;
+package org.example.services.impl.inMemoryImpl;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.example.dao.TrainerDao;
 import org.example.model.Trainer;
-import org.example.services.AuthenticationService;
+import org.example.security.AuthenticationContext;
 import org.example.services.TrainerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Slf4j
@@ -21,16 +19,10 @@ import java.util.Optional;
 public class TrainerServiceInMemoryImpl implements TrainerService {
 
     private TrainerDao trainerDao;
-    private AuthenticationService authenticationService;
 
     @Autowired
     public void setTrainerDao(TrainerDao trainerDao) {
         this.trainerDao = trainerDao;
-    }
-
-    @Autowired
-    public void setAuthenticationService(AuthenticationService authenticationService) {
-        this.authenticationService = authenticationService;
     }
 
     @Override
@@ -41,8 +33,12 @@ public class TrainerServiceInMemoryImpl implements TrainerService {
     }
 
     @Override
-    public Optional<Trainer> getTrainerByUsername(String username, char[] password) {
-        authenticationService.authenticate(username, password);
+    public Optional<Trainer> getTrainerByUsername(String username) {
+        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
+
+        if (authenticatedUser == null || !authenticatedUser.equals(username)) {
+            throw new SecurityException("User not authenticated");
+        }
 
         log.debug("Getting Trainer by username: {}", username);
         Trainer trainer = trainerDao.findByUsername(username);
@@ -50,8 +46,12 @@ public class TrainerServiceInMemoryImpl implements TrainerService {
     }
 
     @Override
-    public Trainer updateTrainer(String username, char[] password, @Valid Trainer trainer) {
-        authenticationService.authenticate(username, password);
+    public Trainer updateTrainer(String username, @Valid Trainer trainer) {
+        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
+
+        if (authenticatedUser == null || !authenticatedUser.equals(username)) {
+            throw new SecurityException("User not authenticated");
+        }
 
         log.info("Updating Trainer: {}", username);
         trainerDao.update(trainer);
