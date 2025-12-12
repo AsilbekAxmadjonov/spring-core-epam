@@ -5,9 +5,11 @@ import org.example.exception.UserNotFoundException;
 import org.example.mapper.UserMapper;
 import org.example.model.User;
 import org.example.repository.UserRepo;
-import org.example.services.AuthenticationService;
+import org.example.security.AuthenticationContext;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
@@ -21,8 +23,8 @@ class UserServiceDbImplTest {
     private UserRepo userRepo;
     private UserMapper userMapper;
     private PasswordEncoder passwordEncoder;
-    private AuthenticationService authenticationService;
     private UserServiceDbImpl service;
+    private MockedStatic<AuthenticationContext> authContextMock;
 
     @BeforeEach
     void setUp() {
@@ -31,6 +33,13 @@ class UserServiceDbImplTest {
         passwordEncoder = mock(PasswordEncoder.class);
 
         service = new UserServiceDbImpl(userRepo, userMapper, passwordEncoder);
+
+        authContextMock = mockStatic(AuthenticationContext.class);
+    }
+
+    @AfterEach
+    void tearDown() {
+        authContextMock.close();
     }
 
     @Test
@@ -65,6 +74,7 @@ class UserServiceDbImplTest {
         User updatedModel = new User();
         updatedModel.setPassword("newPass".toCharArray());
 
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("john");
         when(userRepo.findByUsername("john")).thenReturn(Optional.of(entity));
         when(userRepo.save(entity)).thenReturn(entity);
         when(userMapper.toModel(entity)).thenReturn(updatedModel);
@@ -79,36 +89,73 @@ class UserServiceDbImplTest {
     }
 
     @Test
+    void testUpdateUserNotAuthenticated() {
+        User updated = new User();
+
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn(null);
+
+        SecurityException ex = assertThrows(SecurityException.class,
+                () -> service.updateUser("john", updated));
+
+        assertEquals("User not authenticated", ex.getMessage());
+    }
+
+    @Test
     void testUpdateUserNotFound() {
         User updated = new User();
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("unknown");
         when(userRepo.findByUsername("unknown")).thenReturn(Optional.empty());
 
         assertThrows(UserNotFoundException.class,
-                () -> service.updateUser("unknown", updated)
-        );
+                () -> service.updateUser("unknown", updated));
+
         verify(userRepo).findByUsername("unknown");
     }
 
     @Test
     void testDeleteByUsernameSuccess() {
         UserEntity entity = new UserEntity();
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("john");
         when(userRepo.findByUsername("john")).thenReturn(Optional.of(entity));
 
         service.deleteByUsername("john");
 
-        verify(authenticationService).authenticate("john", "pass".toCharArray());
+        verify(userRepo).findByUsername("john");
         verify(userRepo).delete(entity);
     }
 
     @Test
+    void testDeleteByUsernameNotAuthenticated() {
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn(null);
+
+        SecurityException ex = assertThrows(SecurityException.class,
+                () -> service.deleteByUsername("john"));
+
+        assertEquals("User not authenticated", ex.getMessage());
+        verify(userRepo, never()).findByUsername(anyString());
+    }
+
+    @Test
+    void testDeleteByUsernameDifferentUser() {
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("other.user");
+
+        SecurityException ex = assertThrows(SecurityException.class,
+                () -> service.deleteByUsername("john"));
+
+        assertEquals("User not authenticated", ex.getMessage());
+        verify(userRepo, never()).findByUsername(anyString());
+    }
+
+    @Test
     void testDeleteByUsernameNotFound() {
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("unknown");
         when(userRepo.findByUsername("unknown")).thenReturn(Optional.empty());
 
         assertThrows(UserNotFoundException.class,
-                () -> service.deleteByUsername("unknown")
-        );
-        verify(authenticationService).authenticate("unknown", "pass".toCharArray());
+                () -> service.deleteByUsername("unknown"));
+
         verify(userRepo).findByUsername("unknown");
+        verify(userRepo, never()).delete(any());
     }
 
     @Test
@@ -125,5 +172,4 @@ class UserServiceDbImplTest {
         verify(userRepo).findAll();
         verify(userMapper).toModels(entities);
     }
-
 }

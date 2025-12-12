@@ -70,25 +70,33 @@ public class UserServiceDbImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public User updateUser(String username, @Valid User updatedUser) {
+        log.debug("Updating user: {}", username);
 
-        log.debug("Updating user with username: {}", username);
+        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
 
-        UserEntity entity = userRepo.findByUsername(username)
-                .orElseThrow(() -> new UserNotFoundException("User not found: " + username));
-
-        userMapper.updateEntityFromModel(updatedUser, entity);
-
-        if (updatedUser.getPassword() != null && updatedUser.getPassword().length > 0) {
-            entity.setPassword(
-                    passwordEncoder.encode(new String(updatedUser.getPassword())).toCharArray()
-            );
+        if (authenticatedUser == null || !authenticatedUser.equals(username)) {
+            throw new SecurityException("User not authenticated");
         }
 
-        UserEntity saved = userRepo.save(entity);
+        UserEntity userEntity = userRepo.findByUsername(username)
+                .orElseThrow(() -> {
+                    log.error("User not found for update: {}", username);
+                    return new UserNotFoundException("User not found: " + username);
+                });
+
+        if (updatedUser.getPassword() != null) {
+            char[] encodedPassword = passwordEncoder.encode(
+                    new String(updatedUser.getPassword())
+            ).toCharArray();
+            updatedUser.setPassword(encodedPassword);
+        }
+
+        userMapper.updateEntityFromModel(updatedUser, userEntity);
+        UserEntity saved = userRepo.save(userEntity);
 
         log.info("User updated: {}", username);
-
         return userMapper.toModel(saved);
     }
 

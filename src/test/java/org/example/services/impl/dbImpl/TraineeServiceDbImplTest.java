@@ -6,12 +6,15 @@ import org.example.exception.UserNotFoundException;
 import org.example.mapper.TraineeMapper;
 import org.example.model.Trainee;
 import org.example.repository.TraineeRepo;
-import org.example.services.AuthenticationService;
+import org.example.repository.UserRepo;
+import org.example.security.AuthenticationContext;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockedStatic;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
@@ -33,20 +36,23 @@ class TraineeServiceDbImplTest {
     private TraineeMapper traineeMapper;
 
     @Mock
-    private AuthenticationService authenticationService;
+    private UserRepo userRepo;
 
     @InjectMocks
     private TraineeServiceDbImpl traineeService;
+
+    private MockedStatic<AuthenticationContext> authContextMock;
 
     private Trainee traineeModel;
     private TraineeEntity traineeEntity;
     private UserEntity userEntity;
 
-    private final char[] dummyPassword = "dummyPass".toCharArray();
-
     @BeforeEach
     void setUp() {
+        authContextMock = mockStatic(AuthenticationContext.class);
+
         userEntity = UserEntity.builder()
+                .id(1L)
                 .firstName("John")
                 .lastName("Doe")
                 .username("john.doe")
@@ -72,10 +78,15 @@ class TraineeServiceDbImplTest {
                 .build();
     }
 
+    @AfterEach
+    void tearDown() {
+        authContextMock.close();
+    }
+
     @Test
     void createTrainee_shouldCreateAndReturnTrainee() {
-        when(traineeMapper.toTraineeEntity(traineeModel)).thenReturn(traineeEntity);
-        when(traineeRepo.save(traineeEntity)).thenReturn(traineeEntity);
+        when(userRepo.findByUsername("john.doe")).thenReturn(Optional.of(userEntity));
+        when(traineeRepo.save(any(TraineeEntity.class))).thenReturn(traineeEntity);
         when(traineeMapper.toTraineeModel(traineeEntity)).thenReturn(traineeModel);
 
         Trainee result = traineeService.createTrainee(traineeModel);
@@ -83,38 +94,68 @@ class TraineeServiceDbImplTest {
         assertNotNull(result);
         assertEquals("john.doe", result.getUsername());
 
-        verify(traineeMapper).toTraineeEntity(traineeModel);
-        verify(traineeRepo).save(traineeEntity);
+        verify(userRepo).findByUsername("john.doe");
+        verify(traineeRepo).save(any(TraineeEntity.class));
         verify(traineeMapper).toTraineeModel(traineeEntity);
     }
 
     @Test
+    void createTrainee_shouldThrowExceptionWhenUserNotFound() {
+        when(userRepo.findByUsername("john.doe")).thenReturn(Optional.empty());
+
+        assertThrows(UserNotFoundException.class,
+                () -> traineeService.createTrainee(traineeModel));
+
+        verify(userRepo).findByUsername("john.doe");
+        verify(traineeRepo, never()).save(any());
+    }
+
+    @Test
     void getTraineeByUsername_shouldReturnTraineeWhenFound() {
-        when(authenticationService.authenticate("john.doe", dummyPassword)).thenReturn(traineeModel);
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("john.doe");
         when(traineeRepo.findByUsername("john.doe")).thenReturn(Optional.of(traineeEntity));
         when(traineeMapper.toTraineeModel(traineeEntity)).thenReturn(traineeModel);
 
-        Optional<Trainee> result = traineeService.getTraineeByUsername("john.doe", dummyPassword);
+        Optional<Trainee> result = traineeService.getTraineeByUsername("john.doe");
 
         assertTrue(result.isPresent());
         assertEquals("john.doe", result.get().getUsername());
 
-        verify(authenticationService).authenticate("john.doe", dummyPassword);
         verify(traineeRepo).findByUsername("john.doe");
         verify(traineeMapper).toTraineeModel(traineeEntity);
     }
 
     @Test
     void getTraineeByUsername_shouldReturnEmptyWhenNotFound() {
-        when(authenticationService.authenticate("unknown", dummyPassword)).thenReturn(traineeModel);
-        when(traineeRepo.findByUsername("unknown")).thenReturn(Optional.empty());
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("john.doe");
+        when(traineeRepo.findByUsername("john.doe")).thenReturn(Optional.empty());
 
-        Optional<Trainee> result = traineeService.getTraineeByUsername("unknown", dummyPassword);
+        Optional<Trainee> result = traineeService.getTraineeByUsername("john.doe");
 
         assertFalse(result.isPresent());
+        verify(traineeRepo).findByUsername("john.doe");
+    }
 
-        verify(authenticationService).authenticate("unknown", dummyPassword);
-        verify(traineeRepo).findByUsername("unknown");
+    @Test
+    void getTraineeByUsername_shouldThrowSecurityExceptionWhenNotAuthenticated() {
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn(null);
+
+        SecurityException ex = assertThrows(SecurityException.class,
+                () -> traineeService.getTraineeByUsername("john.doe"));
+
+        assertEquals("Trainee not authenticated", ex.getMessage());
+        verify(traineeRepo, never()).findByUsername(anyString());
+    }
+
+    @Test
+    void getTraineeByUsername_shouldThrowSecurityExceptionWhenDifferentUser() {
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("other.user");
+
+        SecurityException ex = assertThrows(SecurityException.class,
+                () -> traineeService.getTraineeByUsername("john.doe"));
+
+        assertEquals("Trainee not authenticated", ex.getMessage());
+        verify(traineeRepo, never()).findByUsername(anyString());
     }
 
     @Test
@@ -126,16 +167,15 @@ class TraineeServiceDbImplTest {
                 .address("456 Oak Ave")
                 .build();
 
-        when(authenticationService.authenticate("john.doe", dummyPassword)).thenReturn(traineeModel);
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("john.doe");
         when(traineeRepo.findByUsername("john.doe")).thenReturn(Optional.of(traineeEntity));
         when(traineeRepo.save(traineeEntity)).thenReturn(traineeEntity);
         when(traineeMapper.toTraineeModel(traineeEntity)).thenReturn(updatedModel);
 
-        Trainee result = traineeService.updateTrainee("john.doe", dummyPassword, updatedModel);
+        Trainee result = traineeService.updateTrainee("john.doe", updatedModel);
 
         assertNotNull(result);
 
-        verify(authenticationService).authenticate("john.doe", dummyPassword);
         verify(traineeRepo).findByUsername("john.doe");
         verify(traineeMapper).updateEntity(updatedModel, traineeEntity);
         verify(traineeRepo).save(traineeEntity);
@@ -143,45 +183,65 @@ class TraineeServiceDbImplTest {
     }
 
     @Test
+    void updateTrainee_shouldThrowSecurityExceptionWhenNotAuthenticated() {
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn(null);
+
+        SecurityException ex = assertThrows(SecurityException.class,
+                () -> traineeService.updateTrainee("john.doe", traineeModel));
+
+        assertEquals("User not authenticated", ex.getMessage());
+        verify(traineeRepo, never()).findByUsername(anyString());
+    }
+
+    @Test
     void updateTrainee_shouldThrowExceptionWhenNotFound() {
-        when(authenticationService.authenticate("unknown", dummyPassword)).thenReturn(traineeModel);
-        when(traineeRepo.findByUsername("unknown")).thenReturn(Optional.empty());
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("john.doe");
+        when(traineeRepo.findByUsername("john.doe")).thenReturn(Optional.empty());
 
         assertThrows(UserNotFoundException.class,
-                () -> traineeService.updateTrainee("unknown", dummyPassword, traineeModel));
+                () -> traineeService.updateTrainee("john.doe", traineeModel));
 
-        verify(authenticationService).authenticate("unknown", dummyPassword);
-        verify(traineeRepo).findByUsername("unknown");
+        verify(traineeRepo).findByUsername("john.doe");
         verify(traineeMapper, never()).updateEntity(any(), any());
     }
 
     @Test
     void deleteTraineeByUsername_shouldDeleteWhenExists() {
-        when(authenticationService.authenticate("john.doe", dummyPassword)).thenReturn(traineeModel);
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("john.doe");
         when(traineeRepo.findByUsername("john.doe")).thenReturn(Optional.of(traineeEntity));
 
-        traineeService.deleteTraineeByUsername("john.doe", dummyPassword);
+        traineeService.deleteTraineeByUsername("john.doe");
 
-        verify(authenticationService).authenticate("john.doe", dummyPassword);
         verify(traineeRepo).findByUsername("john.doe");
         verify(traineeRepo).deleteByUsername("john.doe");
     }
 
     @Test
     void deleteTraineeByUsername_shouldNotDeleteWhenNotFound() {
-        when(authenticationService.authenticate("unknown", dummyPassword)).thenReturn(traineeModel);
-        when(traineeRepo.findByUsername("unknown")).thenReturn(Optional.empty());
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("john.doe");
+        when(traineeRepo.findByUsername("john.doe")).thenReturn(Optional.empty());
 
-        traineeService.deleteTraineeByUsername("unknown", dummyPassword);
+        traineeService.deleteTraineeByUsername("john.doe");
 
-        verify(authenticationService).authenticate("unknown", dummyPassword);
-        verify(traineeRepo).findByUsername("unknown");
+        verify(traineeRepo).findByUsername("john.doe");
         verify(traineeRepo, never()).deleteByUsername(anyString());
+    }
+
+    @Test
+    void deleteTraineeByUsername_shouldThrowSecurityExceptionWhenNotAuthenticated() {
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn(null);
+
+        SecurityException ex = assertThrows(SecurityException.class,
+                () -> traineeService.deleteTraineeByUsername("john.doe"));
+
+        assertEquals("User not authenticated", ex.getMessage());
+        verify(traineeRepo, never()).findByUsername(anyString());
     }
 
     @Test
     void getAllTrainees_shouldReturnList() {
         UserEntity user2 = UserEntity.builder()
+                .id(2L)
                 .firstName("Jane")
                 .lastName("Smith")
                 .username("jane.smith")

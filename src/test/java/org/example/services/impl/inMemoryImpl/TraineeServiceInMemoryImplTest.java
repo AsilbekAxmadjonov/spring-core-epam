@@ -2,9 +2,11 @@ package org.example.services.impl.inMemoryImpl;
 
 import org.example.dao.TraineeDao;
 import org.example.model.Trainee;
-import org.example.services.AuthenticationService;
+import org.example.security.AuthenticationContext;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,19 +17,21 @@ import static org.mockito.Mockito.*;
 class TraineeServiceInMemoryImplTest {
 
     private TraineeDao traineeDao;
-    private AuthenticationService authenticationService;
     private TraineeServiceInMemoryImpl traineeService;
-
-    private final char[] dummyPassword = "dummyPass".toCharArray();
+    private MockedStatic<AuthenticationContext> authContextMock;
 
     @BeforeEach
     void setUp() {
         traineeDao = mock(TraineeDao.class);
-        authenticationService = mock(AuthenticationService.class);
-
         traineeService = new TraineeServiceInMemoryImpl();
         traineeService.setTraineeDao(traineeDao);
-        traineeService.setAuthenticationService(authenticationService);
+
+        authContextMock = mockStatic(AuthenticationContext.class);
+    }
+
+    @AfterEach
+    void tearDown() {
+        authContextMock.close();
     }
 
     @Test
@@ -46,27 +50,47 @@ class TraineeServiceInMemoryImplTest {
         Trainee trainee = new Trainee();
         trainee.setUsername("john");
 
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("john");
         when(traineeDao.findByUsername("john")).thenReturn(trainee);
 
-        Optional<Trainee> found = traineeService.getTraineeByUsername("john", dummyPassword);
+        Optional<Trainee> found = traineeService.getTraineeByUsername("john");
 
         assertTrue(found.isPresent());
         assertEquals("john", found.get().getUsername());
-
-        verify(authenticationService).authenticate("john", dummyPassword);
         verify(traineeDao).findByUsername("john");
     }
 
     @Test
     void testGetTraineeByUsername_NotFound() {
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("unknown");
         when(traineeDao.findByUsername("unknown")).thenReturn(null);
 
-        Optional<Trainee> found = traineeService.getTraineeByUsername("unknown", dummyPassword);
+        Optional<Trainee> found = traineeService.getTraineeByUsername("unknown");
 
         assertFalse(found.isPresent());
-
-        verify(authenticationService).authenticate("unknown", dummyPassword);
         verify(traineeDao).findByUsername("unknown");
+    }
+
+    @Test
+    void testGetTraineeByUsername_NotAuthenticated() {
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn(null);
+
+        SecurityException ex = assertThrows(SecurityException.class,
+                () -> traineeService.getTraineeByUsername("john"));
+
+        assertEquals("User not authenticated", ex.getMessage());  // Changed from "Trainee not authenticated"
+        verify(traineeDao, never()).findByUsername(anyString());
+    }
+
+    @Test
+    void testGetTraineeByUsername_DifferentUser() {
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("other.user");
+
+        SecurityException ex = assertThrows(SecurityException.class,
+                () -> traineeService.getTraineeByUsername("john"));
+
+        assertEquals("User not authenticated", ex.getMessage());  // Changed from "Trainee not authenticated"
+        verify(traineeDao, never()).findByUsername(anyString());
     }
 
     @Test
@@ -74,11 +98,26 @@ class TraineeServiceInMemoryImplTest {
         Trainee updated = new Trainee();
         updated.setUsername("john");
 
-        Trainee result = traineeService.updateTrainee("john", dummyPassword, updated);
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("john");
 
-        verify(authenticationService).authenticate("john", dummyPassword);
+        Trainee result = traineeService.updateTrainee("john", updated);
+
         verify(traineeDao).update(updated);
         assertEquals("john", result.getUsername());
+    }
+
+    @Test
+    void testUpdateTrainee_NotAuthenticated() {
+        Trainee updated = new Trainee();
+        updated.setUsername("john");
+
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn(null);
+
+        SecurityException ex = assertThrows(SecurityException.class,
+                () -> traineeService.updateTrainee("john", updated));
+
+        assertEquals("User not authenticated", ex.getMessage());
+        verify(traineeDao, never()).update(any());
     }
 
     @Test
@@ -86,22 +125,35 @@ class TraineeServiceInMemoryImplTest {
         Trainee trainee = new Trainee();
         trainee.setUsername("john");
 
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("john");
         when(traineeDao.findByUsername("john")).thenReturn(trainee);
 
-        traineeService.deleteTraineeByUsername("john", dummyPassword);
+        traineeService.deleteTraineeByUsername("john");
 
-        verify(authenticationService).authenticate("john", dummyPassword);
+        verify(traineeDao).findByUsername("john");
         verify(traineeDao).delete(trainee);
     }
 
     @Test
     void testDeleteTraineeByUsername_NotFound() {
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("unknown");
         when(traineeDao.findByUsername("unknown")).thenReturn(null);
 
-        traineeService.deleteTraineeByUsername("unknown", dummyPassword);
+        traineeService.deleteTraineeByUsername("unknown");
 
-        verify(authenticationService).authenticate("unknown", dummyPassword);
+        verify(traineeDao).findByUsername("unknown");
         verify(traineeDao, never()).delete(any());
+    }
+
+    @Test
+    void testDeleteTraineeByUsername_NotAuthenticated() {
+        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn(null);
+
+        SecurityException ex = assertThrows(SecurityException.class,
+                () -> traineeService.deleteTraineeByUsername("john"));
+
+        assertEquals("User not authenticated", ex.getMessage());
+        verify(traineeDao, never()).findByUsername(anyString());
     }
 
     @Test

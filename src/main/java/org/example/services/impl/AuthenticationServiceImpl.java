@@ -28,19 +28,22 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final UserMapper userMapper;
 
     @Override
-    public User authenticate(String username, char[] rawPassword) {
+    public User authenticate(String username, char[] password) {
         log.debug("Authenticating user: {}", username);
 
-        UserEntity entity = userRepo.findByUsername(username)
-                .orElseThrow(() -> new UserNotFoundException("User not found: " + username));
+        UserEntity userEntity = userRepo.findByUsername(username)
+                .orElseThrow(() -> new UserNotFoundException("Invalid username or password"));
 
-        if (!passwordEncoder.matches(new String(rawPassword), new String(entity.getPassword()))) {
-            throw new UserNotFoundException("Invalid username or password");
+        boolean matches = passwordEncoder.matches(
+                new String(password),
+                new String(userEntity.getPassword())
+        );
+
+        if (!matches) {
+            throw new BadCredentialsException("Invalid username or password");  // Changed this line
         }
 
-        AuthenticationContext.setAuthenticatedUser(username);
-
-        log.info("Authentication successful: {}", username);
-        return userMapper.toModel(entity);
+        log.info("User authenticated successfully: {}", username);
+        return userMapper.toModel(userEntity);
     }
 }
