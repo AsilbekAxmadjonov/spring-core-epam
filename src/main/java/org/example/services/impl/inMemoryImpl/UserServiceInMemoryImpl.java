@@ -1,11 +1,13 @@
-package org.example.services.impl;
+package org.example.services.impl.inMemoryImpl;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.example.dao.GenericDao;
 import org.example.exception.UnsupportedDataAccessObjectException;
 import org.example.model.User;
 import org.example.services.UserService;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 import java.util.Map;
@@ -14,6 +16,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
+@Validated
 public class UserServiceInMemoryImpl implements UserService {
 
     private final Map<Class<? extends User>, GenericDao<? extends User>> userDaos;
@@ -25,12 +28,13 @@ public class UserServiceInMemoryImpl implements UserService {
 
     @Override
     public User getByUsername(String username) {
-        log.debug("Attempting to get user by username from in-memory store: {}", username);
+        log.debug("Fetching user by username (no auth): {}", username);
         throw new UnsupportedOperationException("Not supported in in-memory service");
     }
 
+
     @Override
-    public User createUser(User user) {
+    public User createUser(@Valid User user) {
         log.debug("Creating in-memory user with username: {}", user.getUsername());
 
         save(user);
@@ -40,7 +44,8 @@ public class UserServiceInMemoryImpl implements UserService {
     }
 
     @Override
-    public User updateUser(String username, User user) {
+    public User updateUser(String username, @Valid User user) {
+
         log.debug("Attempting to update user in in-memory store: {}", username);
         throw new UnsupportedOperationException("Not supported in in-memory service");
     }
@@ -64,25 +69,13 @@ public class UserServiceInMemoryImpl implements UserService {
         return users;
     }
 
-    @Override
-    public User changeUserActiveStatus(String username, boolean isActive) {
-        log.debug("Attempting to change in-memory user active status: {} → {}", username, isActive);
-        throw new UnsupportedOperationException("Not supported in in-memory service");
-    }
-
-    @Override
-    public User authenticate(String username, char[] rawPassword) {
-        log.debug("Attempting in-memory authentication for user: {}", username);
-        throw new UnsupportedOperationException("Not supported in in-memory service");
-    }
-
     private <T extends User> void saveUser(GenericDao<T> dao, User user) {
         log.debug("Saving user into DAO: {}", user.getUsername());
         dao.save(dao.getEntityClass().cast(user));
     }
 
     @Override
-    public void save(User user) {
+    public void save(@Valid User user) {
         GenericDao<? extends User> dao = userDaos.get(user.getClass());
 
         if (dao == null) {

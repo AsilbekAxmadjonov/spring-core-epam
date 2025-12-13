@@ -46,7 +46,7 @@ class TraineeMapperTest {
         assertEquals("Doe", trainee.getLastName());
         assertEquals("john.doe", trainee.getUsername());
         assertArrayEquals("password123".toCharArray(), trainee.getPassword());
-        assertTrue(trainee.isActive());
+        assertTrue(trainee.getIsActive());
         assertEquals(LocalDate.of(1990, 5, 15), trainee.getDateOfBirth());
         assertEquals("123 Main St, New York", trainee.getAddress());
     }
@@ -124,12 +124,12 @@ class TraineeMapperTest {
         assertEquals("Alice", trainees.get(0).getFirstName());
         assertEquals("Johnson", trainees.get(0).getLastName());
         assertEquals("alice.j", trainees.get(0).getUsername());
-        assertTrue(trainees.get(0).isActive());
+        assertTrue(trainees.get(0).getIsActive());
 
         assertEquals("Bob", trainees.get(1).getFirstName());
         assertEquals("Williams", trainees.get(1).getLastName());
         assertEquals("bob.w", trainees.get(1).getUsername());
-        assertFalse(trainees.get(1).isActive());
+        assertFalse(trainees.get(1).getIsActive());
     }
 
     @Test

@@ -16,5 +16,5 @@ public class User {
     private String lastName;
     private String username;
     private char[] password;
-    private boolean isActive;
+    private Boolean isActive;
 }

@@ -1,18 +1,21 @@
-package org.example.services.impl;
+package org.example.services.impl.inMemoryImpl;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.example.dao.TraineeDao;
 import org.example.model.Trainee;
+import org.example.security.AuthenticationContext;
 import org.example.services.TraineeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 @Slf4j
 @Service
+@Validated
 public class TraineeServiceInMemoryImpl implements TraineeService {
 
     private TraineeDao traineeDao;
@@ -23,7 +26,7 @@ public class TraineeServiceInMemoryImpl implements TraineeService {
     }
 
     @Override
-    public Trainee createTrainee(Trainee trainee) {
+    public Trainee createTrainee(@Valid Trainee trainee) {
         log.debug("Starting creation of Trainee: {}", trainee.getUsername());
 
         traineeDao.save(trainee);
@@ -34,6 +37,12 @@ public class TraineeServiceInMemoryImpl implements TraineeService {
 
     @Override
     public Optional<Trainee> getTraineeByUsername(String username) {
+        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
+
+        if (authenticatedUser == null || !authenticatedUser.equals(username)) {
+            throw new SecurityException("User not authenticated");
+        }
+
         log.debug("Fetching Trainee by username: {}", username);
 
         Trainee trainee = traineeDao.findByUsername(username);
@@ -48,7 +57,13 @@ public class TraineeServiceInMemoryImpl implements TraineeService {
     }
 
     @Override
-    public Trainee updateTrainee(String username, Trainee updatedTrainee) {
+    public Trainee updateTrainee(String username, @Valid Trainee updatedTrainee) {
+        String authenticated = AuthenticationContext.getAuthenticatedUser();
+
+        if (authenticated == null || !authenticated.equals(username)) {
+            throw new SecurityException("User not authenticated");
+        }
+
         log.debug("Starting update for Trainee: {}", username);
 
         traineeDao.update(updatedTrainee);
@@ -59,6 +74,12 @@ public class TraineeServiceInMemoryImpl implements TraineeService {
 
     @Override
     public void deleteTraineeByUsername(String username) {
+        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
+
+        if (authenticatedUser == null || !authenticatedUser.equals(username)) {
+            throw new SecurityException("User not authenticated");
+        }
+
         log.debug("Attempting to delete Trainee: {}", username);
 
         Trainee trainee = traineeDao.findByUsername(username);
@@ -69,49 +90,6 @@ public class TraineeServiceInMemoryImpl implements TraineeService {
         } else {
             log.debug("Delete skipped – Trainee not found: {}", username);
         }
-    }
-
-    @Override
-    public boolean passwordMatches(String username, char[] password) {
-        log.debug("Checking password for Trainee: {}", username);
-
-        Trainee trainee = traineeDao.findByUsername(username);
-        boolean match = trainee != null && Arrays.equals(trainee.getPassword(), password);
-
-        log.debug("Password match for {}: {}", username, match);
-        return match;
-    }
-
-    @Override
-    public Trainee changePassword(String username, char[] newPassword) {
-        log.debug("Changing password for Trainee: {}", username);
-
-        Trainee trainee = traineeDao.findByUsername(username);
-        if (trainee != null) {
-            trainee.setPassword(newPassword);
-            traineeDao.update(trainee);
-            log.info("Password changed for Trainee: {}", username);
-        } else {
-            log.debug("Password change skipped – Trainee not found: {}", username);
-        }
-
-        return trainee;
-    }
-
-    @Override
-    public Trainee setActiveStatus(String username, boolean active) {
-        log.debug("Setting active status for Trainee: {}, active={}", username, active);
-
-        Trainee trainee = traineeDao.findByUsername(username);
-        if (trainee != null) {
-            trainee.setActive(active);
-            traineeDao.update(trainee);
-            log.info("Active status updated for Trainee: {}", username);
-        } else {
-            log.debug("Active status update skipped – Trainee not found: {}", username);
-        }
-
-        return trainee;
     }
 
     @Override

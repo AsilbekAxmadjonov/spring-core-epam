@@ -14,12 +14,6 @@ public interface TraineeService {
 
     void deleteTraineeByUsername(String username);
 
-    boolean passwordMatches(String username, char[] password);
-
-    Trainee changePassword(String username, char[] newPassword);
-
-    Trainee setActiveStatus(String username, boolean active);
-
     List<Trainee> getAllTrainees();
 
 }

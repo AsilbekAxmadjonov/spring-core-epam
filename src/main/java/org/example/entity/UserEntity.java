@@ -45,6 +45,6 @@ public class UserEntity {
 
     @NotNull(message = "Account activity status cannot be null")
     @Column(nullable = false)
-    private Boolean isActive;
+    private Boolean isActive = true;
 }
 

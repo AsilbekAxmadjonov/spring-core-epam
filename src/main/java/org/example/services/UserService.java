@@ -10,15 +10,11 @@ public interface UserService {
 
     User createUser(User user);
 
-    User updateUser(String username, User user);
+    User updateUser(String username, User updatedUser);
 
     void deleteByUsername(String username);
 
     List<User> fetchAll();
-
-    User changeUserActiveStatus(String username, boolean isActive);
-
-    User authenticate(String username, char[] rawPassword);
 
     void save(User user);
 }

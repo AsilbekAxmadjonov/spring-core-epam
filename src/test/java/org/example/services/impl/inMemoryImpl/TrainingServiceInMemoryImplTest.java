@@ -1,4 +1,4 @@
-package org.example.services.impl;
+package org.example.services.impl.inMemoryImpl;
 
 import org.example.dao.TrainingDao;
 import org.example.model.Training;

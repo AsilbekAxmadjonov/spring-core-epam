@@ -34,6 +34,6 @@ public class TraineeEntity {
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity userEntity;
 
-    @OneToMany(mappedBy = "trainee", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "traineeEntity", cascade = CascadeType.ALL)
     private List<TrainingEntity> trainingEntities;
 }

@@ -50,7 +50,7 @@ class TrainerMapperTest {
         assertEquals("Smith", trainer.getLastName());
         assertEquals("john.smith", trainer.getUsername());
         assertArrayEquals("password123".toCharArray(), trainer.getPassword());
-        assertTrue(trainer.isActive());
+        assertTrue(trainer.getIsActive());
         assertEquals("Fitness", trainer.getSpecialization());
     }
 
@@ -172,13 +172,13 @@ class TrainerMapperTest {
         assertEquals("Alice", trainers.get(0).getFirstName());
         assertEquals("Cooper", trainers.get(0).getLastName());
         assertEquals("alice.c", trainers.get(0).getUsername());
-        assertTrue(trainers.get(0).isActive());
+        assertTrue(trainers.get(0).getIsActive());
         assertEquals("Pilates", trainers.get(0).getSpecialization());
 
         assertEquals("Bob", trainers.get(1).getFirstName());
         assertEquals("Martin", trainers.get(1).getLastName());
         assertEquals("bob.m", trainers.get(1).getUsername());
-        assertFalse(trainers.get(1).isActive());
+        assertFalse(trainers.get(1).getIsActive());
         assertEquals("CrossFit", trainers.get(1).getSpecialization());
     }
 
