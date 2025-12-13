@@ -39,15 +39,13 @@ public class TrainerServiceDbImpl implements TrainerService {
     public Trainer createTrainer(@Valid Trainer trainer) {
         log.info("Creating trainer with username: {}", trainer.getUsername());
 
-        // CRITICAL: Fetch the existing user from database instead of creating new one
         UserEntity userEntity = userRepo.findByUsername(trainer.getUsername())
                 .orElseThrow(() -> new UserNotFoundException(
                         "User not found with username: " + trainer.getUsername()));
 
         TrainerEntity trainerEntity = new TrainerEntity();
-        trainerEntity.setUserEntity(userEntity);  // Set the persisted user
+        trainerEntity.setUserEntity(userEntity);
 
-        // Find and set the existing training type
         if (trainer.getSpecialization() != null) {
             TrainingTypeEntity trainingType = trainingTypeRepo
                     .findByTrainingTypeName(trainer.getSpecialization())
@@ -100,7 +98,6 @@ public class TrainerServiceDbImpl implements TrainerService {
 
         trainerMapper.updateEntity(updatedTrainer, trainerEntity);
 
-        // Update training type if specialization changed
         if (updatedTrainer.getSpecialization() != null) {
             TrainingTypeEntity trainingType = trainingTypeRepo
                     .findByTrainingTypeName(updatedTrainer.getSpecialization())

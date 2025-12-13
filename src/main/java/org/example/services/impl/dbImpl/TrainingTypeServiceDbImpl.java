@@ -1,5 +1,6 @@
 package org.example.services.impl.dbImpl;
 
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.entity.TrainingTypeEntity;
@@ -24,10 +25,30 @@ public class TrainingTypeServiceDbImpl implements TrainingTypeService {
     private final TrainingTypeRepo trainingTypeRepo;
     private final TrainingTypeMapper trainingTypeMapper;
 
+    @PostConstruct
+    @Transactional
+    public void initializeTrainingTypes() {
+        if (trainingTypeRepo.count() == 0) {
+            List<String> types = List.of(
+                    "Fitness", "Yoga", "Zumba", "Stretching",
+                    "Resistance", "Strength", "Cardio"
+            );
+
+            types.forEach(typeName -> {
+                TrainingTypeEntity type = new TrainingTypeEntity();
+                type.setTrainingTypeName(typeName);
+                trainingTypeRepo.save(type);
+            });
+
+            log.info("Initialized training types: {}", types);
+        } else {
+            log.debug("Training types already initialized, count: {}", trainingTypeRepo.count());
+        }
+    }
+
     @Override
     public Optional<TrainingType> getTrainingTypeByName(String name) {
         log.debug("Fetching training type by name: {}", name);
-
         return trainingTypeRepo.findByTrainingTypeName(name)
                 .map(entity -> {
                     log.debug("Training type found: {}", name);
