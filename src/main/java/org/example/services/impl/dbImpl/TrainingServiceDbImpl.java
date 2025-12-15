@@ -1,21 +1,26 @@
-package org.example.services.impl;
+package org.example.services.impl.dbImpl;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.entity.TraineeEntity;
 import org.example.entity.TrainerEntity;
 import org.example.entity.TrainingEntity;
+import org.example.entity.TrainingTypeEntity;
 import org.example.exception.UserNotFoundException;
 import org.example.mapper.TrainingMapper;
 import org.example.model.Training;
 import org.example.repository.TraineeRepo;
 import org.example.repository.TrainerRepo;
 import org.example.repository.TrainingRepo;
+import org.example.repository.TrainingTypeRepo;
+import org.example.security.AuthenticationContext;
 import org.example.services.TrainingService;
 import org.slf4j.MDC;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.annotation.Validated;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -23,6 +28,7 @@ import java.util.List;
 @Slf4j
 @Service
 @Primary
+@Validated
 @RequiredArgsConstructor
 @Transactional
 public class TrainingServiceDbImpl implements TrainingService {
@@ -31,8 +37,10 @@ public class TrainingServiceDbImpl implements TrainingService {
     private final TraineeRepo traineeRepo;
     private final TrainerRepo trainerRepo;
     private final TrainingMapper trainingMapper;
+    private final TrainingTypeRepo trainingTypeRepo;
 
     @Override
+    @Transactional(readOnly = true)
     public List<Training> getTraineeTrainings(
             String traineeUsername,
             LocalDate fromDate,
@@ -40,6 +48,13 @@ public class TrainingServiceDbImpl implements TrainingService {
             String trainerName,
             String trainingType
     ) {
+        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
+
+        if (authenticatedUser == null || !authenticatedUser.equals(traineeUsername)) {
+            log.error("Authentication failed for getTraineeTrainings: {} (authenticated: {})", traineeUsername, authenticatedUser);
+            throw new SecurityException("User not authenticated");
+        }
+
         log.debug("Fetching trainee trainings: username={}, from={}, to={}, trainerName={}, trainingType={}",
                 traineeUsername, fromDate, toDate, trainerName, trainingType);
 
@@ -57,12 +72,20 @@ public class TrainingServiceDbImpl implements TrainingService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Training> getTrainerTrainings(
             String trainerUsername,
             LocalDate fromDate,
             LocalDate toDate,
             String traineeName
     ) {
+        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
+
+        if (authenticatedUser == null || !authenticatedUser.equals(trainerUsername)) {
+            log.error("Authentication failed for getTrainerTrainings: {} (authenticated: {})", trainerUsername, authenticatedUser);
+            throw new SecurityException("User not authenticated");
+        }
+
         log.debug("Fetching trainer trainings: username={}, from={}, to={}, traineeName={}",
                 trainerUsername, fromDate, toDate, traineeName);
 
@@ -79,7 +102,13 @@ public class TrainingServiceDbImpl implements TrainingService {
     }
 
     @Override
-    public Training addTraining(Training training) {
+    public Training addTraining(@Valid Training training) {
+        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
+
+        if (authenticatedUser == null) {
+            log.error("Authentication failed for addTraining");
+            throw new SecurityException("User not authenticated");
+        }
 
         log.debug("Starting training creation: trainee={}, trainer={}, name={}",
                 training.getTraineeUsername(),
@@ -95,10 +124,19 @@ public class TrainingServiceDbImpl implements TrainingService {
                 .orElseThrow(() ->
                         new UserNotFoundException("Trainer not found: " + training.getTrainerUsername()));
 
+        String trainingTypeName = training.getTrainingType().getTrainingTypeName();
+
+        TrainingTypeEntity trainingTypeEntity = trainingTypeRepo
+                .findByTrainingTypeName(trainingTypeName)
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Training type not found: " + trainingTypeName +
+                                ". Please use one of the predefined training types."));
+
         TrainingEntity trainingEntity = trainingMapper.toTrainingEntity(training);
 
         trainingEntity.setTraineeEntity(traineeEntity);
         trainingEntity.setTrainerEntity(trainerEntity);
+        trainingEntity.setTrainingTypeEntity(trainingTypeEntity); // Set the managed entity
 
         TrainingEntity savedTrainingEntity = trainingRepo.save(trainingEntity);
 
@@ -108,8 +146,7 @@ public class TrainingServiceDbImpl implements TrainingService {
     }
 
     @Override
-    public void createTraining(Training training) {
-
+    public void createTraining(@Valid Training training) {
         MDC.put("operation", "Create Training");
         MDC.put("trainingName", training.getTrainingName());
 
@@ -118,7 +155,15 @@ public class TrainingServiceDbImpl implements TrainingService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Training getTraining(String name) {
+        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
+
+        if (authenticatedUser == null) {
+            log.error("Authentication failed for getTraining");
+            throw new SecurityException("User not authenticated");
+        }
+
         log.debug("Fetching training by name: {}", name);
 
         TrainingEntity trainingEntity = trainingRepo.findByTrainingName(name)
@@ -130,6 +175,7 @@ public class TrainingServiceDbImpl implements TrainingService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Training> listAll() {
         log.debug("Fetching all trainings");
 
@@ -139,7 +185,4 @@ public class TrainingServiceDbImpl implements TrainingService {
 
         return trainingMapper.toTrainingModels(trainingEntities);
     }
-
-
-
 }

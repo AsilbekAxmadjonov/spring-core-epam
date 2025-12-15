@@ -1,11 +1,13 @@
-package org.example.services.impl;
+package org.example.services.impl.inMemoryImpl;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.example.dao.TrainingDao;
 import org.example.model.Training;
 import org.example.services.TrainingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -13,6 +15,7 @@ import java.util.NoSuchElementException;
 
 @Slf4j
 @Service
+@Validated
 public class TrainingServiceInMemoryImpl implements TrainingService {
 
     private TrainingDao trainingDao;
@@ -24,7 +27,7 @@ public class TrainingServiceInMemoryImpl implements TrainingService {
     }
 
     @Override
-    public void createTraining(Training training) {
+    public void createTraining(@Valid Training training) {
         log.debug("Attempting to create new Training: {}", training.getTrainingName());
 
         trainingDao.save(training);
@@ -76,7 +79,7 @@ public class TrainingServiceInMemoryImpl implements TrainingService {
     }
 
     @Override
-    public Training addTraining(Training training) {
+    public Training addTraining(@Valid Training training) {
         log.debug("Adding new Training: {}", training.getTrainingName());
 
         createTraining(training);
