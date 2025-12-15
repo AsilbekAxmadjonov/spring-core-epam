@@ -20,7 +20,7 @@ public class TrainerEntity {
     private Long id;
 
     @NotNull(message = "Training specialization is required")
-    @ManyToOne
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "training_type_id", nullable = false)
     private TrainingTypeEntity specialization;
 
@@ -29,7 +29,7 @@ public class TrainerEntity {
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity userEntity;
 
-    @OneToMany(mappedBy = "trainer", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "trainerEntity", cascade = CascadeType.ALL)
     private List<TrainingEntity> trainingEntities;
 }
 

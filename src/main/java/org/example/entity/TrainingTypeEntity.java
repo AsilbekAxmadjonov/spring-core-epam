@@ -25,6 +25,6 @@ public class TrainingTypeEntity {
     @Column(nullable = false)
     private String trainingTypeName;
 
-    @OneToMany(mappedBy = "trainingType")
+    @OneToMany(mappedBy = "trainingTypeEntity")
     private List<TrainingEntity> trainingEntities;
 }
