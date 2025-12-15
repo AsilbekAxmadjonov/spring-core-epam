@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- Console Appender with MDC -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - [TxId:%X{transactionId}] [User:%X{userId}] [%X{requestMethod} %X{requestUri}] - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- File Appender with MDC -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/application.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/application-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - [TxId:%X{transactionId}] [User:%X{userId}] [%X{requestMethod} %X{requestUri}] - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- JSON Appender (Optional - for structured logging) -->
+    <appender name="JSON_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/application-json.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/application-json-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <includeMdcKeyName>transactionId</includeMdcKeyName>
+            <includeMdcKeyName>userId</includeMdcKeyName>
+            <includeMdcKeyName>requestUri</includeMdcKeyName>
+            <includeMdcKeyName>requestMethod</includeMdcKeyName>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE" />
+    </root>
+
+</configuration>

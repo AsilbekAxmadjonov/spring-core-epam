@@ -10,6 +10,7 @@
 
     <properties>
         <java.version>21</java.version>
+        <springdoc.version>2.3.0</springdoc.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -166,6 +167,82 @@
         </dependency>
 
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>6.1.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.20</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <version>10.1.20</version>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>0.11.5</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>0.11.5</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>0.11.5</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>${springdoc.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>swagger-ui</artifactId>
+            <version>5.10.3</version>
+        </dependency>
+
+        <!-- WebJars locator (helps find WebJar resources) -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator-core</artifactId>
+            <version>0.59</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.4.14</version>
+        </dependency>
+
+        <!-- Optional: For JSON structured logging -->
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>7.4</version>
+        </dependency>
+
+
+
 
     </dependencies>
 
@@ -179,19 +256,19 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                     <annotationProcessorPaths>
-      
+
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
                             <version>1.18.38</version>
                         </path>
-                 
+
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok-mapstruct-binding</artifactId>
                             <version>0.2.0</version>
                         </path>
-               
+
                         <path>
                             <groupId>org.mapstruct</groupId>
                             <artifactId>mapstruct-processor</artifactId>

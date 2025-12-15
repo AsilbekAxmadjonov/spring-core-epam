@@ -12,6 +12,7 @@ import org.example.repository.TraineeRepo;
 import org.example.repository.TrainerRepo;
 import org.example.repository.TrainingRepo;
 import org.example.services.TrainingService;
+import org.slf4j.MDC;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -79,6 +80,7 @@ public class TrainingServiceDbImpl implements TrainingService {
 
     @Override
     public Training addTraining(Training training) {
+
         log.debug("Starting training creation: trainee={}, trainer={}, name={}",
                 training.getTraineeUsername(),
                 training.getTrainerUsername(),
@@ -107,6 +109,10 @@ public class TrainingServiceDbImpl implements TrainingService {
 
     @Override
     public void createTraining(Training training) {
+
+        MDC.put("operation", "Create Training");
+        MDC.put("trainingName", training.getTrainingName());
+
         log.debug("Delegating createTraining to addTraining()");
         addTraining(training);
     }

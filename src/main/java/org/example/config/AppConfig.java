@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 @Configuration
-@ComponentScan(basePackages = "org.example")
+@ComponentScan(basePackages = {"org.example", "org.springdoc"})
 @EnableJpaRepositories("org.example.repository")
 @EnableTransactionManagement
 public class AppConfig {

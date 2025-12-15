@@ -8,6 +8,7 @@ import org.example.mapper.UserMapper;
 import org.example.model.User;
 import org.example.repository.UserRepo;
 import org.example.services.UserService;
+import org.slf4j.MDC;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -41,6 +42,10 @@ public class UserServiceDbImpl implements UserService {
 
     @Override
     public User createUser(User user) {
+
+        MDC.put("operation", "Create User");
+        MDC.put("username", user.getUsername());
+
         log.debug("Creating new user with username: {}", user.getUsername());
 
         user.setPassword(passwordEncoder.encode(new String(user.getPassword())).toCharArray());
@@ -54,6 +59,10 @@ public class UserServiceDbImpl implements UserService {
 
     @Override
     public User updateUser(String username, User updatedUser) {
+
+        MDC.put("operetion", "Update User");
+        MDC.put("username", username);
+
         log.debug("Updating user with username: {}", username);
 
         UserEntity entity = userRepo.findByUsername(username)
@@ -71,6 +80,10 @@ public class UserServiceDbImpl implements UserService {
 
     @Override
     public void deleteByUsername(String username) {
+
+        MDC.put("operation", "Delete User");
+        MDC.put("username", username);
+
         log.debug("Deleting user with username: {}", username);
 
         UserEntity entity = userRepo.findByUsername(username)

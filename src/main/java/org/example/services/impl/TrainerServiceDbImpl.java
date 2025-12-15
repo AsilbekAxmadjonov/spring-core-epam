@@ -7,8 +7,8 @@ import org.example.exception.UserNotFoundException;
 import org.example.mapper.TrainerMapper;
 import org.example.model.Trainer;
 import org.example.repository.TrainerRepo;
-import org.example.repository.TrainingTypeRepo;
 import org.example.services.TrainerService;
+import org.slf4j.MDC;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,10 +26,13 @@ public class TrainerServiceDbImpl implements TrainerService {
 
     private final TrainerRepo trainerRepo;
     private final TrainerMapper trainerMapper;
-    private final TrainingTypeRepo trainingTypeRepo;
 
     @Override
     public Trainer createTrainer(Trainer trainer){
+
+        MDC.put("operation", "createTrainer");
+        MDC.put("username", trainer.getUsername());
+
         log.info("Creating trainer with username: {}", trainer.getUsername());
         TrainerEntity trainerEntity = trainerMapper.toTrainerEntity(trainer);
         trainerRepo.save(trainerEntity);
@@ -51,6 +54,10 @@ public class TrainerServiceDbImpl implements TrainerService {
 
     @Override
     public Trainer updateTrainer(String username, Trainer updatedTrainer) {
+
+        MDC.put("operation", "updateTrainer");
+        MDC.put("username", username);
+
         log.info("Updating trainer: {}", username);
 
         TrainerEntity trainerEntity = trainerRepo.findByUsername(username)
@@ -81,6 +88,10 @@ public class TrainerServiceDbImpl implements TrainerService {
 
     @Override
     public Trainer changePassword(String username, char[] newPassword) {
+
+        MDC.put("operation", "changePassword");
+        MDC.put("username", username);
+
         log.info("Changing password for trainer: {}", username);
 
         TrainerEntity trainerEntity = trainerRepo.findByUsername(username)

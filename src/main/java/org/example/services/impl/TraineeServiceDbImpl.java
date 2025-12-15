@@ -8,6 +8,7 @@ import org.example.mapper.TraineeMapper;
 import org.example.model.Trainee;
 import org.example.repository.TraineeRepo;
 import org.example.services.TraineeService;
+import org.slf4j.MDC;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +29,10 @@ public class TraineeServiceDbImpl implements TraineeService {
 
     @Override
     public Trainee createTrainee(Trainee traineeModel) {
+
+        MDC.put("operation", "createTrainee");
+        MDC.put("username", traineeModel.getUsername());
+
         log.debug("Starting creation of trainee: {}", traineeModel.getUsername());
 
         TraineeEntity traineeEntity = traineeMapper.toTraineeEntity(traineeModel);
@@ -50,6 +55,10 @@ public class TraineeServiceDbImpl implements TraineeService {
 
     @Override
     public Trainee updateTrainee(String username, Trainee updatedTrainee) {
+
+        MDC.put("operation", "updateTrainee");
+        MDC.put("username", username);
+
         log.debug("Starting update for trainee: {}", username);
 
         TraineeEntity traineeEntity = traineeRepo.findByUsername(username)
@@ -68,6 +77,10 @@ public class TraineeServiceDbImpl implements TraineeService {
     @Override
     @Transactional
     public void deleteTraineeByUsername(String username) {
+
+        MDC.put("operation", "deleteTrainee");
+        MDC.put("username", username);
+
         log.debug("Attempting to delete trainee: {}", username);
 
         boolean exists = traineeRepo.findByUsername(username).isPresent();
@@ -95,6 +108,10 @@ public class TraineeServiceDbImpl implements TraineeService {
 
     @Override
     public Trainee changePassword(String username, char[] newPassword) {
+
+        MDC.put("operation", "changePassword");
+        MDC.put("username", username);
+
         log.debug("Starting password change for trainee: {}", username);
 
         TraineeEntity traineeEntity = traineeRepo.findByUsername(username)
