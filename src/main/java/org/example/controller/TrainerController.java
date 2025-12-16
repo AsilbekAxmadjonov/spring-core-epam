@@ -22,7 +22,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Slf4j
 @RestController
@@ -35,12 +34,13 @@ public class TrainerController {
 
     @Operation(
             summary = "Register a new trainer",
-            description = "Public endpoint to register a new trainer in the system. No authentication required."
+            description = "Public endpoint to register a new trainer. Username and password are auto-generated. " +
+                    "Only firstName, lastName, and specialization are required."
     )
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "201",
-                    description = "Trainer created successfully",
+                    description = "Trainer created successfully with generated username and password",
                     content = @Content(schema = @Schema(implementation = TrainerResponse.class))
             ),
             @ApiResponse(
@@ -51,23 +51,26 @@ public class TrainerController {
     })
     @PostMapping
     public ResponseEntity<TrainerResponse> createTrainer(@Valid @RequestBody TrainerRequest request) {
-        log.info("Creating new trainer with username: {}", request.getUsername());
+        log.info("Creating new trainer: {} {}", request.getFirstName(), request.getLastName());
 
         Trainer trainer = Trainer.builder()
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
-                .username(request.getUsername())
-                .password(request.getPassword())
                 .specialization(request.getSpecialization())
                 .isActive(true)
                 .build();
 
         Trainer created = trainerService.createTrainer(trainer);
 
-        log.info("Trainer created successfully: {}", created.getUsername());
+        log.info("Trainer created successfully with username: {}", created.getUsername());
 
+        // Return response with generated username, password, and token
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(mapToResponse(created));
+                .body(TrainerResponse.builder()
+                        .username(created.getUsername())
+                        .password(created.getPassword()) // Plain password for registration response
+                        .token(created.getToken()) // JWT token
+                        .build());
     }
 
     @Operation(
@@ -77,8 +80,7 @@ public class TrainerController {
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
-                    description = "Trainer found",
-                    content = @Content(schema = @Schema(implementation = TrainerResponse.class))
+                    description = "Trainer found"
             ),
             @ApiResponse(
                     responseCode = "404",
@@ -88,7 +90,7 @@ public class TrainerController {
     })
     @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping("/{username}")
-    public ResponseEntity<TrainerResponse> getTrainerByUsername(
+    public ResponseEntity<Trainer> getTrainerByUsername(
             @Parameter(description = "Username of the trainer", required = true)
             @PathVariable("username") String username) {
         log.info("Fetching trainer by username: {}", username);
@@ -96,7 +98,7 @@ public class TrainerController {
         return trainerService.getTrainerByUsername(username)
                 .map(trainer -> {
                     log.info("Trainer found: {}", username);
-                    return ResponseEntity.ok(mapToResponse(trainer));
+                    return ResponseEntity.ok(trainer);
                 })
                 .orElseThrow(() -> {
                     log.warn("Trainer not found: {}", username);
@@ -114,17 +116,14 @@ public class TrainerController {
     )
     @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping
-    public ResponseEntity<List<TrainerResponse>> getAllTrainers() {
+    public ResponseEntity<List<Trainer>> getAllTrainers() {
         log.info("Fetching all trainers");
 
         List<Trainer> trainers = trainerService.getAllTrainers();
-        List<TrainerResponse> responses = trainers.stream()
-                .map(this::mapToResponse)
-                .collect(Collectors.toList());
 
-        log.info("Fetched {} trainers", responses.size());
+        log.info("Fetched {} trainers", trainers.size());
 
-        return ResponseEntity.ok(responses);
+        return ResponseEntity.ok(trainers);
     }
 
     @Operation(
@@ -134,8 +133,7 @@ public class TrainerController {
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
-                    description = "Trainer updated successfully",
-                    content = @Content(schema = @Schema(implementation = TrainerResponse.class))
+                    description = "Trainer updated successfully"
             ),
             @ApiResponse(
                     responseCode = "404",
@@ -150,7 +148,7 @@ public class TrainerController {
     })
     @SecurityRequirement(name = "Bearer Authentication")
     @PutMapping("/{username}")
-    public ResponseEntity<TrainerResponse> updateTrainer(
+    public ResponseEntity<Trainer> updateTrainer(
             @Parameter(description = "Username of the trainer", required = true)
             @PathVariable("username") String username,
             @Valid @RequestBody TrainerRequest request) {
@@ -168,18 +166,6 @@ public class TrainerController {
 
         log.info("Trainer updated successfully: {}", username);
 
-        return ResponseEntity.ok(mapToResponse(updated));
-    }
-
-    private TrainerResponse mapToResponse(Trainer trainer) {
-        return TrainerResponse.builder()
-                .firstName(trainer.getFirstName())
-                .lastName(trainer.getLastName())
-                .username(trainer.getUsername())
-                .specialization(trainer.getSpecialization())
-                .isActive(trainer.getIsActive())
-                .token(trainer.getToken())
-                .success(true)
-                .build();
+        return ResponseEntity.ok(updated);
     }
 }

@@ -35,12 +35,13 @@ public class TraineeController {
 
     @Operation(
             summary = "Register a new trainee",
-            description = "Public endpoint to register a new trainee in the system. No authentication required."
+            description = "Public endpoint to register a new trainee. Username and password are auto-generated. " +
+                    "Only firstName and lastName are required. Date of birth and address are optional."
     )
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "201",
-                    description = "Trainee created successfully",
+                    description = "Trainee created successfully with generated username and password",
                     content = @Content(schema = @Schema(implementation = TraineeResponse.class))
             ),
             @ApiResponse(
@@ -51,24 +52,27 @@ public class TraineeController {
     })
     @PostMapping
     public ResponseEntity<TraineeResponse> createTrainee(@Valid @RequestBody TraineeRequest request) {
-        log.info("Creating new trainee with username: {}", request.getUsername());
+        log.info("Creating new trainee: {} {}", request.getFirstName(), request.getLastName());
 
         Trainee trainee = Trainee.builder()
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
-                .username(request.getUsername())
-                .password(request.getPassword())
-                .isActive(true)
                 .dateOfBirth(request.getDateOfBirth())
                 .address(request.getAddress())
+                .isActive(true)
                 .build();
 
         Trainee created = traineeService.createTrainee(trainee);
 
-        log.info("Trainee created successfully: {}", created.getUsername());
+        log.info("Trainee created successfully with username: {}", created.getUsername());
 
+        // Return response with generated username, password, and token
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(mapToResponse(created));
+                .body(TraineeResponse.builder()
+                        .username(created.getUsername())
+                        .password(created.getPassword()) // Plain password for registration response
+                        .token(created.getToken()) // JWT token
+                        .build());
     }
 
     @Operation(
@@ -78,8 +82,7 @@ public class TraineeController {
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
-                    description = "Trainee found",
-                    content = @Content(schema = @Schema(implementation = TraineeResponse.class))
+                    description = "Trainee found"
             ),
             @ApiResponse(
                     responseCode = "404",
@@ -89,7 +92,7 @@ public class TraineeController {
     })
     @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping("/{username}")
-    public ResponseEntity<TraineeResponse> getTraineeByUsername(
+    public ResponseEntity<Trainee> getTraineeByUsername(
             @Parameter(description = "Username of the trainee", required = true)
             @PathVariable("username") String username) {
         log.info("Fetching trainee by username: {}", username);
@@ -97,7 +100,7 @@ public class TraineeController {
         return traineeService.getTraineeByUsername(username)
                 .map(trainee -> {
                     log.info("Trainee found: {}", username);
-                    return ResponseEntity.ok(mapToResponse(trainee));
+                    return ResponseEntity.ok(trainee);
                 })
                 .orElseThrow(() -> {
                     log.warn("Trainee not found: {}", username);
@@ -115,17 +118,14 @@ public class TraineeController {
     )
     @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping
-    public ResponseEntity<List<TraineeResponse>> getAllTrainees() {
+    public ResponseEntity<List<Trainee>> getAllTrainees() {
         log.info("Fetching all trainees");
 
         List<Trainee> trainees = traineeService.getAllTrainees();
-        List<TraineeResponse> responses = trainees.stream()
-                .map(this::mapToResponse)
-                .collect(Collectors.toList());
 
-        log.info("Fetched {} trainees", responses.size());
+        log.info("Fetched {} trainees", trainees.size());
 
-        return ResponseEntity.ok(responses);
+        return ResponseEntity.ok(trainees);
     }
 
     @Operation(
@@ -135,8 +135,7 @@ public class TraineeController {
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
-                    description = "Trainee updated successfully",
-                    content = @Content(schema = @Schema(implementation = TraineeResponse.class))
+                    description = "Trainee updated successfully"
             ),
             @ApiResponse(
                     responseCode = "404",
@@ -146,7 +145,7 @@ public class TraineeController {
     })
     @SecurityRequirement(name = "Bearer Authentication")
     @PutMapping("/{username}")
-    public ResponseEntity<TraineeResponse> updateTrainee(
+    public ResponseEntity<Trainee> updateTrainee(
             @PathVariable("username") String username,
             @Valid @RequestBody TraineeRequest request) {
 
@@ -164,7 +163,7 @@ public class TraineeController {
 
         log.info("Trainee updated successfully: {}", username);
 
-        return ResponseEntity.ok(mapToResponse(updated));
+        return ResponseEntity.ok(updated);
     }
 
     @Operation(
@@ -189,18 +188,5 @@ public class TraineeController {
         log.info("Trainee deleted successfully: {}", username);
 
         return ResponseEntity.noContent().build();
-    }
-
-    private TraineeResponse mapToResponse(Trainee trainee) {
-        return TraineeResponse.builder()
-                .firstName(trainee.getFirstName())
-                .lastName(trainee.getLastName())
-                .username(trainee.getUsername())
-                .dateOfBirth(trainee.getDateOfBirth())
-                .address(trainee.getAddress())
-                .isActive(trainee.getIsActive())
-                .token(trainee.getToken())
-                .success(true)
-                .build();
     }
 }

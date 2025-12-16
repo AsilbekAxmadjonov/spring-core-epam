@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
+import java.security.SecureRandom;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,56 +38,79 @@ public class TraineeServiceDbImpl implements TraineeService {
     private final PasswordEncoder passwordEncoder;
     private final TokenService tokenService;
 
+    private static final int PASSWORD_LENGTH = 10;
+    private static final SecureRandom random = new SecureRandom();
+
     @Override
     @Transactional
     public Trainee createTrainee(@Valid Trainee trainee) {
 
         MDC.put("operation", "createTrainee");
-        MDC.put("username", trainee.getUsername());
 
-        log.info("Creating trainee with username: {}", trainee.getUsername());
+        String baseUsername = trainee.getFirstName() + "." + trainee.getLastName();
+        String username = generateUniqueUsername(baseUsername);
 
-        // Check if user already exists
-        Optional<UserEntity> existingUser = userRepo.findByUsername(trainee.getUsername());
+        String plainPassword = generateRandomPassword();
 
-        if (existingUser.isPresent()) {
-            throw new IllegalArgumentException("User with username " + trainee.getUsername() + " already exists");
-        }
+        trainee.setUsername(username);
+        trainee.setPassword(plainPassword.toCharArray());
 
-        // Create the User first
+        MDC.put("username", username);
+        log.info("Creating trainee with generated username: {}", username);
+
         UserEntity userEntity = new UserEntity();
-        userEntity.setUsername(trainee.getUsername());
+        userEntity.setUsername(username);
         userEntity.setFirstName(trainee.getFirstName());
         userEntity.setLastName(trainee.getLastName());
 
-        // Convert char[] to String, encode, then convert back to char[]
-        String passwordString = new String(trainee.getPassword());
-        String encodedPassword = passwordEncoder.encode(passwordString);
+        String encodedPassword = passwordEncoder.encode(plainPassword);
         userEntity.setPassword(encodedPassword.toCharArray());
-
         userEntity.setIsActive(true);
 
         UserEntity savedUser = userRepo.save(userEntity);
-        log.info("User created successfully: {}", trainee.getUsername());
+        log.info("User created successfully: {}", username);
 
-        // Now create the Trainee
         TraineeEntity traineeEntity = new TraineeEntity();
         traineeEntity.setUserEntity(savedUser);
         traineeEntity.setDateOfBirth(trainee.getDateOfBirth());
         traineeEntity.setAddress(trainee.getAddress());
 
         TraineeEntity savedTrainee = traineeRepo.save(traineeEntity);
-        log.info("Trainee created successfully: {}", trainee.getUsername());
+        log.info("Trainee created successfully: {}", username);
 
-        // Generate JWT token using TokenService
         String token = tokenService.generateToken(savedUser.getUsername());
-        log.info("JWT token generated for trainee: {}", trainee.getUsername());
+        log.info("JWT token generated for trainee: {}", username);
 
-        // Convert to model and add token
         Trainee traineeModel = traineeMapper.toTraineeModel(savedTrainee);
         traineeModel.setToken(token);
+        traineeModel.setPassword(plainPassword.toCharArray());
 
         return traineeModel;
+    }
+
+    private String generateUniqueUsername(String baseUsername) {
+        String username = baseUsername;
+        int counter = 1;
+
+        while (userRepo.findByUsername(username).isPresent()) {
+            username = baseUsername + counter;
+            counter++;
+        }
+
+        return username;
+    }
+
+    private String generateRandomPassword() {
+        return random.ints(PASSWORD_LENGTH, 0, 62)
+                .map(i -> {
+                    if (i < 26) return 'A' + i;        // A-Z
+                    if (i < 52) return 'a' + (i - 26); // a-z
+                    return '0' + (i - 52);              // 0-9
+                })
+                .collect(StringBuilder::new,
+                        StringBuilder::appendCodePoint,
+                        StringBuilder::append)
+                .toString();
     }
 
     @Override
@@ -168,5 +192,4 @@ public class TraineeServiceDbImpl implements TraineeService {
         log.info("Total trainees fetched: {}", trainees.size());
         return trainees;
     }
-
 }

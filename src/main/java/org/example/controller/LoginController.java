@@ -39,11 +39,7 @@ public class LoginController {
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
-                    description = "Login successful",
-                    content = @Content(
-                            mediaType = "application/json",
-                            schema = @Schema(implementation = LoginResponse.class)
-                    )
+                    description = "Login successful"
             ),
             @ApiResponse(
                     responseCode = "401",
@@ -73,7 +69,7 @@ public class LoginController {
 
     @SecurityRequirement(name = "Bearer Authentication")
     @PostMapping("/login")
-    public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<Void> login(@Valid @RequestBody LoginRequest loginRequest) {
 
         MDC.put("operation", "userLogin");
         MDC.put("username", loginRequest.getUsername());
@@ -88,40 +84,21 @@ public class LoginController {
 
             if (!user.getIsActive()) {
                 log.warn("Login attempt for inactive account: {}", loginRequest.getUsername());
-                return ResponseEntity.status(HttpStatus.FORBIDDEN)
-                        .body(LoginResponse.builder()
-                                .success(false)
-                                .message("Account is inactive")
-                                .build());
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
             }
 
             String token = tokenService.generateToken(user.getUsername());
 
             log.info("Login successful for username: {}", loginRequest.getUsername());
 
-            return ResponseEntity.ok(LoginResponse.builder()
-                    .success(true)
-                    .message("Login successful")
-                    .token(token)
-                    .username(user.getUsername())
-                    .firstName(user.getFirstName())
-                    .lastName(user.getLastName())
-                    .build());
+            return ResponseEntity.ok().build();
 
         } catch (BadCredentialsException e) {
             log.warn("Invalid credentials for username: {}", loginRequest.getUsername());
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(LoginResponse.builder()
-                            .success(false)
-                            .message("Invalid username or password")
-                            .build());
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         } catch (Exception e) {
             log.error("Login error for username: {}", loginRequest.getUsername(), e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(LoginResponse.builder()
-                            .success(false)
-                            .message("An error occurred during login")
-                            .build());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         } finally {
             MDC.remove("operation");
             MDC.remove("username");
@@ -136,11 +113,7 @@ public class LoginController {
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
-                    description = "Logout successful",
-                    content = @Content(
-                            mediaType = "application/json",
-                            schema = @Schema(implementation = LoginResponse.class)
-                    )
+                    description = "Logout successful"
             ),
             @ApiResponse(
                     responseCode = "401",
@@ -152,12 +125,9 @@ public class LoginController {
             )
     })
     @PostMapping("/logout")
-    public ResponseEntity<LoginResponse> logout(@RequestHeader("Authorization") String token) {
+    public ResponseEntity<Void> logout(@RequestHeader("Authorization") String token) {
         log.info("Logout request received");
 
-        return ResponseEntity.ok(LoginResponse.builder()
-                .success(true)
-                .message("Logout successful")
-                .build());
+        return ResponseEntity.ok().build();
     }
 }

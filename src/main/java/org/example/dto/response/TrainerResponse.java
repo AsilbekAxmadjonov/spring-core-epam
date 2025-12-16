@@ -1,6 +1,5 @@
 package org.example.dto.response;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,33 +10,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@Schema(description = "Response object containing trainer profile information")
+@Schema(description = "Response object for trainer registration containing generated credentials")
 public class TrainerResponse {
 
-    @Schema(description = "First name of the trainer", example = "Jane")
-    private String firstName;
-
-    @Schema(description = "Last name of the trainer", example = "Smith")
-    private String lastName;
-
-    @Schema(description = "Unique username of the trainer", example = "jane.smith")
+    @Schema(description = "Generated unique username of the trainer", example = "Jane.Smith", required = true)
     private String username;
 
-    @Schema(description = "Training specialization of the trainer",
-            example = "Yoga",
-            allowableValues = {"Fitness", "Yoga", "Zumba", "Stretching", "Resistance"})
-    private String specialization;
-
-    @Schema(description = "Indicates whether the trainer account is active", example = "true")
-    private Boolean isActive;
-
-    @Schema(description = "Indicates if the operation was successful", example = "true")
-    private Boolean success;
-
-    @Schema(description = "Success or informational message about the operation",
-            example = "Trainer profile updated successfully")
-    private String message;
+    @Schema(description = "Generated password for the trainer account", example = "xYz789AbC1", required = true)
+    private char[] password;
 
     @Schema(description = "JWT authentication token for the trainer",
             example = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...")

@@ -4574,3 +4574,571 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:907)
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:785)
 	... 14 common frames omitted
+2025-12-16 17:16:04.778 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m36s99ms).
+2025-12-16 17:20:28.464 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m23s689ms).
+2025-12-16 17:40:35.367 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=19m36s891ms).
+2025-12-16 17:56:03.293 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m27s850ms).
+2025-12-16 18:07:37.122 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m3s809ms).
+2025-12-16 18:34:34.585 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m27s340ms).
+2025-12-16 18:39:55.385 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m50s788ms).
+2025-12-16 19:12:55.934 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=32m30s533ms).
+2025-12-16 19:24:37.312 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m11s368ms).
+2025-12-16 19:26:34.512 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s856ms).
+2025-12-16 19:30:53.391 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m18s879ms).
+2025-12-16 20:44:17.430 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - Starting Gym Management REST API with embedded Tomcat...
+2025-12-16 20:44:17.974 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ Tomcat server started successfully on http://localhost:8080
+2025-12-16 20:44:17.974 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ API documentation available at: http://localhost:8080/swagger-ui.html
+2025-12-16 20:44:17.974 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ Press CTRL+C to stop the server
+2025-12-16 21:14:49.821 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - Starting Gym Management REST API with embedded Tomcat...
+2025-12-16 21:14:50.266 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ Tomcat server started successfully on http://localhost:8080
+2025-12-16 21:14:50.266 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ API documentation available at: http://localhost:8080/swagger-ui.html
+2025-12-16 21:14:50.266 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ Press CTRL+C to stop the server
+2025-12-16 21:14:52.759 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Initializing Servlet 'dispatcher'
+2025-12-16 21:14:53.277 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-16 21:14:53.304 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 22 ms. Found 5 JPA repository interfaces.
+2025-12-16 21:14:53.307 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-16 21:14:53.310 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 3 ms. Found 5 JPA repository interfaces.
+2025-12-16 21:14:53.514 [http-nio-8080-exec-1] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-16 21:14:53.544 [http-nio-8080-exec-1] INFO  org.hibernate.Version - [TxId:] [User:] [ ] - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-12-16 21:14:53.559 [http-nio-8080-exec-1] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2025-12-16 21:14:53.714 [http-nio-8080-exec-1] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-16 21:14:53.727 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Starting...
+2025-12-16 21:14:53.846 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@33634251
+2025-12-16 21:14:53.847 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Start completed.
+2025-12-16 21:14:54.108 [http-nio-8080-exec-1] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
+2025-12-16 21:14:54.544 [http-nio-8080-exec-1] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-16 21:14:54.632 [http-nio-8080-exec-1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-16 21:14:54.814 [http-nio-8080-exec-1] INFO  o.s.d.j.r.query.QueryEnhancerFactory - [TxId:] [User:] [ ] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-16 21:14:55.086 [http-nio-8080-exec-1] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2025-12-16 21:14:55.846 [http-nio-8080-exec-1] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@29267851, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@37618ab3, org.springframework.security.web.context.SecurityContextHolderFilter@781c6887, org.springframework.security.web.header.HeaderWriterFilter@26745624, org.springframework.security.web.authentication.logout.LogoutFilter@f402766, org.example.security.filter.JwtAuthenticationFilter@da8c5a8, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@692efef8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1e7f2970, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@27a5cc9c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@36655cc5, org.springframework.security.web.session.SessionManagementFilter@3f8d37d9, org.springframework.security.web.access.ExceptionTranslationFilter@2d9d30c2, org.springframework.security.web.access.intercept.AuthorizationFilter@20ee3f57]
+2025-12-16 21:14:55.859 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Completed initialization in 3100 ms
+2025-12-16 21:14:56.358 [http-nio-8080-exec-5] INFO  o.s.api.AbstractOpenApiResource - [TxId:0abae768-490b-4f46-82e5-0d71639b5190] [User:] [GET /v3/api-docs/public] - Init duration for springdoc-openapi is: 314 ms
+2025-12-16 21:15:25.248 [http-nio-8080-exec-7] WARN  o.e.config.AuthenticationInterceptor - [TxId:38580ed3-3214-4210-8109-a48bb0f2a020] [User:] [POST /api/trainees] - No authenticated user found for request: /api/trainees
+2025-12-16 21:15:25.312 [http-nio-8080-exec-7] INFO  o.e.controller.TraineeController - [TxId:38580ed3-3214-4210-8109-a48bb0f2a020] [User:] [POST /api/trainees] - Creating new trainee: Azamat Axmadjonov
+2025-12-16 21:15:25.321 [http-nio-8080-exec-7] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:38580ed3-3214-4210-8109-a48bb0f2a020] [User:] [POST /api/trainees] - Creating trainee with username: null
+2025-12-16 21:15:25.353 [http-nio-8080-exec-7] ERROR o.e.exception.GlobalExceptionHandler - [TxId:38580ed3-3214-4210-8109-a48bb0f2a020] [User:] [POST /api/trainees] - Unexpected error occurred
+java.lang.NullPointerException: Cannot read the array length because "value" is null
+	at java.base/java.lang.String.<init>(String.java:278)
+	at org.example.services.impl.dbImpl.TraineeServiceDbImpl.createTrainee(TraineeServiceDbImpl.java:63)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:220)
+	at jdk.proxy4/jdk.proxy4.$Proxy134.createTrainee(Unknown Source)
+	at org.example.controller.TraineeController.createTrainee(TraineeController.java:65)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:547)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-12-16 21:19:51.424 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - Starting Gym Management REST API with embedded Tomcat...
+2025-12-16 21:19:51.776 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ Tomcat server started successfully on http://localhost:8080
+2025-12-16 21:19:51.776 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ API documentation available at: http://localhost:8080/swagger-ui.html
+2025-12-16 21:19:51.776 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ Press CTRL+C to stop the server
+2025-12-16 21:20:00.665 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Initializing Servlet 'dispatcher'
+2025-12-16 21:20:01.080 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-16 21:20:01.106 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 21 ms. Found 5 JPA repository interfaces.
+2025-12-16 21:20:01.109 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-16 21:20:01.111 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 2 ms. Found 5 JPA repository interfaces.
+2025-12-16 21:20:01.416 [http-nio-8080-exec-1] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-16 21:20:01.469 [http-nio-8080-exec-1] INFO  org.hibernate.Version - [TxId:] [User:] [ ] - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-12-16 21:20:01.494 [http-nio-8080-exec-1] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2025-12-16 21:20:01.863 [http-nio-8080-exec-1] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-16 21:20:01.880 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Starting...
+2025-12-16 21:20:02.069 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2730a396
+2025-12-16 21:20:02.070 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Start completed.
+2025-12-16 21:20:02.323 [http-nio-8080-exec-1] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
+2025-12-16 21:20:02.703 [http-nio-8080-exec-1] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-16 21:20:02.769 [http-nio-8080-exec-1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-16 21:20:02.925 [http-nio-8080-exec-1] INFO  o.s.d.j.r.query.QueryEnhancerFactory - [TxId:] [User:] [ ] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-16 21:20:03.157 [http-nio-8080-exec-1] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2025-12-16 21:20:03.797 [http-nio-8080-exec-1] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7e7cf0bd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6f35500a, org.springframework.security.web.context.SecurityContextHolderFilter@3a2da822, org.springframework.security.web.header.HeaderWriterFilter@111f5793, org.springframework.security.web.authentication.logout.LogoutFilter@7329defe, org.example.security.filter.JwtAuthenticationFilter@2cd17365, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@35248f8f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1850ba38, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4ab7d86c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@39a023b3, org.springframework.security.web.session.SessionManagementFilter@6bb9542, org.springframework.security.web.access.ExceptionTranslationFilter@2a646259, org.springframework.security.web.access.intercept.AuthorizationFilter@26c37dbb]
+2025-12-16 21:20:03.813 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Completed initialization in 3147 ms
+2025-12-16 21:20:03.821 [http-nio-8080-exec-1] WARN  o.e.config.AuthenticationInterceptor - [TxId:55b9bca0-2b8e-49b9-9a73-e0d2f0fdb215] [User:] [POST /api/trainees] - No authenticated user found for request: /api/trainees
+2025-12-16 21:20:03.877 [http-nio-8080-exec-1] INFO  o.e.controller.TraineeController - [TxId:55b9bca0-2b8e-49b9-9a73-e0d2f0fdb215] [User:] [POST /api/trainees] - Creating new trainee: Azamat Axmadjonov
+2025-12-16 21:20:03.895 [http-nio-8080-exec-1] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:55b9bca0-2b8e-49b9-9a73-e0d2f0fdb215] [User:] [POST /api/trainees] - Creating trainee with generated username: Azamat.Axmadjonov
+2025-12-16 21:20:03.998 [http-nio-8080-exec-1] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:55b9bca0-2b8e-49b9-9a73-e0d2f0fdb215] [User:] [POST /api/trainees] - User created successfully: Azamat.Axmadjonov
+2025-12-16 21:20:04.004 [http-nio-8080-exec-1] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:55b9bca0-2b8e-49b9-9a73-e0d2f0fdb215] [User:] [POST /api/trainees] - Trainee created successfully: Azamat.Axmadjonov
+2025-12-16 21:20:04.019 [http-nio-8080-exec-1] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:55b9bca0-2b8e-49b9-9a73-e0d2f0fdb215] [User:] [POST /api/trainees] - JWT token generated for trainee: Azamat.Axmadjonov
+2025-12-16 21:20:04.030 [http-nio-8080-exec-1] INFO  o.e.controller.TraineeController - [TxId:55b9bca0-2b8e-49b9-9a73-e0d2f0fdb215] [User:] [POST /api/trainees] - Trainee created successfully with username: Azamat.Axmadjonov
+2025-12-16 21:23:17.974 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - Starting Gym Management REST API with embedded Tomcat...
+2025-12-16 21:23:18.382 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ Tomcat server started successfully on http://localhost:8080
+2025-12-16 21:23:18.383 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ API documentation available at: http://localhost:8080/swagger-ui.html
+2025-12-16 21:23:18.383 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ Press CTRL+C to stop the server
+2025-12-16 21:23:29.822 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Initializing Servlet 'dispatcher'
+2025-12-16 21:23:30.260 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-16 21:23:30.285 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 20 ms. Found 5 JPA repository interfaces.
+2025-12-16 21:23:30.287 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-16 21:23:30.291 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 3 ms. Found 5 JPA repository interfaces.
+2025-12-16 21:23:30.508 [http-nio-8080-exec-1] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-16 21:23:30.538 [http-nio-8080-exec-1] INFO  org.hibernate.Version - [TxId:] [User:] [ ] - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-12-16 21:23:30.553 [http-nio-8080-exec-1] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2025-12-16 21:23:30.708 [http-nio-8080-exec-1] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-16 21:23:30.724 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Starting...
+2025-12-16 21:23:30.841 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3515a57e
+2025-12-16 21:23:30.842 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Start completed.
+2025-12-16 21:23:31.096 [http-nio-8080-exec-1] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
+2025-12-16 21:23:31.469 [http-nio-8080-exec-1] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-16 21:23:31.537 [http-nio-8080-exec-1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-16 21:23:31.684 [http-nio-8080-exec-1] INFO  o.s.d.j.r.query.QueryEnhancerFactory - [TxId:] [User:] [ ] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-16 21:23:31.920 [http-nio-8080-exec-1] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2025-12-16 21:23:32.539 [http-nio-8080-exec-1] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@311acf65, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4e1d598e, org.springframework.security.web.context.SecurityContextHolderFilter@176e0478, org.springframework.security.web.header.HeaderWriterFilter@35d881aa, org.springframework.security.web.authentication.logout.LogoutFilter@73f78f61, org.example.security.filter.JwtAuthenticationFilter@24d5e98f, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@14bd68a0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2e19e4a3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3c1a38d5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6a541890, org.springframework.security.web.session.SessionManagementFilter@5d4c6a7e, org.springframework.security.web.access.ExceptionTranslationFilter@69a3facb, org.springframework.security.web.access.intercept.AuthorizationFilter@39aaf9a6]
+2025-12-16 21:23:32.552 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Completed initialization in 2729 ms
+2025-12-16 21:23:32.560 [http-nio-8080-exec-1] WARN  o.e.config.AuthenticationInterceptor - [TxId:3802cbba-8a09-42c8-afc2-7cd92b87c34c] [User:] [POST /api/trainees] - No authenticated user found for request: /api/trainees
+2025-12-16 21:23:32.605 [http-nio-8080-exec-1] INFO  o.e.controller.TraineeController - [TxId:3802cbba-8a09-42c8-afc2-7cd92b87c34c] [User:] [POST /api/trainees] - Creating new trainee: Beka Beka
+2025-12-16 21:23:32.622 [http-nio-8080-exec-1] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:3802cbba-8a09-42c8-afc2-7cd92b87c34c] [User:] [POST /api/trainees] - Creating trainee with generated username: Beka.Beka
+2025-12-16 21:23:32.732 [http-nio-8080-exec-1] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:3802cbba-8a09-42c8-afc2-7cd92b87c34c] [User:] [POST /api/trainees] - User created successfully: Beka.Beka
+2025-12-16 21:23:32.735 [http-nio-8080-exec-1] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:3802cbba-8a09-42c8-afc2-7cd92b87c34c] [User:] [POST /api/trainees] - Trainee created successfully: Beka.Beka
+2025-12-16 21:23:32.752 [http-nio-8080-exec-1] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:3802cbba-8a09-42c8-afc2-7cd92b87c34c] [User:] [POST /api/trainees] - JWT token generated for trainee: Beka.Beka
+2025-12-16 21:23:32.760 [http-nio-8080-exec-1] INFO  o.e.controller.TraineeController - [TxId:3802cbba-8a09-42c8-afc2-7cd92b87c34c] [User:] [POST /api/trainees] - Trainee created successfully with username: Beka.Beka
+2025-12-16 21:46:39.109 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - Starting Gym Management REST API with embedded Tomcat...
+2025-12-16 21:46:39.545 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ Tomcat server started successfully on http://localhost:8080
+2025-12-16 21:46:39.546 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ API documentation available at: http://localhost:8080/swagger-ui.html
+2025-12-16 21:46:39.546 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ Press CTRL+C to stop the server
+2025-12-16 21:46:46.932 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Initializing Servlet 'dispatcher'
+2025-12-16 21:46:47.499 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-16 21:46:47.530 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 26 ms. Found 5 JPA repository interfaces.
+2025-12-16 21:46:47.533 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-16 21:46:47.536 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 2 ms. Found 5 JPA repository interfaces.
+2025-12-16 21:46:47.743 [http-nio-8080-exec-1] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-16 21:46:47.773 [http-nio-8080-exec-1] INFO  org.hibernate.Version - [TxId:] [User:] [ ] - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-12-16 21:46:47.787 [http-nio-8080-exec-1] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2025-12-16 21:46:47.939 [http-nio-8080-exec-1] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-16 21:46:47.951 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Starting...
+2025-12-16 21:46:48.064 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5d95e2d4
+2025-12-16 21:46:48.065 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Start completed.
+2025-12-16 21:46:48.329 [http-nio-8080-exec-1] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
+2025-12-16 21:46:48.706 [http-nio-8080-exec-1] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-16 21:46:48.773 [http-nio-8080-exec-1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-16 21:46:48.919 [http-nio-8080-exec-1] INFO  o.s.d.j.r.query.QueryEnhancerFactory - [TxId:] [User:] [ ] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-16 21:46:49.153 [http-nio-8080-exec-1] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2025-12-16 21:46:49.755 [http-nio-8080-exec-1] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1b3256f8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6d8eb53a, org.springframework.security.web.context.SecurityContextHolderFilter@2e904bca, org.springframework.security.web.header.HeaderWriterFilter@2ea482d6, org.springframework.security.web.authentication.logout.LogoutFilter@2448e96e, org.example.security.filter.JwtAuthenticationFilter@450da203, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@241a4a1e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4ca42e19, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@34f05c97, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1ac8f97c, org.springframework.security.web.session.SessionManagementFilter@6f23d016, org.springframework.security.web.access.ExceptionTranslationFilter@526f69cd, org.springframework.security.web.access.intercept.AuthorizationFilter@5eb1b297]
+2025-12-16 21:46:49.768 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Completed initialization in 2835 ms
+2025-12-16 21:46:50.280 [http-nio-8080-exec-5] INFO  o.s.api.AbstractOpenApiResource - [TxId:04df6830-70f9-4c16-8885-f3c190d4f57c] [User:] [GET /v3/api-docs/public] - Init duration for springdoc-openapi is: 370 ms
+2025-12-16 21:47:18.478 [http-nio-8080-exec-6] WARN  o.e.config.AuthenticationInterceptor - [TxId:fe5da7bf-331a-4dab-a764-ec30cf89a6dd] [User:] [POST /api/trainers] - No authenticated user found for request: /api/trainers
+2025-12-16 21:47:18.540 [http-nio-8080-exec-6] INFO  o.e.controller.TrainerController - [TxId:fe5da7bf-331a-4dab-a764-ec30cf89a6dd] [User:] [POST /api/trainers] - Creating new trainer: Lola Lola
+2025-12-16 21:47:18.584 [http-nio-8080-exec-6] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:fe5da7bf-331a-4dab-a764-ec30cf89a6dd] [User:] [POST /api/trainers] - Creating trainer with generated username: Lola.Lola
+2025-12-16 21:47:18.688 [http-nio-8080-exec-6] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:fe5da7bf-331a-4dab-a764-ec30cf89a6dd] [User:] [POST /api/trainers] - User created successfully: Lola.Lola
+2025-12-16 21:47:18.737 [http-nio-8080-exec-6] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:fe5da7bf-331a-4dab-a764-ec30cf89a6dd] [User:] [POST /api/trainers] - Trainer created successfully: Lola.Lola
+2025-12-16 21:47:18.749 [http-nio-8080-exec-6] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:fe5da7bf-331a-4dab-a764-ec30cf89a6dd] [User:] [POST /api/trainers] - JWT token generated for trainer: Lola.Lola
+2025-12-16 21:47:18.759 [http-nio-8080-exec-6] INFO  o.e.controller.TrainerController - [TxId:fe5da7bf-331a-4dab-a764-ec30cf89a6dd] [User:] [POST /api/trainers] - Trainer created successfully with username: Lola.Lola
+2025-12-16 21:48:06.986 [http-nio-8080-exec-8] WARN  o.e.config.AuthenticationInterceptor - [TxId:015f85b6-cc22-4b7d-9fcc-16a59dbba79c] [User:] [POST /api/trainees] - No authenticated user found for request: /api/trainees
+2025-12-16 21:48:07.017 [http-nio-8080-exec-8] INFO  o.e.controller.TraineeController - [TxId:015f85b6-cc22-4b7d-9fcc-16a59dbba79c] [User:] [POST /api/trainees] - Creating new trainee: Islom Islom
+2025-12-16 21:48:07.034 [http-nio-8080-exec-8] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:015f85b6-cc22-4b7d-9fcc-16a59dbba79c] [User:] [POST /api/trainees] - Creating trainee with generated username: Islom.Islom
+2025-12-16 21:48:07.133 [http-nio-8080-exec-8] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:015f85b6-cc22-4b7d-9fcc-16a59dbba79c] [User:] [POST /api/trainees] - User created successfully: Islom.Islom
+2025-12-16 21:48:07.142 [http-nio-8080-exec-8] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:015f85b6-cc22-4b7d-9fcc-16a59dbba79c] [User:] [POST /api/trainees] - Trainee created successfully: Islom.Islom
+2025-12-16 21:48:07.147 [http-nio-8080-exec-8] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:015f85b6-cc22-4b7d-9fcc-16a59dbba79c] [User:] [POST /api/trainees] - JWT token generated for trainee: Islom.Islom
+2025-12-16 21:48:07.150 [http-nio-8080-exec-8] INFO  o.e.controller.TraineeController - [TxId:015f85b6-cc22-4b7d-9fcc-16a59dbba79c] [User:] [POST /api/trainees] - Trainee created successfully with username: Islom.Islom
+2025-12-16 21:57:47.057 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - Starting Gym Management REST API with embedded Tomcat...
+2025-12-16 21:57:47.463 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ Tomcat server started successfully on http://localhost:8080
+2025-12-16 21:57:47.464 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ API documentation available at: http://localhost:8080/swagger-ui.html
+2025-12-16 21:57:47.464 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ Press CTRL+C to stop the server
+2025-12-16 21:57:51.836 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Initializing Servlet 'dispatcher'
+2025-12-16 21:57:52.240 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-16 21:57:52.264 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 20 ms. Found 5 JPA repository interfaces.
+2025-12-16 21:57:52.266 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-16 21:57:52.269 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 2 ms. Found 5 JPA repository interfaces.
+2025-12-16 21:57:52.480 [http-nio-8080-exec-1] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-16 21:57:52.510 [http-nio-8080-exec-1] INFO  org.hibernate.Version - [TxId:] [User:] [ ] - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-12-16 21:57:52.524 [http-nio-8080-exec-1] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2025-12-16 21:57:52.675 [http-nio-8080-exec-1] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-16 21:57:52.696 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Starting...
+2025-12-16 21:57:52.818 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7766b8b4
+2025-12-16 21:57:52.819 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Start completed.
+2025-12-16 21:57:53.060 [http-nio-8080-exec-1] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
+2025-12-16 21:57:53.425 [http-nio-8080-exec-1] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-16 21:57:53.494 [http-nio-8080-exec-1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-16 21:57:53.643 [http-nio-8080-exec-1] INFO  o.s.d.j.r.query.QueryEnhancerFactory - [TxId:] [User:] [ ] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-16 21:57:53.875 [http-nio-8080-exec-1] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2025-12-16 21:57:54.504 [http-nio-8080-exec-1] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@27d1d6b2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@59be4fd2, org.springframework.security.web.context.SecurityContextHolderFilter@2629d7f3, org.springframework.security.web.header.HeaderWriterFilter@209d9649, org.springframework.security.web.authentication.logout.LogoutFilter@43c98eaa, org.example.security.filter.JwtAuthenticationFilter@7c82ecd3, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@57f52c86, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@345ebd9b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@17e7eff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2080705a, org.springframework.security.web.session.SessionManagementFilter@6d5f9426, org.springframework.security.web.access.ExceptionTranslationFilter@4c28684, org.springframework.security.web.access.intercept.AuthorizationFilter@7b36cf93]
+2025-12-16 21:57:54.516 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Completed initialization in 2680 ms
+2025-12-16 21:57:54.946 [http-nio-8080-exec-5] INFO  o.s.api.AbstractOpenApiResource - [TxId:4d083e6c-9424-41bf-be52-8f30d88ac29b] [User:] [GET /v3/api-docs/public] - Init duration for springdoc-openapi is: 273 ms
+2025-12-16 21:58:50.559 [http-nio-8080-exec-7] WARN  o.e.config.AuthenticationInterceptor - [TxId:170a3941-397e-483a-b605-5f41d6529897] [User:] [POST /api/trainers] - No authenticated user found for request: /api/trainers
+2025-12-16 21:58:50.623 [http-nio-8080-exec-7] INFO  o.e.controller.TrainerController - [TxId:170a3941-397e-483a-b605-5f41d6529897] [User:] [POST /api/trainers] - Creating new trainer: kozim kozim
+2025-12-16 21:58:50.661 [http-nio-8080-exec-7] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:170a3941-397e-483a-b605-5f41d6529897] [User:] [POST /api/trainers] - Creating trainer with generated username: kozim.kozim
+2025-12-16 21:58:50.761 [http-nio-8080-exec-7] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:170a3941-397e-483a-b605-5f41d6529897] [User:] [POST /api/trainers] - User created successfully: kozim.kozim
+2025-12-16 21:58:50.792 [http-nio-8080-exec-7] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:170a3941-397e-483a-b605-5f41d6529897] [User:] [POST /api/trainers] - Trainer created successfully: kozim.kozim
+2025-12-16 21:58:50.819 [http-nio-8080-exec-7] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:170a3941-397e-483a-b605-5f41d6529897] [User:] [POST /api/trainers] - JWT token generated for trainer: kozim.kozim
+2025-12-16 21:58:50.830 [http-nio-8080-exec-7] INFO  o.e.controller.TrainerController - [TxId:170a3941-397e-483a-b605-5f41d6529897] [User:] [POST /api/trainers] - Trainer created successfully with username: kozim.kozim
+2025-12-16 21:59:03.984 [http-nio-8080-exec-9] INFO  o.example.controller.LoginController - [TxId:c70817b0-70c3-4106-9869-673cc5e78c3d] [User:] [POST /api/auth/login] - Login attempt for username: kozim.kozim
+2025-12-16 21:59:04.108 [http-nio-8080-exec-9] INFO  o.e.s.impl.AuthenticationServiceImpl - [TxId:c70817b0-70c3-4106-9869-673cc5e78c3d] [User:] [POST /api/auth/login] - User authenticated successfully: kozim.kozim
+2025-12-16 21:59:04.111 [http-nio-8080-exec-9] INFO  o.example.controller.LoginController - [TxId:c70817b0-70c3-4106-9869-673cc5e78c3d] [User:] [POST /api/auth/login] - Login successful for username: kozim.kozim
+2025-12-16 22:02:14.453 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - Starting Gym Management REST API with embedded Tomcat...
+2025-12-16 22:02:14.862 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ Tomcat server started successfully on http://localhost:8080
+2025-12-16 22:02:14.862 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ API documentation available at: http://localhost:8080/swagger-ui.html
+2025-12-16 22:02:14.863 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ Press CTRL+C to stop the server
+2025-12-16 22:02:19.525 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Initializing Servlet 'dispatcher'
+2025-12-16 22:02:19.884 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-16 22:02:19.909 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 20 ms. Found 5 JPA repository interfaces.
+2025-12-16 22:02:19.911 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-16 22:02:19.913 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 2 ms. Found 5 JPA repository interfaces.
+2025-12-16 22:02:20.123 [http-nio-8080-exec-1] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-16 22:02:20.153 [http-nio-8080-exec-1] INFO  org.hibernate.Version - [TxId:] [User:] [ ] - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-12-16 22:02:20.167 [http-nio-8080-exec-1] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2025-12-16 22:02:20.309 [http-nio-8080-exec-1] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-16 22:02:20.320 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Starting...
+2025-12-16 22:02:20.430 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4d14678e
+2025-12-16 22:02:20.431 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Start completed.
+2025-12-16 22:02:20.657 [http-nio-8080-exec-1] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
+2025-12-16 22:02:21.017 [http-nio-8080-exec-1] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-16 22:02:21.083 [http-nio-8080-exec-1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-16 22:02:21.222 [http-nio-8080-exec-1] INFO  o.s.d.j.r.query.QueryEnhancerFactory - [TxId:] [User:] [ ] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-16 22:02:21.441 [http-nio-8080-exec-1] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2025-12-16 22:02:22.029 [http-nio-8080-exec-1] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@683f0b4d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@45399342, org.springframework.security.web.context.SecurityContextHolderFilter@62369085, org.springframework.security.web.header.HeaderWriterFilter@4f84f197, org.springframework.security.web.authentication.logout.LogoutFilter@5e8cf563, org.example.security.filter.JwtAuthenticationFilter@75fc40b8, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5d5e0eb6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7611ad38, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7417d1a5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@40c33d24, org.springframework.security.web.session.SessionManagementFilter@cba0a24, org.springframework.security.web.access.ExceptionTranslationFilter@5b91cb41, org.springframework.security.web.access.intercept.AuthorizationFilter@fb72390]
+2025-12-16 22:02:22.041 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Completed initialization in 2516 ms
+2025-12-16 22:02:22.448 [http-nio-8080-exec-5] INFO  o.s.api.AbstractOpenApiResource - [TxId:8670a50c-e92c-49cd-bb18-f46c23597bbb] [User:] [GET /v3/api-docs/public] - Init duration for springdoc-openapi is: 268 ms
+2025-12-16 22:02:54.127 [http-nio-8080-exec-7] WARN  o.e.config.AuthenticationInterceptor - [TxId:1a8b401e-9320-4eb7-b4f7-05426faa81cf] [User:] [PUT /api/trainers/kozim.kozim] - No authenticated user found for request: /api/trainers/kozim.kozim
+2025-12-16 22:02:54.179 [http-nio-8080-exec-7] INFO  o.e.controller.TrainerController - [TxId:1a8b401e-9320-4eb7-b4f7-05426faa81cf] [User:] [PUT /api/trainers/kozim.kozim] - Updating trainer: kozim.kozim
+2025-12-16 22:02:54.185 [http-nio-8080-exec-7] ERROR o.e.exception.GlobalExceptionHandler - [TxId:1a8b401e-9320-4eb7-b4f7-05426faa81cf] [User:] [PUT /api/trainers/kozim.kozim] - Unexpected error occurred
+java.lang.SecurityException: User not authenticated
+	at org.example.services.impl.dbImpl.TrainerServiceDbImpl.updateTrainer(TrainerServiceDbImpl.java:148)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:220)
+	at jdk.proxy4/jdk.proxy4.$Proxy137.updateTrainer(Unknown Source)
+	at org.example.controller.TrainerController.updateTrainer(TrainerController.java:165)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:925)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:550)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-12-16 22:06:00.264 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - Starting Gym Management REST API with embedded Tomcat...
+2025-12-16 22:06:00.616 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ Tomcat server started successfully on http://localhost:8080
+2025-12-16 22:06:00.616 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ API documentation available at: http://localhost:8080/swagger-ui.html
+2025-12-16 22:06:00.616 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ Press CTRL+C to stop the server
+2025-12-16 22:06:05.046 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Initializing Servlet 'dispatcher'
+2025-12-16 22:06:05.408 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-16 22:06:05.432 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 20 ms. Found 5 JPA repository interfaces.
+2025-12-16 22:06:05.435 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-16 22:06:05.438 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 2 ms. Found 5 JPA repository interfaces.
+2025-12-16 22:06:05.624 [http-nio-8080-exec-1] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-16 22:06:05.651 [http-nio-8080-exec-1] INFO  org.hibernate.Version - [TxId:] [User:] [ ] - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-12-16 22:06:05.664 [http-nio-8080-exec-1] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2025-12-16 22:06:05.800 [http-nio-8080-exec-1] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-16 22:06:05.812 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Starting...
+2025-12-16 22:06:05.938 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@50ca3b68
+2025-12-16 22:06:05.938 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Start completed.
+2025-12-16 22:06:06.163 [http-nio-8080-exec-1] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
+2025-12-16 22:06:06.523 [http-nio-8080-exec-1] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-16 22:06:06.587 [http-nio-8080-exec-1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-16 22:06:06.726 [http-nio-8080-exec-1] INFO  o.s.d.j.r.query.QueryEnhancerFactory - [TxId:] [User:] [ ] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-16 22:06:06.953 [http-nio-8080-exec-1] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2025-12-16 22:06:07.554 [http-nio-8080-exec-1] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7bd9baf8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@303868a9, org.springframework.security.web.context.SecurityContextHolderFilter@2def80d8, org.springframework.security.web.header.HeaderWriterFilter@e65237a, org.springframework.security.web.authentication.logout.LogoutFilter@1f194180, org.example.security.filter.JwtAuthenticationFilter@4f81f566, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6f548fcd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6fb5cd42, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2e5a41ad, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@13e2d205, org.springframework.security.web.session.SessionManagementFilter@38e23c08, org.springframework.security.web.access.ExceptionTranslationFilter@1adc19bc, org.springframework.security.web.access.intercept.AuthorizationFilter@3d04886b]
+2025-12-16 22:06:07.566 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Completed initialization in 2520 ms
+2025-12-16 22:06:07.978 [http-nio-8080-exec-5] INFO  o.s.api.AbstractOpenApiResource - [TxId:cde352fb-1a99-4126-8c72-5dcdf59556de] [User:] [GET /v3/api-docs/public] - Init duration for springdoc-openapi is: 265 ms
+2025-12-16 22:06:34.007 [http-nio-8080-exec-7] WARN  o.e.config.AuthenticationInterceptor - [TxId:5af1afde-060a-4ed7-876a-54cacde1e879] [User:] [PUT /api/trainers/bobur.bobur] - No authenticated user found for request: /api/trainers/bobur.bobur
+2025-12-16 22:06:34.045 [http-nio-8080-exec-7] INFO  o.e.controller.TrainerController - [TxId:5af1afde-060a-4ed7-876a-54cacde1e879] [User:] [PUT /api/trainers/bobur.bobur] - Updating trainer: bobur.bobur
+2025-12-16 22:06:34.051 [http-nio-8080-exec-7] ERROR o.e.exception.GlobalExceptionHandler - [TxId:5af1afde-060a-4ed7-876a-54cacde1e879] [User:] [PUT /api/trainers/bobur.bobur] - Unexpected error occurred
+java.lang.SecurityException: User not authenticated
+	at org.example.services.impl.dbImpl.TrainerServiceDbImpl.updateTrainer(TrainerServiceDbImpl.java:148)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:220)
+	at jdk.proxy4/jdk.proxy4.$Proxy137.updateTrainer(Unknown Source)
+	at org.example.controller.TrainerController.updateTrainer(TrainerController.java:165)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:925)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:550)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-12-16 22:07:10.127 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - Starting Gym Management REST API with embedded Tomcat...
+2025-12-16 22:07:10.550 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ Tomcat server started successfully on http://localhost:8080
+2025-12-16 22:07:10.551 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ API documentation available at: http://localhost:8080/swagger-ui.html
+2025-12-16 22:07:10.551 [main] INFO  org.example.WebApp - [TxId:] [User:] [ ] - ✓ Press CTRL+C to stop the server
+2025-12-16 22:07:22.230 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Initializing Servlet 'dispatcher'
+2025-12-16 22:07:22.604 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-16 22:07:22.628 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 20 ms. Found 5 JPA repository interfaces.
+2025-12-16 22:07:22.630 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-16 22:07:22.633 [http-nio-8080-exec-1] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 2 ms. Found 5 JPA repository interfaces.
+2025-12-16 22:07:22.824 [http-nio-8080-exec-1] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-16 22:07:22.850 [http-nio-8080-exec-1] INFO  org.hibernate.Version - [TxId:] [User:] [ ] - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-12-16 22:07:22.862 [http-nio-8080-exec-1] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2025-12-16 22:07:23.000 [http-nio-8080-exec-1] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-16 22:07:23.011 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Starting...
+2025-12-16 22:07:23.137 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4a924964
+2025-12-16 22:07:23.137 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Start completed.
+2025-12-16 22:07:23.363 [http-nio-8080-exec-1] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
+2025-12-16 22:07:23.714 [http-nio-8080-exec-1] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-16 22:07:23.785 [http-nio-8080-exec-1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-16 22:07:23.925 [http-nio-8080-exec-1] INFO  o.s.d.j.r.query.QueryEnhancerFactory - [TxId:] [User:] [ ] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-16 22:07:24.151 [http-nio-8080-exec-1] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2025-12-16 22:07:24.800 [http-nio-8080-exec-1] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@75cf616b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@e5e38b0, org.springframework.security.web.context.SecurityContextHolderFilter@3dedf7d, org.springframework.security.web.header.HeaderWriterFilter@28a7383c, org.springframework.security.web.authentication.logout.LogoutFilter@4742f2eb, org.example.security.filter.JwtAuthenticationFilter@663ef2ea, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7d40c55f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@24c75b5d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3be2da75, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4a2eeb64, org.springframework.security.web.session.SessionManagementFilter@72a530ec, org.springframework.security.web.access.ExceptionTranslationFilter@7020242b, org.springframework.security.web.access.intercept.AuthorizationFilter@7cdc2238]
+2025-12-16 22:07:24.817 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Completed initialization in 2587 ms
+2025-12-16 22:07:25.230 [http-nio-8080-exec-4] INFO  o.s.api.AbstractOpenApiResource - [TxId:d5f5a66a-e50e-40d9-a9f8-9830cd678630] [User:] [GET /v3/api-docs/public] - Init duration for springdoc-openapi is: 273 ms
+2025-12-16 22:07:36.310 [http-nio-8080-exec-7] WARN  o.e.config.AuthenticationInterceptor - [TxId:1afd5ab7-c25d-4e97-b0cd-5235066cc8d2] [User:] [PUT /api/trainers/bobur.bobur] - No authenticated user found for request: /api/trainers/bobur.bobur
+2025-12-16 22:07:36.352 [http-nio-8080-exec-7] INFO  o.e.controller.TrainerController - [TxId:1afd5ab7-c25d-4e97-b0cd-5235066cc8d2] [User:] [PUT /api/trainers/bobur.bobur] - Updating trainer: bobur.bobur
+2025-12-16 22:07:36.402 [http-nio-8080-exec-7] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:1afd5ab7-c25d-4e97-b0cd-5235066cc8d2] [User:] [PUT /api/trainers/bobur.bobur] - Trainer updated successfully: bobur.bobur
+2025-12-16 22:07:36.406 [http-nio-8080-exec-7] INFO  o.e.controller.TrainerController - [TxId:1afd5ab7-c25d-4e97-b0cd-5235066cc8d2] [User:] [PUT /api/trainers/bobur.bobur] - Trainer updated successfully: bobur.bobur
+2025-12-16 22:08:08.380 [http-nio-8080-exec-9] WARN  o.e.config.AuthenticationInterceptor - [TxId:123bbdc2-5b8b-4c94-bfab-f97bc51246b3] [User:] [GET /api/trainers] - No authenticated user found for request: /api/trainers
+2025-12-16 22:08:08.383 [http-nio-8080-exec-9] INFO  o.e.controller.TrainerController - [TxId:123bbdc2-5b8b-4c94-bfab-f97bc51246b3] [User:] [GET /api/trainers] - Fetching all trainers
+2025-12-16 22:08:08.558 [http-nio-8080-exec-9] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:123bbdc2-5b8b-4c94-bfab-f97bc51246b3] [User:] [GET /api/trainers] - Total trainers fetched: 61
+2025-12-16 22:08:08.571 [http-nio-8080-exec-9] INFO  o.e.controller.TrainerController - [TxId:123bbdc2-5b8b-4c94-bfab-f97bc51246b3] [User:] [GET /api/trainers] - Fetched 61 trainers
+2025-12-16 22:08:25.582 [http-nio-8080-exec-1] ERROR o.e.exception.GlobalExceptionHandler - [TxId:03608b3d-ddcc-4f56-90f2-7efc4abe0158] [User:] [POST /api/auth/logout] - Unexpected error occurred
+org.springframework.web.bind.MissingRequestHeaderException: Required request header 'Authorization' for method parameter type String is not present
+	at org.springframework.web.method.annotation.RequestHeaderMethodArgumentResolver.handleMissingValue(RequestHeaderMethodArgumentResolver.java:87)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.handleMissingValue(AbstractNamedValueMethodArgumentResolver.java:233)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:124)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:228)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:182)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:547)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-12-16 22:08:31.808 [http-nio-8080-exec-2] ERROR o.e.exception.GlobalExceptionHandler - [TxId:b7f5bc3c-56d9-4123-a64d-e56be07b8e85] [User:] [POST /api/auth/logout] - Unexpected error occurred
+org.springframework.web.bind.MissingRequestHeaderException: Required request header 'Authorization' for method parameter type String is not present
+	at org.springframework.web.method.annotation.RequestHeaderMethodArgumentResolver.handleMissingValue(RequestHeaderMethodArgumentResolver.java:87)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.handleMissingValue(AbstractNamedValueMethodArgumentResolver.java:233)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:124)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:228)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:182)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:547)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-12-16 22:08:49.702 [http-nio-8080-exec-3] INFO  o.example.controller.LoginController - [TxId:026364f3-d472-4eda-9636-974234e96dc1] [User:] [POST /api/auth/login] - Login attempt for username: john.doe
+2025-12-16 22:08:49.740 [http-nio-8080-exec-3] ERROR o.example.controller.LoginController - [TxId:026364f3-d472-4eda-9636-974234e96dc1] [User:] [POST /api/auth/login] - Login error for username: john.doe
+org.example.exception.UserNotFoundException: Invalid username or password
+	at org.example.services.impl.AuthenticationServiceImpl.lambda$authenticate$0(AuthenticationServiceImpl.java:35)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at org.example.services.impl.AuthenticationServiceImpl.authenticate(AuthenticationServiceImpl.java:35)
+	at org.example.controller.LoginController.login(LoginController.java:80)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:547)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-12-16 22:08:58.582 [http-nio-8080-exec-4] INFO  o.example.controller.LoginController - [TxId:e6564e7d-02f2-4af1-91b5-344ce72604f9] [User:] [POST /api/auth/login] - Login attempt for username: jlsjf
+2025-12-16 22:08:58.593 [http-nio-8080-exec-4] ERROR o.example.controller.LoginController - [TxId:e6564e7d-02f2-4af1-91b5-344ce72604f9] [User:] [POST /api/auth/login] - Login error for username: jlsjf
+org.example.exception.UserNotFoundException: Invalid username or password
+	at org.example.services.impl.AuthenticationServiceImpl.lambda$authenticate$0(AuthenticationServiceImpl.java:35)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at org.example.services.impl.AuthenticationServiceImpl.authenticate(AuthenticationServiceImpl.java:35)
+	at org.example.controller.LoginController.login(LoginController.java:80)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:547)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-12-16 22:09:24.119 [http-nio-8080-exec-6] WARN  o.e.config.AuthenticationInterceptor - [TxId:1bfea81f-ccc7-4f62-84ab-98601751b0ab] [User:] [GET /api/trainings/YOGA] - No authenticated user found for request: /api/trainings/YOGA
+2025-12-16 22:09:24.121 [http-nio-8080-exec-6] INFO  o.e.controller.TrainingController - [TxId:1bfea81f-ccc7-4f62-84ab-98601751b0ab] [User:] [GET /api/trainings/YOGA] - Fetching training by name: YOGA
+2025-12-16 22:09:24.156 [http-nio-8080-exec-6] ERROR o.e.exception.GlobalExceptionHandler - [TxId:1bfea81f-ccc7-4f62-84ab-98601751b0ab] [User:] [GET /api/trainings/YOGA] - User not found: Training not found: YOGA
+2025-12-16 22:09:35.078 [http-nio-8080-exec-7] WARN  o.e.config.AuthenticationInterceptor - [TxId:b93add58-5302-4570-8564-90de530f8ab8] [User:] [GET /api/trainings] - No authenticated user found for request: /api/trainings
+2025-12-16 22:09:35.079 [http-nio-8080-exec-7] INFO  o.e.controller.TrainingController - [TxId:b93add58-5302-4570-8564-90de530f8ab8] [User:] [GET /api/trainings] - Fetching all trainings
+2025-12-16 22:09:35.125 [http-nio-8080-exec-7] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:b93add58-5302-4570-8564-90de530f8ab8] [User:] [GET /api/trainings] - Fetched 22 total trainings
+2025-12-16 22:09:35.128 [http-nio-8080-exec-7] INFO  o.e.controller.TrainingController - [TxId:b93add58-5302-4570-8564-90de530f8ab8] [User:] [GET /api/trainings] - Fetched 22 trainings
+2025-12-16 22:09:53.557 [http-nio-8080-exec-9] WARN  o.e.config.AuthenticationInterceptor - [TxId:bdb42327-fecd-4cfd-82c8-c73b3269464a] [User:] [GET /api/trainings/Morning%20Workout] - No authenticated user found for request: /api/trainings/Morning%20Workout
+2025-12-16 22:09:53.559 [http-nio-8080-exec-9] INFO  o.e.controller.TrainingController - [TxId:bdb42327-fecd-4cfd-82c8-c73b3269464a] [User:] [GET /api/trainings/Morning%20Workout] - Fetching training by name: Morning Workout
+2025-12-16 22:09:53.579 [http-nio-8080-exec-9] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:bdb42327-fecd-4cfd-82c8-c73b3269464a] [User:] [GET /api/trainings/Morning%20Workout] - Training found: Morning Workout
+2025-12-16 22:09:53.581 [http-nio-8080-exec-9] INFO  o.e.controller.TrainingController - [TxId:bdb42327-fecd-4cfd-82c8-c73b3269464a] [User:] [GET /api/trainings/Morning%20Workout] - Training found: Morning Workout
