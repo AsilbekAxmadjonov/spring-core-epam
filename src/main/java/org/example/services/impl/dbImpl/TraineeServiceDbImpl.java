@@ -11,9 +11,11 @@ import org.example.model.Trainee;
 import org.example.repository.TraineeRepo;
 import org.example.repository.UserRepo;
 import org.example.security.AuthenticationContext;
+import org.example.services.TokenService;
 import org.example.services.TraineeService;
 import org.slf4j.MDC;
 import org.springframework.context.annotation.Primary;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
@@ -32,27 +34,59 @@ public class TraineeServiceDbImpl implements TraineeService {
     private final TraineeRepo traineeRepo;
     private final TraineeMapper traineeMapper;
     private final UserRepo userRepo;
+    private final PasswordEncoder passwordEncoder;
+    private final TokenService tokenService;
 
     @Override
-    public Trainee createTrainee(@Valid Trainee traineeModel) {
+    @Transactional
+    public Trainee createTrainee(@Valid Trainee trainee) {
+
         MDC.put("operation", "createTrainee");
-        MDC.put("username", traineeModel.getUsername());
+        MDC.put("username", trainee.getUsername());
 
-        log.debug("Starting creation of trainee: {}", traineeModel.getUsername());
+        log.info("Creating trainee with username: {}", trainee.getUsername());
 
-        UserEntity userEntity = userRepo.findByUsername(traineeModel.getUsername())
-                .orElseThrow(() -> new UserNotFoundException(
-                        "User not found with username: " + traineeModel.getUsername()));
+        // Check if user already exists
+        Optional<UserEntity> existingUser = userRepo.findByUsername(trainee.getUsername());
 
+        if (existingUser.isPresent()) {
+            throw new IllegalArgumentException("User with username " + trainee.getUsername() + " already exists");
+        }
+
+        // Create the User first
+        UserEntity userEntity = new UserEntity();
+        userEntity.setUsername(trainee.getUsername());
+        userEntity.setFirstName(trainee.getFirstName());
+        userEntity.setLastName(trainee.getLastName());
+
+        // Convert char[] to String, encode, then convert back to char[]
+        String passwordString = new String(trainee.getPassword());
+        String encodedPassword = passwordEncoder.encode(passwordString);
+        userEntity.setPassword(encodedPassword.toCharArray());
+
+        userEntity.setIsActive(true);
+
+        UserEntity savedUser = userRepo.save(userEntity);
+        log.info("User created successfully: {}", trainee.getUsername());
+
+        // Now create the Trainee
         TraineeEntity traineeEntity = new TraineeEntity();
-        traineeEntity.setUserEntity(userEntity);
-        traineeEntity.setDateOfBirth(traineeModel.getDateOfBirth());
-        traineeEntity.setAddress(traineeModel.getAddress());
+        traineeEntity.setUserEntity(savedUser);
+        traineeEntity.setDateOfBirth(trainee.getDateOfBirth());
+        traineeEntity.setAddress(trainee.getAddress());
 
         TraineeEntity savedTrainee = traineeRepo.save(traineeEntity);
-        log.info("Trainee created successfully: {}", traineeModel.getUsername());
+        log.info("Trainee created successfully: {}", trainee.getUsername());
 
-        return traineeMapper.toTraineeModel(savedTrainee);
+        // Generate JWT token using TokenService
+        String token = tokenService.generateToken(savedUser.getUsername());
+        log.info("JWT token generated for trainee: {}", trainee.getUsername());
+
+        // Convert to model and add token
+        Trainee traineeModel = traineeMapper.toTraineeModel(savedTrainee);
+        traineeModel.setToken(token);
+
+        return traineeModel;
     }
 
     @Override
@@ -79,11 +113,11 @@ public class TraineeServiceDbImpl implements TraineeService {
         MDC.put("operation", "updateTrainee");
         MDC.put("username", username);
 
-        String authenticated = AuthenticationContext.getAuthenticatedUser();
-
-        if (authenticated == null || !authenticated.equals(username)) {
-            throw new SecurityException("User not authenticated");
-        }
+//        String authenticated = AuthenticationContext.getAuthenticatedUser();
+//
+//        if (authenticated == null || !authenticated.equals(username)) {
+//            throw new SecurityException("User not authenticated");
+//        }
 
         log.debug("Starting update for trainee: {}", username);
 
@@ -107,11 +141,11 @@ public class TraineeServiceDbImpl implements TraineeService {
         MDC.put("operation", "deleteTrainee");
         MDC.put("username", username);
 
-        String authenticated = AuthenticationContext.getAuthenticatedUser();
-
-        if (authenticated == null || !authenticated.equals(username)) {
-            throw new SecurityException("User not authenticated");
-        }
+//        String authenticated = AuthenticationContext.getAuthenticatedUser();
+//
+//        if (authenticated == null || !authenticated.equals(username)) {
+//            throw new SecurityException("User not authenticated");
+//        }
 
         log.debug("Attempting to delete trainee: {}", username);
 

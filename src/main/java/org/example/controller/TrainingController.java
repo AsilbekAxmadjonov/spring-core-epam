@@ -14,7 +14,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.dto.request.TrainingRequest;
 import org.example.dto.response.ErrorResponse;
 import org.example.dto.response.TrainingResponse;
+import org.example.entity.TrainingTypeEntity;
 import org.example.model.Training;
+import org.example.model.TrainingType;
+import org.example.repository.TrainingTypeRepo;
 import org.example.services.TrainingService;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -27,13 +30,14 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @RestController
-@RequestMapping("/trainings")
+@RequestMapping("/api/trainings")
 @RequiredArgsConstructor
 @Tag(name = "Trainings", description = "Training session management endpoints")
 @SecurityRequirement(name = "Bearer Authentication")
 public class TrainingController {
 
     private final TrainingService trainingService;
+    private final TrainingTypeRepo trainingTypeRepo;
 
     @Operation(
             summary = "Create a new training session",
@@ -63,12 +67,22 @@ public class TrainingController {
                 request.getTraineeUsername(),
                 request.getTrainerUsername());
 
+        TrainingTypeEntity trainingTypeEntity = trainingTypeRepo
+                .findByTrainingTypeName(request.getTrainingType())
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Invalid training type: " + request.getTrainingType()));
+
+        TrainingType trainingType = new TrainingType();
+        trainingType.setTrainingTypeName(trainingTypeEntity.getTrainingTypeName());
+        trainingType.setTrainingTypeName(trainingTypeEntity.getTrainingTypeName());
+
         Training training = Training.builder()
                 .traineeUsername(request.getTraineeUsername())
                 .trainerUsername(request.getTrainerUsername())
                 .trainingName(request.getTrainingName())
                 .trainingDate(request.getTrainingDate())
                 .trainingDurationMinutes(request.getTrainingDurationMinutes())
+                .trainingType(trainingType)  // Set the TrainingType model
                 .build();
 
         Training created = trainingService.addTraining(training);
@@ -112,7 +126,7 @@ public class TrainingController {
     @GetMapping("/trainee/{username}")
     public ResponseEntity<List<TrainingResponse>> getTraineeTrainings(
             @Parameter(description = "Username of the trainee", required = true)
-            @PathVariable String username,
+            @PathVariable("username") String username,
             @Parameter(description = "Filter by start date (yyyy-MM-dd)")
             @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fromDate,
             @Parameter(description = "Filter by end date (yyyy-MM-dd)")
@@ -153,7 +167,7 @@ public class TrainingController {
     @GetMapping("/trainer/{username}")
     public ResponseEntity<List<TrainingResponse>> getTrainerTrainings(
             @Parameter(description = "Username of the trainer", required = true)
-            @PathVariable String username,
+            @PathVariable("username") String username,
             @Parameter(description = "Filter by start date (yyyy-MM-dd)")
             @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fromDate,
             @Parameter(description = "Filter by end date (yyyy-MM-dd)")
@@ -199,7 +213,7 @@ public class TrainingController {
     @GetMapping("/{trainingName}")
     public ResponseEntity<TrainingResponse> getTrainingByName(
             @Parameter(description = "Name of the training session", required = true)
-            @PathVariable String trainingName) {
+            @PathVariable("trainingName") String trainingName) {
         log.info("Fetching training by name: {}", trainingName);
 
         Training training = trainingService.getTraining(trainingName);

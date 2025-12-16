@@ -55,14 +55,4 @@ public class TraineeRequest {
     @Schema(description = "Indicates whether the trainee account is active",
             example = "true")
     private Boolean isActive;
-
-    @Schema(description = "Current password (required for password change operations)",
-            example = "OldPassword123!",
-            format = "password")
-    private char[] oldPassword;
-
-    @Schema(description = "New password (required for password change operations)",
-            example = "NewPassword456!",
-            format = "password")
-    private char[] newPassword;
 }

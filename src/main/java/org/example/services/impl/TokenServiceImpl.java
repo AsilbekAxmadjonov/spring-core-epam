@@ -42,6 +42,7 @@ public class TokenServiceImpl implements TokenService {
         return token;
     }
 
+    @Override
     public String getUsernameFromToken(String token) {
         try {
             Claims claims = Jwts.parserBuilder()
@@ -57,6 +58,7 @@ public class TokenServiceImpl implements TokenService {
         }
     }
 
+    @Override
     public boolean validateToken(String token) {
         try {
             Jwts.parserBuilder()
@@ -74,6 +76,7 @@ public class TokenServiceImpl implements TokenService {
         }
     }
 
+    @Override
     public boolean isTokenExpired(String token) {
         try {
             Claims claims = Jwts.parserBuilder()

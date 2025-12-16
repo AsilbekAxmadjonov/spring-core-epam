@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @RestController
-@RequestMapping("/training-types")
+@RequestMapping("/api/training-types")
 @RequiredArgsConstructor
 @Tag(name = "Training Types", description = "Training type catalog management endpoints")
 @SecurityRequirement(name = "Bearer Authentication")
@@ -86,7 +86,8 @@ public class TrainingTypeController {
                     required = true,
                     example = "Yoga"
             )
-            @PathVariable String trainingTypeName) {
+            @PathVariable("trainingTypeName") String trainingTypeName) {
+
         log.info("Fetching training type by name: {}", trainingTypeName);
 
         return trainingTypeService.getTrainingTypeByName(trainingTypeName)

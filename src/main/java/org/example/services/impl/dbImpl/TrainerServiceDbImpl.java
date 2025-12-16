@@ -13,9 +13,11 @@ import org.example.repository.TrainerRepo;
 import org.example.repository.TrainingTypeRepo;
 import org.example.repository.UserRepo;
 import org.example.security.AuthenticationContext;
+import org.example.services.TokenService;
 import org.example.services.TrainerService;
 import org.slf4j.MDC;
 import org.springframework.context.annotation.Primary;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
@@ -34,9 +36,12 @@ public class TrainerServiceDbImpl implements TrainerService {
     private final TrainerRepo trainerRepo;
     private final TrainerMapper trainerMapper;
     private final TrainingTypeRepo trainingTypeRepo;
+    private final PasswordEncoder passwordEncoder;
     private final UserRepo userRepo;
+    private final TokenService tokenService;
 
     @Override
+    @Transactional
     public Trainer createTrainer(@Valid Trainer trainer) {
 
         MDC.put("operation", "createTrainer");
@@ -44,12 +49,28 @@ public class TrainerServiceDbImpl implements TrainerService {
 
         log.info("Creating trainer with username: {}", trainer.getUsername());
 
-        UserEntity userEntity = userRepo.findByUsername(trainer.getUsername())
-                .orElseThrow(() -> new UserNotFoundException(
-                        "User not found with username: " + trainer.getUsername()));
+        Optional<UserEntity> existingUser = userRepo.findByUsername(trainer.getUsername());
+
+        if (existingUser.isPresent()) {
+            throw new IllegalArgumentException("User with username " + trainer.getUsername() + " already exists");
+        }
+
+        UserEntity userEntity = new UserEntity();
+        userEntity.setUsername(trainer.getUsername());
+        userEntity.setFirstName(trainer.getFirstName());
+        userEntity.setLastName(trainer.getLastName());
+
+        String passwordString = new String(trainer.getPassword());
+        String encodedPassword = passwordEncoder.encode(passwordString);
+        userEntity.setPassword(encodedPassword.toCharArray());
+
+        userEntity.setIsActive(true);
+
+        UserEntity savedUser = userRepo.save(userEntity);
+        log.info("User created successfully: {}", trainer.getUsername());
 
         TrainerEntity trainerEntity = new TrainerEntity();
-        trainerEntity.setUserEntity(userEntity);
+        trainerEntity.setUserEntity(savedUser);
 
         if (trainer.getSpecialization() != null) {
             TrainingTypeEntity trainingType = trainingTypeRepo
@@ -64,7 +85,13 @@ public class TrainerServiceDbImpl implements TrainerService {
         TrainerEntity savedTrainer = trainerRepo.save(trainerEntity);
         log.info("Trainer created successfully: {}", trainer.getUsername());
 
-        return trainerMapper.toTrainerModel(savedTrainer);
+        String token = tokenService.generateToken(savedUser.getUsername());
+        log.info("JWT token generated for trainer: {}", trainer.getUsername());
+
+        Trainer trainerModel = trainerMapper.toTrainerModel(savedTrainer);
+        trainerModel.setToken(token);
+
+        return trainerModel;
     }
 
     @Override
@@ -91,11 +118,11 @@ public class TrainerServiceDbImpl implements TrainerService {
         MDC.put("operation", "updateTrainer");
         MDC.put("username", username);
 
-        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
-
-        if (authenticatedUser == null || !authenticatedUser.equals(username)) {
-            throw new SecurityException("User not authenticated");
-        }
+//        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
+//
+//        if (authenticatedUser == null || !authenticatedUser.equals(username)) {
+//            throw new SecurityException("User not authenticated");
+//        }
 
         log.info("Updating trainer: {}", username);
 

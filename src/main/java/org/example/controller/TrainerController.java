@@ -26,17 +26,16 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @RestController
-@RequestMapping("/trainers")
+@RequestMapping("/api/trainers")
 @RequiredArgsConstructor
 @Tag(name = "Trainers", description = "Trainer management endpoints")
-@SecurityRequirement(name = "Bearer Authentication")
 public class TrainerController {
 
     private final TrainerService trainerService;
 
     @Operation(
-            summary = "Create a new trainer",
-            description = "Register a new trainer in the system with specialization"
+            summary = "Register a new trainer",
+            description = "Public endpoint to register a new trainer in the system. No authentication required."
     )
     @ApiResponses(value = {
             @ApiResponse(
@@ -87,10 +86,11 @@ public class TrainerController {
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class))
             )
     })
+    @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping("/{username}")
     public ResponseEntity<TrainerResponse> getTrainerByUsername(
             @Parameter(description = "Username of the trainer", required = true)
-            @PathVariable String username) {
+            @PathVariable("username") String username) {
         log.info("Fetching trainer by username: {}", username);
 
         return trainerService.getTrainerByUsername(username)
@@ -112,6 +112,7 @@ public class TrainerController {
             responseCode = "200",
             description = "List of trainers retrieved successfully"
     )
+    @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping
     public ResponseEntity<List<TrainerResponse>> getAllTrainers() {
         log.info("Fetching all trainers");
@@ -147,10 +148,11 @@ public class TrainerController {
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class))
             )
     })
+    @SecurityRequirement(name = "Bearer Authentication")
     @PutMapping("/{username}")
     public ResponseEntity<TrainerResponse> updateTrainer(
             @Parameter(description = "Username of the trainer", required = true)
-            @PathVariable String username,
+            @PathVariable("username") String username,
             @Valid @RequestBody TrainerRequest request) {
 
         log.info("Updating trainer: {}", username);
@@ -169,103 +171,15 @@ public class TrainerController {
         return ResponseEntity.ok(mapToResponse(updated));
     }
 
-    @Operation(
-            summary = "Change trainer active status",
-            description = "Activate or deactivate a trainer account"
-    )
-    @ApiResponses(value = {
-            @ApiResponse(
-                    responseCode = "200",
-                    description = "Status updated successfully",
-                    content = @Content(schema = @Schema(implementation = TrainerResponse.class))
-            ),
-            @ApiResponse(
-                    responseCode = "404",
-                    description = "Trainer not found",
-                    content = @Content(schema = @Schema(implementation = ErrorResponse.class))
-            )
-    })
-    @PatchMapping("/{username}/status")
-    public ResponseEntity<TrainerResponse> changeActiveStatus(
-            @Parameter(description = "Username of the trainer", required = true)
-            @PathVariable String username,
-            @Parameter(description = "New active status", required = true)
-            @RequestParam boolean isActive) {
-
-        log.info("Changing active status for trainer: {}, active={}", username, isActive);
-
-        Trainer updated = trainerService.setActiveStatus(username, isActive);
-
-        log.info("Active status changed for trainer: {}", username);
-
-        return ResponseEntity.ok(mapToResponse(updated));
-    }
-
-    @Operation(
-            summary = "Change trainer password",
-            description = "Update trainer password with old password verification"
-    )
-    @ApiResponses(value = {
-            @ApiResponse(
-                    responseCode = "200",
-                    description = "Password changed successfully",
-                    content = @Content(schema = @Schema(implementation = TrainerResponse.class))
-            ),
-            @ApiResponse(
-                    responseCode = "400",
-                    description = "Invalid old password or missing fields",
-                    content = @Content(schema = @Schema(implementation = TrainerResponse.class))
-            ),
-            @ApiResponse(
-                    responseCode = "404",
-                    description = "Trainer not found",
-                    content = @Content(schema = @Schema(implementation = ErrorResponse.class))
-            )
-    })
-    @PatchMapping("/{username}/password")
-    public ResponseEntity<TrainerResponse> changePassword(
-            @Parameter(description = "Username of the trainer", required = true)
-            @PathVariable String username,
-            @Valid @RequestBody TrainerRequest request) {
-
-        log.info("Changing password for trainer: {}", username);
-
-        if (request.getOldPassword() == null || request.getNewPassword() == null) {
-            return ResponseEntity.badRequest()
-                    .body(TrainerResponse.builder()
-                            .success(false)
-                            .message("Old password and new password are required")
-                            .build());
-        }
-
-        // Verify old password
-        boolean passwordMatches = trainerService.passwordMatches(username, request.getOldPassword());
-        if (!passwordMatches) {
-            log.warn("Old password does not match for trainer: {}", username);
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(TrainerResponse.builder()
-                            .success(false)
-                            .message("Old password is incorrect")
-                            .build());
-        }
-
-        trainerService.changePassword(username, request.getNewPassword());
-
-        log.info("Password changed successfully for trainer: {}", username);
-
-        return ResponseEntity.ok(TrainerResponse.builder()
-                .success(true)
-                .message("Password changed successfully")
-                .build());
-    }
-
     private TrainerResponse mapToResponse(Trainer trainer) {
         return TrainerResponse.builder()
                 .firstName(trainer.getFirstName())
                 .lastName(trainer.getLastName())
                 .username(trainer.getUsername())
                 .specialization(trainer.getSpecialization())
-                .isActive(trainer.isActive())
+                .isActive(trainer.getIsActive())
+                .token(trainer.getToken())
+                .success(true)
                 .build();
     }
 }

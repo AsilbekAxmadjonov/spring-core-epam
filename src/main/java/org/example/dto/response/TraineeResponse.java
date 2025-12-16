@@ -41,7 +41,11 @@ public class TraineeResponse {
     @Schema(description = "Indicates if the operation was successful", example = "true")
     private Boolean success;
 
-    @Schema(description = "Success or informational message about the operation",
-            example = "Trainee profile updated successfully")
+    @Schema(description = "Success or informational message about the trainee operation",
+            example = "Trainee profile created successfully")
     private String message;
+
+    @Schema(description = "JWT authentication token for the trainee",
+            example = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...")
+    private String token;
 }

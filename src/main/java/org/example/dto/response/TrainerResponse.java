@@ -38,4 +38,8 @@ public class TrainerResponse {
     @Schema(description = "Success or informational message about the operation",
             example = "Trainer profile updated successfully")
     private String message;
+
+    @Schema(description = "JWT authentication token for the trainer",
+            example = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...")
+    private String token;
 }

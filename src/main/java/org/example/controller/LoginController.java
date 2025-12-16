@@ -14,8 +14,9 @@ import org.example.dto.request.LoginRequest;
 import org.example.dto.response.ErrorResponse;
 import org.example.dto.response.LoginResponse;
 import org.example.model.User;
+import org.example.services.AuthenticationService;
 import org.example.services.TokenService;
-import org.example.services.UserService;
+import org.slf4j.MDC;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -23,12 +24,12 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/auth")
 @RequiredArgsConstructor
 @Tag(name = "Authentication", description = "Authentication management endpoints")
 public class LoginController {
 
-    private final UserService userService;
+    private final AuthenticationService authenticationService;
     private final TokenService tokenService;
 
     @Operation(
@@ -69,19 +70,23 @@ public class LoginController {
                     )
             )
     })
+
+    @SecurityRequirement(name = "Bearer Authentication")
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest loginRequest) {
-        log.info("Login attempt for username: {}", loginRequest.getUsername());
+
+        MDC.put("operation", "userLogin");
+        MDC.put("username", loginRequest.getUsername());
 
         try {
-            // Authenticate user
-            User user = userService.authenticate(
+            log.info("Login attempt for username: {}", loginRequest.getUsername());
+
+            User user = authenticationService.authenticate(
                     loginRequest.getUsername(),
                     loginRequest.getPassword()
             );
 
-            // Check if account is active
-            if (!user.isActive()) {
+            if (!user.getIsActive()) {
                 log.warn("Login attempt for inactive account: {}", loginRequest.getUsername());
                 return ResponseEntity.status(HttpStatus.FORBIDDEN)
                         .body(LoginResponse.builder()
@@ -90,7 +95,6 @@ public class LoginController {
                                 .build());
             }
 
-            // Generate token
             String token = tokenService.generateToken(user.getUsername());
 
             log.info("Login successful for username: {}", loginRequest.getUsername());
@@ -118,6 +122,9 @@ public class LoginController {
                             .success(false)
                             .message("An error occurred during login")
                             .build());
+        } finally {
+            MDC.remove("operation");
+            MDC.remove("username");
         }
     }
 
@@ -147,9 +154,6 @@ public class LoginController {
     @PostMapping("/logout")
     public ResponseEntity<LoginResponse> logout(@RequestHeader("Authorization") String token) {
         log.info("Logout request received");
-
-        // Since JWT is stateless, logout is typically handled on the client side
-        // by removing the token. You can implement token blacklisting if needed.
 
         return ResponseEntity.ok(LoginResponse.builder()
                 .success(true)

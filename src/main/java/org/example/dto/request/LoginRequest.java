@@ -2,6 +2,7 @@ package org.example.dto.request;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,7 +22,7 @@ public class LoginRequest {
     private String username;
 
     @Schema(description = "User password", example = "password1234", required = true, format = "password")
-    @NotBlank(message = "Password is required")
-    @Size(min = 10, message = "Password must be at least 10 characters")
+    @NotNull(message = "Password is required")  // Use @NotNull instead of @NotBlank
+    @Size(min = 1, message = "Password cannot be empty")  // Add size validation
     private char[] password;
 }

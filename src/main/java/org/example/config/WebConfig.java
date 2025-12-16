@@ -19,15 +19,12 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        // Swagger UI WebJars configuration
         registry.addResourceHandler("/swagger-ui/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/swagger-ui/5.10.3/");
 
-        // Custom Swagger UI index.html
         registry.addResourceHandler("/swagger-ui/**")
                 .addResourceLocations("classpath:/static/swagger-ui/");
 
-        // All WebJars
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
@@ -53,8 +50,15 @@ public class WebConfig implements WebMvcConfigurer {
 
         registry.addInterceptor(authenticationInterceptor)
                 .addPathPatterns("/**")
-                .excludePathPatterns("/auth/login", "/auth/register",
-                        "/swagger-ui/**", "/webjars/**", "/v3/api-docs/**")
+                .excludePathPatterns(
+                        "/api/auth/**",
+                        "/swagger-ui/**",
+                        "/swagger-ui.html",
+                        "/v3/api-docs/**",
+                        "/swagger-resources/**",
+                        "/webjars/**",
+                        "/favicon.ico"
+                )
                 .order(2);
     }
 
