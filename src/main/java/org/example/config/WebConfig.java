@@ -1,6 +1,7 @@
 package org.example.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,7 +15,6 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @RequiredArgsConstructor
 public class WebConfig implements WebMvcConfigurer {
 
-    private final AuthenticationInterceptor authenticationInterceptor;
     private final MDCInterceptor mdcInterceptor;
 
     @Override
@@ -22,11 +22,14 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/swagger-ui/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/swagger-ui/5.10.3/");
 
-        registry.addResourceHandler("/swagger-ui/**")
-                .addResourceLocations("classpath:/static/swagger-ui/");
+        registry.addResourceHandler("/swagger-ui.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
 
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
+
+        registry.addResourceHandler("/v3/api-docs/**")
+                .addResourceLocations("classpath:/META-INF/resources/");
     }
 
     @Bean
@@ -39,7 +42,9 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Bean
     public ObjectMapper objectMapper() {
-        return new ObjectMapper();
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        return mapper;
     }
 
     @Override
@@ -47,23 +52,20 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addInterceptor(mdcInterceptor)
                 .addPathPatterns("/**")
                 .order(1);
-
-        registry.addInterceptor(authenticationInterceptor)
-                .addPathPatterns("/**")
-                .excludePathPatterns(
-                        "/api/auth/**",
-                        "/swagger-ui/**",
-                        "/swagger-ui.html",
-                        "/v3/api-docs/**",
-                        "/swagger-resources/**",
-                        "/webjars/**",
-                        "/favicon.ico"
-                )
-                .order(2);
     }
-
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addRedirectViewController("/swagger-ui", "/swagger-ui/index.html");
+    }
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/api/**")
+                .allowedOrigins("http://localhost:3000", "http://localhost:8080")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
+                .exposedHeaders("Authorization")
+                .allowCredentials(true)
+                .maxAge(3600);
     }
 }

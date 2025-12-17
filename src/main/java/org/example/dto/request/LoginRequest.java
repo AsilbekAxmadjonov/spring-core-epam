@@ -22,7 +22,7 @@ public class LoginRequest {
     private String username;
 
     @Schema(description = "User password", example = "password1234", required = true, format = "password")
-    @NotNull(message = "Password is required")  // Use @NotNull instead of @NotBlank
-    @Size(min = 1, message = "Password cannot be empty")  // Add size validation
+    @NotNull(message = "Password is required")
+    @Size(min = 1, message = "Password cannot be empty")
     private char[] password;
 }

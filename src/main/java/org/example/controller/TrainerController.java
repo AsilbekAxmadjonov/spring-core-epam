@@ -27,7 +27,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/trainers")
 @RequiredArgsConstructor
-@Tag(name = "Trainers", description = "Trainer management endpoints")
+@Tag(name = "Trainers", description = "Trainer management endpoints. POST (registration) is public, all other endpoints require JWT authentication.")
 public class TrainerController {
 
     private final TrainerService trainerService;
@@ -35,7 +35,7 @@ public class TrainerController {
     @Operation(
             summary = "Register a new trainer",
             description = "Public endpoint to register a new trainer. Username and password are auto-generated. " +
-                    "Only firstName, lastName, and specialization are required."
+                    "Only firstName, lastName, and specialization are required. No authentication required."
     )
     @ApiResponses(value = {
             @ApiResponse(
@@ -49,6 +49,7 @@ public class TrainerController {
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class))
             )
     })
+
     @PostMapping
     public ResponseEntity<TrainerResponse> createTrainer(@Valid @RequestBody TrainerRequest request) {
         log.info("Creating new trainer: {} {}", request.getFirstName(), request.getLastName());
@@ -64,18 +65,17 @@ public class TrainerController {
 
         log.info("Trainer created successfully with username: {}", created.getUsername());
 
-        // Return response with generated username, password, and token
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(TrainerResponse.builder()
                         .username(created.getUsername())
-                        .password(created.getPassword()) // Plain password for registration response
-                        .token(created.getToken()) // JWT token
+                        .password(created.getPassword())
+                        .token(created.getToken())
                         .build());
     }
 
     @Operation(
             summary = "Get trainer by username",
-            description = "Retrieve detailed information about a specific trainer"
+            description = "Retrieve detailed information about a specific trainer. Requires JWT authentication."
     )
     @ApiResponses(value = {
             @ApiResponse(
@@ -83,12 +83,17 @@ public class TrainerController {
                     description = "Trainer found"
             ),
             @ApiResponse(
+                    responseCode = "401",
+                    description = "Unauthorized - JWT token required",
+                    content = @Content(schema = @Schema(implementation = ErrorResponse.class))
+            ),
+            @ApiResponse(
                     responseCode = "404",
                     description = "Trainer not found",
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class))
             )
     })
-    @SecurityRequirement(name = "Bearer Authentication")
+    @SecurityRequirement(name = "Bearer Authentication") // 🔒 Protected
     @GetMapping("/{username}")
     public ResponseEntity<Trainer> getTrainerByUsername(
             @Parameter(description = "Username of the trainer", required = true)
@@ -108,13 +113,20 @@ public class TrainerController {
 
     @Operation(
             summary = "Get all trainers",
-            description = "Retrieve a list of all registered trainers"
+            description = "Retrieve a list of all registered trainers. Requires JWT authentication."
     )
-    @ApiResponse(
-            responseCode = "200",
-            description = "List of trainers retrieved successfully"
-    )
-    @SecurityRequirement(name = "Bearer Authentication")
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "List of trainers retrieved successfully"
+            ),
+            @ApiResponse(
+                    responseCode = "401",
+                    description = "Unauthorized - JWT token required",
+                    content = @Content(schema = @Schema(implementation = ErrorResponse.class))
+            )
+    })
+    @SecurityRequirement(name = "Bearer Authentication") // 🔒 Protected
     @GetMapping
     public ResponseEntity<List<Trainer>> getAllTrainers() {
         log.info("Fetching all trainers");
@@ -128,12 +140,17 @@ public class TrainerController {
 
     @Operation(
             summary = "Update trainer profile",
-            description = "Update trainer information including name and specialization"
+            description = "Update trainer information including name and specialization. Requires JWT authentication."
     )
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
                     description = "Trainer updated successfully"
+            ),
+            @ApiResponse(
+                    responseCode = "401",
+                    description = "Unauthorized - JWT token required",
+                    content = @Content(schema = @Schema(implementation = ErrorResponse.class))
             ),
             @ApiResponse(
                     responseCode = "404",
@@ -146,7 +163,7 @@ public class TrainerController {
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class))
             )
     })
-    @SecurityRequirement(name = "Bearer Authentication")
+    @SecurityRequirement(name = "Bearer Authentication") // 🔒 Protected
     @PutMapping("/{username}")
     public ResponseEntity<Trainer> updateTrainer(
             @Parameter(description = "Username of the trainer", required = true)

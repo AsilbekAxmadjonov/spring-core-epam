@@ -43,6 +43,7 @@ public class TrainingTypeController {
                     schema = @Schema(implementation = TrainingTypeResponse.class)
             )
     )
+    @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping
     public ResponseEntity<List<TrainingTypeResponse>> getAllTrainingTypes() {
         log.info("Fetching all training types");
@@ -79,6 +80,7 @@ public class TrainingTypeController {
                     )
             )
     })
+    @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping("/{trainingTypeName}")
     public ResponseEntity<TrainingTypeResponse> getTrainingTypeByName(
             @Parameter(

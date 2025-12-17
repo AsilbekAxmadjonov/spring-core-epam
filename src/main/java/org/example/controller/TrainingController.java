@@ -6,7 +6,6 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -32,8 +31,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/trainings")
 @RequiredArgsConstructor
-@Tag(name = "Trainings", description = "Training session management endpoints")
-@SecurityRequirement(name = "Bearer Authentication")
+@Tag(name = "Trainings", description = "Training session management endpoints - ALL PUBLIC (no authentication required)")
 public class TrainingController {
 
     private final TrainingService trainingService;
@@ -41,7 +39,7 @@ public class TrainingController {
 
     @Operation(
             summary = "Create a new training session",
-            description = "Schedule a new training session between a trainee and trainer"
+            description = "Schedule a new training session between a trainee and trainer. No authentication required."
     )
     @ApiResponses(value = {
             @ApiResponse(
@@ -60,6 +58,7 @@ public class TrainingController {
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class))
             )
     })
+
     @PostMapping
     public ResponseEntity<TrainingResponse> createTraining(@Valid @RequestBody TrainingRequest request) {
         log.info("Creating new training: {} for trainee: {} with trainer: {}",
@@ -74,7 +73,6 @@ public class TrainingController {
 
         TrainingType trainingType = new TrainingType();
         trainingType.setTrainingTypeName(trainingTypeEntity.getTrainingTypeName());
-        trainingType.setTrainingTypeName(trainingTypeEntity.getTrainingTypeName());
 
         Training training = Training.builder()
                 .traineeUsername(request.getTraineeUsername())
@@ -82,7 +80,7 @@ public class TrainingController {
                 .trainingName(request.getTrainingName())
                 .trainingDate(request.getTrainingDate())
                 .trainingDurationMinutes(request.getTrainingDurationMinutes())
-                .trainingType(trainingType)  // Set the TrainingType model
+                .trainingType(trainingType)
                 .build();
 
         Training created = trainingService.addTraining(training);
@@ -95,12 +93,13 @@ public class TrainingController {
 
     @Operation(
             summary = "Get all training sessions",
-            description = "Retrieve a list of all training sessions in the system"
+            description = "Retrieve a list of all training sessions in the system. No authentication required."
     )
     @ApiResponse(
             responseCode = "200",
             description = "List of trainings retrieved successfully"
     )
+
     @GetMapping
     public ResponseEntity<List<TrainingResponse>> getAllTrainings() {
         log.info("Fetching all trainings");
@@ -117,12 +116,13 @@ public class TrainingController {
 
     @Operation(
             summary = "Get trainee's training sessions",
-            description = "Retrieve all training sessions for a specific trainee with optional filters"
+            description = "Retrieve all training sessions for a specific trainee with optional filters. No authentication required."
     )
     @ApiResponse(
             responseCode = "200",
             description = "List of trainee's trainings retrieved successfully"
     )
+
     @GetMapping("/trainee/{username}")
     public ResponseEntity<List<TrainingResponse>> getTraineeTrainings(
             @Parameter(description = "Username of the trainee", required = true)
@@ -158,7 +158,7 @@ public class TrainingController {
 
     @Operation(
             summary = "Get trainer's training sessions",
-            description = "Retrieve all training sessions for a specific trainer with optional filters"
+            description = "Retrieve all training sessions for a specific trainer with optional filters. No authentication required."
     )
     @ApiResponse(
             responseCode = "200",
@@ -196,7 +196,7 @@ public class TrainingController {
 
     @Operation(
             summary = "Get training by name",
-            description = "Retrieve a specific training session by its name"
+            description = "Retrieve a specific training session by its name. No authentication required."
     )
     @ApiResponses(value = {
             @ApiResponse(

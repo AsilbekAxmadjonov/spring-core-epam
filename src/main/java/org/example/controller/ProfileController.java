@@ -51,6 +51,7 @@ public class ProfileController {
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class))
             )
     })
+    @SecurityRequirement(name = "Bearer Authentication")
     @PatchMapping("/{username}/status")
     public ResponseEntity<ProfileResponse> changeActiveStatus(
             @Parameter(description = "Username of the user", required = true)
@@ -105,6 +106,7 @@ public class ProfileController {
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class))
             )
     })
+    @SecurityRequirement(name = "Bearer Authentication")
     @PatchMapping("/{username}/password")
     public ResponseEntity<ProfileResponse> changePassword(
             @Parameter(description = "Username of the user", required = true)

@@ -121,11 +121,11 @@ public class TrainerServiceDbImpl implements TrainerService {
     @Override
     @Transactional(readOnly = true)
     public Optional<Trainer> getTrainerByUsername(String username) {
-        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
-
-        if (authenticatedUser == null || !authenticatedUser.equals(username)) {
-            throw new SecurityException("Trainer not authenticated");
-        }
+//        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
+//
+//        if (authenticatedUser == null || !authenticatedUser.equals(username)) {
+//            throw new SecurityException("Trainer not authenticated");
+//        }
 
         log.debug("Fetching trainer by username: {}", username);
 

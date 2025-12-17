@@ -6,7 +6,6 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -22,13 +21,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Slf4j
 @RestController
 @RequestMapping("/api/trainees")
 @RequiredArgsConstructor
-@Tag(name = "Trainees", description = "Trainee management endpoints")
+@Tag(name = "Trainees", description = "Trainee management endpoints - ALL PUBLIC (no authentication required)")
 public class TraineeController {
 
     private final TraineeService traineeService;
@@ -66,18 +64,17 @@ public class TraineeController {
 
         log.info("Trainee created successfully with username: {}", created.getUsername());
 
-        // Return response with generated username, password, and token
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(TraineeResponse.builder()
                         .username(created.getUsername())
-                        .password(created.getPassword()) // Plain password for registration response
-                        .token(created.getToken()) // JWT token
+                        .password(created.getPassword())
+                        .token(created.getToken())
                         .build());
     }
 
     @Operation(
             summary = "Get trainee by username",
-            description = "Retrieve detailed information about a specific trainee"
+            description = "Retrieve detailed information about a specific trainee. No authentication required."
     )
     @ApiResponses(value = {
             @ApiResponse(
@@ -90,7 +87,6 @@ public class TraineeController {
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class))
             )
     })
-    @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping("/{username}")
     public ResponseEntity<Trainee> getTraineeByUsername(
             @Parameter(description = "Username of the trainee", required = true)
@@ -110,13 +106,12 @@ public class TraineeController {
 
     @Operation(
             summary = "Get all trainees",
-            description = "Retrieve a list of all registered trainees"
+            description = "Retrieve a list of all registered trainees. No authentication required."
     )
     @ApiResponse(
             responseCode = "200",
             description = "List of trainees retrieved successfully"
     )
-    @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping
     public ResponseEntity<List<Trainee>> getAllTrainees() {
         log.info("Fetching all trainees");
@@ -130,7 +125,7 @@ public class TraineeController {
 
     @Operation(
             summary = "Update trainee information",
-            description = "Update personal information for an existing trainee"
+            description = "Update personal information for an existing trainee. No authentication required."
     )
     @ApiResponses(value = {
             @ApiResponse(
@@ -143,7 +138,6 @@ public class TraineeController {
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class))
             )
     })
-    @SecurityRequirement(name = "Bearer Authentication")
     @PutMapping("/{username}")
     public ResponseEntity<Trainee> updateTrainee(
             @PathVariable("username") String username,
@@ -168,7 +162,7 @@ public class TraineeController {
 
     @Operation(
             summary = "Delete trainee",
-            description = "Remove a trainee from the system"
+            description = "Remove a trainee from the system. No authentication required."
     )
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "Trainee deleted successfully"),
@@ -178,7 +172,6 @@ public class TraineeController {
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class))
             )
     })
-    @SecurityRequirement(name = "Bearer Authentication")
     @DeleteMapping("/{username}")
     public ResponseEntity<Void> deleteTrainee(@PathVariable("username") String username) {
         log.info("Deleting trainee: {}", username);
