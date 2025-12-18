@@ -370,3 +370,241 @@ java.lang.RuntimeException: Invalid credentials
 2025-12-19 00:53:22.878 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-12-19 00:53:22.879 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Shutdown initiated...
 2025-12-19 00:53:22.880 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Shutdown completed.
+2025-12-19 02:36:59.413 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Gym Management REST API with Spring Boot...
+2025-12-19 02:36:59.704 [background-preinit] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
+2025-12-19 02:36:59.728 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Application using Java 21.0.9 with PID 39160 (/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes started by cyber in /Users/cyber/IdeaProjects/epam/spring-core-epam)
+2025-12-19 02:36:59.728 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - No active profile set, falling back to 1 default profile: "default"
+2025-12-19 02:37:00.405 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-19 02:37:00.437 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 29 ms. Found 5 JPA repository interfaces.
+2025-12-19 02:37:00.862 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - [TxId:] [User:] [ ] - Tomcat initialized with port 8080 (http)
+2025-12-19 02:37:00.867 [main] INFO  o.a.coyote.http11.Http11NioProtocol - [TxId:] [User:] [ ] - Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-19 02:37:00.868 [main] INFO  o.a.catalina.core.StandardService - [TxId:] [User:] [ ] - Starting service [Tomcat]
+2025-12-19 02:37:00.868 [main] INFO  o.a.catalina.core.StandardEngine - [TxId:] [User:] [ ] - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2025-12-19 02:37:00.895 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [TxId:] [User:] [ ] - Initializing Spring embedded WebApplicationContext
+2025-12-19 02:37:00.896 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [TxId:] [User:] [ ] - Root WebApplicationContext: initialization completed in 1141 ms
+2025-12-19 02:37:00.979 [main] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2025-12-19 02:37:01.052 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Starting...
+2025-12-19 02:37:01.142 [main] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@43f99817
+2025-12-19 02:37:01.143 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Start completed.
+2025-12-19 02:37:01.162 [main] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-19 02:37:01.193 [main] INFO  org.hibernate.Version - [TxId:] [User:] [ ] - HHH000412: Hibernate ORM core version 6.4.1.Final
+2025-12-19 02:37:01.208 [main] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2025-12-19 02:37:01.309 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-19 02:37:01.824 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-19 02:37:01.825 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-19 02:37:01.955 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - [TxId:] [User:] [ ] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-19 02:37:02.259 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationManager bean created
+2025-12-19 02:37:02.769 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - [TxId:] [User:] [ ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-19 02:37:03.122 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - [TxId:] [User:] [ ] - Exposing 4 endpoint(s) beneath base path '/actuator'
+2025-12-19 02:37:03.165 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring Security Filter Chain with JWT authentication
+2025-12-19 02:37:03.166 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - CORS configuration enabled for allowed origins
+2025-12-19 02:37:03.169 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring authorization rules...
+2025-12-19 02:37:03.175 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Authorization configured:
+2025-12-19 02:37:03.175 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainees/** (no authentication)
+2025-12-19 02:37:03.175 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainings/** (no authentication)
+2025-12-19 02:37:03.175 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: POST /api/trainers (registration only)
+2025-12-19 02:37:03.175 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: /api/auth/**, /api/training-types/**
+2025-12-19 02:37:03.175 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Swagger UI and API docs
+2025-12-19 02:37:03.175 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Actuator health endpoints
+2025-12-19 02:37:03.175 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Protected: GET/PUT/DELETE /api/trainers/** (requires JWT)
+2025-12-19 02:37:03.176 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Session management set to STATELESS - JWT authentication only
+2025-12-19 02:37:03.176 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationProvider configured with UserDetailsService and PasswordEncoder
+2025-12-19 02:37:03.179 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Security Filter Chain configured successfully
+2025-12-19 02:37:03.218 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7148320d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2587f18d, org.springframework.security.web.context.SecurityContextHolderFilter@1469d14a, org.springframework.security.web.header.HeaderWriterFilter@547c6bb4, org.springframework.web.filter.CorsFilter@4d17ce84, org.springframework.security.web.authentication.logout.LogoutFilter@c3976d4, org.example.security.filter.JwtAuthenticationFilter@75c8ba94, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2f0fa056, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7a0daf3d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@143ec23b, org.springframework.security.web.session.SessionManagementFilter@2b7e44af, org.springframework.security.web.access.ExceptionTranslationFilter@4279fc70, org.springframework.security.web.access.intercept.AuthorizationFilter@29af0d3b]
+2025-12-19 02:37:03.631 [main] INFO  o.a.coyote.http11.Http11NioProtocol - [TxId:] [User:] [ ] - Starting ProtocolHandler ["http-nio-8080"]
+2025-12-19 02:37:03.639 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - [TxId:] [User:] [ ] - Tomcat started on port 8080 (http) with context path ''
+2025-12-19 02:37:03.649 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Started Application in 4.176 seconds (process running for 4.845)
+2025-12-19 02:37:03.652 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Spring Boot application started successfully
+2025-12-19 02:37:03.652 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Server running on http://localhost:8080
+2025-12-19 02:37:03.652 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ API base path: http://localhost:8080/api
+2025-12-19 02:37:03.652 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ API documentation: http://localhost:8080/swagger-ui.html
+2025-12-19 02:37:03.652 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Spring Security JWT authentication is ACTIVE
+2025-12-19 02:37:03.652 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Active Spring profile(s): [default]
+2025-12-19 02:37:03.652 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Actuator health: http://localhost:8080/actuator/health
+2025-12-19 02:37:03.652 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Actuator metrics: http://localhost:8080/actuator/metrics
+2025-12-19 02:37:03.652 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Actuator prometheus: http://localhost:8080/actuator/prometheus
+2025-12-19 02:37:03.854 [RMI TCP Connection(3)-127.0.0.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [TxId:] [User:] [ ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-19 02:37:03.854 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Initializing Servlet 'dispatcherServlet'
+2025-12-19 02:37:03.858 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Completed initialization in 4 ms
+2025-12-19 02:37:07.653 [http-nio-8080-exec-1] WARN  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /swagger-ui.html - Full authentication is required to access this resource
+2025-12-19 02:37:10.560 [http-nio-8080-exec-5] WARN  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /swagger-ui.html - Full authentication is required to access this resource
+2025-12-19 02:38:56.537 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-19 02:38:56.540 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Shutdown initiated...
+2025-12-19 02:38:56.545 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Shutdown completed.
+2025-12-19 02:38:58.560 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Gym Management REST API with Spring Boot...
+2025-12-19 02:38:58.729 [background-preinit] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
+2025-12-19 02:38:58.745 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Application using Java 21.0.9 with PID 39229 (/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes started by cyber in /Users/cyber/IdeaProjects/epam/spring-core-epam)
+2025-12-19 02:38:58.746 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - No active profile set, falling back to 1 default profile: "default"
+2025-12-19 02:38:59.280 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-19 02:38:59.314 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 31 ms. Found 5 JPA repository interfaces.
+2025-12-19 02:38:59.700 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - [TxId:] [User:] [ ] - Tomcat initialized with port 8080 (http)
+2025-12-19 02:38:59.704 [main] INFO  o.a.coyote.http11.Http11NioProtocol - [TxId:] [User:] [ ] - Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-19 02:38:59.704 [main] INFO  o.a.catalina.core.StandardService - [TxId:] [User:] [ ] - Starting service [Tomcat]
+2025-12-19 02:38:59.704 [main] INFO  o.a.catalina.core.StandardEngine - [TxId:] [User:] [ ] - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2025-12-19 02:38:59.723 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [TxId:] [User:] [ ] - Initializing Spring embedded WebApplicationContext
+2025-12-19 02:38:59.723 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [TxId:] [User:] [ ] - Root WebApplicationContext: initialization completed in 948 ms
+2025-12-19 02:38:59.811 [main] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2025-12-19 02:38:59.876 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Starting...
+2025-12-19 02:38:59.968 [main] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@186f7434
+2025-12-19 02:38:59.969 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Start completed.
+2025-12-19 02:38:59.989 [main] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-19 02:39:00.013 [main] INFO  org.hibernate.Version - [TxId:] [User:] [ ] - HHH000412: Hibernate ORM core version 6.4.1.Final
+2025-12-19 02:39:00.026 [main] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2025-12-19 02:39:00.113 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-19 02:39:00.607 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-19 02:39:00.608 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-19 02:39:00.735 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - [TxId:] [User:] [ ] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-19 02:39:01.036 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationManager bean created
+2025-12-19 02:39:01.522 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - [TxId:] [User:] [ ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-19 02:39:01.856 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - [TxId:] [User:] [ ] - Exposing 4 endpoint(s) beneath base path '/actuator'
+2025-12-19 02:39:01.897 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring Security Filter Chain with JWT authentication
+2025-12-19 02:39:01.897 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - CORS configuration enabled for allowed origins
+2025-12-19 02:39:01.900 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring authorization rules...
+2025-12-19 02:39:01.906 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Authorization configured:
+2025-12-19 02:39:01.907 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainees/** (no authentication)
+2025-12-19 02:39:01.907 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainings/** (no authentication)
+2025-12-19 02:39:01.907 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: POST /api/trainers (registration only)
+2025-12-19 02:39:01.907 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: /api/auth/**, /api/training-types/**
+2025-12-19 02:39:01.907 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Swagger UI and API docs
+2025-12-19 02:39:01.907 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Actuator health endpoints
+2025-12-19 02:39:01.907 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Protected: GET/PUT/DELETE /api/trainers/** (requires JWT)
+2025-12-19 02:39:01.907 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Session management set to STATELESS - JWT authentication only
+2025-12-19 02:39:01.907 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationProvider configured with UserDetailsService and PasswordEncoder
+2025-12-19 02:39:01.910 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Security Filter Chain configured successfully
+2025-12-19 02:39:01.941 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1a4c84b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3299beac, org.springframework.security.web.context.SecurityContextHolderFilter@12326ccb, org.springframework.security.web.header.HeaderWriterFilter@49c83038, org.springframework.web.filter.CorsFilter@33be99c1, org.springframework.security.web.authentication.logout.LogoutFilter@604c8ed5, org.example.security.filter.JwtAuthenticationFilter@370e5bb9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@29ec693e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@9f7a8cc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32dbf42, org.springframework.security.web.session.SessionManagementFilter@39cdbc4e, org.springframework.security.web.access.ExceptionTranslationFilter@588e4caa, org.springframework.security.web.access.intercept.AuthorizationFilter@6b0771e2]
+2025-12-19 02:39:02.323 [main] INFO  o.a.coyote.http11.Http11NioProtocol - [TxId:] [User:] [ ] - Starting ProtocolHandler ["http-nio-8080"]
+2025-12-19 02:39:02.331 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - [TxId:] [User:] [ ] - Tomcat started on port 8080 (http) with context path ''
+2025-12-19 02:39:02.341 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Started Application in 3.743 seconds (process running for 4.105)
+2025-12-19 02:39:02.344 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Spring Boot application started successfully
+2025-12-19 02:39:02.344 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Server running on http://localhost:8080
+2025-12-19 02:39:02.344 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ API base path: http://localhost:8080/api
+2025-12-19 02:39:02.344 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ API documentation: http://localhost:8080/swagger-ui.html
+2025-12-19 02:39:02.344 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Spring Security JWT authentication is ACTIVE
+2025-12-19 02:39:02.344 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Active Spring profile(s): [default]
+2025-12-19 02:39:02.344 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Actuator health: http://localhost:8080/actuator/health
+2025-12-19 02:39:02.344 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Actuator metrics: http://localhost:8080/actuator/metrics
+2025-12-19 02:39:02.344 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Actuator prometheus: http://localhost:8080/actuator/prometheus
+2025-12-19 02:39:02.530 [RMI TCP Connection(1)-127.0.0.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [TxId:] [User:] [ ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-19 02:39:02.531 [RMI TCP Connection(1)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Initializing Servlet 'dispatcherServlet'
+2025-12-19 02:39:02.533 [RMI TCP Connection(1)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Completed initialization in 2 ms
+2025-12-19 02:39:04.188 [http-nio-8080-exec-1] WARN  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /swagger-ui.html - Full authentication is required to access this resource
+2025-12-19 02:39:27.686 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-19 02:39:27.692 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Shutdown initiated...
+2025-12-19 02:39:27.694 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Shutdown completed.
+2025-12-19 02:39:29.845 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Gym Management REST API with Spring Boot...
+2025-12-19 02:39:30.022 [background-preinit] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
+2025-12-19 02:39:30.038 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Application using Java 21.0.9 with PID 39255 (/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes started by cyber in /Users/cyber/IdeaProjects/epam/spring-core-epam)
+2025-12-19 02:39:30.038 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - No active profile set, falling back to 1 default profile: "default"
+2025-12-19 02:39:30.561 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-19 02:39:30.593 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 29 ms. Found 5 JPA repository interfaces.
+2025-12-19 02:39:30.979 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - [TxId:] [User:] [ ] - Tomcat initialized with port 8080 (http)
+2025-12-19 02:39:30.984 [main] INFO  o.a.coyote.http11.Http11NioProtocol - [TxId:] [User:] [ ] - Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-19 02:39:30.984 [main] INFO  o.a.catalina.core.StandardService - [TxId:] [User:] [ ] - Starting service [Tomcat]
+2025-12-19 02:39:30.984 [main] INFO  o.a.catalina.core.StandardEngine - [TxId:] [User:] [ ] - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2025-12-19 02:39:31.003 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [TxId:] [User:] [ ] - Initializing Spring embedded WebApplicationContext
+2025-12-19 02:39:31.004 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [TxId:] [User:] [ ] - Root WebApplicationContext: initialization completed in 935 ms
+2025-12-19 02:39:31.090 [main] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2025-12-19 02:39:31.153 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Starting...
+2025-12-19 02:39:31.261 [main] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2c5708e7
+2025-12-19 02:39:31.262 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Start completed.
+2025-12-19 02:39:31.282 [main] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-19 02:39:31.306 [main] INFO  org.hibernate.Version - [TxId:] [User:] [ ] - HHH000412: Hibernate ORM core version 6.4.1.Final
+2025-12-19 02:39:31.319 [main] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2025-12-19 02:39:31.413 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-19 02:39:31.965 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-19 02:39:31.966 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-19 02:39:32.098 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - [TxId:] [User:] [ ] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-19 02:39:32.402 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationManager bean created
+2025-12-19 02:39:32.909 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - [TxId:] [User:] [ ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-19 02:39:33.235 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - [TxId:] [User:] [ ] - Exposing 4 endpoint(s) beneath base path '/actuator'
+2025-12-19 02:39:33.275 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring Security Filter Chain with JWT authentication
+2025-12-19 02:39:33.276 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - CORS configuration enabled for allowed origins
+2025-12-19 02:39:33.278 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring authorization rules...
+2025-12-19 02:39:33.286 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Authorization configured:
+2025-12-19 02:39:33.286 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainees/** (no authentication)
+2025-12-19 02:39:33.286 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainings/** (no authentication)
+2025-12-19 02:39:33.286 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: POST /api/trainers (registration only)
+2025-12-19 02:39:33.286 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: /api/auth/**, /api/training-types/**
+2025-12-19 02:39:33.286 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Swagger UI and API docs
+2025-12-19 02:39:33.286 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Actuator health endpoints
+2025-12-19 02:39:33.286 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Protected: GET/PUT/DELETE /api/trainers/** (requires JWT)
+2025-12-19 02:39:33.286 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Session management set to STATELESS - JWT authentication only
+2025-12-19 02:39:33.287 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationProvider configured with UserDetailsService and PasswordEncoder
+2025-12-19 02:39:33.289 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Security Filter Chain configured successfully
+2025-12-19 02:39:33.320 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@f75843e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@11c80834, org.springframework.security.web.context.SecurityContextHolderFilter@4d17ce84, org.springframework.security.web.header.HeaderWriterFilter@3b5f3ffb, org.springframework.web.filter.CorsFilter@22b771d1, org.springframework.security.web.authentication.logout.LogoutFilter@47b530e0, org.example.security.filter.JwtAuthenticationFilter@180466a9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4d574ec7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@39a9b3ee, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3fd006e8, org.springframework.security.web.session.SessionManagementFilter@15682e7f, org.springframework.security.web.access.ExceptionTranslationFilter@c3976d4, org.springframework.security.web.access.intercept.AuthorizationFilter@475f141a]
+2025-12-19 02:39:33.705 [main] INFO  o.a.coyote.http11.Http11NioProtocol - [TxId:] [User:] [ ] - Starting ProtocolHandler ["http-nio-8080"]
+2025-12-19 02:39:33.711 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - [TxId:] [User:] [ ] - Tomcat started on port 8080 (http) with context path ''
+2025-12-19 02:39:33.720 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Started Application in 3.841 seconds (process running for 4.21)
+2025-12-19 02:39:33.724 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Spring Boot application started successfully
+2025-12-19 02:39:33.724 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Server running on http://localhost:8080
+2025-12-19 02:39:33.724 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ API base path: http://localhost:8080/api
+2025-12-19 02:39:33.724 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ API documentation: http://localhost:8080/swagger-ui.html
+2025-12-19 02:39:33.724 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Spring Security JWT authentication is ACTIVE
+2025-12-19 02:39:33.724 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Active Spring profile(s): [default]
+2025-12-19 02:39:33.725 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Actuator health: http://localhost:8080/actuator/health
+2025-12-19 02:39:33.725 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Actuator metrics: http://localhost:8080/actuator/metrics
+2025-12-19 02:39:33.725 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Actuator prometheus: http://localhost:8080/actuator/prometheus
+2025-12-19 02:39:34.326 [RMI TCP Connection(3)-127.0.0.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [TxId:] [User:] [ ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-19 02:39:34.326 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Initializing Servlet 'dispatcherServlet'
+2025-12-19 02:39:34.327 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Completed initialization in 1 ms
+2025-12-19 02:39:37.277 [http-nio-8080-exec-10] INFO  o.s.api.AbstractOpenApiResource - [TxId:d99eca07-2393-48c0-b5ad-35874c399289] [User:] [GET /v3/api-docs/public] - Init duration for springdoc-openapi is: 377 ms
+2025-12-19 02:53:46.506 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-19 02:53:46.513 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Shutdown initiated...
+2025-12-19 02:53:46.515 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Shutdown completed.
+2025-12-19 02:53:47.992 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Gym Management REST API with Spring Boot...
+2025-12-19 02:53:48.192 [background-preinit] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
+2025-12-19 02:53:48.218 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Application using Java 21.0.9 with PID 40458 (/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes started by cyber in /Users/cyber/IdeaProjects/epam/spring-core-epam)
+2025-12-19 02:53:48.218 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - No active profile set, falling back to 1 default profile: "default"
+2025-12-19 02:53:48.813 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-19 02:53:48.851 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 35 ms. Found 5 JPA repository interfaces.
+2025-12-19 02:53:49.294 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - [TxId:] [User:] [ ] - Tomcat initialized with port 8080 (http)
+2025-12-19 02:53:49.299 [main] INFO  o.a.coyote.http11.Http11NioProtocol - [TxId:] [User:] [ ] - Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-19 02:53:49.300 [main] INFO  o.a.catalina.core.StandardService - [TxId:] [User:] [ ] - Starting service [Tomcat]
+2025-12-19 02:53:49.300 [main] INFO  o.a.catalina.core.StandardEngine - [TxId:] [User:] [ ] - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2025-12-19 02:53:49.322 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [TxId:] [User:] [ ] - Initializing Spring embedded WebApplicationContext
+2025-12-19 02:53:49.322 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [TxId:] [User:] [ ] - Root WebApplicationContext: initialization completed in 1066 ms
+2025-12-19 02:53:49.429 [main] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2025-12-19 02:53:49.505 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Starting...
+2025-12-19 02:53:49.598 [main] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@299cab08
+2025-12-19 02:53:49.599 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Start completed.
+2025-12-19 02:53:49.623 [main] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-19 02:53:49.653 [main] INFO  org.hibernate.Version - [TxId:] [User:] [ ] - HHH000412: Hibernate ORM core version 6.4.1.Final
+2025-12-19 02:53:49.668 [main] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2025-12-19 02:53:49.785 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-19 02:53:50.288 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-19 02:53:50.289 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-19 02:53:50.421 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - [TxId:] [User:] [ ] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-19 02:53:50.728 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationManager bean created
+2025-12-19 02:53:51.220 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - [TxId:] [User:] [ ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-19 02:53:51.554 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - [TxId:] [User:] [ ] - Exposing 4 endpoint(s) beneath base path '/actuator'
+2025-12-19 02:53:51.596 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring Security Filter Chain with JWT authentication
+2025-12-19 02:53:51.596 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - CORS configuration enabled for allowed origins
+2025-12-19 02:53:51.599 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring authorization rules...
+2025-12-19 02:53:51.607 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Authorization configured:
+2025-12-19 02:53:51.607 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainees/** (no authentication)
+2025-12-19 02:53:51.607 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainings/** (no authentication)
+2025-12-19 02:53:51.607 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: POST /api/trainers (registration only)
+2025-12-19 02:53:51.607 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: /api/auth/**, /api/training-types/**
+2025-12-19 02:53:51.607 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Swagger UI and API docs
+2025-12-19 02:53:51.607 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Actuator health endpoints
+2025-12-19 02:53:51.607 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Protected: GET/PUT/DELETE /api/trainers/** (requires JWT)
+2025-12-19 02:53:51.607 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Session management set to STATELESS - JWT authentication only
+2025-12-19 02:53:51.608 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationProvider configured with UserDetailsService and PasswordEncoder
+2025-12-19 02:53:51.610 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Security Filter Chain configured successfully
+2025-12-19 02:53:51.642 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3fd006e8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1ca73158, org.springframework.security.web.context.SecurityContextHolderFilter@3e47d465, org.springframework.security.web.header.HeaderWriterFilter@349247c9, org.springframework.web.filter.CorsFilter@4d7f0350, org.springframework.security.web.authentication.logout.LogoutFilter@876686, org.example.security.filter.JwtAuthenticationFilter@370e5bb9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@39a9b3ee, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@66709528, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@54dfdad7, org.springframework.security.web.session.SessionManagementFilter@7148320d, org.springframework.security.web.access.ExceptionTranslationFilter@1e20dad5, org.springframework.security.web.access.intercept.AuthorizationFilter@3035b9e6]
+2025-12-19 02:53:52.028 [main] INFO  o.a.coyote.http11.Http11NioProtocol - [TxId:] [User:] [ ] - Starting ProtocolHandler ["http-nio-8080"]
+2025-12-19 02:53:52.034 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - [TxId:] [User:] [ ] - Tomcat started on port 8080 (http) with context path ''
+2025-12-19 02:53:52.043 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Started Application in 4.008 seconds (process running for 4.638)
+2025-12-19 02:53:52.045 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Spring Boot application started successfully
+2025-12-19 02:53:52.045 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Server running on http://localhost:8080
+2025-12-19 02:53:52.045 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ API base path: http://localhost:8080/api
+2025-12-19 02:53:52.045 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ API documentation: http://localhost:8080/swagger-ui.html
+2025-12-19 02:53:52.045 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Spring Security JWT authentication is ACTIVE
+2025-12-19 02:53:52.045 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Active Spring profile(s): [default]
+2025-12-19 02:53:52.045 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Actuator health: http://localhost:8080/actuator/health
+2025-12-19 02:53:52.045 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Actuator metrics: http://localhost:8080/actuator/metrics
+2025-12-19 02:53:52.045 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Actuator prometheus: http://localhost:8080/actuator/prometheus
+2025-12-19 02:53:52.202 [RMI TCP Connection(1)-127.0.0.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [TxId:] [User:] [ ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-19 02:53:52.203 [RMI TCP Connection(1)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Initializing Servlet 'dispatcherServlet'
+2025-12-19 02:53:52.204 [RMI TCP Connection(1)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Completed initialization in 1 ms
+2025-12-19 02:54:24.624 [http-nio-8080-exec-5] INFO  o.s.api.AbstractOpenApiResource - [TxId:6dd5306c-943b-469f-89cd-a93e74cbc45c] [User:] [GET /v3/api-docs/public] - Init duration for springdoc-openapi is: 351 ms
