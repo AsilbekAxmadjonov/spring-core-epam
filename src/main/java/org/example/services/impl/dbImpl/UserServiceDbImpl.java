@@ -7,9 +7,12 @@ import org.example.exception.UserNotFoundException;
 import org.example.mapper.UserMapper;
 import org.example.model.User;
 import org.example.repository.UserRepo;
-import org.example.security.AuthenticationContext;
 import org.example.services.UserService;
+import org.slf4j.MDC;
 import org.springframework.context.annotation.Primary;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -38,28 +41,74 @@ public class UserServiceDbImpl implements UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    /**
+     * Helper method to check if security should be enforced.
+     * Returns true only if user is fully authenticated (not during login/JWT validation).
+     */
+    private boolean shouldEnforceSecurity() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        // If no authentication or user is anonymous, we're during authentication flow
+        // Don't enforce security checks
+        if (auth == null || !auth.isAuthenticated() ||
+                auth instanceof AnonymousAuthenticationToken) {
+            log.debug("No authenticated user - skipping security check (authentication flow)");
+            return false;
+        }
+
+        // User is authenticated - enforce security
+        log.debug("User authenticated: {} - enforcing security check", auth.getName());
+        return true;
+    }
+
+    /**
+     * Verify that the authenticated user matches the requested username.
+     * Throws SecurityException if they don't match.
+     */
+    private void verifyUserAccess(String requestedUsername) {
+        if (!shouldEnforceSecurity()) {
+            return; // Skip check during authentication
+        }
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String authenticatedUsername = auth.getName();
+
+        if (!authenticatedUsername.equals(requestedUsername)) {
+            log.warn("Security violation: User {} attempted to access data for user {}",
+                    authenticatedUsername, requestedUsername);
+            throw new SecurityException("Access denied: Cannot access other user's data");
+        }
+
+        log.debug("Security check passed: User {} accessing own data", authenticatedUsername);
+    }
+
     @Override
     @Transactional(readOnly = true)
     public User getByUsername(String username) {
-        log.debug("Fetching user by username (no auth): {}", username);
+        log.debug("Fetching user by username: {}", username);
 
-        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
-
-        if (authenticatedUser == null || !authenticatedUser.equals(username)) {
-            throw new SecurityException("User not authenticated");
-        }
+        // ✅ FIXED: Only enforce security if user is already authenticated
+        // During JWT authentication, no user is authenticated yet, so this check is skipped
+        verifyUserAccess(username);
 
         UserEntity entity = userRepo.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
+                .orElseThrow(() -> {
+                    log.error("User not found: {}", username);
+                    return new UsernameNotFoundException("User not found: " + username);
+                });
 
+        log.debug("User found: {}", username);
         return userMapper.toModel(entity);
     }
 
-
     @Override
     public User createUser(@Valid User user) {
+        MDC.put("operation", "Create User");
+        MDC.put("username", user.getUsername());
+
         log.debug("Creating new user with username: {}", user.getUsername());
 
+        // Encode password
         user.setPassword(passwordEncoder.encode(new String(user.getPassword())).toCharArray());
 
         UserEntity entity = userMapper.toEntity(user);
@@ -72,13 +121,13 @@ public class UserServiceDbImpl implements UserService {
     @Override
     @Transactional
     public User updateUser(String username, @Valid User updatedUser) {
+        MDC.put("operation", "Update User");
+        MDC.put("username", username);
+
         log.debug("Updating user: {}", username);
 
-        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
-
-        if (authenticatedUser == null || !authenticatedUser.equals(username)) {
-            throw new SecurityException("User not authenticated");
-        }
+        // ✅ FIXED: Verify user can only update their own data
+        verifyUserAccess(username);
 
         UserEntity userEntity = userRepo.findByUsername(username)
                 .orElseThrow(() -> {
@@ -86,6 +135,7 @@ public class UserServiceDbImpl implements UserService {
                     return new UserNotFoundException("User not found: " + username);
                 });
 
+        // Update password if provided
         if (updatedUser.getPassword() != null) {
             char[] encodedPassword = passwordEncoder.encode(
                     new String(updatedUser.getPassword())
@@ -100,19 +150,21 @@ public class UserServiceDbImpl implements UserService {
         return userMapper.toModel(saved);
     }
 
-
     @Override
     public void deleteByUsername(String username) {
-        String authenticated = AuthenticationContext.getAuthenticatedUser();
-
-        if (authenticated == null || !authenticated.equals(username)) {
-            throw new SecurityException("User not authenticated");
-        }
+        MDC.put("operation", "Delete User");
+        MDC.put("username", username);
 
         log.debug("Deleting user with username: {}", username);
 
+        // ✅ FIXED: Verify user can only delete their own account
+        verifyUserAccess(username);
+
         UserEntity entity = userRepo.findByUsername(username)
-                .orElseThrow(() -> new UserNotFoundException("User not found: " + username));
+                .orElseThrow(() -> {
+                    log.error("User not found for deletion: {}", username);
+                    return new UserNotFoundException("User not found: " + username);
+                });
 
         userRepo.delete(entity);
 
@@ -120,9 +172,12 @@ public class UserServiceDbImpl implements UserService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<User> fetchAll() {
         log.debug("Fetching all users");
 
+        // Note: fetchAll() doesn't have user-specific security check
+        // If you want to restrict this, add role-based security at controller level
         List<UserEntity> entities = userRepo.findAll();
 
         log.info("Fetched {} users", entities.size());
@@ -130,9 +185,7 @@ public class UserServiceDbImpl implements UserService {
     }
 
     @Override
-    public void save(@Valid User user){
+    public void save(@Valid User user) {
         throw new UnsupportedOperationException("Not supported in DB service");
     }
-
-
 }

@@ -11,6 +11,7 @@ import org.example.security.AuthenticationContext;
 import org.example.services.ProfileService;
 import org.example.services.UserService;
 import org.example.util.ProfileGenerator;
+import org.slf4j.MDC;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,6 +33,10 @@ public class ProfileServiceImpl implements ProfileService {
     @Override
     @Transactional
     public void createProfile(@Valid User user) {
+
+        MDC.put("operation", "Create User Profile");
+        MDC.put("username", user.getUsername());
+
         log.info("Creating profile for user: {} {}", user.getFirstName(), user.getLastName());
 
         List<User> existingUsers = userService.fetchAll();
@@ -71,11 +76,11 @@ public class ProfileServiceImpl implements ProfileService {
     @Transactional
     public void changePassword(String username, char[] newPassword) {
 
-        String authenticated = AuthenticationContext.getAuthenticatedUser();
-
-        if (authenticated == null || !authenticated.equals(username)) {
-            throw new SecurityException("User not authenticated");
-        }
+//        String authenticated = AuthenticationContext.getAuthenticatedUser();
+//
+//        if (authenticated == null || !authenticated.equals(username)) {
+//            throw new SecurityException("User not authenticated");
+//        }
 
         log.debug("Changing password for {}", username);
 
@@ -95,11 +100,12 @@ public class ProfileServiceImpl implements ProfileService {
     @Transactional
     public boolean toggleUserActiveStatus(String username) {
 
-        String authenticated = AuthenticationContext.getAuthenticatedUser();
+//        String authenticated = AuthenticationContext.getAuthenticatedUser();
+//
+//        if (authenticated == null || !authenticated.equals(username)) {
+//            throw new SecurityException("User not authenticated");
+//        }
 
-        if (authenticated == null || !authenticated.equals(username)) {
-            throw new SecurityException("User not authenticated");
-        }
 
         log.debug("Toggling active status for {}", username);
 
@@ -115,4 +121,6 @@ public class ProfileServiceImpl implements ProfileService {
 
         return newStatus;
     }
+
 }
+

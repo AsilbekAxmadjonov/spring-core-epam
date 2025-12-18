@@ -11,4 +11,3 @@ public interface TrainingTypeRepo extends JpaRepository<TrainingTypeEntity, Long
 
 }
 
-

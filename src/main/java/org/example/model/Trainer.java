@@ -13,4 +13,5 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class Trainer extends User {
     private String specialization;
+    private String token;
 }

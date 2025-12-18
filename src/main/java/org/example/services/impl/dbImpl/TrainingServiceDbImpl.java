@@ -16,6 +16,7 @@ import org.example.repository.TrainingRepo;
 import org.example.repository.TrainingTypeRepo;
 import org.example.security.AuthenticationContext;
 import org.example.services.TrainingService;
+import org.slf4j.MDC;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,12 +48,12 @@ public class TrainingServiceDbImpl implements TrainingService {
             String trainerName,
             String trainingType
     ) {
-        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
-
-        if (authenticatedUser == null || !authenticatedUser.equals(traineeUsername)) {
-            log.error("Authentication failed for getTraineeTrainings: {} (authenticated: {})", traineeUsername, authenticatedUser);
-            throw new SecurityException("User not authenticated");
-        }
+//        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
+//
+//        if (authenticatedUser == null || !authenticatedUser.equals(traineeUsername)) {
+//            log.error("Authentication failed for getTraineeTrainings: {} (authenticated: {})", traineeUsername, authenticatedUser);
+//            throw new SecurityException("User not authenticated");
+//        }
 
         log.debug("Fetching trainee trainings: username={}, from={}, to={}, trainerName={}, trainingType={}",
                 traineeUsername, fromDate, toDate, trainerName, trainingType);
@@ -78,12 +79,12 @@ public class TrainingServiceDbImpl implements TrainingService {
             LocalDate toDate,
             String traineeName
     ) {
-        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
-
-        if (authenticatedUser == null || !authenticatedUser.equals(trainerUsername)) {
-            log.error("Authentication failed for getTrainerTrainings: {} (authenticated: {})", trainerUsername, authenticatedUser);
-            throw new SecurityException("User not authenticated");
-        }
+//        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
+//
+//        if (authenticatedUser == null || !authenticatedUser.equals(trainerUsername)) {
+//            log.error("Authentication failed for getTrainerTrainings: {} (authenticated: {})", trainerUsername, authenticatedUser);
+//            throw new SecurityException("User not authenticated");
+//        }
 
         log.debug("Fetching trainer trainings: username={}, from={}, to={}, traineeName={}",
                 trainerUsername, fromDate, toDate, traineeName);
@@ -102,12 +103,6 @@ public class TrainingServiceDbImpl implements TrainingService {
 
     @Override
     public Training addTraining(@Valid Training training) {
-        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
-
-        if (authenticatedUser == null) {
-            log.error("Authentication failed for addTraining");
-            throw new SecurityException("User not authenticated");
-        }
 
         log.debug("Starting training creation: trainee={}, trainer={}, name={}",
                 training.getTraineeUsername(),
@@ -146,6 +141,9 @@ public class TrainingServiceDbImpl implements TrainingService {
 
     @Override
     public void createTraining(@Valid Training training) {
+        MDC.put("operation", "Create Training");
+        MDC.put("trainingName", training.getTrainingName());
+
         log.debug("Delegating createTraining to addTraining()");
         addTraining(training);
     }
@@ -153,12 +151,12 @@ public class TrainingServiceDbImpl implements TrainingService {
     @Override
     @Transactional(readOnly = true)
     public Training getTraining(String name) {
-        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
-
-        if (authenticatedUser == null) {
-            log.error("Authentication failed for getTraining");
-            throw new SecurityException("User not authenticated");
-        }
+//        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
+//
+//        if (authenticatedUser == null) {
+//            log.error("Authentication failed for getTraining");
+//            throw new SecurityException("User not authenticated");
+//        }
 
         log.debug("Fetching training by name: {}", name);
 

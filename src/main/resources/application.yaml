@@ -1,3 +1,7 @@
+jwt:
+  secret: mySecretKeyThatIsAtLeast256BitsLongForHS256Algorithm123456
+  expiration: 3600000
+
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5433/hibernate

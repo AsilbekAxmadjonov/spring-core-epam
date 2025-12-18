@@ -2,6 +2,7 @@ package org.example;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.config.AppConfig;
+import org.example.config.CoreConfig;
 import org.example.facade.GymFacade;
 import org.example.model.*;
 import org.example.security.AuthenticationContext;
@@ -18,6 +19,8 @@ public class Main {
 
     public static void main(String[] args) {
 
+        try (AnnotationConfigApplicationContext context =
+                     new AnnotationConfigApplicationContext(CoreConfig.class)) {
         AnnotationConfigApplicationContext context = null;
 
         try {

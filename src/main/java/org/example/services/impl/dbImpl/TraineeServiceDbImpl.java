@@ -11,12 +11,18 @@ import org.example.model.Trainee;
 import org.example.repository.TraineeRepo;
 import org.example.repository.UserRepo;
 import org.example.security.AuthenticationContext;
+import org.example.services.TokenService;
+import org.example.services.TraineeService;
+import org.slf4j.MDC;
+import org.springframework.context.annotation.Primary;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.example.services.TraineeService;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
+import java.security.SecureRandom;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +36,83 @@ public class TraineeServiceDbImpl implements TraineeService {
 
     private final TraineeRepo traineeRepo;
     private final TraineeMapper traineeMapper;
+    private final UserRepo userRepo;
+    private final PasswordEncoder passwordEncoder;
+    private final TokenService tokenService;
+
+    private static final int PASSWORD_LENGTH = 10;
+    private static final SecureRandom random = new SecureRandom();
+
+    @Override
+    @Transactional
+    public Trainee createTrainee(@Valid Trainee trainee) {
+
+        MDC.put("operation", "createTrainee");
+
+        String baseUsername = trainee.getFirstName() + "." + trainee.getLastName();
+        String username = generateUniqueUsername(baseUsername);
+
+        String plainPassword = generateRandomPassword();
+
+        trainee.setUsername(username);
+        trainee.setPassword(plainPassword.toCharArray());
+
+        MDC.put("username", username);
+        log.info("Creating trainee with generated username: {}", username);
+
+        UserEntity userEntity = new UserEntity();
+        userEntity.setUsername(username);
+        userEntity.setFirstName(trainee.getFirstName());
+        userEntity.setLastName(trainee.getLastName());
+
+        String encodedPassword = passwordEncoder.encode(plainPassword);
+        userEntity.setPassword(encodedPassword.toCharArray());
+        userEntity.setIsActive(true);
+
+        UserEntity savedUser = userRepo.save(userEntity);
+        log.info("User created successfully: {}", username);
+
+        TraineeEntity traineeEntity = new TraineeEntity();
+        traineeEntity.setUserEntity(savedUser);
+        traineeEntity.setDateOfBirth(trainee.getDateOfBirth());
+        traineeEntity.setAddress(trainee.getAddress());
+
+        TraineeEntity savedTrainee = traineeRepo.save(traineeEntity);
+        log.info("Trainee created successfully: {}", username);
+
+        String token = tokenService.generateToken(savedUser.getUsername());
+        log.info("JWT token generated for trainee: {}", username);
+
+        Trainee traineeModel = traineeMapper.toTraineeModel(savedTrainee);
+        traineeModel.setToken(token);
+        traineeModel.setPassword(plainPassword.toCharArray());
+
+        return traineeModel;
+    }
+
+    private String generateUniqueUsername(String baseUsername) {
+        String username = baseUsername;
+        int counter = 1;
+
+        while (userRepo.findByUsername(username).isPresent()) {
+            username = baseUsername + counter;
+            counter++;
+        }
+
+        return username;
+    }
+
+    private String generateRandomPassword() {
+        return random.ints(PASSWORD_LENGTH, 0, 62)
+                .map(i -> {
+                    if (i < 26) return 'A' + i;        // A-Z
+                    if (i < 52) return 'a' + (i - 26); // a-z
+                    return '0' + (i - 52);              // 0-9
+                })
+                .collect(StringBuilder::new,
+                        StringBuilder::appendCodePoint,
+                        StringBuilder::append)
+                .toString();
     private final UserRepo userRepo;  // Add UserRepo dependency
 
     @Override
@@ -54,11 +137,11 @@ public class TraineeServiceDbImpl implements TraineeService {
     @Override
     @Transactional(readOnly = true)
     public Optional<Trainee> getTraineeByUsername(String username) {
-        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
+//         String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
 
-        if (authenticatedUser == null || !authenticatedUser.equals(username)) {
-            throw new SecurityException("Trainee not authenticated");
-        }
+//         if (authenticatedUser == null || !authenticatedUser.equals(username)) {
+//             throw new SecurityException("Trainee not authenticated");
+//         }
 
         log.debug("Fetching trainee by username: {}", username);
 
@@ -71,11 +154,16 @@ public class TraineeServiceDbImpl implements TraineeService {
 
     @Override
     public Trainee updateTrainee(String username, Trainee updatedTrainee) {
-        String authenticated = AuthenticationContext.getAuthenticatedUser();
 
-        if (authenticated == null || !authenticated.equals(username)) {
-            throw new SecurityException("User not authenticated");
-        }
+        MDC.put("operation", "updateTrainee");
+        MDC.put("username", username);
+
+//        String authenticated = AuthenticationContext.getAuthenticatedUser();
+//
+//        if (authenticated == null || !authenticated.equals(username)) {
+//            throw new SecurityException("User not authenticated");
+//        }
+
 
         log.debug("Starting update for trainee: {}", username);
 
@@ -96,11 +184,14 @@ public class TraineeServiceDbImpl implements TraineeService {
     @Transactional
     public void deleteTraineeByUsername(String username) {
 
-        String authenticated = AuthenticationContext.getAuthenticatedUser();
+        MDC.put("operation", "deleteTrainee");
+        MDC.put("username", username);
 
-        if (authenticated == null || !authenticated.equals(username)) {
-            throw new SecurityException("User not authenticated");
-        }
+//        String authenticated = AuthenticationContext.getAuthenticatedUser();
+//
+//        if (authenticated == null || !authenticated.equals(username)) {
+//            throw new SecurityException("User not authenticated");
+//        }
 
         log.debug("Attempting to delete trainee: {}", username);
 
@@ -124,5 +215,4 @@ public class TraineeServiceDbImpl implements TraineeService {
         log.info("Total trainees fetched: {}", trainees.size());
         return trainees;
     }
-
 }
