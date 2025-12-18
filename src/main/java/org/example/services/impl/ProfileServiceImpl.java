@@ -106,6 +106,7 @@ public class ProfileServiceImpl implements ProfileService {
 //            throw new SecurityException("User not authenticated");
 //        }
 
+
         log.debug("Toggling active status for {}", username);
 
         UserEntity user = userRepo.findByUsername(username)
@@ -120,4 +121,6 @@ public class ProfileServiceImpl implements ProfileService {
 
         return newStatus;
     }
+
 }
+
