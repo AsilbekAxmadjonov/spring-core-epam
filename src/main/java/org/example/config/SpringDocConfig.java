@@ -9,11 +9,9 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class SpringDocConfig implements WebMvcConfigurer {
+public class SpringDocConfig {
 
     @Bean
     public OpenAPI customOpenAPI() {
@@ -48,8 +46,6 @@ public class SpringDocConfig implements WebMvcConfigurer {
                         .license(new License()
                                 .name("Apache 2.0")
                                 .url("https://www.apache.org/licenses/LICENSE-2.0.html")))
-                // REMOVE THIS LINE - it applies security globally:
-                // .addSecurityItem(new SecurityRequirement().addList("Bearer Authentication"))
                 .components(new Components()
                         .addSecuritySchemes("Bearer Authentication",
                                 new SecurityScheme()
@@ -67,14 +63,5 @@ public class SpringDocConfig implements WebMvcConfigurer {
                 .group("public")
                 .pathsToMatch("/**")
                 .build();
-    }
-
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/swagger-ui/**")
-                .addResourceLocations("classpath:/META-INF/resources/webjars/swagger-ui/");
-
-        registry.addResourceHandler("/webjars/**")
-                .addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
 }

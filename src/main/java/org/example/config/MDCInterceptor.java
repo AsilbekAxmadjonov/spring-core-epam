@@ -2,6 +2,7 @@ package org.example.config;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.slf4j.MDC;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -18,18 +19,14 @@ public class MDCInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        // Generate unique transaction ID
         String transactionId = UUID.randomUUID().toString();
         MDC.put(TRANSACTION_ID, transactionId);
 
-        // Add transaction ID to response header for tracing
         response.setHeader("X-Transaction-Id", transactionId);
 
-        // Add request details
         MDC.put(REQUEST_URI, request.getRequestURI());
         MDC.put(REQUEST_METHOD, request.getMethod());
 
-        // Add user ID if available (from session or token)
         String userId = getUserIdFromRequest(request);
         if (userId != null) {
             MDC.put(USER_ID, userId);
@@ -41,15 +38,16 @@ public class MDCInterceptor implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response,
                                 Object handler, Exception ex) {
-        // Clean up MDC after request completes
         MDC.clear();
     }
 
     private String getUserIdFromRequest(HttpServletRequest request) {
-        // Get user ID from session or JWT token
-        Object userId = request.getSession(false) != null
-                ? request.getSession().getAttribute("userId")
-                : null;
-        return userId != null ? userId.toString() : null;
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            Object userId = session.getAttribute("userId");
+            if (userId != null) return userId.toString();
+        }
+        return null;
     }
+
 }

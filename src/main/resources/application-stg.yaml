@@ -1,0 +1,13 @@
+spring:
+  config:
+    activate:
+      on-profile: stg
+  datasource:
+    url: jdbc:postgresql://stg-db:5433/hibernate_stg
+    username: stg_user
+    password: stg_pass
+    driver-class-name: org.postgresql.Driver
+
+logging:
+  level:
+    root: WARN

@@ -1,8 +1,8 @@
-jwt:
-  secret: mySecretKeyThatIsAtLeast256BitsLongForHS256Algorithm123456
-  expiration: 3600000
-
+# application-local.yaml
 spring:
+  config:
+    activate:
+      on-profile: local
   application:
     name: spring-core-epam
 
@@ -11,7 +11,23 @@ spring:
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 20
 
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.example.config.SnakeCasePhysicalNamingStrategy
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+
+jwt:
+  secret: mySecretKeyThatIsAtLeast256BitsLongForHS256Algorithm123456
+  expiration: 3600000  # 1 hour in milliseconds
 
 management:
   endpoints:
@@ -22,18 +38,6 @@ management:
     health:
       show-details: always
 
-
-  jpa:
-    hibernate:
-      naming:
-        physical-strategy: org.example.config.SnakeCasePhysicalNamingStrategy
-      ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate:
-        jdbc:
-          time_zone: UTC
-
 data:
   trainers:
     path: data/trainers.json
@@ -41,3 +45,8 @@ data:
     path: data/trainees.json
   trainings:
     path: data/trainings.json
+
+logging:
+  level:
+    org.hibernate: WARN
+    org.example: INFO

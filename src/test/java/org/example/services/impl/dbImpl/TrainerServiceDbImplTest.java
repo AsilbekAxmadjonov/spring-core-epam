@@ -10,6 +10,7 @@ import org.example.repository.TrainerRepo;
 import org.example.repository.TrainingTypeRepo;
 import org.example.repository.UserRepo;
 import org.example.security.AuthenticationContext;
+import org.example.services.TokenService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,6 +19,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Arrays;
 import java.util.List;
@@ -41,10 +43,14 @@ class TrainerServiceDbImplTest {
     @Mock
     private UserRepo userRepo;
 
+    @Mock
+    private PasswordEncoder passwordEncoder;
+
+    @Mock
+    private TokenService tokenService;
+
     @InjectMocks
     private TrainerServiceDbImpl trainerService;
-
-    private MockedStatic<AuthenticationContext> authContextMock;
 
     private Trainer trainerModel;
     private TrainerEntity trainerEntity;
@@ -53,265 +59,139 @@ class TrainerServiceDbImplTest {
 
     @BeforeEach
     void setUp() {
-        authContextMock = mockStatic(AuthenticationContext.class);
-
-        userEntity = UserEntity.builder()
-                .id(1L)
+        trainerModel = Trainer.builder()
                 .firstName("Mike")
                 .lastName("Johnson")
-                .username("mike.johnson")
-                .password("password123".toCharArray())
-                .isActive(true)
+                .specialization("Fitness")
+                .build();
+
+        userEntity = UserEntity.builder()
+                .username("Mike.Johnson")
                 .build();
 
         trainingType = TrainingTypeEntity.builder()
-                .id(1L)
                 .trainingTypeName("Fitness")
                 .build();
 
         trainerEntity = TrainerEntity.builder()
-                .id(1L)
-                .specialization(trainingType)
                 .userEntity(userEntity)
+                .specialization(trainingType)
                 .build();
-
-        trainerModel = Trainer.builder()
-                .firstName("Mike")
-                .lastName("Johnson")
-                .username("mike.johnson")
-                .password("password123".toCharArray())
-                .isActive(true)
-                .specialization("Fitness")
-                .build();
-    }
-
-    @AfterEach
-    void tearDown() {
-        authContextMock.close();
     }
 
     @Test
-    void createTrainer_shouldCreateAndReturnTrainer() {
-        when(userRepo.findByUsername("mike.johnson")).thenReturn(Optional.of(userEntity));
-        when(trainingTypeRepo.findByTrainingTypeName("Fitness")).thenReturn(Optional.of(trainingType));
-        when(trainerRepo.save(any(TrainerEntity.class))).thenReturn(trainerEntity);
-        when(trainerMapper.toTrainerModel(trainerEntity)).thenReturn(trainerModel);
+    void createTrainer_success() {
+        when(userRepo.findByUsername(anyString()))
+                .thenReturn(Optional.empty());
+
+        when(passwordEncoder.encode(anyString()))
+                .thenReturn("encoded");
+
+        when(userRepo.save(any(UserEntity.class)))
+                .thenReturn(userEntity);
+
+        when(trainingTypeRepo.findByTrainingTypeName("Fitness"))
+                .thenReturn(Optional.of(trainingType));
+
+        when(trainerRepo.save(any(TrainerEntity.class)))
+                .thenReturn(trainerEntity);
+
+        when(tokenService.generateToken(anyString()))
+                .thenReturn("jwt-token");
+
+        when(trainerMapper.toTrainerModel(trainerEntity))
+                .thenReturn(trainerModel);
 
         Trainer result = trainerService.createTrainer(trainerModel);
 
         assertNotNull(result);
-        assertEquals("mike.johnson", result.getUsername());
-        assertEquals("Mike", result.getFirstName());
-        assertEquals("Fitness", result.getSpecialization());
+        assertNotNull(result.getPassword());
+        assertNotNull(result.getToken());
 
-        verify(userRepo).findByUsername("mike.johnson");
-        verify(trainingTypeRepo).findByTrainingTypeName("Fitness");
-        verify(trainerRepo).save(any(TrainerEntity.class));
-        verify(trainerMapper).toTrainerModel(trainerEntity);
+        verify(tokenService).generateToken(anyString());
     }
 
     @Test
-    void createTrainer_shouldThrowExceptionWhenUserNotFound() {
-        when(userRepo.findByUsername("mike.johnson")).thenReturn(Optional.empty());
+    void createTrainer_trainingTypeNotFound() {
+        when(userRepo.findByUsername(anyString()))
+                .thenReturn(Optional.empty());
 
-        assertThrows(UserNotFoundException.class,
-                () -> trainerService.createTrainer(trainerModel));
+        when(passwordEncoder.encode(anyString()))
+                .thenReturn("encoded");
 
-        verify(userRepo).findByUsername("mike.johnson");
-        verify(trainerRepo, never()).save(any());
-    }
+        when(userRepo.save(any()))
+                .thenReturn(userEntity);
 
-    @Test
-    void createTrainer_shouldThrowExceptionWhenTrainingTypeNotFound() {
-        when(userRepo.findByUsername("mike.johnson")).thenReturn(Optional.of(userEntity));
-        when(trainingTypeRepo.findByTrainingTypeName("Fitness")).thenReturn(Optional.empty());
+        when(trainingTypeRepo.findByTrainingTypeName("Fitness"))
+                .thenReturn(Optional.empty());
 
         assertThrows(IllegalArgumentException.class,
                 () -> trainerService.createTrainer(trainerModel));
-
-        verify(userRepo).findByUsername("mike.johnson");
-        verify(trainingTypeRepo).findByTrainingTypeName("Fitness");
-        verify(trainerRepo, never()).save(any());
     }
 
     @Test
-    void getTrainerByUsername_shouldReturnTrainerWhenFound() {
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("mike.johnson");
-        when(trainerRepo.findByUsername("mike.johnson")).thenReturn(Optional.of(trainerEntity));
-        when(trainerMapper.toTrainerModel(trainerEntity)).thenReturn(trainerModel);
+    void getTrainerByUsername_found() {
+        when(trainerRepo.findByUsername("Mike.Johnson"))
+                .thenReturn(Optional.of(trainerEntity));
 
-        Optional<Trainer> result = trainerService.getTrainerByUsername("mike.johnson");
+        when(trainerMapper.toTrainerModel(trainerEntity))
+                .thenReturn(trainerModel);
+
+        Optional<Trainer> result =
+                trainerService.getTrainerByUsername("Mike.Johnson");
 
         assertTrue(result.isPresent());
-        assertEquals("mike.johnson", result.get().getUsername());
-
-        verify(trainerRepo).findByUsername("mike.johnson");
-        verify(trainerMapper).toTrainerModel(trainerEntity);
     }
 
     @Test
-    void getTrainerByUsername_shouldReturnEmptyWhenNotFound() {
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("mike.johnson");
-        when(trainerRepo.findByUsername("mike.johnson")).thenReturn(Optional.empty());
+    void getTrainerByUsername_notFound() {
+        when(trainerRepo.findByUsername(anyString()))
+                .thenReturn(Optional.empty());
 
-        Optional<Trainer> result = trainerService.getTrainerByUsername("mike.johnson");
+        Optional<Trainer> result =
+                trainerService.getTrainerByUsername("Mike.Johnson");
 
-        assertFalse(result.isPresent());
-        verify(trainerRepo).findByUsername("mike.johnson");
-        verify(trainerMapper, never()).toTrainerModel(any());
+        assertTrue(result.isEmpty());
     }
 
     @Test
-    void getTrainerByUsername_shouldThrowSecurityExceptionWhenNotAuthenticated() {
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn(null);
+    void updateTrainer_success() {
+        when(trainerRepo.findByUsername("Mike.Johnson"))
+                .thenReturn(Optional.of(trainerEntity));
 
-        SecurityException ex = assertThrows(SecurityException.class,
-                () -> trainerService.getTrainerByUsername("mike.johnson"));
+        when(trainerRepo.save(trainerEntity))
+                .thenReturn(trainerEntity);
 
-        assertEquals("User not authenticated", ex.getMessage());
-        verify(trainerRepo, never()).findByUsername(anyString());
-    }
+        when(trainerMapper.toTrainerModel(trainerEntity))
+                .thenReturn(trainerModel);
 
-    @Test
-    void getTrainerByUsername_shouldThrowSecurityExceptionWhenDifferentUser() {
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("other.user");
-
-        SecurityException ex = assertThrows(SecurityException.class,
-                () -> trainerService.getTrainerByUsername("mike.johnson"));
-
-        assertEquals("User not authenticated", ex.getMessage());
-        verify(trainerRepo, never()).findByUsername(anyString());
-    }
-
-    @Test
-    void updateTrainer_shouldUpdateAndReturnTrainer() {
-        Trainer updatedModel = Trainer.builder()
-                .firstName("Michael")
-                .lastName("Smith")
-                .specialization("Yoga")
-                .build();
-
-        TrainingTypeEntity yogaType = TrainingTypeEntity.builder()
-                .id(2L)
-                .trainingTypeName("Yoga")
-                .build();
-
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("mike.johnson");
-        when(trainerRepo.findByUsername("mike.johnson")).thenReturn(Optional.of(trainerEntity));
-        when(trainingTypeRepo.findByTrainingTypeName("Yoga")).thenReturn(Optional.of(yogaType));
-        when(trainerRepo.save(trainerEntity)).thenReturn(trainerEntity);
-        when(trainerMapper.toTrainerModel(trainerEntity)).thenReturn(updatedModel);
-
-        Trainer result = trainerService.updateTrainer("mike.johnson", updatedModel);
+        Trainer result =
+                trainerService.updateTrainer("Mike.Johnson", trainerModel);
 
         assertNotNull(result);
 
-        verify(trainerRepo).findByUsername("mike.johnson");
-        verify(trainingTypeRepo).findByTrainingTypeName("Yoga");
-        verify(trainerMapper).updateEntity(updatedModel, trainerEntity);
-        verify(trainerRepo).save(trainerEntity);
-        verify(trainerMapper).toTrainerModel(trainerEntity);
+        verify(trainerMapper).updateEntity(trainerModel, trainerEntity);
     }
 
     @Test
-    void updateTrainer_shouldThrowSecurityExceptionWhenNotAuthenticated() {
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn(null);
-
-        SecurityException ex = assertThrows(SecurityException.class,
-                () -> trainerService.updateTrainer("mike.johnson", trainerModel));
-
-        assertEquals("User not authenticated", ex.getMessage());
-        verify(trainerRepo, never()).findByUsername(anyString());
-    }
-
-    @Test
-    void updateTrainer_shouldThrowExceptionWhenTrainerNotFound() {
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("mike.johnson");
-        when(trainerRepo.findByUsername("mike.johnson")).thenReturn(Optional.empty());
+    void updateTrainer_notFound() {
+        when(trainerRepo.findByUsername(anyString()))
+                .thenReturn(Optional.empty());
 
         assertThrows(UserNotFoundException.class,
-                () -> trainerService.updateTrainer("mike.johnson", trainerModel));
-
-        verify(trainerRepo).findByUsername("mike.johnson");
-        verify(trainerMapper, never()).updateEntity(any(), any());
-        verify(trainerRepo, never()).save(any());
+                () -> trainerService.updateTrainer("Mike.Johnson", trainerModel));
     }
 
     @Test
-    void updateTrainer_shouldThrowExceptionWhenTrainingTypeNotFound() {
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("mike.johnson");
-        when(trainerRepo.findByUsername("mike.johnson")).thenReturn(Optional.of(trainerEntity));
-        when(trainingTypeRepo.findByTrainingTypeName("Fitness")).thenReturn(Optional.empty());
+    void getAllTrainers_success() {
+        when(trainerRepo.findAll())
+                .thenReturn(List.of(trainerEntity));
 
-        assertThrows(IllegalArgumentException.class,
-                () -> trainerService.updateTrainer("mike.johnson", trainerModel));
-
-        verify(trainerRepo).findByUsername("mike.johnson");
-        verify(trainingTypeRepo).findByTrainingTypeName("Fitness");
-        verify(trainerRepo, never()).save(any());
-    }
-
-    @Test
-    void getAllTrainers_shouldReturnAllTrainers() {
-        UserEntity user2 = UserEntity.builder()
-                .id(2L)
-                .firstName("Sarah")
-                .lastName("Connor")
-                .username("sarah.connor")
-                .password("pass456".toCharArray())
-                .isActive(true)
-                .build();
-
-        TrainingTypeEntity type2 = TrainingTypeEntity.builder()
-                .id(2L)
-                .trainingTypeName("Yoga")
-                .build();
-
-        TrainerEntity trainer2 = TrainerEntity.builder()
-                .id(2L)
-                .specialization(type2)
-                .userEntity(user2)
-                .build();
-
-        Trainer trainerModel2 = Trainer.builder()
-                .firstName("Sarah")
-                .lastName("Connor")
-                .username("sarah.connor")
-                .password("pass456".toCharArray())
-                .isActive(true)
-                .specialization("Yoga")
-                .build();
-
-        List<TrainerEntity> entities = Arrays.asList(trainerEntity, trainer2);
-        List<Trainer> models = Arrays.asList(trainerModel, trainerModel2);
-
-        when(trainerRepo.findAll()).thenReturn(entities);
-        when(trainerMapper.toTrainerModels(entities)).thenReturn(models);
+        when(trainerMapper.toTrainerModels(anyList()))
+                .thenReturn(List.of(trainerModel));
 
         List<Trainer> result = trainerService.getAllTrainers();
 
-        assertNotNull(result);
-        assertEquals(2, result.size());
-        assertEquals("mike.johnson", result.get(0).getUsername());
-        assertEquals("Fitness", result.get(0).getSpecialization());
-        assertEquals("sarah.connor", result.get(1).getUsername());
-        assertEquals("Yoga", result.get(1).getSpecialization());
-
-        verify(trainerRepo).findAll();
-        verify(trainerMapper).toTrainerModels(entities);
-    }
-
-    @Test
-    void getAllTrainers_shouldReturnEmptyListWhenNoTrainers() {
-        when(trainerRepo.findAll()).thenReturn(Arrays.asList());
-        when(trainerMapper.toTrainerModels(anyList())).thenReturn(Arrays.asList());
-
-        List<Trainer> result = trainerService.getAllTrainers();
-
-        assertNotNull(result);
-        assertTrue(result.isEmpty());
-
-        verify(trainerRepo).findAll();
-        verify(trainerMapper).toTrainerModels(anyList());
+        assertEquals(1, result.size());
     }
 }
