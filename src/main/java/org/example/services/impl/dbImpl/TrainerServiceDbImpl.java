@@ -12,7 +12,6 @@ import org.example.model.Trainer;
 import org.example.repository.TrainerRepo;
 import org.example.repository.TrainingTypeRepo;
 import org.example.repository.UserRepo;
-import org.example.security.AuthenticationContext;
 import org.example.services.TokenService;
 import org.example.services.TrainerService;
 import org.slf4j.MDC;

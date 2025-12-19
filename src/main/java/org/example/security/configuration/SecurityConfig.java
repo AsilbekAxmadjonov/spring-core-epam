@@ -26,7 +26,6 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.List;
 
 @Slf4j
 @Configuration

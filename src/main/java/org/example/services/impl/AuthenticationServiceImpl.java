@@ -7,15 +7,11 @@ import org.example.exception.UserNotFoundException;
 import org.example.mapper.UserMapper;
 import org.example.model.User;
 import org.example.repository.UserRepo;
-import org.example.security.AuthenticationContext;
 import org.example.services.AuthenticationService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
-
-import javax.naming.AuthenticationException;
 
 @Slf4j
 @Service

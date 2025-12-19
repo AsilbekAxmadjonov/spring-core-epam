@@ -7,7 +7,6 @@ import org.example.entity.UserEntity;
 import org.example.exception.UserNotFoundException;
 import org.example.model.User;
 import org.example.repository.UserRepo;
-import org.example.security.AuthenticationContext;
 import org.example.services.ProfileService;
 import org.example.services.UserService;
 import org.example.util.ProfileGenerator;

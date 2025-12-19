@@ -14,7 +14,6 @@ import org.example.repository.TraineeRepo;
 import org.example.repository.TrainerRepo;
 import org.example.repository.TrainingRepo;
 import org.example.repository.TrainingTypeRepo;
-import org.example.security.AuthenticationContext;
 import org.example.services.TrainingService;
 import org.slf4j.MDC;
 import org.springframework.context.annotation.Primary;
