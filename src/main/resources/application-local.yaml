@@ -1,0 +1,50 @@
+# application-local.yaml
+spring:
+  config:
+    activate:
+      on-profile: local
+  application:
+    name: spring-core-epam
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/hibernate
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 20
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+
+jwt:
+  secret: mySecretKeyThatIsAtLeast256BitsLongForHS256Algorithm123456
+  expiration: 3600000  # 1 hour in milliseconds
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+
+data:
+  trainers:
+    path: data/trainers.json
+  trainees:
+    path: data/trainees.json
+  trainings:
+    path: data/trainings.json
+
+logging:
+  level:
+    org.hibernate: WARN
+    org.example: INFO

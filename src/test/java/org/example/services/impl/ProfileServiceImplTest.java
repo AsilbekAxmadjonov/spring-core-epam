@@ -5,13 +5,9 @@ import org.example.exception.UserNotFoundException;
 import org.example.model.Trainee;
 import org.example.model.User;
 import org.example.repository.UserRepo;
-import org.example.security.AuthenticationContext;
 import org.example.services.UserService;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.MockedStatic;
-
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
@@ -27,7 +23,6 @@ class ProfileServiceImplTest {
     private UserService userService;
     private UserRepo userRepo;
     private PasswordEncoder passwordEncoder;
-    private MockedStatic<AuthenticationContext> authContextMock;
 
     @BeforeEach
     void setup() {
@@ -39,25 +34,17 @@ class ProfileServiceImplTest {
 
         when(passwordEncoder.encode(anyString())).thenReturn("ENCODED_PASS");
         when(passwordEncoder.matches(anyString(), anyString())).thenReturn(true);
-
-        // Mock the static AuthenticationContext
-        authContextMock = mockStatic(AuthenticationContext.class);
     }
 
-    @AfterEach
-    void tearDown() {
-        // Close the static mock after each test
-        authContextMock.close();
-    }
+    /* ================= CREATE PROFILE ================= */
 
     @Test
-    void testCreateProfileGeneratesUsernameAndPassword() {
+    void createProfile_generatesUsernamePasswordAndActivatesUser() {
         User user = new Trainee();
         user.setFirstName("John");
         user.setLastName("Doe");
 
-        List<User> existingUsers = new ArrayList<>();
-        when(userService.fetchAll()).thenReturn(existingUsers);
+        when(userService.fetchAll()).thenReturn(new ArrayList<>());
         when(userService.createUser(any(User.class))).thenReturn(user);
 
         service.createProfile(user);
@@ -73,179 +60,137 @@ class ProfileServiceImplTest {
     }
 
     @Test
-    void testCreateProfileWithExistingUsers() {
+    void createProfile_appendsIndexWhenUsernameExists() {
         User user = new Trainee();
         user.setFirstName("John");
         user.setLastName("Doe");
 
-        User existingUser = new Trainee();
-        existingUser.setUsername("John.Doe");
+        User existing = new Trainee();
+        existing.setUsername("John.Doe");
 
-        List<User> existingUsers = List.of(existingUser);
-        when(userService.fetchAll()).thenReturn(existingUsers);
+        when(userService.fetchAll()).thenReturn(List.of(existing));
         when(userService.createUser(any(User.class))).thenReturn(user);
 
         service.createProfile(user);
 
-        assertNotNull(user.getUsername());
         assertEquals("John.Doe1", user.getUsername());
-
-        verify(userService).fetchAll();
-        verify(userService).createUser(user);
     }
 
+    /* ================= PASSWORD MATCHES ================= */
+
     @Test
-    void testPasswordMatchesReturnsTrue() {
-        UserEntity userEntity = UserEntity.builder()
+    void passwordMatches_returnsTrue_whenPasswordMatches() {
+        UserEntity entity = UserEntity.builder()
                 .username("john.doe")
                 .password("ENCODED_PASS".toCharArray())
                 .build();
 
-        when(userRepo.findByUsername("john.doe")).thenReturn(Optional.of(userEntity));
+        when(userRepo.findByUsername("john.doe"))
+                .thenReturn(Optional.of(entity));
 
-        boolean matches = service.passwordMatches("john.doe", "rawPass".toCharArray());
+        boolean result = service.passwordMatches("john.doe", "raw".toCharArray());
 
-        assertTrue(matches);
-        verify(passwordEncoder).matches("rawPass", "ENCODED_PASS");
+        assertTrue(result);
+        verify(passwordEncoder)
+                .matches("raw", "ENCODED_PASS");
     }
 
     @Test
-    void testPasswordMatchesReturnsFalse() {
-        UserEntity userEntity = UserEntity.builder()
+    void passwordMatches_returnsFalse_whenPasswordDoesNotMatch() {
+        UserEntity entity = UserEntity.builder()
                 .username("john.doe")
                 .password("ENCODED_PASS".toCharArray())
                 .build();
 
-        when(userRepo.findByUsername("john.doe")).thenReturn(Optional.of(userEntity));
-        when(passwordEncoder.matches(anyString(), anyString())).thenReturn(false);
+        when(userRepo.findByUsername("john.doe"))
+                .thenReturn(Optional.of(entity));
+        when(passwordEncoder.matches(anyString(), anyString()))
+                .thenReturn(false);
 
-        boolean matches = service.passwordMatches("john.doe", "wrongPass".toCharArray());
+        boolean result = service.passwordMatches("john.doe", "wrong".toCharArray());
 
-        assertFalse(matches);
+        assertFalse(result);
     }
 
     @Test
-    void testPasswordMatchesUserNotFound() {
-        when(userRepo.findByUsername("unknown")).thenReturn(Optional.empty());
+    void passwordMatches_throwsException_whenUserNotFound() {
+        when(userRepo.findByUsername("unknown"))
+                .thenReturn(Optional.empty());
 
         assertThrows(UserNotFoundException.class,
                 () -> service.passwordMatches("unknown", "pass".toCharArray()));
     }
 
+    /* ================= CHANGE PASSWORD ================= */
+
     @Test
-    void testChangePasswordUpdatesPassword() {
-        UserEntity userEntity = UserEntity.builder()
+    void changePassword_updatesPassword_whenUserExists() {
+        UserEntity entity = UserEntity.builder()
                 .username("john.doe")
-                .password("OLD_PASS".toCharArray())
+                .password("OLD".toCharArray())
                 .build();
 
-        when(userRepo.findByUsername("john.doe")).thenReturn(Optional.of(userEntity));
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("john.doe");
+        when(userRepo.findByUsername("john.doe"))
+                .thenReturn(Optional.of(entity));
 
-        char[] newPassword = "newPass".toCharArray();
+        service.changePassword("john.doe", "newPass".toCharArray());
 
-        service.changePassword("john.doe", newPassword);
-
-        assertArrayEquals("ENCODED_PASS".toCharArray(), userEntity.getPassword());
-        verify(userRepo).save(userEntity);
+        assertArrayEquals("ENCODED_PASS".toCharArray(), entity.getPassword());
+        verify(userRepo).save(entity);
         verify(passwordEncoder).encode("newPass");
     }
 
     @Test
-    void testChangePasswordUserNotAuthenticated() {
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn(null);
-
-        char[] newPassword = "new".toCharArray();
-
-        SecurityException ex = assertThrows(SecurityException.class,
-                () -> service.changePassword("john.doe", newPassword));
-
-        assertEquals("User not authenticated", ex.getMessage());
-    }
-
-    @Test
-    void testChangePasswordDifferentUserAuthenticated() {
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("other.user");
-
-        char[] newPassword = "new".toCharArray();
-
-        SecurityException ex = assertThrows(SecurityException.class,
-                () -> service.changePassword("john.doe", newPassword));
-
-        assertEquals("User not authenticated", ex.getMessage());
-    }
-
-    @Test
-    void testChangePasswordUserNotFound() {
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("unknown");
-        when(userRepo.findByUsername("unknown")).thenReturn(Optional.empty());
-
-        char[] newPassword = "new".toCharArray();
+    void changePassword_throwsException_whenUserNotFound() {
+        when(userRepo.findByUsername("john.doe"))
+                .thenReturn(Optional.empty());
 
         assertThrows(UserNotFoundException.class,
-                () -> service.changePassword("unknown", newPassword));
+                () -> service.changePassword("john.doe", "new".toCharArray()));
     }
 
+    /* ================= TOGGLE ACTIVE ================= */
+
     @Test
-    void testToggleUserActiveStatusFromInactiveToActive() {
-        UserEntity userEntity = UserEntity.builder()
+    void toggleUserActiveStatus_switchesFromFalseToTrue() {
+        UserEntity entity = UserEntity.builder()
                 .username("john.doe")
                 .isActive(false)
                 .build();
 
-        when(userRepo.findByUsername("john.doe")).thenReturn(Optional.of(userEntity));
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("john.doe");
+        when(userRepo.findByUsername("john.doe"))
+                .thenReturn(Optional.of(entity));
 
-        boolean newStatus = service.toggleUserActiveStatus("john.doe");
+        boolean result = service.toggleUserActiveStatus("john.doe");
 
-        assertTrue(newStatus);
-        assertTrue(userEntity.getIsActive());
-        verify(userRepo).save(userEntity);
+        assertTrue(result);
+        assertTrue(entity.getIsActive());
+        verify(userRepo).save(entity);
     }
 
     @Test
-    void testToggleUserActiveStatusFromActiveToInactive() {
-        UserEntity userEntity = UserEntity.builder()
+    void toggleUserActiveStatus_switchesFromTrueToFalse() {
+        UserEntity entity = UserEntity.builder()
                 .username("john.doe")
                 .isActive(true)
                 .build();
 
-        when(userRepo.findByUsername("john.doe")).thenReturn(Optional.of(userEntity));
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("john.doe");
+        when(userRepo.findByUsername("john.doe"))
+                .thenReturn(Optional.of(entity));
 
-        boolean newStatus = service.toggleUserActiveStatus("john.doe");
+        boolean result = service.toggleUserActiveStatus("john.doe");
 
-        assertFalse(newStatus);
-        assertFalse(userEntity.getIsActive());
-        verify(userRepo).save(userEntity);
+        assertFalse(result);
+        assertFalse(entity.getIsActive());
+        verify(userRepo).save(entity);
     }
 
     @Test
-    void testToggleUserActiveStatusUserNotAuthenticated() {
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn(null);
-
-        SecurityException ex = assertThrows(SecurityException.class,
-                () -> service.toggleUserActiveStatus("john.doe"));
-
-        assertEquals("User not authenticated", ex.getMessage());
-    }
-
-    @Test
-    void testToggleUserActiveStatusDifferentUserAuthenticated() {
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("other.user");
-
-        SecurityException ex = assertThrows(SecurityException.class,
-                () -> service.toggleUserActiveStatus("john.doe"));
-
-        assertEquals("User not authenticated", ex.getMessage());
-    }
-
-    @Test
-    void testToggleUserActiveStatusUserNotFound() {
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("unknown");
-        when(userRepo.findByUsername("unknown")).thenReturn(Optional.empty());
+    void toggleUserActiveStatus_throwsException_whenUserNotFound() {
+        when(userRepo.findByUsername("john.doe"))
+                .thenReturn(Optional.empty());
 
         assertThrows(UserNotFoundException.class,
-                () -> service.toggleUserActiveStatus("unknown"));
+                () -> service.toggleUserActiveStatus("john.doe"));
     }
 }

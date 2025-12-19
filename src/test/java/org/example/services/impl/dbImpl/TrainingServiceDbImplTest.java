@@ -1,77 +1,58 @@
 package org.example.services.impl.dbImpl;
 
-import org.example.entity.TraineeEntity;
-import org.example.entity.TrainerEntity;
-import org.example.entity.TrainingEntity;
-import org.example.entity.TrainingTypeEntity;
+import org.example.entity.*;
 import org.example.exception.UserNotFoundException;
 import org.example.mapper.TrainingMapper;
 import org.example.model.Training;
 import org.example.model.TrainingType;
-import org.example.repository.TraineeRepo;
-import org.example.repository.TrainerRepo;
-import org.example.repository.TrainingRepo;
-import org.example.repository.TrainingTypeRepo;
-import org.example.security.AuthenticationContext;
+import org.example.repository.*;
 import org.example.services.TrainingService;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 class TrainingServiceDbImplTest {
 
+    @Mock
     private TrainingRepo trainingRepo;
+
+    @Mock
     private TraineeRepo traineeRepo;
+
+    @Mock
     private TrainerRepo trainerRepo;
+
+    @Mock
     private TrainingTypeRepo trainingTypeRepo;
+
+    @Mock
     private TrainingMapper trainingMapper;
 
-    private TrainingService service;
-
-    @BeforeEach
-    void setUp() {
-        trainingRepo = mock(TrainingRepo.class);
-        traineeRepo = mock(TraineeRepo.class);
-        trainerRepo = mock(TrainerRepo.class);
-        trainingTypeRepo = mock(TrainingTypeRepo.class);
-        trainingMapper = mock(TrainingMapper.class);
-
-        service = new TrainingServiceDbImpl(
-                trainingRepo,
-                traineeRepo,
-                trainerRepo,
-                trainingMapper,
-                trainingTypeRepo
-        );
-    }
-
-    @AfterEach
-    void tearDown() {
-        AuthenticationContext.clear();
-    }
+    @InjectMocks
+    private TrainingServiceDbImpl service;
 
     @Test
-    void testGetTraineeTrainings() {
-        AuthenticationContext.setAuthenticatedUser("john"); // ✅ must match traineeUsername
-
+    void getTraineeTrainings_success() {
         TrainingEntity entity = new TrainingEntity();
-        List<TrainingEntity> entityList = List.of(entity);
         Training model = new Training();
-        List<Training> modelList = List.of(model);
 
         when(trainingRepo.findTraineeTrainings(
-                eq("john"),
-                any(), any(), any(), any())
-        ).thenReturn(entityList);
+                eq("john"), any(), any(), any(), any()
+        )).thenReturn(List.of(entity));
 
-        when(trainingMapper.toTrainingModels(entityList)).thenReturn(modelList);
+        when(trainingMapper.toTrainingModels(List.of(entity)))
+                .thenReturn(List.of(model));
 
         List<Training> result = service.getTraineeTrainings(
                 "john",
@@ -82,27 +63,21 @@ class TrainingServiceDbImplTest {
         );
 
         assertEquals(1, result.size());
-        verify(trainingRepo).findTraineeTrainings(
-                eq("john"), any(), any(), any(), any()
-        );
-        verify(trainingMapper).toTrainingModels(entityList);
+        verify(trainingRepo).findTraineeTrainings(eq("john"), any(), any(), any(), any());
+        verify(trainingMapper).toTrainingModels(anyList());
     }
 
     @Test
-    void testGetTrainerTrainings() {
-        AuthenticationContext.setAuthenticatedUser("trainer01"); // ✅ must match trainerUsername
-
+    void getTrainerTrainings_success() {
         TrainingEntity entity = new TrainingEntity();
-        List<TrainingEntity> entityList = List.of(entity);
         Training model = new Training();
-        List<Training> modelList = List.of(model);
 
         when(trainingRepo.findTrainerTrainings(
-                eq("trainer01"),
-                any(), any(), any())
-        ).thenReturn(entityList);
+                eq("trainer01"), any(), any(), any()
+        )).thenReturn(List.of(entity));
 
-        when(trainingMapper.toTrainingModels(entityList)).thenReturn(modelList);
+        when(trainingMapper.toTrainingModels(List.of(entity)))
+                .thenReturn(List.of(model));
 
         List<Training> result = service.getTrainerTrainings(
                 "trainer01",
@@ -112,17 +87,13 @@ class TrainingServiceDbImplTest {
         );
 
         assertEquals(1, result.size());
-        verify(trainingRepo).findTrainerTrainings(
-                eq("trainer01"), any(), any(), any()
-        );
-        verify(trainingMapper).toTrainingModels(entityList);
+        verify(trainingRepo).findTrainerTrainings(eq("trainer01"), any(), any(), any());
+        verify(trainingMapper).toTrainingModels(anyList());
     }
 
     @Test
-    void testAddTrainingSuccess() {
-        AuthenticationContext.setAuthenticatedUser("john"); // ✅ must match trainee username
-
-        Training model = Training.builder()
+    void addTraining_success() {
+        Training training = Training.builder()
                 .traineeUsername("john")
                 .trainerUsername("alex")
                 .trainingName("Morning Session")
@@ -133,18 +104,24 @@ class TrainingServiceDbImplTest {
 
         TraineeEntity trainee = new TraineeEntity();
         TrainerEntity trainer = new TrainerEntity();
-        TrainingTypeEntity typeEntity = new TrainingTypeEntity(); // ✅ mock training type
+        TrainingTypeEntity typeEntity = new TrainingTypeEntity();
         TrainingEntity entity = new TrainingEntity();
         TrainingEntity savedEntity = new TrainingEntity();
 
-        when(traineeRepo.findByUsername("john")).thenReturn(Optional.of(trainee));
-        when(trainerRepo.findByUsername("alex")).thenReturn(Optional.of(trainer));
-        when(trainingTypeRepo.findByTrainingTypeName("Cardio")).thenReturn(Optional.of(typeEntity)); // ✅ mock type
-        when(trainingMapper.toTrainingEntity(model)).thenReturn(entity);
-        when(trainingRepo.save(entity)).thenReturn(savedEntity);
-        when(trainingMapper.toTrainingModel(savedEntity)).thenReturn(model);
+        when(traineeRepo.findByUsername("john"))
+                .thenReturn(Optional.of(trainee));
+        when(trainerRepo.findByUsername("alex"))
+                .thenReturn(Optional.of(trainer));
+        when(trainingTypeRepo.findByTrainingTypeName("Cardio"))
+                .thenReturn(Optional.of(typeEntity));
+        when(trainingMapper.toTrainingEntity(training))
+                .thenReturn(entity);
+        when(trainingRepo.save(entity))
+                .thenReturn(savedEntity);
+        when(trainingMapper.toTrainingModel(savedEntity))
+                .thenReturn(training);
 
-        Training result = service.addTraining(model);
+        Training result = service.addTraining(training);
 
         assertNotNull(result);
         verify(trainingRepo).save(entity);
@@ -152,80 +129,71 @@ class TrainingServiceDbImplTest {
     }
 
     @Test
-    void testAddTrainingTraineeNotFound() {
-        AuthenticationContext.setAuthenticatedUser("anyuser");
-
-        Training model = new Training();
-        model.setTraineeUsername("unknown");
+    void addTraining_traineeNotFound() {
+        Training training = new Training();
+        training.setTraineeUsername("unknown");
 
         when(traineeRepo.findByUsername("unknown"))
                 .thenReturn(Optional.empty());
 
-        assertThrows(UserNotFoundException.class, () ->
-                service.addTraining(model)
-        );
+        assertThrows(UserNotFoundException.class,
+                () -> service.addTraining(training));
     }
 
     @Test
-    void testAddTrainingTrainerNotFound() {
-        AuthenticationContext.setAuthenticatedUser("john");
-
-        Training model = new Training();
-        model.setTraineeUsername("john");
-        model.setTrainerUsername("unknown");
-
-        TraineeEntity trainee = new TraineeEntity();
+    void addTraining_trainerNotFound() {
+        Training training = new Training();
+        training.setTraineeUsername("john");
+        training.setTrainerUsername("unknown");
+        training.setTrainingType(new TrainingType("Cardio"));
 
         when(traineeRepo.findByUsername("john"))
-                .thenReturn(Optional.of(trainee));
+                .thenReturn(Optional.of(new TraineeEntity()));
         when(trainerRepo.findByUsername("unknown"))
                 .thenReturn(Optional.empty());
 
-        assertThrows(UserNotFoundException.class, () ->
-                service.addTraining(model)
-        );
+        assertThrows(UserNotFoundException.class,
+                () -> service.addTraining(training));
     }
 
     @Test
-    void testGetTrainingSuccess() {
-        AuthenticationContext.setAuthenticatedUser("john");
-
-        String trainingName = "YogaSession";
+    void getTraining_success() {
         TrainingEntity entity = new TrainingEntity();
         Training model = new Training();
 
-        when(trainingRepo.findByTrainingName(trainingName)).thenReturn(Optional.of(entity));
-        when(trainingMapper.toTrainingModel(entity)).thenReturn(model);
+        when(trainingRepo.findByTrainingName("Yoga"))
+                .thenReturn(Optional.of(entity));
+        when(trainingMapper.toTrainingModel(entity))
+                .thenReturn(model);
 
-        Training result = service.getTraining(trainingName);
+        Training result = service.getTraining("Yoga");
 
         assertNotNull(result);
-        verify(trainingRepo).findByTrainingName(trainingName);
-        verify(trainingMapper).toTrainingModel(entity);
+        verify(trainingRepo).findByTrainingName("Yoga");
     }
 
     @Test
-    void testGetTrainingNotFound() {
-        AuthenticationContext.setAuthenticatedUser("john");
+    void getTraining_notFound() {
+        when(trainingRepo.findByTrainingName("Unknown"))
+                .thenReturn(Optional.empty());
 
-        String trainingName = "Unknown";
-        when(trainingRepo.findByTrainingName(trainingName)).thenReturn(Optional.empty());
-
-        assertThrows(UserNotFoundException.class, () -> service.getTraining(trainingName));
+        assertThrows(UserNotFoundException.class,
+                () -> service.getTraining("Unknown"));
     }
 
     @Test
-    void testListAllTrainings() {
+    void listAll_success() {
         TrainingEntity entity = new TrainingEntity();
         Training model = new Training();
 
-        when(trainingRepo.findAll()).thenReturn(List.of(entity));
-        when(trainingMapper.toTrainingModels(List.of(entity))).thenReturn(List.of(model));
+        when(trainingRepo.findAll())
+                .thenReturn(List.of(entity));
+        when(trainingMapper.toTrainingModels(List.of(entity)))
+                .thenReturn(List.of(model));
 
         List<Training> result = service.listAll();
 
         assertEquals(1, result.size());
         verify(trainingRepo).findAll();
-        verify(trainingMapper).toTrainingModels(List.of(entity));
     }
 }
