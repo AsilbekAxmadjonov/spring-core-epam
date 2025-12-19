@@ -59,7 +59,7 @@ class LoginControllerTest {
     }
 
     @Test
-    void testLoginFailure() throws Exception {
+    void testLoginFailure() {
         // Arrange
         String username = "user2";
         char[] password = "wrongpass".toCharArray();
@@ -68,16 +68,16 @@ class LoginControllerTest {
         request.setUsername(username);
         request.setPassword(password);
 
-        when(authService.login(eq(username), anyString())).thenThrow(new RuntimeException("Invalid credentials"));
+        when(authService.login(eq(username), anyString()))
+                .thenThrow(new RuntimeException("Invalid credentials"));
 
-        // Act
-        ResponseEntity<?> response = loginController.login(request);
+        // Act + Assert
+        RuntimeException exception = assertThrows(
+                RuntimeException.class,
+                () -> loginController.login(request)
+        );
 
-        // Assert
-        assertEquals(401, response.getStatusCodeValue());
-        Map<String, Object> body = (Map<String, Object>) response.getBody();
-        assertNotNull(body);
-        assertEquals("Authentication failed", body.get("error"));
+        assertEquals("Invalid credentials", exception.getMessage());
 
         // Verify password is cleared
         for (char c : password) {
@@ -86,6 +86,7 @@ class LoginControllerTest {
 
         verify(authService, times(1)).login(eq(username), anyString());
     }
+
 
     @Test
     void testLogout() {

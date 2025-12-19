@@ -9,19 +9,15 @@ import org.example.model.Trainer;
 import org.example.repository.TrainerRepo;
 import org.example.repository.TrainingTypeRepo;
 import org.example.repository.UserRepo;
-import org.example.security.AuthenticationContext;
 import org.example.services.TokenService;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockedStatic;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -67,6 +63,9 @@ class TrainerServiceDbImplTest {
 
         userEntity = UserEntity.builder()
                 .username("Mike.Johnson")
+                .firstName("Mike")          // IMPORTANT
+                .lastName("Johnson")        // IMPORTANT
+                .isActive(true)
                 .build();
 
         trainingType = TrainingTypeEntity.builder()
@@ -85,7 +84,7 @@ class TrainerServiceDbImplTest {
                 .thenReturn(Optional.empty());
 
         when(passwordEncoder.encode(anyString()))
-                .thenReturn("encoded");
+                .thenReturn("encoded-password");
 
         when(userRepo.save(any(UserEntity.class)))
                 .thenReturn(userEntity);
@@ -109,6 +108,8 @@ class TrainerServiceDbImplTest {
         assertNotNull(result.getToken());
 
         verify(tokenService).generateToken(anyString());
+        verify(userRepo).save(any(UserEntity.class));
+        verify(trainerRepo).save(any(TrainerEntity.class));
     }
 
     @Test
@@ -117,9 +118,9 @@ class TrainerServiceDbImplTest {
                 .thenReturn(Optional.empty());
 
         when(passwordEncoder.encode(anyString()))
-                .thenReturn("encoded");
+                .thenReturn("encoded-password");
 
-        when(userRepo.save(any()))
+        when(userRepo.save(any(UserEntity.class)))
                 .thenReturn(userEntity);
 
         when(trainingTypeRepo.findByTrainingTypeName("Fitness"))
@@ -141,6 +142,7 @@ class TrainerServiceDbImplTest {
                 trainerService.getTrainerByUsername("Mike.Johnson");
 
         assertTrue(result.isPresent());
+        verify(trainerRepo).findByUsername("Mike.Johnson");
     }
 
     @Test
@@ -171,6 +173,7 @@ class TrainerServiceDbImplTest {
         assertNotNull(result);
 
         verify(trainerMapper).updateEntity(trainerModel, trainerEntity);
+        verify(trainerRepo).save(trainerEntity);
     }
 
     @Test
@@ -193,5 +196,6 @@ class TrainerServiceDbImplTest {
         List<Trainer> result = trainerService.getAllTrainers();
 
         assertEquals(1, result.size());
+        verify(trainerRepo).findAll();
     }
 }

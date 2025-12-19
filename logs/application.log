@@ -3626,3 +3626,654 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "login_attempts" d
 2025-12-19 22:44:24.556 [RMI TCP Connection(1)-127.0.0.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [TxId:] [User:] [ ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-12-19 22:44:24.556 [RMI TCP Connection(1)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Initializing Servlet 'dispatcherServlet'
 2025-12-19 22:44:24.557 [RMI TCP Connection(1)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Completed initialization in 1 ms
+2025-12-19 22:58:10.195 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=48s429ms).
+2025-12-19 23:03:37.866 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [TxId:] [User:] [ ] - Could not detect default configuration classes for test class [org.example.config.StorageConfigTest]: StorageConfigTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-12-19 23:03:37.947 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [TxId:] [User:] [ ] - Found @SpringBootConfiguration org.example.Application for test class org.example.config.StorageConfigTest
+2025-12-19 23:03:38.137 [background-preinit] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
+2025-12-19 23:03:38.148 [main] INFO  o.example.config.StorageConfigTest - [TxId:] [User:] [ ] - Starting StorageConfigTest using Java 21.0.9 with PID 79580 (started by cyber in /Users/cyber/IdeaProjects/epam/spring-core-epam)
+2025-12-19 23:03:38.149 [main] INFO  o.example.config.StorageConfigTest - [TxId:] [User:] [ ] - No active profile set, falling back to 1 default profile: "default"
+2025-12-19 23:03:38.806 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-19 23:03:38.863 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 53 ms. Found 6 JPA repository interfaces.
+2025-12-19 23:03:39.255 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Starting...
+2025-12-19 23:03:39.386 [main] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7e36d508
+2025-12-19 23:03:39.387 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Start completed.
+2025-12-19 23:03:39.412 [main] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-19 23:03:39.445 [main] INFO  org.hibernate.Version - [TxId:] [User:] [ ] - HHH000412: Hibernate ORM core version 6.4.1.Final
+2025-12-19 23:03:39.466 [main] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2025-12-19 23:03:39.540 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-19 23:03:40.017 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-19 23:03:40.018 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-19 23:03:40.077 [main] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2025-12-19 23:03:40.226 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - [TxId:] [User:] [ ] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-19 23:03:40.489 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationManager bean created
+2025-12-19 23:03:40.515 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationProvider configured with UserDetailsService and PasswordEncoder
+2025-12-19 23:03:41.068 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - [TxId:] [User:] [ ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-19 23:03:41.357 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - [TxId:] [User:] [ ] - Exposing 3 endpoint(s) beneath base path '/actuator'
+2025-12-19 23:03:41.381 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring Security Filter Chain with JWT authentication
+2025-12-19 23:03:41.382 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - CORS configuration enabled for allowed origins
+2025-12-19 23:03:41.385 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring authorization rules...
+2025-12-19 23:03:41.391 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Authorization configured:
+2025-12-19 23:03:41.392 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainees/** (no authentication)
+2025-12-19 23:03:41.392 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainings/** (no authentication)
+2025-12-19 23:03:41.392 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: POST /api/trainers (registration only)
+2025-12-19 23:03:41.392 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: /api/auth/**, /api/training-types/**
+2025-12-19 23:03:41.392 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Swagger UI and API docs
+2025-12-19 23:03:41.392 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Actuator health endpoints
+2025-12-19 23:03:41.392 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Protected: GET/PUT/DELETE /api/trainers/** (requires JWT)
+2025-12-19 23:03:41.393 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Session management set to STATELESS - JWT authentication only
+2025-12-19 23:03:41.393 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Security Filter Chain configured successfully
+2025-12-19 23:03:41.423 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6593a932, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7f8ac54f, org.springframework.security.web.context.SecurityContextHolderFilter@63d9cd59, org.springframework.security.web.header.HeaderWriterFilter@7f56567d, org.springframework.web.filter.CorsFilter@2224628d, org.springframework.security.web.authentication.logout.LogoutFilter@1ace7331, org.example.security.filter.JwtAuthenticationFilter@12f12982, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2ddcede5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@23fa3130, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@48b79bdf, org.springframework.security.web.session.SessionManagementFilter@62cfa78b, org.springframework.security.web.access.ExceptionTranslationFilter@21035eec, org.springframework.security.web.access.intercept.AuthorizationFilter@38cf78cb]
+2025-12-19 23:03:41.827 [main] INFO  o.example.config.StorageConfigTest - [TxId:] [User:] [ ] - Started StorageConfigTest in 3.803 seconds (process running for 7.351)
+2025-12-19 23:03:42.012 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> true
+2025-12-19 23:03:42.014 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
+2025-12-19 23:03:42.015 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe
+2025-12-19 23:03:42.016 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
+2025-12-19 23:03:42.017 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe1
+2025-12-19 23:03:42.033 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Password updated for john.doe
+2025-12-19 23:03:42.037 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> false
+2025-12-19 23:03:42.043 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [TxId:] [User:] [ ] - Could not detect default configuration classes for test class [org.example.config.WebConfigTest]: WebConfigTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-12-19 23:03:42.047 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [TxId:] [User:] [ ] - Found @SpringBootConfiguration org.example.Application for test class org.example.config.WebConfigTest
+2025-12-19 23:03:42.058 [main] INFO  org.example.config.WebConfigTest - [TxId:] [User:] [ ] - Starting WebConfigTest using Java 21.0.9 with PID 79580 (started by cyber in /Users/cyber/IdeaProjects/epam/spring-core-epam)
+2025-12-19 23:03:42.058 [main] INFO  org.example.config.WebConfigTest - [TxId:] [User:] [ ] - No active profile set, falling back to 1 default profile: "default"
+2025-12-19 23:03:42.214 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-19 23:03:42.228 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 13 ms. Found 6 JPA repository interfaces.
+2025-12-19 23:03:42.295 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-2 - Starting...
+2025-12-19 23:03:42.309 [main] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@74562f15
+2025-12-19 23:03:42.310 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-2 - Start completed.
+2025-12-19 23:03:42.310 [main] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-19 23:03:42.311 [main] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2025-12-19 23:03:42.312 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-19 23:03:42.360 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-19 23:03:42.360 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-19 23:03:42.379 [main] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2025-12-19 23:03:42.421 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationManager bean created
+2025-12-19 23:03:42.425 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationProvider configured with UserDetailsService and PasswordEncoder
+2025-12-19 23:03:42.624 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - [TxId:] [User:] [ ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-19 23:03:42.764 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - [TxId:] [User:] [ ] - Exposing 3 endpoint(s) beneath base path '/actuator'
+2025-12-19 23:03:42.779 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring Security Filter Chain with JWT authentication
+2025-12-19 23:03:42.779 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - CORS configuration enabled for allowed origins
+2025-12-19 23:03:42.780 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring authorization rules...
+2025-12-19 23:03:42.782 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Authorization configured:
+2025-12-19 23:03:42.782 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainees/** (no authentication)
+2025-12-19 23:03:42.782 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainings/** (no authentication)
+2025-12-19 23:03:42.782 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: POST /api/trainers (registration only)
+2025-12-19 23:03:42.782 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: /api/auth/**, /api/training-types/**
+2025-12-19 23:03:42.782 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Swagger UI and API docs
+2025-12-19 23:03:42.782 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Actuator health endpoints
+2025-12-19 23:03:42.782 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Protected: GET/PUT/DELETE /api/trainers/** (requires JWT)
+2025-12-19 23:03:42.782 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Session management set to STATELESS - JWT authentication only
+2025-12-19 23:03:42.782 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Security Filter Chain configured successfully
+2025-12-19 23:03:42.789 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@29df2302, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2d9a273e, org.springframework.security.web.context.SecurityContextHolderFilter@3f7fbfba, org.springframework.security.web.header.HeaderWriterFilter@1271a6bb, org.springframework.web.filter.CorsFilter@6534b9e6, org.springframework.security.web.authentication.logout.LogoutFilter@2af6e44c, org.example.security.filter.JwtAuthenticationFilter@4f50d590, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5a3f9efa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1f5e4ec9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@57bf6f1, org.springframework.security.web.session.SessionManagementFilter@655936bd, org.springframework.security.web.access.ExceptionTranslationFilter@4461cce7, org.springframework.security.web.access.intercept.AuthorizationFilter@3b07f8c7]
+2025-12-19 23:03:42.973 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - [TxId:] [User:] [ ] - Initializing Spring TestDispatcherServlet ''
+2025-12-19 23:03:42.973 [main] INFO  o.s.t.w.s.TestDispatcherServlet - [TxId:] [User:] [ ] - Initializing Servlet ''
+2025-12-19 23:03:42.973 [main] INFO  o.s.t.w.s.TestDispatcherServlet - [TxId:] [User:] [ ] - Completed initialization in 0 ms
+2025-12-19 23:03:42.984 [main] INFO  org.example.config.WebConfigTest - [TxId:] [User:] [ ] - Started WebConfigTest in 0.936 seconds (process running for 8.509)
+2025-12-19 23:03:43.143 [main] ERROR o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer not found for update: Mike.Johnson
+2025-12-19 23:03:43.148 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Creating trainer with generated username: Mike.Johnson
+2025-12-19 23:03:43.148 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - User created successfully: Mike.Johnson
+2025-12-19 23:03:43.150 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Total trainers fetched: 1
+2025-12-19 23:03:43.152 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Creating trainer with generated username: Mike.Johnson
+2025-12-19 23:03:43.153 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - User created successfully: Mike.Johnson
+2025-12-19 23:03:43.153 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer created successfully: Mike.Johnson
+2025-12-19 23:03:43.153 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - JWT token generated for trainer: Mike.Johnson
+2025-12-19 23:03:43.195 [main] INFO  o.e.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Pilates
+2025-12-19 23:03:43.196 [main] WARN  o.e.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type not found: Pilates
+2025-12-19 23:03:43.197 [main] INFO  o.e.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching all training types
+2025-12-19 23:03:43.198 [main] INFO  o.e.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetched 2 training types
+2025-12-19 23:03:43.206 [main] INFO  o.e.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Yoga
+2025-12-19 23:03:43.207 [main] INFO  o.e.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type found: Yoga
+2025-12-19 23:03:43.271 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 1
+2025-12-19 23:03:43.273 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee deleted successfully: john.doe
+2025-12-19 23:03:43.281 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee updated successfully: John.Doe
+2025-12-19 23:03:43.282 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 0
+2025-12-19 23:03:43.285 [main] ERROR o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for update: john.doe
+2025-12-19 23:03:43.287 [main] WARN  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for deletion: john.doe
+2025-12-19 23:03:43.289 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Creating trainee with generated username: John.Doe
+2025-12-19 23:03:43.290 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - User created successfully: John.Doe
+2025-12-19 23:03:43.290 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee created successfully: John.Doe
+2025-12-19 23:03:43.290 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - JWT token generated for trainee: John.Doe
+2025-12-19 23:03:43.320 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: john123
+2025-12-19 23:03:43.321 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Trainee found: john123
+2025-12-19 23:03:43.322 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Creating new trainee: John Doe
+2025-12-19 23:03:43.322 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Trainee created successfully with username: john123
+2025-12-19 23:03:43.325 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Updating trainee: john123
+2025-12-19 23:03:43.325 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Trainee updated successfully: john123
+2025-12-19 23:03:43.327 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Fetching all trainees
+2025-12-19 23:03:43.327 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Fetched 2 trainees
+2025-12-19 23:03:43.328 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: unknown
+2025-12-19 23:03:43.328 [main] WARN  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Trainee not found: unknown
+2025-12-19 23:03:43.331 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Deleting trainee: john123
+2025-12-19 23:03:43.331 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Trainee deleted successfully: john123
+2025-12-19 23:03:43.333 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [TxId:] [User:] [ ] - Could not detect default configuration classes for test class [org.example.config.SpringDocConfigTest]: SpringDocConfigTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-12-19 23:03:43.334 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [TxId:] [User:] [ ] - Found @SpringBootConfiguration org.example.Application for test class org.example.config.SpringDocConfigTest
+2025-12-19 23:03:43.371 [main] INFO  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
+2025-12-19 23:03:43.371 [main] WARN  o.e.controller.ProfileController - [TxId:] [User:] [ ] - User not found: user1
+2025-12-19 23:03:43.373 [main] INFO  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2025-12-19 23:03:43.373 [main] INFO  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Password changed successfully for user: user1
+2025-12-19 23:03:43.374 [main] INFO  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
+2025-12-19 23:03:43.374 [main] INFO  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Active status changed for user: user1 to true
+2025-12-19 23:03:43.375 [main] INFO  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2025-12-19 23:03:43.376 [main] WARN  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Old password does not match for user: user1
+2025-12-19 23:03:43.377 [main] INFO  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2025-12-19 23:03:43.377 [main] WARN  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Missing old or new password for user: user1
+2025-12-19 23:03:43.421 [main] INFO  o.example.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user1
+2025-12-19 23:03:43.422 [main] INFO  o.example.controller.LoginController - [TxId:] [User:] [ ] - Login successful for username: user1
+2025-12-19 23:03:43.426 [main] INFO  o.example.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user2
+2025-12-19 23:03:43.428 [main] INFO  o.example.controller.LoginController - [TxId:] [User:] [ ] - Logout request received
+2025-12-19 23:03:43.468 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Fetching all trainings
+2025-12-19 23:03:43.469 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 2 trainings
+2025-12-19 23:03:43.471 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainee: trainee1 with filters - from: null, to: null, trainerName: null, trainingType: null
+2025-12-19 23:03:43.472 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainee: trainee1
+2025-12-19 23:03:43.474 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Fetching training by name: Yoga
+2025-12-19 23:03:43.474 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Training found: Yoga
+2025-12-19 23:03:43.477 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Creating new training: Morning Yoga for trainee: trainee1 with trainer: trainer1
+2025-12-19 23:03:43.478 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Training created successfully: Morning Yoga
+2025-12-19 23:03:43.480 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainer: trainer1 with filters - from: null, to: null, traineeName: null
+2025-12-19 23:03:43.481 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainer: trainer1
+2025-12-19 23:03:43.484 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer1
+2025-12-19 23:03:43.485 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer2
+2025-12-19 23:03:43.485 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainers. Total count: 2
+2025-12-19 23:03:43.486 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2025-12-19 23:03:43.487 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2025-12-19 23:03:43.487 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Updated Trainer: trainer01
+2025-12-19 23:03:43.487 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2025-12-19 23:03:43.537 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training retrieved: Python for Data
+2025-12-19 23:03:43.539 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 trainings
+2025-12-19 23:03:43.540 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training created: Spring Boot Basics
+2025-12-19 23:03:43.541 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training created: AWS Cloud Basics
+2025-12-19 23:03:43.598 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee created successfully: john
+2025-12-19 23:03:43.600 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee updated successfully: john
+2025-12-19 23:03:43.602 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Total Trainees found: 2
+2025-12-19 23:03:43.611 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee deleted: john
+2025-12-19 23:03:43.642 [main] INFO  o.e.s.impl.AuthenticationServiceImpl - [TxId:] [User:] [ ] - User authenticated successfully: john
+2025-12-19 23:03:43.716 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 total trainings
+2025-12-19 23:03:43.719 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Training created successfully with ID null
+2025-12-19 23:03:43.721 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainer trainings for username=trainer01
+2025-12-19 23:03:43.724 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainee trainings for username=john
+2025-12-19 23:03:43.729 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Training found: Yoga
+2025-12-19 23:03:43.760 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Creating new trainer: Alice Smith
+2025-12-19 23:03:43.760 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Trainer created successfully with username: alice123
+2025-12-19 23:03:43.761 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Updating trainer: alice123
+2025-12-19 23:03:43.761 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Trainer updated successfully: alice123
+2025-12-19 23:03:43.763 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Fetching all trainers
+2025-12-19 23:03:43.763 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Fetched 2 trainers
+2025-12-19 23:03:43.764 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: alice123
+2025-12-19 23:03:43.765 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Trainer found: alice123
+2025-12-19 23:03:43.767 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: unknown
+2025-12-19 23:03:43.767 [main] WARN  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Trainer not found: unknown
+2025-12-19 23:03:43.801 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: alice
+2025-12-19 23:03:43.802 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: alice
+2025-12-19 23:03:43.807 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: john
+2025-12-19 23:03:43.807 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: john
+2025-12-19 23:03:43.809 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 users from in-memory store
+2025-12-19 23:03:43.840 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Creating new Trainer: john01
+2025-12-19 23:03:43.842 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Updating Trainer: bob01
+2025-12-19 23:03:43.854 [main] WARN  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Attempted to delete non-existent Trainee: ghost01
+2025-12-19 23:03:43.855 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t1
+2025-12-19 23:03:43.855 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t2
+2025-12-19 23:03:43.855 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainees. Total count: 2
+2025-12-19 23:03:43.855 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2025-12-19 23:03:43.856 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2025-12-19 23:03:43.856 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Updated Trainee: john01
+2025-12-19 23:03:43.856 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: alice01
+2025-12-19 23:03:43.856 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2025-12-19 23:03:43.856 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Deleted Trainee: john01
+2025-12-19 23:03:43.872 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for update: john
+2025-12-19 23:03:43.874 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found: john
+2025-12-19 23:03:43.878 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User created: null
+2025-12-19 23:03:43.880 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for deletion: john
+2025-12-19 23:03:43.882 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User updated: john
+2025-12-19 23:03:43.883 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - Fetched 2 users
+2025-12-19 23:03:43.885 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User deleted: john
+2025-12-19 23:03:43.960 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainers
+2025-12-19 23:03:43.963 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainees
+2025-12-19 23:03:43.964 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainings
+2025-12-19 23:03:43.965 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Spring Boot Basics
+2025-12-19 23:03:43.966 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Python Data
+2025-12-19 23:03:43.966 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Java Masterclass
+2025-12-19 23:03:43.966 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainings. Total count: 2
+2025-12-19 23:03:43.967 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: React Advanced
+2025-12-19 23:03:43.982 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-19 23:03:43.983 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Shutdown initiated...
+2025-12-19 23:03:43.984 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Shutdown completed.
+2025-12-19 23:03:43.989 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-19 23:03:43.989 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-2 - Shutdown initiated...
+2025-12-19 23:03:43.990 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-2 - Shutdown completed.
+2025-12-19 23:06:33.380 [main] INFO  o.example.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user1
+2025-12-19 23:06:33.382 [main] INFO  o.example.controller.LoginController - [TxId:] [User:] [ ] - Login successful for username: user1
+2025-12-19 23:06:33.399 [main] INFO  o.example.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user2
+2025-12-19 23:06:33.403 [main] INFO  o.example.controller.LoginController - [TxId:] [User:] [ ] - Logout request received
+2025-12-19 23:06:49.693 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [TxId:] [User:] [ ] - Could not detect default configuration classes for test class [org.example.config.StorageConfigTest]: StorageConfigTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-12-19 23:06:49.750 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [TxId:] [User:] [ ] - Found @SpringBootConfiguration org.example.Application for test class org.example.config.StorageConfigTest
+2025-12-19 23:06:49.920 [background-preinit] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
+2025-12-19 23:06:49.936 [main] INFO  o.example.config.StorageConfigTest - [TxId:] [User:] [ ] - Starting StorageConfigTest using Java 21.0.9 with PID 79678 (started by cyber in /Users/cyber/IdeaProjects/epam/spring-core-epam)
+2025-12-19 23:06:49.937 [main] INFO  o.example.config.StorageConfigTest - [TxId:] [User:] [ ] - No active profile set, falling back to 1 default profile: "default"
+2025-12-19 23:06:50.480 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-19 23:06:50.517 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 33 ms. Found 6 JPA repository interfaces.
+2025-12-19 23:06:50.873 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Starting...
+2025-12-19 23:06:50.977 [main] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@341df373
+2025-12-19 23:06:50.978 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Start completed.
+2025-12-19 23:06:50.998 [main] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-19 23:06:51.025 [main] INFO  org.hibernate.Version - [TxId:] [User:] [ ] - HHH000412: Hibernate ORM core version 6.4.1.Final
+2025-12-19 23:06:51.045 [main] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2025-12-19 23:06:51.106 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-19 23:06:51.557 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-19 23:06:51.558 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-19 23:06:51.618 [main] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2025-12-19 23:06:51.766 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - [TxId:] [User:] [ ] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-19 23:06:52.032 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationManager bean created
+2025-12-19 23:06:52.047 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationProvider configured with UserDetailsService and PasswordEncoder
+2025-12-19 23:06:52.660 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - [TxId:] [User:] [ ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-19 23:06:52.953 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - [TxId:] [User:] [ ] - Exposing 3 endpoint(s) beneath base path '/actuator'
+2025-12-19 23:06:52.975 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring Security Filter Chain with JWT authentication
+2025-12-19 23:06:52.976 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - CORS configuration enabled for allowed origins
+2025-12-19 23:06:52.978 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring authorization rules...
+2025-12-19 23:06:52.983 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Authorization configured:
+2025-12-19 23:06:52.983 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainees/** (no authentication)
+2025-12-19 23:06:52.983 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainings/** (no authentication)
+2025-12-19 23:06:52.983 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: POST /api/trainers (registration only)
+2025-12-19 23:06:52.983 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: /api/auth/**, /api/training-types/**
+2025-12-19 23:06:52.983 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Swagger UI and API docs
+2025-12-19 23:06:52.983 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Actuator health endpoints
+2025-12-19 23:06:52.983 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Protected: GET/PUT/DELETE /api/trainers/** (requires JWT)
+2025-12-19 23:06:52.984 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Session management set to STATELESS - JWT authentication only
+2025-12-19 23:06:52.984 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Security Filter Chain configured successfully
+2025-12-19 23:06:53.001 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@75723fe1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1aa8386a, org.springframework.security.web.context.SecurityContextHolderFilter@3b7f8fd5, org.springframework.security.web.header.HeaderWriterFilter@4c2b537d, org.springframework.web.filter.CorsFilter@3a369bbd, org.springframework.security.web.authentication.logout.LogoutFilter@2ee20713, org.example.security.filter.JwtAuthenticationFilter@4151d8a3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@75ee3ef, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@60e978dc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@301f5aaf, org.springframework.security.web.session.SessionManagementFilter@3f5a8ea5, org.springframework.security.web.access.ExceptionTranslationFilter@2f258c95, org.springframework.security.web.access.intercept.AuthorizationFilter@4b787980]
+2025-12-19 23:06:53.380 [main] INFO  o.example.config.StorageConfigTest - [TxId:] [User:] [ ] - Started StorageConfigTest in 3.573 seconds (process running for 5.06)
+2025-12-19 23:06:53.559 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> true
+2025-12-19 23:06:53.561 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
+2025-12-19 23:06:53.562 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe
+2025-12-19 23:06:53.564 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
+2025-12-19 23:06:53.565 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe1
+2025-12-19 23:06:53.573 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Password updated for john.doe
+2025-12-19 23:06:53.574 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> false
+2025-12-19 23:06:53.578 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [TxId:] [User:] [ ] - Could not detect default configuration classes for test class [org.example.config.WebConfigTest]: WebConfigTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-12-19 23:06:53.582 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [TxId:] [User:] [ ] - Found @SpringBootConfiguration org.example.Application for test class org.example.config.WebConfigTest
+2025-12-19 23:06:53.594 [main] INFO  org.example.config.WebConfigTest - [TxId:] [User:] [ ] - Starting WebConfigTest using Java 21.0.9 with PID 79678 (started by cyber in /Users/cyber/IdeaProjects/epam/spring-core-epam)
+2025-12-19 23:06:53.594 [main] INFO  org.example.config.WebConfigTest - [TxId:] [User:] [ ] - No active profile set, falling back to 1 default profile: "default"
+2025-12-19 23:06:53.732 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-19 23:06:53.752 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 19 ms. Found 6 JPA repository interfaces.
+2025-12-19 23:06:53.822 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-2 - Starting...
+2025-12-19 23:06:53.856 [main] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@3b69ad19
+2025-12-19 23:06:53.857 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-2 - Start completed.
+2025-12-19 23:06:53.858 [main] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-19 23:06:53.859 [main] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2025-12-19 23:06:53.863 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-19 23:06:53.938 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-19 23:06:53.938 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-19 23:06:53.962 [main] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2025-12-19 23:06:54.008 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationManager bean created
+2025-12-19 23:06:54.015 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationProvider configured with UserDetailsService and PasswordEncoder
+2025-12-19 23:06:54.194 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - [TxId:] [User:] [ ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-19 23:06:54.318 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - [TxId:] [User:] [ ] - Exposing 3 endpoint(s) beneath base path '/actuator'
+2025-12-19 23:06:54.331 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring Security Filter Chain with JWT authentication
+2025-12-19 23:06:54.331 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - CORS configuration enabled for allowed origins
+2025-12-19 23:06:54.332 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring authorization rules...
+2025-12-19 23:06:54.334 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Authorization configured:
+2025-12-19 23:06:54.334 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainees/** (no authentication)
+2025-12-19 23:06:54.334 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainings/** (no authentication)
+2025-12-19 23:06:54.334 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: POST /api/trainers (registration only)
+2025-12-19 23:06:54.334 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: /api/auth/**, /api/training-types/**
+2025-12-19 23:06:54.334 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Swagger UI and API docs
+2025-12-19 23:06:54.334 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Actuator health endpoints
+2025-12-19 23:06:54.334 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Protected: GET/PUT/DELETE /api/trainers/** (requires JWT)
+2025-12-19 23:06:54.334 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Session management set to STATELESS - JWT authentication only
+2025-12-19 23:06:54.334 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Security Filter Chain configured successfully
+2025-12-19 23:06:54.343 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@38f38fcf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@655936bd, org.springframework.security.web.context.SecurityContextHolderFilter@31edcf2f, org.springframework.security.web.header.HeaderWriterFilter@47a20fab, org.springframework.web.filter.CorsFilter@7913a77c, org.springframework.security.web.authentication.logout.LogoutFilter@5ca90269, org.example.security.filter.JwtAuthenticationFilter@5ce4b8ef, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6ace857d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4e67bf2a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1b56d6e8, org.springframework.security.web.session.SessionManagementFilter@4ae58000, org.springframework.security.web.access.ExceptionTranslationFilter@7c3f358c, org.springframework.security.web.access.intercept.AuthorizationFilter@a7ae1a5]
+2025-12-19 23:06:54.584 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - [TxId:] [User:] [ ] - Initializing Spring TestDispatcherServlet ''
+2025-12-19 23:06:54.585 [main] INFO  o.s.t.w.s.TestDispatcherServlet - [TxId:] [User:] [ ] - Initializing Servlet ''
+2025-12-19 23:06:54.586 [main] INFO  o.s.t.w.s.TestDispatcherServlet - [TxId:] [User:] [ ] - Completed initialization in 1 ms
+2025-12-19 23:06:54.597 [main] INFO  org.example.config.WebConfigTest - [TxId:] [User:] [ ] - Started WebConfigTest in 1.013 seconds (process running for 6.277)
+2025-12-19 23:06:54.772 [main] ERROR o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer not found for update: Mike.Johnson
+2025-12-19 23:06:54.777 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Creating trainer with generated username: Mike.Johnson
+2025-12-19 23:06:54.777 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - User created successfully: Mike.Johnson
+2025-12-19 23:06:54.779 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Total trainers fetched: 1
+2025-12-19 23:06:54.782 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Creating trainer with generated username: Mike.Johnson
+2025-12-19 23:06:54.782 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - User created successfully: Mike.Johnson
+2025-12-19 23:06:54.782 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer created successfully: Mike.Johnson
+2025-12-19 23:06:54.782 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - JWT token generated for trainer: Mike.Johnson
+2025-12-19 23:06:54.823 [main] INFO  o.e.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Pilates
+2025-12-19 23:06:54.823 [main] WARN  o.e.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type not found: Pilates
+2025-12-19 23:06:54.824 [main] INFO  o.e.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching all training types
+2025-12-19 23:06:54.825 [main] INFO  o.e.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetched 2 training types
+2025-12-19 23:06:54.829 [main] INFO  o.e.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Yoga
+2025-12-19 23:06:54.829 [main] INFO  o.e.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type found: Yoga
+2025-12-19 23:06:54.889 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 1
+2025-12-19 23:06:54.890 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee deleted successfully: john.doe
+2025-12-19 23:06:54.892 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee updated successfully: John.Doe
+2025-12-19 23:06:54.894 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 0
+2025-12-19 23:06:54.896 [main] ERROR o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for update: john.doe
+2025-12-19 23:06:54.898 [main] WARN  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for deletion: john.doe
+2025-12-19 23:06:54.901 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Creating trainee with generated username: John.Doe
+2025-12-19 23:06:54.902 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - User created successfully: John.Doe
+2025-12-19 23:06:54.902 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee created successfully: John.Doe
+2025-12-19 23:06:54.902 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - JWT token generated for trainee: John.Doe
+2025-12-19 23:06:54.933 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: john123
+2025-12-19 23:06:54.933 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Trainee found: john123
+2025-12-19 23:06:54.934 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Creating new trainee: John Doe
+2025-12-19 23:06:54.934 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Trainee created successfully with username: john123
+2025-12-19 23:06:54.936 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Updating trainee: john123
+2025-12-19 23:06:54.936 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Trainee updated successfully: john123
+2025-12-19 23:06:54.937 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Fetching all trainees
+2025-12-19 23:06:54.937 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Fetched 2 trainees
+2025-12-19 23:06:54.939 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: unknown
+2025-12-19 23:06:54.939 [main] WARN  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Trainee not found: unknown
+2025-12-19 23:06:54.942 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Deleting trainee: john123
+2025-12-19 23:06:54.942 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Trainee deleted successfully: john123
+2025-12-19 23:06:54.943 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [TxId:] [User:] [ ] - Could not detect default configuration classes for test class [org.example.config.SpringDocConfigTest]: SpringDocConfigTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-12-19 23:06:54.950 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [TxId:] [User:] [ ] - Found @SpringBootConfiguration org.example.Application for test class org.example.config.SpringDocConfigTest
+2025-12-19 23:06:54.986 [main] INFO  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
+2025-12-19 23:06:54.986 [main] WARN  o.e.controller.ProfileController - [TxId:] [User:] [ ] - User not found: user1
+2025-12-19 23:06:54.987 [main] INFO  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2025-12-19 23:06:54.987 [main] INFO  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Password changed successfully for user: user1
+2025-12-19 23:06:54.988 [main] INFO  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
+2025-12-19 23:06:54.989 [main] INFO  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Active status changed for user: user1 to true
+2025-12-19 23:06:54.990 [main] INFO  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2025-12-19 23:06:54.990 [main] WARN  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Old password does not match for user: user1
+2025-12-19 23:06:54.991 [main] INFO  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2025-12-19 23:06:54.991 [main] WARN  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Missing old or new password for user: user1
+2025-12-19 23:06:55.039 [main] INFO  o.example.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user1
+2025-12-19 23:06:55.040 [main] INFO  o.example.controller.LoginController - [TxId:] [User:] [ ] - Login successful for username: user1
+2025-12-19 23:06:55.044 [main] INFO  o.example.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user2
+2025-12-19 23:06:55.046 [main] INFO  o.example.controller.LoginController - [TxId:] [User:] [ ] - Logout request received
+2025-12-19 23:06:55.081 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Fetching all trainings
+2025-12-19 23:06:55.082 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 2 trainings
+2025-12-19 23:06:55.084 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainee: trainee1 with filters - from: null, to: null, trainerName: null, trainingType: null
+2025-12-19 23:06:55.085 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainee: trainee1
+2025-12-19 23:06:55.087 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Fetching training by name: Yoga
+2025-12-19 23:06:55.087 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Training found: Yoga
+2025-12-19 23:06:55.090 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Creating new training: Morning Yoga for trainee: trainee1 with trainer: trainer1
+2025-12-19 23:06:55.090 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Training created successfully: Morning Yoga
+2025-12-19 23:06:55.093 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainer: trainer1 with filters - from: null, to: null, traineeName: null
+2025-12-19 23:06:55.094 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainer: trainer1
+2025-12-19 23:06:55.095 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer1
+2025-12-19 23:06:55.096 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer2
+2025-12-19 23:06:55.096 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainers. Total count: 2
+2025-12-19 23:06:55.097 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2025-12-19 23:06:55.097 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2025-12-19 23:06:55.097 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Updated Trainer: trainer01
+2025-12-19 23:06:55.098 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2025-12-19 23:06:55.147 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training retrieved: Python for Data
+2025-12-19 23:06:55.148 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 trainings
+2025-12-19 23:06:55.149 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training created: Spring Boot Basics
+2025-12-19 23:06:55.150 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training created: AWS Cloud Basics
+2025-12-19 23:06:55.209 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee created successfully: john
+2025-12-19 23:06:55.213 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee updated successfully: john
+2025-12-19 23:06:55.214 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Total Trainees found: 2
+2025-12-19 23:06:55.224 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee deleted: john
+2025-12-19 23:06:55.255 [main] INFO  o.e.s.impl.AuthenticationServiceImpl - [TxId:] [User:] [ ] - User authenticated successfully: john
+2025-12-19 23:06:55.334 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 total trainings
+2025-12-19 23:06:55.337 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Training created successfully with ID null
+2025-12-19 23:06:55.339 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainer trainings for username=trainer01
+2025-12-19 23:06:55.341 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainee trainings for username=john
+2025-12-19 23:06:55.347 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Training found: Yoga
+2025-12-19 23:06:55.376 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Creating new trainer: Alice Smith
+2025-12-19 23:06:55.377 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Trainer created successfully with username: alice123
+2025-12-19 23:06:55.378 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Updating trainer: alice123
+2025-12-19 23:06:55.378 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Trainer updated successfully: alice123
+2025-12-19 23:06:55.379 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Fetching all trainers
+2025-12-19 23:06:55.379 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Fetched 2 trainers
+2025-12-19 23:06:55.380 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: alice123
+2025-12-19 23:06:55.380 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Trainer found: alice123
+2025-12-19 23:06:55.382 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: unknown
+2025-12-19 23:06:55.382 [main] WARN  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Trainer not found: unknown
+2025-12-19 23:06:55.417 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: alice
+2025-12-19 23:06:55.417 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: alice
+2025-12-19 23:06:55.420 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: john
+2025-12-19 23:06:55.421 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: john
+2025-12-19 23:06:55.422 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 users from in-memory store
+2025-12-19 23:06:55.450 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Creating new Trainer: john01
+2025-12-19 23:06:55.453 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Updating Trainer: bob01
+2025-12-19 23:06:55.461 [main] WARN  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Attempted to delete non-existent Trainee: ghost01
+2025-12-19 23:06:55.462 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t1
+2025-12-19 23:06:55.462 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t2
+2025-12-19 23:06:55.462 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainees. Total count: 2
+2025-12-19 23:06:55.462 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2025-12-19 23:06:55.463 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2025-12-19 23:06:55.463 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Updated Trainee: john01
+2025-12-19 23:06:55.463 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: alice01
+2025-12-19 23:06:55.464 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2025-12-19 23:06:55.464 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Deleted Trainee: john01
+2025-12-19 23:06:55.481 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for update: john
+2025-12-19 23:06:55.483 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found: john
+2025-12-19 23:06:55.486 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User created: null
+2025-12-19 23:06:55.488 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for deletion: john
+2025-12-19 23:06:55.489 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User updated: john
+2025-12-19 23:06:55.491 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - Fetched 2 users
+2025-12-19 23:06:55.493 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User deleted: john
+2025-12-19 23:06:55.561 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainers
+2025-12-19 23:06:55.564 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainees
+2025-12-19 23:06:55.565 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainings
+2025-12-19 23:06:55.566 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Spring Boot Basics
+2025-12-19 23:06:55.567 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Python Data
+2025-12-19 23:06:55.567 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Java Masterclass
+2025-12-19 23:06:55.567 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainings. Total count: 2
+2025-12-19 23:06:55.567 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: React Advanced
+2025-12-19 23:06:55.579 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-19 23:06:55.580 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Shutdown initiated...
+2025-12-19 23:06:55.582 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Shutdown completed.
+2025-12-19 23:06:55.585 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-19 23:06:55.586 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-2 - Shutdown initiated...
+2025-12-19 23:06:55.588 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-2 - Shutdown completed.
+2025-12-19 23:09:58.844 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer updated successfully: Mike.Johnson -> Mike.Johnson
+2025-12-19 23:09:58.855 [main] ERROR o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer not found for update: Mike.Johnson
+2025-12-19 23:09:58.923 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Creating trainer with generated username: Mike.Johnson
+2025-12-19 23:09:58.923 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - User created successfully: Mike.Johnson
+2025-12-19 23:09:58.927 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Total trainers fetched: 1
+2025-12-19 23:09:58.933 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Creating trainer with generated username: Mike.Johnson
+2025-12-19 23:09:58.933 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - User created successfully: Mike.Johnson
+2025-12-19 23:09:58.933 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer created successfully: Mike.Johnson
+2025-12-19 23:09:58.933 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - JWT token generated for trainer: Mike.Johnson
+2025-12-19 23:10:06.143 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [TxId:] [User:] [ ] - Could not detect default configuration classes for test class [org.example.config.StorageConfigTest]: StorageConfigTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-12-19 23:10:06.204 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [TxId:] [User:] [ ] - Found @SpringBootConfiguration org.example.Application for test class org.example.config.StorageConfigTest
+2025-12-19 23:10:06.383 [background-preinit] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
+2025-12-19 23:10:06.392 [main] INFO  o.example.config.StorageConfigTest - [TxId:] [User:] [ ] - Starting StorageConfigTest using Java 21.0.9 with PID 79925 (started by cyber in /Users/cyber/IdeaProjects/epam/spring-core-epam)
+2025-12-19 23:10:06.393 [main] INFO  o.example.config.StorageConfigTest - [TxId:] [User:] [ ] - No active profile set, falling back to 1 default profile: "default"
+2025-12-19 23:10:06.988 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-19 23:10:07.028 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 36 ms. Found 6 JPA repository interfaces.
+2025-12-19 23:10:07.416 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Starting...
+2025-12-19 23:10:07.541 [main] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@478cc5f1
+2025-12-19 23:10:07.542 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Start completed.
+2025-12-19 23:10:07.563 [main] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-19 23:10:07.594 [main] INFO  org.hibernate.Version - [TxId:] [User:] [ ] - HHH000412: Hibernate ORM core version 6.4.1.Final
+2025-12-19 23:10:07.612 [main] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2025-12-19 23:10:07.690 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-19 23:10:08.168 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-19 23:10:08.170 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-19 23:10:08.224 [main] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2025-12-19 23:10:08.369 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - [TxId:] [User:] [ ] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-19 23:10:08.636 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationManager bean created
+2025-12-19 23:10:08.652 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationProvider configured with UserDetailsService and PasswordEncoder
+2025-12-19 23:10:09.200 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - [TxId:] [User:] [ ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-19 23:10:09.487 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - [TxId:] [User:] [ ] - Exposing 3 endpoint(s) beneath base path '/actuator'
+2025-12-19 23:10:09.513 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring Security Filter Chain with JWT authentication
+2025-12-19 23:10:09.514 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - CORS configuration enabled for allowed origins
+2025-12-19 23:10:09.516 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring authorization rules...
+2025-12-19 23:10:09.522 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Authorization configured:
+2025-12-19 23:10:09.523 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainees/** (no authentication)
+2025-12-19 23:10:09.523 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainings/** (no authentication)
+2025-12-19 23:10:09.523 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: POST /api/trainers (registration only)
+2025-12-19 23:10:09.523 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: /api/auth/**, /api/training-types/**
+2025-12-19 23:10:09.523 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Swagger UI and API docs
+2025-12-19 23:10:09.523 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Actuator health endpoints
+2025-12-19 23:10:09.523 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Protected: GET/PUT/DELETE /api/trainers/** (requires JWT)
+2025-12-19 23:10:09.523 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Session management set to STATELESS - JWT authentication only
+2025-12-19 23:10:09.523 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Security Filter Chain configured successfully
+2025-12-19 23:10:09.540 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@707929a2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2f258c95, org.springframework.security.web.context.SecurityContextHolderFilter@3a75e25a, org.springframework.security.web.header.HeaderWriterFilter@4ca8d446, org.springframework.web.filter.CorsFilter@71d191d3, org.springframework.security.web.authentication.logout.LogoutFilter@4de20c29, org.example.security.filter.JwtAuthenticationFilter@24f3d208, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4101747a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@414cf106, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@9d1788c, org.springframework.security.web.session.SessionManagementFilter@4dee8b9a, org.springframework.security.web.access.ExceptionTranslationFilter@32f4d719, org.springframework.security.web.access.intercept.AuthorizationFilter@71dce61e]
+2025-12-19 23:10:09.925 [main] INFO  o.example.config.StorageConfigTest - [TxId:] [User:] [ ] - Started StorageConfigTest in 3.655 seconds (process running for 5.136)
+2025-12-19 23:10:10.079 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> true
+2025-12-19 23:10:10.080 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
+2025-12-19 23:10:10.081 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe
+2025-12-19 23:10:10.082 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
+2025-12-19 23:10:10.083 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe1
+2025-12-19 23:10:10.089 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Password updated for john.doe
+2025-12-19 23:10:10.091 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> false
+2025-12-19 23:10:10.095 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [TxId:] [User:] [ ] - Could not detect default configuration classes for test class [org.example.config.WebConfigTest]: WebConfigTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-12-19 23:10:10.099 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [TxId:] [User:] [ ] - Found @SpringBootConfiguration org.example.Application for test class org.example.config.WebConfigTest
+2025-12-19 23:10:10.111 [main] INFO  org.example.config.WebConfigTest - [TxId:] [User:] [ ] - Starting WebConfigTest using Java 21.0.9 with PID 79925 (started by cyber in /Users/cyber/IdeaProjects/epam/spring-core-epam)
+2025-12-19 23:10:10.111 [main] INFO  org.example.config.WebConfigTest - [TxId:] [User:] [ ] - No active profile set, falling back to 1 default profile: "default"
+2025-12-19 23:10:10.247 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-19 23:10:10.259 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 12 ms. Found 6 JPA repository interfaces.
+2025-12-19 23:10:10.321 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-2 - Starting...
+2025-12-19 23:10:10.333 [main] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@27cde156
+2025-12-19 23:10:10.333 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-2 - Start completed.
+2025-12-19 23:10:10.333 [main] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-19 23:10:10.334 [main] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2025-12-19 23:10:10.335 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-19 23:10:10.399 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-19 23:10:10.400 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-19 23:10:10.430 [main] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2025-12-19 23:10:10.470 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationManager bean created
+2025-12-19 23:10:10.474 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationProvider configured with UserDetailsService and PasswordEncoder
+2025-12-19 23:10:10.649 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - [TxId:] [User:] [ ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-19 23:10:10.754 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - [TxId:] [User:] [ ] - Exposing 3 endpoint(s) beneath base path '/actuator'
+2025-12-19 23:10:10.765 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring Security Filter Chain with JWT authentication
+2025-12-19 23:10:10.765 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - CORS configuration enabled for allowed origins
+2025-12-19 23:10:10.766 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring authorization rules...
+2025-12-19 23:10:10.767 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Authorization configured:
+2025-12-19 23:10:10.767 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainees/** (no authentication)
+2025-12-19 23:10:10.767 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainings/** (no authentication)
+2025-12-19 23:10:10.767 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: POST /api/trainers (registration only)
+2025-12-19 23:10:10.768 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: /api/auth/**, /api/training-types/**
+2025-12-19 23:10:10.768 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Swagger UI and API docs
+2025-12-19 23:10:10.768 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Actuator health endpoints
+2025-12-19 23:10:10.768 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Protected: GET/PUT/DELETE /api/trainers/** (requires JWT)
+2025-12-19 23:10:10.768 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Session management set to STATELESS - JWT authentication only
+2025-12-19 23:10:10.768 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Security Filter Chain configured successfully
+2025-12-19 23:10:10.775 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6f13b75b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1febf786, org.springframework.security.web.context.SecurityContextHolderFilter@6873b44, org.springframework.security.web.header.HeaderWriterFilter@318faf0b, org.springframework.web.filter.CorsFilter@3452d160, org.springframework.security.web.authentication.logout.LogoutFilter@f37e5bb, org.example.security.filter.JwtAuthenticationFilter@7caeba34, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@132ea193, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5f03144a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6cee43d8, org.springframework.security.web.session.SessionManagementFilter@48c10d3, org.springframework.security.web.access.ExceptionTranslationFilter@5299fd79, org.springframework.security.web.access.intercept.AuthorizationFilter@6ca3957a]
+2025-12-19 23:10:10.948 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - [TxId:] [User:] [ ] - Initializing Spring TestDispatcherServlet ''
+2025-12-19 23:10:10.948 [main] INFO  o.s.t.w.s.TestDispatcherServlet - [TxId:] [User:] [ ] - Initializing Servlet ''
+2025-12-19 23:10:10.949 [main] INFO  o.s.t.w.s.TestDispatcherServlet - [TxId:] [User:] [ ] - Completed initialization in 1 ms
+2025-12-19 23:10:10.962 [main] INFO  org.example.config.WebConfigTest - [TxId:] [User:] [ ] - Started WebConfigTest in 0.861 seconds (process running for 6.174)
+2025-12-19 23:10:11.114 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer updated successfully: Mike.Johnson -> Mike.Johnson
+2025-12-19 23:10:11.117 [main] ERROR o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer not found for update: Mike.Johnson
+2025-12-19 23:10:11.122 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Creating trainer with generated username: Mike.Johnson
+2025-12-19 23:10:11.123 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - User created successfully: Mike.Johnson
+2025-12-19 23:10:11.125 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Total trainers fetched: 1
+2025-12-19 23:10:11.127 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Creating trainer with generated username: Mike.Johnson
+2025-12-19 23:10:11.127 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - User created successfully: Mike.Johnson
+2025-12-19 23:10:11.127 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer created successfully: Mike.Johnson
+2025-12-19 23:10:11.127 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - JWT token generated for trainer: Mike.Johnson
+2025-12-19 23:10:11.158 [main] INFO  o.e.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Pilates
+2025-12-19 23:10:11.159 [main] WARN  o.e.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type not found: Pilates
+2025-12-19 23:10:11.160 [main] INFO  o.e.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching all training types
+2025-12-19 23:10:11.161 [main] INFO  o.e.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetched 2 training types
+2025-12-19 23:10:11.165 [main] INFO  o.e.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Yoga
+2025-12-19 23:10:11.166 [main] INFO  o.e.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type found: Yoga
+2025-12-19 23:10:11.228 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 1
+2025-12-19 23:10:11.230 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee deleted successfully: john.doe
+2025-12-19 23:10:11.232 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee updated successfully: John.Doe
+2025-12-19 23:10:11.234 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 0
+2025-12-19 23:10:11.236 [main] ERROR o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for update: john.doe
+2025-12-19 23:10:11.238 [main] WARN  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for deletion: john.doe
+2025-12-19 23:10:11.241 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Creating trainee with generated username: John.Doe
+2025-12-19 23:10:11.241 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - User created successfully: John.Doe
+2025-12-19 23:10:11.241 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee created successfully: John.Doe
+2025-12-19 23:10:11.241 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - JWT token generated for trainee: John.Doe
+2025-12-19 23:10:11.268 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: john123
+2025-12-19 23:10:11.269 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Trainee found: john123
+2025-12-19 23:10:11.270 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Creating new trainee: John Doe
+2025-12-19 23:10:11.270 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Trainee created successfully with username: john123
+2025-12-19 23:10:11.271 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Updating trainee: john123
+2025-12-19 23:10:11.271 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Trainee updated successfully: john123
+2025-12-19 23:10:11.272 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Fetching all trainees
+2025-12-19 23:10:11.272 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Fetched 2 trainees
+2025-12-19 23:10:11.273 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: unknown
+2025-12-19 23:10:11.274 [main] WARN  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Trainee not found: unknown
+2025-12-19 23:10:11.276 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Deleting trainee: john123
+2025-12-19 23:10:11.276 [main] INFO  o.e.controller.TraineeController - [TxId:] [User:] [ ] - Trainee deleted successfully: john123
+2025-12-19 23:10:11.277 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [TxId:] [User:] [ ] - Could not detect default configuration classes for test class [org.example.config.SpringDocConfigTest]: SpringDocConfigTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-12-19 23:10:11.278 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [TxId:] [User:] [ ] - Found @SpringBootConfiguration org.example.Application for test class org.example.config.SpringDocConfigTest
+2025-12-19 23:10:11.322 [main] INFO  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
+2025-12-19 23:10:11.322 [main] WARN  o.e.controller.ProfileController - [TxId:] [User:] [ ] - User not found: user1
+2025-12-19 23:10:11.323 [main] INFO  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2025-12-19 23:10:11.323 [main] INFO  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Password changed successfully for user: user1
+2025-12-19 23:10:11.325 [main] INFO  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
+2025-12-19 23:10:11.325 [main] INFO  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Active status changed for user: user1 to true
+2025-12-19 23:10:11.326 [main] INFO  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2025-12-19 23:10:11.326 [main] WARN  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Old password does not match for user: user1
+2025-12-19 23:10:11.327 [main] INFO  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2025-12-19 23:10:11.327 [main] WARN  o.e.controller.ProfileController - [TxId:] [User:] [ ] - Missing old or new password for user: user1
+2025-12-19 23:10:11.372 [main] INFO  o.example.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user1
+2025-12-19 23:10:11.372 [main] INFO  o.example.controller.LoginController - [TxId:] [User:] [ ] - Login successful for username: user1
+2025-12-19 23:10:11.378 [main] INFO  o.example.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user2
+2025-12-19 23:10:11.381 [main] INFO  o.example.controller.LoginController - [TxId:] [User:] [ ] - Logout request received
+2025-12-19 23:10:11.428 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Fetching all trainings
+2025-12-19 23:10:11.429 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 2 trainings
+2025-12-19 23:10:11.431 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainee: trainee1 with filters - from: null, to: null, trainerName: null, trainingType: null
+2025-12-19 23:10:11.431 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainee: trainee1
+2025-12-19 23:10:11.433 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Fetching training by name: Yoga
+2025-12-19 23:10:11.433 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Training found: Yoga
+2025-12-19 23:10:11.435 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Creating new training: Morning Yoga for trainee: trainee1 with trainer: trainer1
+2025-12-19 23:10:11.436 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Training created successfully: Morning Yoga
+2025-12-19 23:10:11.438 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainer: trainer1 with filters - from: null, to: null, traineeName: null
+2025-12-19 23:10:11.438 [main] INFO  o.e.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainer: trainer1
+2025-12-19 23:10:11.441 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer1
+2025-12-19 23:10:11.441 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer2
+2025-12-19 23:10:11.441 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainers. Total count: 2
+2025-12-19 23:10:11.442 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2025-12-19 23:10:11.442 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2025-12-19 23:10:11.442 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Updated Trainer: trainer01
+2025-12-19 23:10:11.443 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2025-12-19 23:10:11.498 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training retrieved: Python for Data
+2025-12-19 23:10:11.499 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 trainings
+2025-12-19 23:10:11.500 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training created: Spring Boot Basics
+2025-12-19 23:10:11.502 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training created: AWS Cloud Basics
+2025-12-19 23:10:11.560 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee created successfully: john
+2025-12-19 23:10:11.562 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee updated successfully: john
+2025-12-19 23:10:11.564 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Total Trainees found: 2
+2025-12-19 23:10:11.573 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee deleted: john
+2025-12-19 23:10:11.605 [main] INFO  o.e.s.impl.AuthenticationServiceImpl - [TxId:] [User:] [ ] - User authenticated successfully: john
+2025-12-19 23:10:11.681 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 total trainings
+2025-12-19 23:10:11.683 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Training created successfully with ID null
+2025-12-19 23:10:11.686 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainer trainings for username=trainer01
+2025-12-19 23:10:11.688 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainee trainings for username=john
+2025-12-19 23:10:11.694 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Training found: Yoga
+2025-12-19 23:10:11.724 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Creating new trainer: Alice Smith
+2025-12-19 23:10:11.724 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Trainer created successfully with username: alice123
+2025-12-19 23:10:11.726 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Updating trainer: alice123
+2025-12-19 23:10:11.726 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Trainer updated successfully: alice123
+2025-12-19 23:10:11.727 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Fetching all trainers
+2025-12-19 23:10:11.727 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Fetched 2 trainers
+2025-12-19 23:10:11.728 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: alice123
+2025-12-19 23:10:11.729 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Trainer found: alice123
+2025-12-19 23:10:11.730 [main] INFO  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: unknown
+2025-12-19 23:10:11.730 [main] WARN  o.e.controller.TrainerController - [TxId:] [User:] [ ] - Trainer not found: unknown
+2025-12-19 23:10:11.764 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: alice
+2025-12-19 23:10:11.765 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: alice
+2025-12-19 23:10:11.769 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: john
+2025-12-19 23:10:11.769 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: john
+2025-12-19 23:10:11.770 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 users from in-memory store
+2025-12-19 23:10:11.798 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Creating new Trainer: john01
+2025-12-19 23:10:11.800 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Updating Trainer: bob01
+2025-12-19 23:10:11.809 [main] WARN  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Attempted to delete non-existent Trainee: ghost01
+2025-12-19 23:10:11.810 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t1
+2025-12-19 23:10:11.810 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t2
+2025-12-19 23:10:11.810 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainees. Total count: 2
+2025-12-19 23:10:11.810 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2025-12-19 23:10:11.811 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2025-12-19 23:10:11.811 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Updated Trainee: john01
+2025-12-19 23:10:11.811 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: alice01
+2025-12-19 23:10:11.811 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2025-12-19 23:10:11.811 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Deleted Trainee: john01
+2025-12-19 23:10:11.828 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for update: john
+2025-12-19 23:10:11.830 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found: john
+2025-12-19 23:10:11.833 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User created: null
+2025-12-19 23:10:11.835 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for deletion: john
+2025-12-19 23:10:11.837 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User updated: john
+2025-12-19 23:10:11.838 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - Fetched 2 users
+2025-12-19 23:10:11.839 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User deleted: john
+2025-12-19 23:10:11.906 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainers
+2025-12-19 23:10:11.908 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainees
+2025-12-19 23:10:11.910 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainings
+2025-12-19 23:10:11.911 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Spring Boot Basics
+2025-12-19 23:10:11.912 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Python Data
+2025-12-19 23:10:11.912 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Java Masterclass
+2025-12-19 23:10:11.913 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainings. Total count: 2
+2025-12-19 23:10:11.913 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: React Advanced
+2025-12-19 23:10:11.925 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-19 23:10:11.926 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Shutdown initiated...
+2025-12-19 23:10:11.927 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Shutdown completed.
+2025-12-19 23:10:11.931 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-19 23:10:11.931 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-2 - Shutdown initiated...
+2025-12-19 23:10:11.932 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-2 - Shutdown completed.
