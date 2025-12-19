@@ -20,23 +20,23 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.time.LocalDateTime;
+import java.util.Arrays;
 
 @Slf4j
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity
+@EnableMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 @RequiredArgsConstructor
 public class SecurityConfig {
 
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final UserDetailsService userDetailsService;
     private final PasswordEncoder passwordEncoder;
-
-    public SecurityConfig(GymUserDetailsService userDetailsService,
-                          PasswordEncoder passwordEncoder) {
-        this.userDetailsService = userDetailsService;
-        this.passwordEncoder = passwordEncoder;
-    }
 
     @Bean
     public AuthenticationProvider authenticationProvider() {
@@ -54,19 +54,47 @@ public class SecurityConfig {
     }
 
     @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://localhost:4200"));
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
+        configuration.setAllowedHeaders(Arrays.asList("*"));
+        configuration.setExposedHeaders(Arrays.asList("Authorization", "Content-Type"));
+        configuration.setAllowCredentials(true);
+        configuration.setMaxAge(3600L);
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        log.info("CORS configuration enabled for allowed origins");
+        return source;
+    }
+
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         log.info("Configuring Security Filter Chain with JWT authentication");
 
         http
                 .csrf(AbstractHttpConfigurer::disable)
-                .cors(AbstractHttpConfigurer::disable)
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> {
                     log.info("Configuring authorization rules...");
-                    auth.requestMatchers("/api/auth/**").permitAll()
+                    auth
+                            // Public authentication endpoints
+                            .requestMatchers("/api/auth/**").permitAll()
+
+                            // Public endpoints for trainees
                             .requestMatchers("/api/trainees/**").permitAll()
+
+                            // Public endpoints for trainings
                             .requestMatchers("/api/trainings/**").permitAll()
+
+                            // Public POST for trainer registration
                             .requestMatchers(HttpMethod.POST, "/api/trainers").permitAll()
+
+                            // Public endpoints for training types
                             .requestMatchers("/api/training-types/**").permitAll()
+
+                            // Swagger/OpenAPI documentation
                             .requestMatchers(
                                     "/v3/api-docs/**",
                                     "/swagger-ui/**",
@@ -74,7 +102,15 @@ public class SecurityConfig {
                                     "/swagger-resources/**",
                                     "/webjars/**"
                             ).permitAll()
+
+                            .requestMatchers("/actuator/**").permitAll()
+
+                            .requestMatchers("/favicon.ico").permitAll()
+
+                            // Error endpoint
                             .requestMatchers("/error").permitAll()
+
+                            // All other requests require authentication
                             .anyRequest().authenticated();
 
                     log.info("✅ Authorization configured:");
@@ -83,14 +119,13 @@ public class SecurityConfig {
                     log.info("  - Public: POST /api/trainers (registration only)");
                     log.info("  - Public: /api/auth/**, /api/training-types/**");
                     log.info("  - Public: Swagger UI and API docs");
+                    log.info("  - Public: Actuator health endpoints");
                     log.info("  - Protected: GET/PUT/DELETE /api/trainers/** (requires JWT)");
                 })
-
                 .sessionManagement(session -> {
                     session.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
                     log.info("✅ Session management set to STATELESS - JWT authentication only");
                 })
-
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling(exception -> exception
@@ -101,11 +136,12 @@ public class SecurityConfig {
 
                             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                             response.setContentType("application/json");
+                            response.setCharacterEncoding("UTF-8");
                             response.getWriter().write(String.format(
                                     "{\"timestamp\":\"%s\",\"status\":401,\"error\":\"Unauthorized\"," +
                                             "\"message\":\"Authentication required. Please provide a valid JWT token.\"," +
                                             "\"path\":\"%s\"}",
-                                    java.time.LocalDateTime.now(),
+                                    LocalDateTime.now(),
                                     request.getRequestURI()
                             ));
                         })
@@ -116,11 +152,12 @@ public class SecurityConfig {
 
                             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
                             response.setContentType("application/json");
+                            response.setCharacterEncoding("UTF-8");
                             response.getWriter().write(String.format(
                                     "{\"timestamp\":\"%s\",\"status\":403,\"error\":\"Forbidden\"," +
                                             "\"message\":\"Access denied. You do not have permission to access this resource.\"," +
                                             "\"path\":\"%s\"}",
-                                    java.time.LocalDateTime.now(),
+                                    LocalDateTime.now(),
                                     request.getRequestURI()
                             ));
                         })
@@ -129,4 +166,5 @@ public class SecurityConfig {
         log.info("✅ Security Filter Chain configured successfully");
         return http.build();
     }
+
 }

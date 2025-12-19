@@ -7,7 +7,6 @@ import org.example.entity.UserEntity;
 import org.example.exception.UserNotFoundException;
 import org.example.model.User;
 import org.example.repository.UserRepo;
-import org.example.security.AuthenticationContext;
 import org.example.services.ProfileService;
 import org.example.services.UserService;
 import org.example.util.ProfileGenerator;
@@ -106,7 +105,6 @@ public class ProfileServiceImpl implements ProfileService {
 //            throw new SecurityException("User not authenticated");
 //        }
 
-
         log.debug("Toggling active status for {}", username);
 
         UserEntity user = userRepo.findByUsername(username)
@@ -121,6 +119,4 @@ public class ProfileServiceImpl implements ProfileService {
 
         return newStatus;
     }
-
 }
-

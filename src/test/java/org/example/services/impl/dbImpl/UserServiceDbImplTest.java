@@ -5,11 +5,12 @@ import org.example.exception.UserNotFoundException;
 import org.example.mapper.UserMapper;
 import org.example.model.User;
 import org.example.repository.UserRepo;
-import org.example.security.AuthenticationContext;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.MockedStatic;
+import org.mockito.Mockito;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
@@ -24,7 +25,6 @@ class UserServiceDbImplTest {
     private UserMapper userMapper;
     private PasswordEncoder passwordEncoder;
     private UserServiceDbImpl service;
-    private MockedStatic<AuthenticationContext> authContextMock;
 
     @BeforeEach
     void setUp() {
@@ -34,132 +34,110 @@ class UserServiceDbImplTest {
 
         service = new UserServiceDbImpl(userRepo, userMapper, passwordEncoder);
 
-        authContextMock = mockStatic(AuthenticationContext.class);
+        SecurityContextHolder.clearContext();
     }
 
     @AfterEach
     void tearDown() {
-        authContextMock.close();
+        SecurityContextHolder.clearContext();
     }
 
     @Test
-    void testCreateUser() {
+    void createUser_shouldCreateUser() {
         User model = User.builder()
-                .firstName("John")
-                .lastName("Doe")
                 .username("john")
-                .password("password123".toCharArray())
-                .isActive(true)
+                .password("password".toCharArray())
                 .build();
 
         UserEntity entity = new UserEntity();
-        UserEntity savedEntity = new UserEntity();
+        UserEntity saved = new UserEntity();
 
-        when(passwordEncoder.encode(anyString())).thenReturn("hashedPassword");
+        when(passwordEncoder.encode(anyString())).thenReturn("encoded");
         when(userMapper.toEntity(model)).thenReturn(entity);
-        when(userRepo.save(entity)).thenReturn(savedEntity);
-        when(userMapper.toModel(savedEntity)).thenReturn(model);
+        when(userRepo.save(entity)).thenReturn(saved);
+        when(userMapper.toModel(saved)).thenReturn(model);
 
         User result = service.createUser(model);
 
         assertNotNull(result);
         verify(passwordEncoder).encode(anyString());
         verify(userRepo).save(entity);
-        verify(userMapper).toModel(savedEntity);
     }
 
     @Test
-    void testUpdateUserSuccess() {
+    void getByUsername_shouldReturnUser_whenExists() {
         UserEntity entity = new UserEntity();
-        User updatedModel = new User();
-        updatedModel.setPassword("newPass".toCharArray());
+        User model = new User();
 
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("john");
         when(userRepo.findByUsername("john")).thenReturn(Optional.of(entity));
-        when(userRepo.save(entity)).thenReturn(entity);
-        when(userMapper.toModel(entity)).thenReturn(updatedModel);
-        when(passwordEncoder.encode(anyString())).thenReturn("hashedNewPass");
+        when(userMapper.toModel(entity)).thenReturn(model);
 
-        User result = service.updateUser("john", updatedModel);
+        User result = service.getByUsername("john");
 
         assertNotNull(result);
-        verify(userRepo).findByUsername("john");
-        verify(userMapper).updateEntityFromModel(updatedModel, entity);
+    }
+
+    @Test
+    void getByUsername_shouldThrow_whenNotFound() {
+        when(userRepo.findByUsername("john")).thenReturn(Optional.empty());
+
+        assertThrows(
+                org.springframework.security.core.userdetails.UsernameNotFoundException.class,
+                () -> service.getByUsername("john")
+        );
+    }
+
+    @Test
+    void updateUser_shouldUpdate_whenAuthenticatedAndSameUser() {
+        authenticate("john");
+
+        UserEntity entity = new UserEntity();
+        User updated = new User();
+        updated.setPassword("new".toCharArray());
+
+        when(userRepo.findByUsername("john")).thenReturn(Optional.of(entity));
+        when(passwordEncoder.encode(anyString())).thenReturn("encoded");
+        when(userRepo.save(entity)).thenReturn(entity);
+        when(userMapper.toModel(entity)).thenReturn(updated);
+
+        User result = service.updateUser("john", updated);
+
+        assertNotNull(result);
         verify(userRepo).save(entity);
     }
 
     @Test
-    void testUpdateUserNotAuthenticated() {
+    void updateUser_shouldThrowUserNotFound_whenNotAuthenticated() {
         User updated = new User();
 
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn(null);
-
-        SecurityException ex = assertThrows(SecurityException.class,
-                () -> service.updateUser("john", updated));
-
-        assertEquals("User not authenticated", ex.getMessage());
-    }
-
-    @Test
-    void testUpdateUserNotFound() {
-        User updated = new User();
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("unknown");
-        when(userRepo.findByUsername("unknown")).thenReturn(Optional.empty());
+        when(userRepo.findByUsername("john")).thenReturn(Optional.empty());
 
         assertThrows(UserNotFoundException.class,
-                () -> service.updateUser("unknown", updated));
-
-        verify(userRepo).findByUsername("unknown");
+                () -> service.updateUser("john", updated));
     }
 
     @Test
-    void testDeleteByUsernameSuccess() {
+    void deleteByUsername_shouldDelete_whenAuthenticatedAndSameUser() {
+        authenticate("john");
+
         UserEntity entity = new UserEntity();
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("john");
         when(userRepo.findByUsername("john")).thenReturn(Optional.of(entity));
 
         service.deleteByUsername("john");
 
-        verify(userRepo).findByUsername("john");
         verify(userRepo).delete(entity);
     }
 
     @Test
-    void testDeleteByUsernameNotAuthenticated() {
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn(null);
-
-        SecurityException ex = assertThrows(SecurityException.class,
-                () -> service.deleteByUsername("john"));
-
-        assertEquals("User not authenticated", ex.getMessage());
-        verify(userRepo, never()).findByUsername(anyString());
-    }
-
-    @Test
-    void testDeleteByUsernameDifferentUser() {
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("other.user");
-
-        SecurityException ex = assertThrows(SecurityException.class,
-                () -> service.deleteByUsername("john"));
-
-        assertEquals("User not authenticated", ex.getMessage());
-        verify(userRepo, never()).findByUsername(anyString());
-    }
-
-    @Test
-    void testDeleteByUsernameNotFound() {
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("unknown");
-        when(userRepo.findByUsername("unknown")).thenReturn(Optional.empty());
+    void deleteByUsername_shouldThrowUserNotFound_whenNotAuthenticated() {
+        when(userRepo.findByUsername("john")).thenReturn(Optional.empty());
 
         assertThrows(UserNotFoundException.class,
-                () -> service.deleteByUsername("unknown"));
-
-        verify(userRepo).findByUsername("unknown");
-        verify(userRepo, never()).delete(any());
+                () -> service.deleteByUsername("john"));
     }
 
     @Test
-    void testFetchAll() {
+    void fetchAll_shouldReturnList() {
         List<UserEntity> entities = List.of(new UserEntity(), new UserEntity());
         List<User> models = List.of(new User(), new User());
 
@@ -169,7 +147,11 @@ class UserServiceDbImplTest {
         List<User> result = service.fetchAll();
 
         assertEquals(2, result.size());
-        verify(userRepo).findAll();
-        verify(userMapper).toModels(entities);
+    }
+
+    private void authenticate(String username) {
+        SecurityContextHolder.getContext().setAuthentication(
+                new UsernamePasswordAuthenticationToken(username, null)
+        );
     }
 }

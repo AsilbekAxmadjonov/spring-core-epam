@@ -16,8 +16,6 @@ import org.example.services.TraineeService;
 import org.slf4j.MDC;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.example.services.TraineeService;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
@@ -113,35 +111,16 @@ public class TraineeServiceDbImpl implements TraineeService {
                         StringBuilder::appendCodePoint,
                         StringBuilder::append)
                 .toString();
-    private final UserRepo userRepo;  // Add UserRepo dependency
-
-    @Override
-    public Trainee createTrainee(@Valid Trainee traineeModel) {
-        log.debug("Starting creation of trainee: {}", traineeModel.getUsername());
-
-        UserEntity userEntity = userRepo.findByUsername(traineeModel.getUsername())
-                .orElseThrow(() -> new UserNotFoundException(
-                        "User not found with username: " + traineeModel.getUsername()));
-
-        TraineeEntity traineeEntity = new TraineeEntity();
-        traineeEntity.setUserEntity(userEntity);
-        traineeEntity.setDateOfBirth(traineeModel.getDateOfBirth());
-        traineeEntity.setAddress(traineeModel.getAddress());
-
-        TraineeEntity savedTrainee = traineeRepo.save(traineeEntity);
-        log.info("Trainee created successfully: {}", traineeModel.getUsername());
-
-        return traineeMapper.toTraineeModel(savedTrainee);
     }
 
     @Override
     @Transactional(readOnly = true)
     public Optional<Trainee> getTraineeByUsername(String username) {
-//         String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
+        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
 
-//         if (authenticatedUser == null || !authenticatedUser.equals(username)) {
-//             throw new SecurityException("Trainee not authenticated");
-//         }
+        if (authenticatedUser == null || !authenticatedUser.equals(username)) {
+            throw new SecurityException("Trainee not authenticated");
+        }
 
         log.debug("Fetching trainee by username: {}", username);
 
@@ -163,7 +142,6 @@ public class TraineeServiceDbImpl implements TraineeService {
 //        if (authenticated == null || !authenticated.equals(username)) {
 //            throw new SecurityException("User not authenticated");
 //        }
-
 
         log.debug("Starting update for trainee: {}", username);
 
@@ -205,7 +183,6 @@ public class TraineeServiceDbImpl implements TraineeService {
     }
 
     @Override
-    @Transactional(readOnly = true)
     public List<Trainee> getAllTrainees() {
         log.debug("Fetching all trainees");
 
