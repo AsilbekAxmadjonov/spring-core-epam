@@ -6,6 +6,9 @@ import org.example.model.Training;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Map;
@@ -13,6 +16,10 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@ImportAutoConfiguration(exclude = {
+        SecurityAutoConfiguration.class,
+        SecurityFilterAutoConfiguration.class
+})
 class StorageConfigTest {
 
     @Autowired
