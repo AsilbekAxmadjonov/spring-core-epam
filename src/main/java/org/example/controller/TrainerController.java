@@ -31,7 +31,6 @@ import java.util.List;
 public class TrainerController {
 
     private final TrainerService trainerService;
-
     @Operation(
             summary = "Register a new trainer",
             description = "Public endpoint to register a new trainer. Username and password are auto-generated. " +
@@ -93,7 +92,7 @@ public class TrainerController {
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class))
             )
     })
-    @SecurityRequirement(name = "Bearer Authentication") // 🔒 Protected
+    @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping("/{username}")
     public ResponseEntity<Trainer> getTrainerByUsername(
             @Parameter(description = "Username of the trainer", required = true)

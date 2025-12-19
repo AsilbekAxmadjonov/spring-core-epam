@@ -30,7 +30,6 @@ import java.util.List;
 public class TraineeController {
 
     private final TraineeService traineeService;
-
     @Operation(
             summary = "Register a new trainee",
             description = "Public endpoint to register a new trainee. Username and password are auto-generated. " +

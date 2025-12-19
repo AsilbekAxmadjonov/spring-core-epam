@@ -101,7 +101,7 @@ public class TrainingServiceDbImpl implements TrainingService {
     }
 
     @Override
-    public Training addTraining(@Valid Training training) {
+    public Training addTraining(Training training) {
 
         log.debug("Starting training creation: trainee={}, trainer={}, name={}",
                 training.getTraineeUsername(),
@@ -139,7 +139,7 @@ public class TrainingServiceDbImpl implements TrainingService {
     }
 
     @Override
-    public void createTraining(@Valid Training training) {
+    public void createTraining(Training training) {
         MDC.put("operation", "Create Training");
         MDC.put("trainingName", training.getTrainingName());
 

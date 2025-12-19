@@ -29,7 +29,6 @@ import org.springframework.web.bind.annotation.*;
 public class ProfileController {
 
     private final ProfileService profileService;
-
     @Operation(
             summary = "Change user active status",
             description = "Activate or deactivate a user account. Toggles the current status."
@@ -114,6 +113,7 @@ public class ProfileController {
             @Valid @RequestBody PasswordChangeRequest request) {
 
         log.info("Changing password for user: {}", username);
+
 
         if (request.getOldPassword() == null || request.getNewPassword() == null) {
             log.warn("Missing old or new password for user: {}", username);

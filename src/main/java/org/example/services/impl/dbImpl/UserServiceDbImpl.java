@@ -41,33 +41,22 @@ public class UserServiceDbImpl implements UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    /**
-     * Helper method to check if security should be enforced.
-     * Returns true only if user is fully authenticated (not during login/JWT validation).
-     */
     private boolean shouldEnforceSecurity() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
-        // If no authentication or user is anonymous, we're during authentication flow
-        // Don't enforce security checks
         if (auth == null || !auth.isAuthenticated() ||
                 auth instanceof AnonymousAuthenticationToken) {
             log.debug("No authenticated user - skipping security check (authentication flow)");
             return false;
         }
 
-        // User is authenticated - enforce security
         log.debug("User authenticated: {} - enforcing security check", auth.getName());
         return true;
     }
 
-    /**
-     * Verify that the authenticated user matches the requested username.
-     * Throws SecurityException if they don't match.
-     */
     private void verifyUserAccess(String requestedUsername) {
         if (!shouldEnforceSecurity()) {
-            return; // Skip check during authentication
+            return;
         }
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -87,8 +76,6 @@ public class UserServiceDbImpl implements UserService {
     public User getByUsername(String username) {
         log.debug("Fetching user by username: {}", username);
 
-        // ✅ FIXED: Only enforce security if user is already authenticated
-        // During JWT authentication, no user is authenticated yet, so this check is skipped
         verifyUserAccess(username);
 
         UserEntity entity = userRepo.findByUsername(username)
@@ -102,13 +89,12 @@ public class UserServiceDbImpl implements UserService {
     }
 
     @Override
-    public User createUser(@Valid User user) {
+    public User createUser(User user) {
         MDC.put("operation", "Create User");
         MDC.put("username", user.getUsername());
 
         log.debug("Creating new user with username: {}", user.getUsername());
 
-        // Encode password
         user.setPassword(passwordEncoder.encode(new String(user.getPassword())).toCharArray());
 
         UserEntity entity = userMapper.toEntity(user);
@@ -120,13 +106,12 @@ public class UserServiceDbImpl implements UserService {
 
     @Override
     @Transactional
-    public User updateUser(String username, @Valid User updatedUser) {
+    public User updateUser(String username,User updatedUser) {
         MDC.put("operation", "Update User");
         MDC.put("username", username);
 
         log.debug("Updating user: {}", username);
 
-        // ✅ FIXED: Verify user can only update their own data
         verifyUserAccess(username);
 
         UserEntity userEntity = userRepo.findByUsername(username)
@@ -135,7 +120,6 @@ public class UserServiceDbImpl implements UserService {
                     return new UserNotFoundException("User not found: " + username);
                 });
 
-        // Update password if provided
         if (updatedUser.getPassword() != null) {
             char[] encodedPassword = passwordEncoder.encode(
                     new String(updatedUser.getPassword())
@@ -157,7 +141,6 @@ public class UserServiceDbImpl implements UserService {
 
         log.debug("Deleting user with username: {}", username);
 
-        // ✅ FIXED: Verify user can only delete their own account
         verifyUserAccess(username);
 
         UserEntity entity = userRepo.findByUsername(username)
@@ -176,8 +159,6 @@ public class UserServiceDbImpl implements UserService {
     public List<User> fetchAll() {
         log.debug("Fetching all users");
 
-        // Note: fetchAll() doesn't have user-specific security check
-        // If you want to restrict this, add role-based security at controller level
         List<UserEntity> entities = userRepo.findAll();
 
         log.info("Fetched {} users", entities.size());
@@ -185,7 +166,7 @@ public class UserServiceDbImpl implements UserService {
     }
 
     @Override
-    public void save(@Valid User user) {
+    public void save(User user) {
         throw new UnsupportedOperationException("Not supported in DB service");
     }
 }

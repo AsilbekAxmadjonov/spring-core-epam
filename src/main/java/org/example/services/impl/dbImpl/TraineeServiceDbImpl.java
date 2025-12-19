@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.entity.TraineeEntity;
+import org.example.entity.TrainerEntity;
 import org.example.entity.UserEntity;
 import org.example.exception.UserNotFoundException;
 import org.example.mapper.TraineeMapper;
@@ -43,7 +44,7 @@ public class TraineeServiceDbImpl implements TraineeService {
 
     @Override
     @Transactional
-    public Trainee createTrainee(@Valid Trainee trainee) {
+    public Trainee createTrainee(Trainee trainee) {
 
         MDC.put("operation", "createTrainee");
 
@@ -116,11 +117,6 @@ public class TraineeServiceDbImpl implements TraineeService {
     @Override
     @Transactional(readOnly = true)
     public Optional<Trainee> getTraineeByUsername(String username) {
-        String authenticatedUser = AuthenticationContext.getAuthenticatedUser();
-
-        if (authenticatedUser == null || !authenticatedUser.equals(username)) {
-            throw new SecurityException("Trainee not authenticated");
-        }
 
         log.debug("Fetching trainee by username: {}", username);
 
@@ -132,16 +128,11 @@ public class TraineeServiceDbImpl implements TraineeService {
     }
 
     @Override
+    @Transactional
     public Trainee updateTrainee(String username, Trainee updatedTrainee) {
 
         MDC.put("operation", "updateTrainee");
         MDC.put("username", username);
-
-//        String authenticated = AuthenticationContext.getAuthenticatedUser();
-//
-//        if (authenticated == null || !authenticated.equals(username)) {
-//            throw new SecurityException("User not authenticated");
-//        }
 
         log.debug("Starting update for trainee: {}", username);
 
@@ -151,11 +142,41 @@ public class TraineeServiceDbImpl implements TraineeService {
                     return new UserNotFoundException("Trainee not found with username: " + username);
                 });
 
-        traineeMapper.updateEntity(updatedTrainee, traineeEntity);
-        TraineeEntity saved = traineeRepo.save(traineeEntity);
+        // Check if name changed
+        boolean nameChanged = !traineeEntity.getUserEntity().getFirstName().equals(updatedTrainee.getFirstName()) ||
+                !traineeEntity.getUserEntity().getLastName().equals(updatedTrainee.getLastName());
 
-        log.info("Trainee updated successfully: {}", username);
-        return traineeMapper.toTraineeModel(saved);
+        // Update the entity fields
+        traineeMapper.updateEntity(updatedTrainee, traineeEntity);
+
+        String newToken = null;
+
+        // Regenerate username and token if name changed
+        if (nameChanged) {
+            String baseUsername = updatedTrainee.getFirstName() + "." + updatedTrainee.getLastName();
+            String newUsername = generateUniqueUsername(baseUsername);
+            traineeEntity.getUserEntity().setUsername(newUsername);
+
+            // Generate new token with new username
+            newToken = tokenService.generateToken(newUsername);
+
+            log.info("Username updated from {} to {} with new token generated", username, newUsername);
+        }
+
+        TraineeEntity saved = traineeRepo.save(traineeEntity);
+        String finalUsername = saved.getUserEntity().getUsername();
+
+        log.info("Trainee updated successfully: {}", finalUsername);
+
+        Trainee traineeModel = traineeMapper.toTraineeModel(saved);
+
+        // Set new token if username changed
+        if (newToken != null) {
+            traineeModel.setToken(newToken);
+            log.info("⚠️ Username changed! Client must use new username '{}' and new token for future requests", finalUsername);
+        }
+
+        return traineeModel;
     }
 
     @Override

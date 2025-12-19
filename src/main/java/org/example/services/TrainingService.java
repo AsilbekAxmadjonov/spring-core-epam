@@ -1,5 +1,6 @@
 package org.example.services;
 
+import jakarta.validation.Valid;
 import org.example.model.Training;
 
 import java.time.LocalDate;
@@ -22,9 +23,9 @@ public interface TrainingService {
             String traineeName
     );
 
-    Training addTraining(Training training);
+    Training addTraining(@Valid Training training);
 
-    void createTraining(Training training);
+    void createTraining(@Valid Training training);
 
     Training getTraining(String name);
 
