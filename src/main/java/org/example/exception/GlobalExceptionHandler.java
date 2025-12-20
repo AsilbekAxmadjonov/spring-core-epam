@@ -1,7 +1,7 @@
 package org.example.exception;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.dto.response.ErrorResponse;
+import org.example.api.dto.response.ErrorResponse;
 import org.slf4j.MDC;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

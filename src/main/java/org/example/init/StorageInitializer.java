@@ -3,12 +3,11 @@ package org.example.init;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.example.model.Trainee;
-import org.example.model.Trainer;
-import org.example.model.Training;
+import org.example.persistance.model.Trainee;
+import org.example.persistance.model.Trainer;
+import org.example.persistance.model.Training;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
-import org.springframework.stereotype.Component;
 
 import jakarta.annotation.PostConstruct;
 import java.util.List;

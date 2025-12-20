@@ -1,10 +1,10 @@
 package org.example.services.impl;
 
-import org.example.entity.UserEntity;
+import org.example.persistance.entity.UserEntity;
 import org.example.exception.UserNotFoundException;
 import org.example.mapper.UserMapper;
-import org.example.model.User;
-import org.example.repository.UserRepo;
+import org.example.persistance.model.User;
+import org.example.persistance.repository.UserRepo;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

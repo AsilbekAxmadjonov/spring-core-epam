@@ -1,12 +1,11 @@
 package org.example.services.impl.dbImpl;
 
-import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-import org.example.entity.UserEntity;
+import org.example.persistance.entity.UserEntity;
 import org.example.exception.UserNotFoundException;
 import org.example.mapper.UserMapper;
-import org.example.model.User;
-import org.example.repository.UserRepo;
+import org.example.persistance.model.User;
+import org.example.persistance.repository.UserRepo;
 import org.example.services.UserService;
 import org.slf4j.MDC;
 import org.springframework.context.annotation.Primary;

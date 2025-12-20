@@ -29,23 +29,18 @@ public class AuthService {
 
         log.info("Login attempt for user: {}", username);
 
-        // Check if user is blocked (throws UserBlockedException if blocked)
         bruteForceProtectionService.checkIfBlocked(username);
 
         try {
-            // Authenticate user
             UsernamePasswordAuthenticationToken authRequest =
                     new UsernamePasswordAuthenticationToken(username, password);
 
             Authentication authentication = authenticationManager.authenticate(authRequest);
 
-            // Reset failed login attempts on successful authentication
             bruteForceProtectionService.resetAttempts(username);
 
-            // Load user details
             UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
-            // Generate token
             String token = tokenService.generateToken(userDetails);
 
             log.info("User {} logged in successfully with JWT", username);
@@ -54,10 +49,8 @@ public class AuthService {
         } catch (AuthenticationException e) {
             log.error("Authentication failed for user: {} - {}", username, e.getMessage());
 
-            // Record failed login attempt
             bruteForceProtectionService.recordFailedAttempt(username);
 
-            // Get remaining attempts
             int remainingAttempts = bruteForceProtectionService.getRemainingAttempts(username);
 
             if (remainingAttempts > 0) {

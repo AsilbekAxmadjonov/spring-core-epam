@@ -1,9 +1,9 @@
 package org.example.mapper;
 
-import org.example.entity.TrainerEntity;
-import org.example.entity.TrainingTypeEntity;
-import org.example.entity.UserEntity;
-import org.example.model.Trainer;
+import org.example.persistance.entity.TrainerEntity;
+import org.example.persistance.entity.TrainingTypeEntity;
+import org.example.persistance.entity.UserEntity;
+import org.example.persistance.model.Trainer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;

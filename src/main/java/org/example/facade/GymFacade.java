@@ -1,7 +1,9 @@
 package org.example.facade;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-import org.example.model.*;
+import org.example.api.dto.request.TrainingRequest;
+import org.example.persistance.model.*;
 import org.example.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -228,30 +230,10 @@ public class GymFacade {
         return trainings;
     }
 
-    public Training addTraining(Training training) {
-        log.info("=== Adding Training ===");
-        System.out.println("Adding training: " + training.getTrainingName());
-
-        Training added = trainingService.addTraining(training);
-
-        System.out.println("✓ Training added successfully");
-        System.out.println();
-        return added;
+    public Training createTraining(TrainingRequest request) {
+        return trainingService.createTraining(request);
     }
 
-    public void createTraining(Training training) {
-        log.info("=== Creating Training Session ===");
-        System.out.println("Training: " + training.getTrainingName());
-        System.out.println("Trainee: " + training.getTraineeUsername());
-        System.out.println("Trainer: " + training.getTrainerUsername());
-        System.out.println("Date: " + training.getTrainingDate());
-        System.out.println("Duration: " + training.getTrainingDurationMinutes() + " minutes");
-
-        trainingService.createTraining(training);
-
-        System.out.println("✓ Training session created successfully");
-        System.out.println();
-    }
 
     public void showAllTraining() {
         log.info("=== Showing All Training Sessions ===");

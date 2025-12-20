@@ -1,7 +1,7 @@
 package org.example.services.impl.inMemoryImpl;
 
 import org.example.dao.TraineeDao;
-import org.example.model.Trainee;
+import org.example.persistance.model.Trainee;
 import org.example.security.AuthenticationContext;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

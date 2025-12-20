@@ -1,12 +1,12 @@
 package org.example.services.impl.dbImpl;
 
-import org.example.entity.TraineeEntity;
-import org.example.entity.UserEntity;
+import org.example.persistance.entity.TraineeEntity;
+import org.example.persistance.entity.UserEntity;
 import org.example.exception.UserNotFoundException;
 import org.example.mapper.TraineeMapper;
-import org.example.model.Trainee;
-import org.example.repository.TraineeRepo;
-import org.example.repository.UserRepo;
+import org.example.persistance.model.Trainee;
+import org.example.persistance.repository.TraineeRepo;
+import org.example.persistance.repository.UserRepo;
 import org.example.services.TokenService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

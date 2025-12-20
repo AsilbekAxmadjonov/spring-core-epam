@@ -2,9 +2,9 @@ package org.example.security.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.entity.LoginAttemptEntity;
+import org.example.persistance.entity.LoginAttemptEntity;
 import org.example.exception.UserBlockedException;
-import org.example.repository.LoginAttemptRepo;
+import org.example.persistance.repository.LoginAttemptRepo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

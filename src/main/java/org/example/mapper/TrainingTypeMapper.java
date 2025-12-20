@@ -1,8 +1,7 @@
 package org.example.mapper;
 
-import org.example.entity.TrainingTypeEntity;
-import org.example.model.TrainingType;
-import org.mapstruct.InheritInverseConfiguration;
+import org.example.persistance.entity.TrainingTypeEntity;
+import org.example.persistance.model.TrainingType;
 import org.mapstruct.Mapper;
 
 import java.util.List;

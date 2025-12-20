@@ -1,14 +1,13 @@
 package org.example.services.impl.dbImpl;
 
-import org.example.entity.UserEntity;
+import org.example.persistance.entity.UserEntity;
 import org.example.exception.UserNotFoundException;
 import org.example.mapper.UserMapper;
-import org.example.model.User;
-import org.example.repository.UserRepo;
+import org.example.persistance.model.User;
+import org.example.persistance.repository.UserRepo;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;

@@ -1,12 +1,12 @@
 package org.example.mapper;
 
-import org.example.entity.TraineeEntity;
-import org.example.entity.TrainerEntity;
-import org.example.entity.TrainingEntity;
-import org.example.entity.TrainingTypeEntity;
-import org.example.entity.UserEntity;
-import org.example.model.Training;
-import org.example.model.TrainingType;
+import org.example.persistance.entity.TraineeEntity;
+import org.example.persistance.entity.TrainerEntity;
+import org.example.persistance.entity.TrainingEntity;
+import org.example.persistance.entity.TrainingTypeEntity;
+import org.example.persistance.entity.UserEntity;
+import org.example.persistance.model.Training;
+import org.example.persistance.model.TrainingType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

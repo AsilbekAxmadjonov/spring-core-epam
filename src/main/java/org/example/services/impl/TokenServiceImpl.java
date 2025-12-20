@@ -3,8 +3,8 @@ package org.example.services.impl;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import lombok.extern.slf4j.Slf4j;
+import org.example.api.config.AppProperties;
 import org.example.services.TokenService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
@@ -23,11 +23,10 @@ public class TokenServiceImpl implements TokenService {
     private final SecretKey secretKey;
     private final long expirationTime;
 
-    public TokenServiceImpl(
-            @Value("${jwt.secret:mySecretKeyThatIsAtLeast256BitsLongForHS256Algorithm123456}") String secret,
-            @Value("${jwt.expiration:3600000}") long expirationTime) {
+    public TokenServiceImpl(AppProperties appProperties) {
+        String secret = appProperties.getSecurity().getJwtSecret();
+        this.expirationTime = appProperties.getSecurity().getJwtExpiration();
         this.secretKey = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
-        this.expirationTime = expirationTime;
         log.info("TokenService initialized with expiration time: {} ms", expirationTime);
     }
 

@@ -1,7 +1,7 @@
 package org.example.services;
 
 import jakarta.validation.Valid;
-import org.example.model.User;
+import org.example.persistance.model.User;
 
 import java.util.List;
 

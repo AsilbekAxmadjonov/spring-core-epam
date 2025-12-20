@@ -1,6 +1,6 @@
 package org.example.util;
 
-import org.example.model.User;
+import org.example.persistance.model.User;
 
 public class TestUser extends User {
     public TestUser(String firstName, String lastName, String username, char[] password, boolean isActive) {

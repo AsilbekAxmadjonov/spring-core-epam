@@ -1,7 +1,8 @@
 package org.example.services;
 
 import jakarta.validation.Valid;
-import org.example.model.Training;
+import org.example.api.dto.request.TrainingRequest;
+import org.example.persistance.model.Training;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -23,9 +24,7 @@ public interface TrainingService {
             String traineeName
     );
 
-    Training addTraining(@Valid Training training);
-
-    void createTraining(@Valid Training training);
+    Training createTraining(@Valid TrainingRequest request);
 
     Training getTraining(String name);
 

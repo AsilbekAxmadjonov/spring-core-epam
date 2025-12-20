@@ -1,7 +1,7 @@
 package org.example.mapper;
 
-import org.example.entity.UserEntity;
-import org.example.model.User;
+import org.example.persistance.entity.UserEntity;
+import org.example.persistance.model.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;

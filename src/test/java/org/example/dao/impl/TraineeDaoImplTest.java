@@ -1,6 +1,6 @@
 package org.example.dao.impl;
 
-import org.example.model.Trainee;
+import org.example.persistance.model.Trainee;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

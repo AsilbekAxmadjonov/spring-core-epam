@@ -1,17 +1,16 @@
 package org.example.services.impl.dbImpl;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.entity.TrainerEntity;
-import org.example.entity.TrainingTypeEntity;
-import org.example.entity.UserEntity;
+import org.example.persistance.entity.TrainerEntity;
+import org.example.persistance.entity.TrainingTypeEntity;
+import org.example.persistance.entity.UserEntity;
 import org.example.exception.UserNotFoundException;
 import org.example.mapper.TrainerMapper;
-import org.example.model.Trainer;
-import org.example.repository.TrainerRepo;
-import org.example.repository.TrainingTypeRepo;
-import org.example.repository.UserRepo;
+import org.example.persistance.model.Trainer;
+import org.example.persistance.repository.TrainerRepo;
+import org.example.persistance.repository.TrainingTypeRepo;
+import org.example.persistance.repository.UserRepo;
 import org.example.services.TokenService;
 import org.example.services.TrainerService;
 import org.example.services.UserService;

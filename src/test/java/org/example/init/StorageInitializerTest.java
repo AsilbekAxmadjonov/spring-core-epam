@@ -1,9 +1,9 @@
 package org.example.init;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.model.Trainee;
-import org.example.model.Trainer;
-import org.example.model.Training;
+import org.example.persistance.model.Trainee;
+import org.example.persistance.model.Trainer;
+import org.example.persistance.model.Training;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

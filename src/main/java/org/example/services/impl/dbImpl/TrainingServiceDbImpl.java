@@ -3,17 +3,18 @@ package org.example.services.impl.dbImpl;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.entity.TraineeEntity;
-import org.example.entity.TrainerEntity;
-import org.example.entity.TrainingEntity;
-import org.example.entity.TrainingTypeEntity;
+import org.example.api.dto.request.TrainingRequest;
+import org.example.persistance.entity.TraineeEntity;
+import org.example.persistance.entity.TrainerEntity;
+import org.example.persistance.entity.TrainingEntity;
+import org.example.persistance.entity.TrainingTypeEntity;
 import org.example.exception.UserNotFoundException;
 import org.example.mapper.TrainingMapper;
-import org.example.model.Training;
-import org.example.repository.TraineeRepo;
-import org.example.repository.TrainerRepo;
-import org.example.repository.TrainingRepo;
-import org.example.repository.TrainingTypeRepo;
+import org.example.persistance.model.Training;
+import org.example.persistance.repository.TraineeRepo;
+import org.example.persistance.repository.TrainerRepo;
+import org.example.persistance.repository.TrainingRepo;
+import org.example.persistance.repository.TrainingTypeRepo;
 import org.example.services.TrainingService;
 import org.slf4j.MDC;
 import org.springframework.context.annotation.Primary;
@@ -100,52 +101,36 @@ public class TrainingServiceDbImpl implements TrainingService {
         return trainingMapper.toTrainingModels(trainingEntities);
     }
 
+
     @Override
-    public Training addTraining(Training training) {
+    public Training createTraining(@Valid TrainingRequest request) {
 
-        log.debug("Starting training creation: trainee={}, trainer={}, name={}",
-                training.getTraineeUsername(),
-                training.getTrainerUsername(),
-                training.getTrainingName()
-        );
-
-        TraineeEntity traineeEntity = traineeRepo.findByUsername(training.getTraineeUsername())
+        TraineeEntity traineeEntity = traineeRepo.findByUsername(request.getTraineeUsername())
                 .orElseThrow(() ->
-                        new UserNotFoundException("Trainee not found: " + training.getTraineeUsername()));
+                        new UserNotFoundException("Trainee not found: " + request.getTraineeUsername()));
 
-        TrainerEntity trainerEntity = trainerRepo.findByUsername(training.getTrainerUsername())
+        TrainerEntity trainerEntity = trainerRepo.findByUsername(request.getTrainerUsername())
                 .orElseThrow(() ->
-                        new UserNotFoundException("Trainer not found: " + training.getTrainerUsername()));
-
-        String trainingTypeName = training.getTrainingType().getTrainingTypeName();
+                        new UserNotFoundException("Trainer not found: " + request.getTrainerUsername()));
 
         TrainingTypeEntity trainingTypeEntity = trainingTypeRepo
-                .findByTrainingTypeName(trainingTypeName)
-                .orElseThrow(() -> new IllegalArgumentException(
-                        "Training type not found: " + trainingTypeName +
-                                ". Please use one of the predefined training types."));
+                .findByTrainingTypeName(request.getTrainingType())
+                .orElseThrow(() ->
+                        new IllegalArgumentException("Invalid training type: " + request.getTrainingType()));
 
-        TrainingEntity trainingEntity = trainingMapper.toTrainingEntity(training);
+        TrainingEntity entity = new TrainingEntity();
+        entity.setTrainingName(request.getTrainingName());
+        entity.setTrainingDate(request.getTrainingDate());
+        entity.setTrainingDurationMinutes(request.getTrainingDurationMinutes());
+        entity.setTraineeEntity(traineeEntity);
+        entity.setTrainerEntity(trainerEntity);
+        entity.setTrainingTypeEntity(trainingTypeEntity);
 
-        trainingEntity.setTraineeEntity(traineeEntity);
-        trainingEntity.setTrainerEntity(trainerEntity);
-        trainingEntity.setTrainingTypeEntity(trainingTypeEntity); // Set the managed entity
+        TrainingEntity saved = trainingRepo.save(entity);
 
-        TrainingEntity savedTrainingEntity = trainingRepo.save(trainingEntity);
-
-        log.info("Training created successfully with ID {}", savedTrainingEntity.getId());
-
-        return trainingMapper.toTrainingModel(savedTrainingEntity);
+        return trainingMapper.toTrainingModel(saved);
     }
 
-    @Override
-    public void createTraining(Training training) {
-        MDC.put("operation", "Create Training");
-        MDC.put("trainingName", training.getTrainingName());
-
-        log.debug("Delegating createTraining to addTraining()");
-        addTraining(training);
-    }
 
     @Override
     @Transactional(readOnly = true)
