@@ -1,6 +1,6 @@
 package org.example.util;
 
-import org.example.model.User;
+import org.example.persistance.model.User;
 
 import java.security.SecureRandom;
 import java.util.List;

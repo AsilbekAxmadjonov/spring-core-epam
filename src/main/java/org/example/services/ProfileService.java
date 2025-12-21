@@ -1,9 +1,10 @@
 package org.example.services;
 
-import org.example.model.User;
+import jakarta.validation.Valid;
+import org.example.persistance.model.User;
 
 public interface ProfileService {
-    void createProfile(User user);
+    void createProfile(@Valid User user);
     boolean passwordMatches(String username, char[] rawPassword);
     void changePassword(String username, char[] newPassword);
     boolean toggleUserActiveStatus(String username);

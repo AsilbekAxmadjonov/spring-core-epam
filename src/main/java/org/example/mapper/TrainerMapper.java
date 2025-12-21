@@ -1,8 +1,8 @@
 package org.example.mapper;
 
-import org.example.entity.TrainerEntity;
-import org.example.entity.TrainingTypeEntity;
-import org.example.model.Trainer;
+import org.example.persistance.entity.TrainerEntity;
+import org.example.persistance.entity.TrainingTypeEntity;
+import org.example.persistance.model.Trainer;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;

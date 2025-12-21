@@ -1,10 +1,10 @@
 package org.example.services.impl;
 
-import org.example.entity.UserEntity;
+import org.example.persistance.entity.UserEntity;
 import org.example.exception.UserNotFoundException;
-import org.example.model.Trainee;
-import org.example.model.User;
-import org.example.repository.UserRepo;
+import org.example.persistance.model.Trainee;
+import org.example.persistance.model.User;
+import org.example.persistance.repository.UserRepo;
 import org.example.services.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

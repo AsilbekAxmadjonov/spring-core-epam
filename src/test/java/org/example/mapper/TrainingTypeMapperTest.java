@@ -1,7 +1,7 @@
 package org.example.mapper;
 
-import org.example.entity.TrainingTypeEntity;
-import org.example.model.TrainingType;
+import org.example.persistance.entity.TrainingTypeEntity;
+import org.example.persistance.model.TrainingType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;

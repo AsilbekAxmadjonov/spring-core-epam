@@ -2,7 +2,7 @@ package org.example.services.impl.inMemoryImpl;
 
 import org.example.dao.GenericDao;
 import org.example.exception.UnsupportedDataAccessObjectException;
-import org.example.model.User;
+import org.example.persistance.model.User;
 import org.example.services.AuthenticationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

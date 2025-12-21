@@ -1,7 +1,8 @@
 package org.example.exception;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.dto.response.ErrorResponse;
+import org.example.api.dto.response.ErrorResponse;
+import org.slf4j.MDC;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 
 import java.time.LocalDateTime;
@@ -196,6 +198,24 @@ public class GlobalExceptionHandler {
                 .build();
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+    }
+
+    @ExceptionHandler(UserBlockedException.class)
+    public ResponseEntity<ErrorResponse> handleUserBlocked(UserBlockedException ex, WebRequest request) {
+        String uri = ((ServletWebRequest) request).getRequest().getRequestURI();
+
+        log.error("[TxId:{}] [User:{}] [{}] - User blocked: {} - URI: uri={}",
+                MDC.get("txId"), MDC.get("user"), MDC.get("endpoint"), ex.getMessage(), uri);
+
+        ErrorResponse errorResponse = ErrorResponse.builder()
+                .timestamp(LocalDateTime.now())
+                .status(HttpStatus.FORBIDDEN.value())
+                .error("Forbidden")
+                .message(ex.getMessage())
+                .path(uri)
+                .build();
+
+        return new ResponseEntity<>(errorResponse, HttpStatus.FORBIDDEN);
     }
 
     private String extractPath(WebRequest request) {

@@ -1,6 +1,7 @@
 package org.example.services;
 
-import org.example.model.User;
+import jakarta.validation.Valid;
+import org.example.persistance.model.User;
 
 import java.util.List;
 
@@ -8,13 +9,13 @@ public interface UserService {
 
     User getByUsername(String username);
 
-    User createUser(User user);
+    User createUser(@Valid User user);
 
-    User updateUser(String username, User updatedUser);
+    User updateUser(String username, @Valid User updatedUser);
 
     void deleteByUsername(String username);
 
     List<User> fetchAll();
 
-    void save(User user);
+    void save(@Valid User user);
 }

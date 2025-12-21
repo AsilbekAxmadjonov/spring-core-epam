@@ -1,7 +1,7 @@
 package org.example.mapper;
 
-import org.example.entity.TraineeEntity;
-import org.example.model.Trainee;
+import org.example.persistance.entity.TraineeEntity;
+import org.example.persistance.model.Trainee;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;

@@ -1,12 +1,13 @@
 package org.example.security.configuration;
 
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.security.filter.JwtAuthenticationFilter;
+import org.example.api.config.AppProperties;
+import org.example.security.handler.JwtAccessDeniedHandler;
+import org.example.security.handler.JwtAuthenticationEntryPoint;
+import org.example.security.service.GymUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -16,16 +17,14 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import java.time.LocalDateTime;
 import java.util.Arrays;
+import static org.example.security.constants.SecurityConstants.*;
 
 @Slf4j
 @Configuration
@@ -34,9 +33,11 @@ import java.util.Arrays;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final JwtAuthenticationFilter jwtAuthenticationFilter;
-    private final UserDetailsService userDetailsService;
+    private final GymUserDetailsService userDetailsService;
     private final PasswordEncoder passwordEncoder;
+    private final AppProperties appProperties;
+    private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+    private final JwtAccessDeniedHandler jwtAccessDeniedHandler;
 
     @Bean
     public AuthenticationProvider authenticationProvider() {
@@ -55,17 +56,19 @@ public class SecurityConfig {
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
+        log.info("CORS configuration enabled for allowed origins");
+
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://localhost:4200"));
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
-        configuration.setAllowedHeaders(Arrays.asList("*"));
-        configuration.setExposedHeaders(Arrays.asList("Authorization", "Content-Type"));
-        configuration.setAllowCredentials(true);
-        configuration.setMaxAge(3600L);
+        configuration.setAllowedOrigins(Arrays.asList(appProperties.getCors().getAllowedOrigins()));
+        configuration.setAllowedMethods(Arrays.asList(appProperties.getCors().getAllowedMethods()));
+        configuration.setAllowedHeaders(Arrays.asList(appProperties.getCors().getAllowedHeaders()));
+        configuration.setExposedHeaders(Arrays.asList(appProperties.getCors().getExposedHeaders()));
+        configuration.setAllowCredentials(appProperties.getCors().isAllowCredentials());
+        configuration.setMaxAge(appProperties.getCors().getMaxAge());
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
-        log.info("CORS configuration enabled for allowed origins");
+
         return source;
     }
 
@@ -80,91 +83,60 @@ public class SecurityConfig {
                     log.info("Configuring authorization rules...");
                     auth
                             // Public authentication endpoints
-                            .requestMatchers("/api/auth/**").permitAll()
+                            .requestMatchers(AUTH_PATH).permitAll()
 
                             // Public endpoints for trainees
-                            .requestMatchers("/api/trainees/**").permitAll()
+                            .requestMatchers(TRAINEES_PATH ).permitAll()
 
                             // Public endpoints for trainings
-                            .requestMatchers("/api/trainings/**").permitAll()
+                            .requestMatchers(TRAININGS_PATH ).permitAll()
 
                             // Public POST for trainer registration
-                            .requestMatchers(HttpMethod.POST, "/api/trainers").permitAll()
+                            .requestMatchers(POST, TRAINERS_PATH).permitAll()
 
-                            // Public endpoints for training types
-                            .requestMatchers("/api/training-types/**").permitAll()
-
-                            // Swagger/OpenAPI documentation
                             .requestMatchers(
-                                    "/v3/api-docs/**",
-                                    "/swagger-ui/**",
-                                    "/swagger-ui.html",
-                                    "/swagger-resources/**",
-                                    "/webjars/**"
+                                    SWAGGER_API_DOCS_PATH,
+                                    SWAGGER_UI_PATH,
+                                    SWAGGER_CONFIG_PATH,
+                                    SWAGGER_RESOURCES_PATH,
+                                    WEBJARS_PATH
                             ).permitAll()
 
-                            .requestMatchers("/actuator/**").permitAll()
+                            .requestMatchers(ACTUATOR_ALL_PATH).permitAll()
 
-                            .requestMatchers("/favicon.ico").permitAll()
+                            .requestMatchers(FAVICON_PATH).permitAll()
 
                             // Error endpoint
-                            .requestMatchers("/error").permitAll()
+                            .requestMatchers(ERROR_PATH).permitAll()
 
                             // All other requests require authentication
                             .anyRequest().authenticated();
 
-                    log.info("✅ Authorization configured:");
-                    log.info("  - Public: ALL /api/trainees/** (no authentication)");
-                    log.info("  - Public: ALL /api/trainings/** (no authentication)");
-                    log.info("  - Public: POST /api/trainers (registration only)");
-                    log.info("  - Public: /api/auth/**, /api/training-types/**");
-                    log.info("  - Public: Swagger UI and API docs");
-                    log.info("  - Public: Actuator health endpoints");
-                    log.info("  - Protected: GET/PUT/DELETE /api/trainers/** (requires JWT)");
+                    logAuthorizationRules();
                 })
                 .sessionManagement(session -> {
                     session.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
                     log.info("✅ Session management set to STATELESS - JWT authentication only");
                 })
                 .authenticationProvider(authenticationProvider())
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling(exception -> exception
-                        .authenticationEntryPoint((request, response, authException) -> {
-                            log.warn("❌ Unauthorized access attempt to: {} - {}",
-                                    request.getRequestURI(),
-                                    authException.getMessage());
-
-                            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                            response.setContentType("application/json");
-                            response.setCharacterEncoding("UTF-8");
-                            response.getWriter().write(String.format(
-                                    "{\"timestamp\":\"%s\",\"status\":401,\"error\":\"Unauthorized\"," +
-                                            "\"message\":\"Authentication required. Please provide a valid JWT token.\"," +
-                                            "\"path\":\"%s\"}",
-                                    LocalDateTime.now(),
-                                    request.getRequestURI()
-                            ));
-                        })
-                        .accessDeniedHandler((request, response, accessDeniedException) -> {
-                            log.warn("❌ Access denied to: {} - {}",
-                                    request.getRequestURI(),
-                                    accessDeniedException.getMessage());
-
-                            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-                            response.setContentType("application/json");
-                            response.setCharacterEncoding("UTF-8");
-                            response.getWriter().write(String.format(
-                                    "{\"timestamp\":\"%s\",\"status\":403,\"error\":\"Forbidden\"," +
-                                            "\"message\":\"Access denied. You do not have permission to access this resource.\"," +
-                                            "\"path\":\"%s\"}",
-                                    LocalDateTime.now(),
-                                    request.getRequestURI()
-                            ));
-                        })
+                        .authenticationEntryPoint(jwtAuthenticationEntryPoint)
+                        .accessDeniedHandler(jwtAccessDeniedHandler)
                 );
 
         log.info("✅ Security Filter Chain configured successfully");
         return http.build();
+    }
+
+    private void logAuthorizationRules() {
+        log.info("✅ Authorization configured:");
+        log.info("  - Public: ALL {} (no authentication)", TRAINEES_PATH);
+        log.info("  - Public: ALL {} (no authentication)", TRAININGS_PATH);
+        log.info("  - Public: {} {} (registration only)", POST, TRAINERS_PATH);
+        log.info("  - Public: {}", AUTH_PATH);
+        log.info("  - Public: Swagger UI and API docs");
+        log.info("  - Public: Actuator endpoints");
+        log.info("  - Protected: GET/PUT/DELETE {} (requires JWT)", TRAINERS_ALL_PATH);
     }
 
 }

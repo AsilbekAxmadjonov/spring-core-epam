@@ -3,7 +3,7 @@ package org.example.init;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRegistration;
-import org.example.config.WebConfig;
+import org.example.api.config.WebConfig;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;

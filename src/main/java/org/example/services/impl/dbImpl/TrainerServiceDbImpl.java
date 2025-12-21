@@ -1,19 +1,19 @@
 package org.example.services.impl.dbImpl;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.entity.TrainerEntity;
-import org.example.entity.TrainingTypeEntity;
-import org.example.entity.UserEntity;
+import org.example.persistance.entity.TrainerEntity;
+import org.example.persistance.entity.TrainingTypeEntity;
+import org.example.persistance.entity.UserEntity;
 import org.example.exception.UserNotFoundException;
 import org.example.mapper.TrainerMapper;
-import org.example.model.Trainer;
-import org.example.repository.TrainerRepo;
-import org.example.repository.TrainingTypeRepo;
-import org.example.repository.UserRepo;
+import org.example.persistance.model.Trainer;
+import org.example.persistance.repository.TrainerRepo;
+import org.example.persistance.repository.TrainingTypeRepo;
+import org.example.persistance.repository.UserRepo;
 import org.example.services.TokenService;
 import org.example.services.TrainerService;
+import org.example.services.UserService;
 import org.slf4j.MDC;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -39,13 +39,14 @@ public class TrainerServiceDbImpl implements TrainerService {
     private final TrainingTypeRepo trainingTypeRepo;
     private final PasswordEncoder passwordEncoder;
     private final TokenService tokenService;
+    private final UserService userService;
 
     private static final int PASSWORD_LENGTH = 10;
     private static final SecureRandom random = new SecureRandom();
 
     @Override
     @Transactional
-    public Trainer createTrainer(@Valid Trainer trainer) {
+    public Trainer createTrainer(Trainer trainer) {
 
         MDC.put("operation", "createTrainer");
 
@@ -136,6 +137,7 @@ public class TrainerServiceDbImpl implements TrainerService {
     }
 
     @Override
+    @Transactional
     public Trainer updateTrainer(String username, Trainer updatedTrainer) {
 
         MDC.put("operation", "updateTrainer");
@@ -149,12 +151,28 @@ public class TrainerServiceDbImpl implements TrainerService {
                     return new UserNotFoundException("Trainer not found with username: " + username);
                 });
 
-        trainerMapper.updateEntity(updatedTrainer, trainerEntity);
-        TrainerEntity saved = trainerRepo.save(trainerEntity);
+        // Check if name changed
+        boolean nameChanged = !trainerEntity.getUserEntity().getFirstName().equals(updatedTrainer.getFirstName()) ||
+                !trainerEntity.getUserEntity().getLastName().equals(updatedTrainer.getLastName());
 
-        log.info("Trainer updated successfully: {}", username);
+        // Update the entity fields
+        trainerMapper.updateEntity(updatedTrainer, trainerEntity);
+
+        // Regenerate username if name changed
+        if (nameChanged) {
+            String baseUsername = updatedTrainer.getFirstName() + "." + updatedTrainer.getLastName();
+            String newUsername = generateUniqueUsername(baseUsername);
+            trainerEntity.getUserEntity().setUsername(newUsername);
+            log.debug("Username updated from {} to {}", username, newUsername);
+        }
+
+        TrainerEntity saved = trainerRepo.save(trainerEntity);
+        String finalUsername = saved.getUserEntity().getUsername();
+
+        log.info("Trainer updated successfully: {} -> {}", username, finalUsername);
         return trainerMapper.toTrainerModel(saved);
     }
+
 
     @Override
     public List<Trainer> getAllTrainers() {

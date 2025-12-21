@@ -3,7 +3,7 @@ package org.example.services.impl.inMemoryImpl;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.example.dao.TrainerDao;
-import org.example.model.Trainer;
+import org.example.persistance.model.Trainer;
 import org.example.security.AuthenticationContext;
 import org.example.services.TrainerService;
 import org.springframework.beans.factory.annotation.Autowired;

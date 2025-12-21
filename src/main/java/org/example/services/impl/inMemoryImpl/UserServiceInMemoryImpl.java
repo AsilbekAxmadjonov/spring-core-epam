@@ -4,7 +4,7 @@ import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.example.dao.GenericDao;
 import org.example.exception.UnsupportedDataAccessObjectException;
-import org.example.model.User;
+import org.example.persistance.model.User;
 import org.example.services.UserService;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;

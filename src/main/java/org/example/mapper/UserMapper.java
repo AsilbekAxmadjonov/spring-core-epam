@@ -1,7 +1,7 @@
 package org.example.mapper;
 
-import org.example.entity.UserEntity;
-import org.example.model.User;
+import org.example.persistance.entity.UserEntity;
+import org.example.persistance.model.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 

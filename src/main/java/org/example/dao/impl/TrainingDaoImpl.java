@@ -2,7 +2,7 @@ package org.example.dao.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.dao.TrainingDao;
-import org.example.model.Training;
+import org.example.persistance.model.Training;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;

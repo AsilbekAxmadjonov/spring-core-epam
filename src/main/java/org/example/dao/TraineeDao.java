@@ -1,6 +1,6 @@
 package org.example.dao;
 
-import org.example.model.Trainee;
+import org.example.persistance.model.Trainee;
 
 public interface TraineeDao extends GenericDao<Trainee> {
     void update(Trainee trainee);

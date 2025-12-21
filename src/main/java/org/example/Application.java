@@ -3,13 +3,17 @@ package org.example;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.env.Environment;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.util.Arrays;
 
 @Slf4j
 @SpringBootApplication
+@EnableScheduling
+@ConfigurationPropertiesScan
 public class Application {
 
     public static void main(String[] args) {

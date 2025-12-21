@@ -2,8 +2,10 @@ package org.example.services.impl.inMemoryImpl;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.example.api.dto.request.TrainingRequest;
 import org.example.dao.TrainingDao;
-import org.example.model.Training;
+import org.example.persistance.model.Training;
+import org.example.persistance.model.TrainingType;
 import org.example.services.TrainingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,12 +29,24 @@ public class TrainingServiceInMemoryImpl implements TrainingService {
     }
 
     @Override
-    public void createTraining(@Valid Training training) {
-        log.debug("Attempting to create new Training: {}", training.getTrainingName());
+    public Training createTraining(@Valid TrainingRequest request) {
+        log.debug("Attempting to create new Training: {}", request.getTrainingName());
+
+        // Convert TrainingRequest → Training (domain model)
+        Training training = Training.builder()
+                .traineeUsername(request.getTraineeUsername())
+                .trainerUsername(request.getTrainerUsername())
+                .trainingName(request.getTrainingName())
+                .trainingType(new TrainingType(request.getTrainingType()))
+                .trainingDate(request.getTrainingDate())
+                .trainingDurationMinutes(request.getTrainingDurationMinutes())
+                .build();
 
         trainingDao.save(training);
 
         log.info("Training created: {}", training.getTrainingName());
+
+        return training;
     }
 
     @Override
@@ -76,16 +90,6 @@ public class TrainingServiceInMemoryImpl implements TrainingService {
                                               String traineeName) {
         log.debug("Attempted filtering trainer trainings in in-memory service (not supported)");
         throw new UnsupportedOperationException("Filtering not supported in in-memory implementation");
-    }
-
-    @Override
-    public Training addTraining(@Valid Training training) {
-        log.debug("Adding new Training: {}", training.getTrainingName());
-
-        createTraining(training);
-
-        log.info("Training added: {}", training.getTrainingName());
-        return training;
     }
 
 }

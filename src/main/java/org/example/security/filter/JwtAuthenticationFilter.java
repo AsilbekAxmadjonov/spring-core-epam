@@ -9,12 +9,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.example.security.GymUserDetails;
+import org.example.security.service.GymUserDetailsService;
 import org.example.services.TokenService;
 import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
@@ -23,11 +24,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
-/**
- * JWT Authentication Filter
- * Intercepts all requests and validates JWT tokens from Authorization header
- * Extends OncePerRequestFilter to ensure single execution per request
- */
 @Slf4j
 @Component
 @RequiredArgsConstructor
@@ -38,7 +34,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private static final int BEARER_PREFIX_LENGTH = 7;
 
     private final TokenService tokenService;
-    private final UserDetailsService userDetailsService;
+    private final GymUserDetailsService gymUserDetails;
 
     @Override
     protected void doFilterInternal(
@@ -52,7 +48,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         log.debug("=== JWT Filter Processing: {} {} ===", requestMethod, requestURI);
 
-        // Skip filter for public endpoints
         if (isPublicEndpoint(requestURI)) {
             log.debug("Public endpoint detected: {} - Skipping JWT validation", requestURI);
             filterChain.doFilter(request, response);
@@ -60,7 +55,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
 
         try {
-            // Extract JWT token from request
             String jwt = extractJwtFromRequest(request);
 
             if (jwt == null) {
@@ -72,7 +66,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             log.debug("JWT Token extracted (first 20 chars): {}...",
                     jwt.substring(0, Math.min(jwt.length(), 20)));
 
-            // Extract username from token
             String username = tokenService.getUsernameFromToken(jwt);
 
             if (username == null) {
@@ -83,7 +76,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
             log.debug("Username extracted from token: {}", username);
 
-            // Authenticate if not already authenticated
             if (SecurityContextHolder.getContext().getAuthentication() == null) {
                 authenticateUser(request, jwt, username, requestURI);
             } else {
@@ -110,9 +102,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
-    /**
-     * Extract JWT token from Authorization header
-     */
     private String extractJwtFromRequest(HttpServletRequest request) {
         String authHeader = request.getHeader(AUTHORIZATION_HEADER);
 
@@ -123,13 +112,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         return null;
     }
 
-    /**
-     * Authenticate user and set authentication in SecurityContext
-     */
     private void authenticateUser(HttpServletRequest request, String jwt, String username, String requestURI) {
         log.debug("Loading user details for: {}", username);
 
-        UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+        UserDetails userDetails = gymUserDetails.loadUserByUsername(username);
 
         log.debug("User details loaded. Enabled: {}, AccountNonLocked: {}, Authorities: {}",
                 userDetails.isEnabled(),
@@ -155,9 +141,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
     }
 
-    /**
-     * Check if the endpoint is public and doesn't require authentication
-     */
     private boolean isPublicEndpoint(String requestURI) {
         return requestURI.startsWith("/api/auth/") ||
                 requestURI.startsWith("/api/trainees/") ||

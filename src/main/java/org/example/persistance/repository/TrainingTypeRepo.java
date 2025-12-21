@@ -1,0 +1,13 @@
+package org.example.persistance.repository;
+
+import org.example.persistance.entity.TrainingTypeEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface TrainingTypeRepo extends JpaRepository<TrainingTypeEntity, Long> {
+
+    Optional<TrainingTypeEntity> findByTrainingTypeName(String name);
+
+}
+

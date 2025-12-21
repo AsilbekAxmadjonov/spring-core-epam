@@ -1,17 +1,18 @@
 package org.example.services;
 
-import org.example.model.Trainer;
+import jakarta.validation.Valid;
+import org.example.persistance.model.Trainer;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface TrainerService {
 
-    Trainer createTrainer(Trainer trainer);
+    Trainer createTrainer(@Valid Trainer trainer);
 
     Optional<Trainer> getTrainerByUsername(String username);
 
-    Trainer updateTrainer(String username, Trainer updatedTrainer);
+    Trainer updateTrainer(String username, @Valid Trainer updatedTrainer);
 
     List<Trainer> getAllTrainers();
 }

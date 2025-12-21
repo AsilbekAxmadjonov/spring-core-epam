@@ -1,7 +1,7 @@
 package org.example.dao.impl;
 
-import org.example.model.Training;
-import org.example.model.TrainingType;
+import org.example.persistance.model.Training;
+import org.example.persistance.model.TrainingType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
