@@ -1,0 +1,1445 @@
+2026-02-02 10:55:18.928 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainers
+2026-02-02 10:55:18.936 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainees
+2026-02-02 10:55:18.938 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainings
+2026-02-02 10:55:19.036 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 10:55:19.042 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 10:55:19.045 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 10:55:19.048 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 10:55:19.050 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - null
+2026-02-02 10:55:19.054 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 10:55:19.058 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Token expired
+2026-02-02 10:55:19.061 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 10:55:19.063 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 10:55:19.066 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 10:55:19.068 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to:  - Invalid credentials
+2026-02-02 10:55:19.070 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 10:55:19.072 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/admin/dashboard - Invalid credentials
+2026-02-02 10:55:19.075 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 10:55:19.076 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 10:55:19.078 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 10:55:19.084 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 10:55:19.088 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 10:55:19.091 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/protected/resource - Insufficient permissions
+2026-02-02 10:55:19.094 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 10:55:19.096 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 10:55:19.103 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 10:55:19.106 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 10:55:19.108 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 10:55:19.116 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 10:55:19.120 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 10:55:19.124 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 10:55:19.127 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 10:55:19.129 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 10:55:19.235 [main] INFO  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ✅ JWT token valid for user: testuser accessing: /api/users/profile
+2026-02-02 10:55:19.245 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ User not found: User not found for request: /api/users/profile
+2026-02-02 10:55:19.273 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Invalid JWT token for user: testuser
+2026-02-02 10:55:19.281 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Username could not be extracted from token for request: /api/users/profile
+2026-02-02 10:55:19.287 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Malformed JWT token for request: /api/users/profile - Malformed token
+2026-02-02 10:55:19.291 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ JWT token expired for request: /api/users/profile - Token expired
+2026-02-02 10:55:19.298 [main] ERROR o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ JWT Authentication failed for /api/users/profile: Unexpected error
+java.lang.RuntimeException: Unexpected error
+	at org.example.security.filter.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:69)
+	at org.example.security.filter.JwtAuthenticationFilterTest.doFilterInternal_WithGenericException_ShouldClearSecurityContext(JwtAuthenticationFilterTest.java:275)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+2026-02-02 10:55:19.304 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Username could not be extracted from token for request: /api/users/profile
+2026-02-02 10:55:19.314 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Invalid JWT signature for request: /api/users/profile - Invalid signature
+2026-02-02 10:55:19.355 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user2
+2026-02-02 10:55:19.356 [main] ERROR o.e.security.service.AuthService - [TxId:] [User:] [ ] - Authentication failed for user: user2 - Bad credentials
+2026-02-02 10:55:19.357 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user3
+2026-02-02 10:55:19.358 [main] ERROR o.e.security.service.AuthService - [TxId:] [User:] [ ] - Authentication failed for user: user3 - Bad credentials
+2026-02-02 10:55:19.365 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user1
+2026-02-02 10:55:19.365 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - User user1 logged in successfully with JWT
+2026-02-02 10:55:19.416 [main] WARN  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - User user2 is blocked. Time remaining: 3 minutes
+2026-02-02 10:55:19.417 [main] INFO  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - Resetting login attempts for user: user5 (previous attempts: 2)
+2026-02-02 10:55:19.419 [main] WARN  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - User user4 blocked after 3 failed attempts. Blocked until: 2026-02-02T11:00:19.419925
+2026-02-02 10:55:19.420 [main] INFO  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - Failed login attempt 1 of 3 for user: user3
+2026-02-02 10:55:19.445 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: testuser
+2026-02-02 10:55:19.447 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: nonexistent
+2026-02-02 10:55:19.452 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: 
+2026-02-02 10:55:19.456 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: null
+2026-02-02 10:55:19.464 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer1
+2026-02-02 10:55:19.464 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer2
+2026-02-02 10:55:19.464 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainers. Total count: 2
+2026-02-02 10:55:19.465 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2026-02-02 10:55:19.466 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2026-02-02 10:55:19.466 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Updated Trainer: trainer01
+2026-02-02 10:55:19.468 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2026-02-02 10:55:19.477 [main] WARN  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Attempted to delete non-existent Trainee: ghost01
+2026-02-02 10:55:19.479 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t1
+2026-02-02 10:55:19.480 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t2
+2026-02-02 10:55:19.480 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainees. Total count: 2
+2026-02-02 10:55:19.480 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2026-02-02 10:55:19.481 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2026-02-02 10:55:19.481 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Updated Trainee: john01
+2026-02-02 10:55:19.482 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: alice01
+2026-02-02 10:55:19.482 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2026-02-02 10:55:19.482 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Deleted Trainee: john01
+2026-02-02 10:55:19.487 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Spring Boot Basics
+2026-02-02 10:55:19.489 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Python Data
+2026-02-02 10:55:19.490 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Java Masterclass
+2026-02-02 10:55:19.491 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainings. Total count: 2
+2026-02-02 10:55:19.494 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: React Advanced
+2026-02-02 10:55:19.595 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: john123
+2026-02-02 10:55:19.596 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee found: john123
+2026-02-02 10:55:19.605 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Creating new trainee: John Doe
+2026-02-02 10:55:19.605 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee created successfully with username: john123
+2026-02-02 10:55:19.606 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Updating trainee: john123
+2026-02-02 10:55:19.607 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee updated successfully: john123
+2026-02-02 10:55:19.607 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching all trainees
+2026-02-02 10:55:19.607 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetched 2 trainees
+2026-02-02 10:55:19.608 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: unknown
+2026-02-02 10:55:19.608 [main] WARN  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee not found: unknown
+2026-02-02 10:55:19.609 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Deleting trainee: john123
+2026-02-02 10:55:19.610 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee deleted successfully: john123
+2026-02-02 10:55:19.630 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Pilates
+2026-02-02 10:55:19.631 [main] WARN  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type not found: Pilates
+2026-02-02 10:55:19.632 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching all training types
+2026-02-02 10:55:19.634 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetched 2 training types
+2026-02-02 10:55:19.635 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Yoga
+2026-02-02 10:55:19.635 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type found: Yoga
+2026-02-02 10:55:19.665 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Updating trainer: alice123
+2026-02-02 10:55:19.665 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer updated successfully: alice123
+2026-02-02 10:55:19.665 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching all trainers
+2026-02-02 10:55:19.665 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetched 2 trainers
+2026-02-02 10:55:19.674 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: alice123
+2026-02-02 10:55:19.675 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer found: alice123
+2026-02-02 10:55:19.676 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: unknown
+2026-02-02 10:55:19.677 [main] WARN  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer not found: unknown
+2026-02-02 10:55:19.707 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user1
+2026-02-02 10:55:19.707 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login successful for username: user1
+2026-02-02 10:55:19.709 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user2
+2026-02-02 10:55:19.712 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Logout request received
+2026-02-02 10:55:19.739 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
+2026-02-02 10:55:19.739 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - User not found: user1
+2026-02-02 10:55:19.741 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2026-02-02 10:55:19.741 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Password changed successfully for user: user1
+2026-02-02 10:55:19.744 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
+2026-02-02 10:55:19.744 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Active status changed for user: user1 to true
+2026-02-02 10:55:19.745 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2026-02-02 10:55:19.745 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Old password does not match for user: user1
+2026-02-02 10:55:19.745 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2026-02-02 10:55:19.745 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Missing old or new password for user: user1
+2026-02-02 10:55:19.781 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching all trainings
+2026-02-02 10:55:19.781 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 2 trainings
+2026-02-02 10:55:19.782 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainee: trainee1 with filters - from: null, to: null, trainerName: null, trainingType: null
+2026-02-02 10:55:19.782 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainee: trainee1
+2026-02-02 10:55:19.783 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching training by name: Yoga
+2026-02-02 10:55:19.783 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Training found: Yoga
+2026-02-02 10:55:19.785 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainer: trainer1 with filters - from: null, to: null, traineeName: null
+2026-02-02 10:55:19.786 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainer: trainer1
+2026-02-02 10:55:19.841 [main] INFO  o.e.s.impl.AuthenticationServiceImpl - [TxId:] [User:] [ ] - User authenticated successfully: john
+2026-02-02 10:55:19.845 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> true
+2026-02-02 10:55:19.846 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
+2026-02-02 10:55:19.847 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe
+2026-02-02 10:55:19.847 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
+2026-02-02 10:55:19.848 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe1
+2026-02-02 10:55:19.850 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Password updated for john.doe
+2026-02-02 10:55:19.851 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> false
+2026-02-02 10:55:19.879 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training retrieved: Python for Data
+2026-02-02 10:55:19.881 [main] WARN  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training not found: Unknown
+2026-02-02 10:55:19.882 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 trainings
+2026-02-02 10:55:19.884 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training created: Spring Boot Basics
+2026-02-02 10:55:19.917 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: alice
+2026-02-02 10:55:19.918 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: alice
+2026-02-02 10:55:19.923 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: john
+2026-02-02 10:55:19.923 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: john
+2026-02-02 10:55:19.926 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 users from in-memory store
+2026-02-02 10:55:19.964 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Creating new Trainer (in-memory)
+2026-02-02 10:55:19.968 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Updating Trainer: bob01
+2026-02-02 10:55:19.997 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee created successfully: john
+2026-02-02 10:55:19.999 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee updated successfully: john
+2026-02-02 10:55:20.001 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Total Trainees found: 2
+2026-02-02 10:55:20.010 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee deleted: john
+2026-02-02 10:55:20.089 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer updated successfully: Mike.Johnson -> Mike.Johnson
+2026-02-02 10:55:20.091 [main] ERROR o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer not found for update: Mike.Johnson
+2026-02-02 10:55:20.104 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Total trainers fetched: 1
+2026-02-02 10:55:20.167 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 1
+2026-02-02 10:55:20.169 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee deleted successfully: john.doe
+2026-02-02 10:55:20.170 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee updated successfully: John.Doe
+2026-02-02 10:55:20.172 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 0
+2026-02-02 10:55:20.173 [main] ERROR o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for update: john.doe
+2026-02-02 10:55:20.174 [main] WARN  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for deletion: john.doe
+2026-02-02 10:55:20.176 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Creating trainee with generated username: John.Doe
+2026-02-02 10:55:20.177 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - User created successfully: John.Doe
+2026-02-02 10:55:20.177 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee created successfully: John.Doe
+2026-02-02 10:55:20.177 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - JWT token generated for trainee: John.Doe
+2026-02-02 10:55:20.235 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 total trainings
+2026-02-02 10:55:20.237 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainer trainings for username=trainer01
+2026-02-02 10:55:20.238 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainee trainings for username=john
+2026-02-02 10:55:20.244 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Training found: Yoga
+2026-02-02 10:55:20.249 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for update: john
+2026-02-02 10:55:20.261 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found: john
+2026-02-02 10:55:20.263 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User created: null
+2026-02-02 10:55:20.265 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for deletion: john
+2026-02-02 10:55:20.266 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User updated: john
+2026-02-02 10:55:20.268 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - Fetched 2 users
+2026-02-02 10:55:20.269 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User deleted: john
+2026-02-02 11:14:14.177 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainers
+2026-02-02 11:14:14.182 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainees
+2026-02-02 11:14:14.185 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainings
+2026-02-02 11:14:14.322 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 11:14:14.330 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 11:14:14.332 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 11:14:14.336 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 11:14:14.339 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - null
+2026-02-02 11:14:14.344 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 11:14:14.351 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Token expired
+2026-02-02 11:14:14.355 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 11:14:14.360 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 11:14:14.366 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 11:14:14.371 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to:  - Invalid credentials
+2026-02-02 11:14:14.375 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 11:14:14.383 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/admin/dashboard - Invalid credentials
+2026-02-02 11:14:14.385 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 11:14:14.391 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 11:14:14.398 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 11:14:14.414 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 11:14:14.420 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 11:14:14.424 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/protected/resource - Insufficient permissions
+2026-02-02 11:14:14.427 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 11:14:14.434 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 11:14:14.441 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 11:14:14.444 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 11:14:14.447 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 11:14:14.449 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 11:14:14.453 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 11:14:14.456 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 11:14:14.458 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 11:14:14.464 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 11:14:14.594 [main] INFO  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ✅ JWT token valid for user: testuser accessing: /api/users/profile
+2026-02-02 11:14:14.606 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ User not found: User not found for request: /api/users/profile
+2026-02-02 11:14:14.640 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Invalid JWT token for user: testuser
+2026-02-02 11:14:14.655 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Username could not be extracted from token for request: /api/users/profile
+2026-02-02 11:14:14.664 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Malformed JWT token for request: /api/users/profile - Malformed token
+2026-02-02 11:14:14.670 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ JWT token expired for request: /api/users/profile - Token expired
+2026-02-02 11:14:14.675 [main] ERROR o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ JWT Authentication failed for /api/users/profile: Unexpected error
+java.lang.RuntimeException: Unexpected error
+	at org.example.security.filter.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:69)
+	at org.example.security.filter.JwtAuthenticationFilterTest.doFilterInternal_WithGenericException_ShouldClearSecurityContext(JwtAuthenticationFilterTest.java:275)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+2026-02-02 11:14:14.678 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Username could not be extracted from token for request: /api/users/profile
+2026-02-02 11:14:14.686 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Invalid JWT signature for request: /api/users/profile - Invalid signature
+2026-02-02 11:14:14.738 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user2
+2026-02-02 11:14:14.739 [main] ERROR o.e.security.service.AuthService - [TxId:] [User:] [ ] - Authentication failed for user: user2 - Bad credentials
+2026-02-02 11:14:14.741 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user3
+2026-02-02 11:14:14.741 [main] ERROR o.e.security.service.AuthService - [TxId:] [User:] [ ] - Authentication failed for user: user3 - Bad credentials
+2026-02-02 11:14:14.752 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user1
+2026-02-02 11:14:14.752 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - User user1 logged in successfully with JWT
+2026-02-02 11:14:14.814 [main] WARN  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - User user2 is blocked. Time remaining: 3 minutes
+2026-02-02 11:14:14.816 [main] INFO  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - Resetting login attempts for user: user5 (previous attempts: 2)
+2026-02-02 11:14:14.819 [main] WARN  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - User user4 blocked after 3 failed attempts. Blocked until: 2026-02-02T11:19:14.819060
+2026-02-02 11:14:14.819 [main] INFO  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - Failed login attempt 1 of 3 for user: user3
+2026-02-02 11:14:14.852 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: testuser
+2026-02-02 11:14:14.855 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: nonexistent
+2026-02-02 11:14:14.863 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: 
+2026-02-02 11:14:14.871 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: null
+2026-02-02 11:14:14.875 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer1
+2026-02-02 11:14:14.875 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer2
+2026-02-02 11:14:14.875 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainers. Total count: 2
+2026-02-02 11:14:14.875 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2026-02-02 11:14:14.876 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2026-02-02 11:14:14.876 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Updated Trainer: trainer01
+2026-02-02 11:14:14.876 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2026-02-02 11:14:14.878 [main] WARN  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Attempted to delete non-existent Trainee: ghost01
+2026-02-02 11:14:14.879 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t1
+2026-02-02 11:14:14.879 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t2
+2026-02-02 11:14:14.879 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainees. Total count: 2
+2026-02-02 11:14:14.880 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2026-02-02 11:14:14.880 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2026-02-02 11:14:14.880 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Updated Trainee: john01
+2026-02-02 11:14:14.881 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: alice01
+2026-02-02 11:14:14.886 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2026-02-02 11:14:14.887 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Deleted Trainee: john01
+2026-02-02 11:14:14.896 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Spring Boot Basics
+2026-02-02 11:14:14.900 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Python Data
+2026-02-02 11:14:14.901 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Java Masterclass
+2026-02-02 11:14:14.901 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainings. Total count: 2
+2026-02-02 11:14:14.901 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: React Advanced
+2026-02-02 11:14:14.999 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: john123
+2026-02-02 11:14:14.999 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee found: john123
+2026-02-02 11:14:15.008 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Creating new trainee: John Doe
+2026-02-02 11:14:15.008 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee created successfully with username: john123
+2026-02-02 11:14:15.009 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Updating trainee: john123
+2026-02-02 11:14:15.009 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee updated successfully: john123
+2026-02-02 11:14:15.010 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching all trainees
+2026-02-02 11:14:15.010 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetched 2 trainees
+2026-02-02 11:14:15.011 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: unknown
+2026-02-02 11:14:15.012 [main] WARN  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee not found: unknown
+2026-02-02 11:14:15.014 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Deleting trainee: john123
+2026-02-02 11:14:15.014 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee deleted successfully: john123
+2026-02-02 11:14:15.034 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Pilates
+2026-02-02 11:14:15.035 [main] WARN  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type not found: Pilates
+2026-02-02 11:14:15.038 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching all training types
+2026-02-02 11:14:15.039 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetched 2 training types
+2026-02-02 11:14:15.041 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Yoga
+2026-02-02 11:14:15.041 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type found: Yoga
+2026-02-02 11:14:15.072 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Updating trainer: alice123
+2026-02-02 11:14:15.073 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer updated successfully: alice123
+2026-02-02 11:14:15.075 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching all trainers
+2026-02-02 11:14:15.075 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetched 2 trainers
+2026-02-02 11:14:15.077 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: alice123
+2026-02-02 11:14:15.078 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer found: alice123
+2026-02-02 11:14:15.081 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: unknown
+2026-02-02 11:14:15.081 [main] WARN  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer not found: unknown
+2026-02-02 11:14:15.102 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user1
+2026-02-02 11:14:15.102 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login successful for username: user1
+2026-02-02 11:14:15.104 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user2
+2026-02-02 11:14:15.106 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Logout request received
+2026-02-02 11:14:15.131 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
+2026-02-02 11:14:15.132 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - User not found: user1
+2026-02-02 11:14:15.133 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2026-02-02 11:14:15.134 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Password changed successfully for user: user1
+2026-02-02 11:14:15.136 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
+2026-02-02 11:14:15.136 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Active status changed for user: user1 to true
+2026-02-02 11:14:15.142 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2026-02-02 11:14:15.142 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Old password does not match for user: user1
+2026-02-02 11:14:15.143 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2026-02-02 11:14:15.143 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Missing old or new password for user: user1
+2026-02-02 11:14:15.190 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching all trainings
+2026-02-02 11:14:15.190 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 2 trainings
+2026-02-02 11:14:15.191 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainee: trainee1 with filters - from: null, to: null, trainerName: null, trainingType: null
+2026-02-02 11:14:15.192 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainee: trainee1
+2026-02-02 11:14:15.192 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching training by name: Yoga
+2026-02-02 11:14:15.192 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Training found: Yoga
+2026-02-02 11:14:15.194 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainer: trainer1 with filters - from: null, to: null, traineeName: null
+2026-02-02 11:14:15.194 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainer: trainer1
+2026-02-02 11:14:15.260 [main] INFO  o.e.s.impl.AuthenticationServiceImpl - [TxId:] [User:] [ ] - User authenticated successfully: john
+2026-02-02 11:14:15.270 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> true
+2026-02-02 11:14:15.271 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
+2026-02-02 11:14:15.272 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe
+2026-02-02 11:14:15.273 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
+2026-02-02 11:14:15.273 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe1
+2026-02-02 11:14:15.276 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Password updated for john.doe
+2026-02-02 11:14:15.277 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> false
+2026-02-02 11:14:15.301 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training retrieved: Python for Data
+2026-02-02 11:14:15.302 [main] WARN  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training not found: Unknown
+2026-02-02 11:14:15.302 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 trainings
+2026-02-02 11:14:15.303 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training created: Spring Boot Basics
+2026-02-02 11:14:15.327 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: alice
+2026-02-02 11:14:15.327 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: alice
+2026-02-02 11:14:15.328 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: john
+2026-02-02 11:14:15.328 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: john
+2026-02-02 11:14:15.329 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 users from in-memory store
+2026-02-02 11:14:15.380 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Creating new Trainer (in-memory)
+2026-02-02 11:14:15.384 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Updating Trainer: bob01
+2026-02-02 11:14:15.406 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee created successfully: john
+2026-02-02 11:14:15.408 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee updated successfully: john
+2026-02-02 11:14:15.409 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Total Trainees found: 2
+2026-02-02 11:14:15.416 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee deleted: john
+2026-02-02 11:14:15.487 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer updated successfully: Mike.Johnson -> Mike.Johnson
+2026-02-02 11:14:15.488 [main] ERROR o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer not found for update: Mike.Johnson
+2026-02-02 11:14:15.494 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Total trainers fetched: 1
+2026-02-02 11:14:15.540 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 1
+2026-02-02 11:14:15.541 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee deleted successfully: john.doe
+2026-02-02 11:14:15.542 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee updated successfully: John.Doe
+2026-02-02 11:14:15.543 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 0
+2026-02-02 11:14:15.545 [main] ERROR o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for update: john.doe
+2026-02-02 11:14:15.546 [main] WARN  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for deletion: john.doe
+2026-02-02 11:14:15.548 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Creating trainee with generated username: John.Doe
+2026-02-02 11:14:15.548 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - User created successfully: John.Doe
+2026-02-02 11:14:15.548 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee created successfully: John.Doe
+2026-02-02 11:14:15.548 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - JWT token generated for trainee: John.Doe
+2026-02-02 11:14:15.594 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 total trainings
+2026-02-02 11:14:15.597 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainer trainings for username=trainer01
+2026-02-02 11:14:15.598 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainee trainings for username=john
+2026-02-02 11:14:15.603 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Training found: Yoga
+2026-02-02 11:14:15.608 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for update: john
+2026-02-02 11:14:15.609 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found: john
+2026-02-02 11:14:15.610 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User created: null
+2026-02-02 11:14:15.613 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for deletion: john
+2026-02-02 11:14:15.615 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User updated: john
+2026-02-02 11:14:15.616 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - Fetched 2 users
+2026-02-02 11:14:15.617 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User deleted: john
+2026-02-02 22:35:21.113 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainers
+2026-02-02 22:35:21.118 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainees
+2026-02-02 22:35:21.120 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainings
+2026-02-02 22:35:21.233 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:21.241 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:21.243 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:21.246 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:21.248 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - null
+2026-02-02 22:35:21.254 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:21.257 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Token expired
+2026-02-02 22:35:21.261 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:21.263 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:21.266 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:21.268 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to:  - Invalid credentials
+2026-02-02 22:35:21.271 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:21.273 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/admin/dashboard - Invalid credentials
+2026-02-02 22:35:21.279 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:21.281 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:21.283 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:21.293 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:21.297 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:21.303 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/protected/resource - Insufficient permissions
+2026-02-02 22:35:21.307 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:21.309 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:21.314 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:21.316 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:21.318 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:21.325 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:21.333 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:21.338 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:21.340 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:21.343 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:21.472 [main] INFO  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ✅ JWT token valid for user: testuser accessing: /api/users/profile
+2026-02-02 22:35:21.485 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ User not found: User not found for request: /api/users/profile
+2026-02-02 22:35:21.518 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Invalid JWT token for user: testuser
+2026-02-02 22:35:21.531 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Username could not be extracted from token for request: /api/users/profile
+2026-02-02 22:35:21.539 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Malformed JWT token for request: /api/users/profile - Malformed token
+2026-02-02 22:35:21.543 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ JWT token expired for request: /api/users/profile - Token expired
+2026-02-02 22:35:21.547 [main] ERROR o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ JWT Authentication failed for /api/users/profile: Unexpected error
+java.lang.RuntimeException: Unexpected error
+	at org.example.security.filter.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:69)
+	at org.example.security.filter.JwtAuthenticationFilterTest.doFilterInternal_WithGenericException_ShouldClearSecurityContext(JwtAuthenticationFilterTest.java:275)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+2026-02-02 22:35:21.554 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Username could not be extracted from token for request: /api/users/profile
+2026-02-02 22:35:21.565 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Invalid JWT signature for request: /api/users/profile - Invalid signature
+2026-02-02 22:35:21.612 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user2
+2026-02-02 22:35:21.613 [main] ERROR o.e.security.service.AuthService - [TxId:] [User:] [ ] - Authentication failed for user: user2 - Bad credentials
+2026-02-02 22:35:21.615 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user3
+2026-02-02 22:35:21.615 [main] ERROR o.e.security.service.AuthService - [TxId:] [User:] [ ] - Authentication failed for user: user3 - Bad credentials
+2026-02-02 22:35:21.629 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user1
+2026-02-02 22:35:21.629 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - User user1 logged in successfully with JWT
+2026-02-02 22:35:21.705 [main] WARN  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - User user2 is blocked. Time remaining: 3 minutes
+2026-02-02 22:35:21.706 [main] INFO  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - Resetting login attempts for user: user5 (previous attempts: 2)
+2026-02-02 22:35:21.711 [main] WARN  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - User user4 blocked after 3 failed attempts. Blocked until: 2026-02-02T22:40:21.711725
+2026-02-02 22:35:21.712 [main] INFO  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - Failed login attempt 1 of 3 for user: user3
+2026-02-02 22:35:21.737 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: testuser
+2026-02-02 22:35:21.739 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: nonexistent
+2026-02-02 22:35:21.743 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: 
+2026-02-02 22:35:21.745 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: null
+2026-02-02 22:35:21.748 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer1
+2026-02-02 22:35:21.748 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer2
+2026-02-02 22:35:21.748 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainers. Total count: 2
+2026-02-02 22:35:21.748 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2026-02-02 22:35:21.749 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2026-02-02 22:35:21.749 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Updated Trainer: trainer01
+2026-02-02 22:35:21.750 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2026-02-02 22:35:21.757 [main] WARN  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Attempted to delete non-existent Trainee: ghost01
+2026-02-02 22:35:21.760 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t1
+2026-02-02 22:35:21.760 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t2
+2026-02-02 22:35:21.760 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainees. Total count: 2
+2026-02-02 22:35:21.762 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2026-02-02 22:35:21.763 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2026-02-02 22:35:21.764 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Updated Trainee: john01
+2026-02-02 22:35:21.765 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: alice01
+2026-02-02 22:35:21.768 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2026-02-02 22:35:21.768 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Deleted Trainee: john01
+2026-02-02 22:35:21.785 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Spring Boot Basics
+2026-02-02 22:35:21.792 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Python Data
+2026-02-02 22:35:21.794 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Java Masterclass
+2026-02-02 22:35:21.795 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainings. Total count: 2
+2026-02-02 22:35:21.798 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: React Advanced
+2026-02-02 22:35:21.951 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: john123
+2026-02-02 22:35:21.952 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee found: john123
+2026-02-02 22:35:21.960 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Creating new trainee: John Doe
+2026-02-02 22:35:21.961 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee created successfully with username: john123
+2026-02-02 22:35:21.962 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Updating trainee: john123
+2026-02-02 22:35:21.963 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee updated successfully: john123
+2026-02-02 22:35:21.964 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching all trainees
+2026-02-02 22:35:21.965 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetched 2 trainees
+2026-02-02 22:35:21.974 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: unknown
+2026-02-02 22:35:21.974 [main] WARN  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee not found: unknown
+2026-02-02 22:35:21.975 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Deleting trainee: john123
+2026-02-02 22:35:21.975 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee deleted successfully: john123
+2026-02-02 22:35:22.011 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Pilates
+2026-02-02 22:35:22.012 [main] WARN  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type not found: Pilates
+2026-02-02 22:35:22.016 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching all training types
+2026-02-02 22:35:22.020 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetched 2 training types
+2026-02-02 22:35:22.024 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Yoga
+2026-02-02 22:35:22.024 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type found: Yoga
+2026-02-02 22:35:22.056 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Updating trainer: alice123
+2026-02-02 22:35:22.056 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer updated successfully: alice123
+2026-02-02 22:35:22.057 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching all trainers
+2026-02-02 22:35:22.057 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetched 2 trainers
+2026-02-02 22:35:22.058 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: alice123
+2026-02-02 22:35:22.058 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer found: alice123
+2026-02-02 22:35:22.059 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: unknown
+2026-02-02 22:35:22.059 [main] WARN  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer not found: unknown
+2026-02-02 22:35:22.080 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user1
+2026-02-02 22:35:22.080 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login successful for username: user1
+2026-02-02 22:35:22.082 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user2
+2026-02-02 22:35:22.083 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Logout request received
+2026-02-02 22:35:22.111 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
+2026-02-02 22:35:22.111 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - User not found: user1
+2026-02-02 22:35:22.113 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2026-02-02 22:35:22.113 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Password changed successfully for user: user1
+2026-02-02 22:35:22.115 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
+2026-02-02 22:35:22.115 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Active status changed for user: user1 to true
+2026-02-02 22:35:22.116 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2026-02-02 22:35:22.117 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Old password does not match for user: user1
+2026-02-02 22:35:22.117 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2026-02-02 22:35:22.117 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Missing old or new password for user: user1
+2026-02-02 22:35:22.155 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching all trainings
+2026-02-02 22:35:22.156 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 2 trainings
+2026-02-02 22:35:22.159 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainee: trainee1 with filters - from: null, to: null, trainerName: null, trainingType: null
+2026-02-02 22:35:22.160 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainee: trainee1
+2026-02-02 22:35:22.162 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching training by name: Yoga
+2026-02-02 22:35:22.162 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Training found: Yoga
+2026-02-02 22:35:22.164 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainer: trainer1 with filters - from: null, to: null, traineeName: null
+2026-02-02 22:35:22.164 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainer: trainer1
+2026-02-02 22:35:22.265 [main] INFO  o.e.s.impl.AuthenticationServiceImpl - [TxId:] [User:] [ ] - User authenticated successfully: john
+2026-02-02 22:35:22.269 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> true
+2026-02-02 22:35:22.270 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
+2026-02-02 22:35:22.271 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe
+2026-02-02 22:35:22.273 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
+2026-02-02 22:35:22.274 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe1
+2026-02-02 22:35:22.279 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Password updated for john.doe
+2026-02-02 22:35:22.280 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> false
+2026-02-02 22:35:22.304 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training retrieved: Python for Data
+2026-02-02 22:35:22.305 [main] WARN  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training not found: Unknown
+2026-02-02 22:35:22.306 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 trainings
+2026-02-02 22:35:22.307 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training created: Spring Boot Basics
+2026-02-02 22:35:22.333 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: alice
+2026-02-02 22:35:22.333 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: alice
+2026-02-02 22:35:22.335 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: john
+2026-02-02 22:35:22.335 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: john
+2026-02-02 22:35:22.336 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 users from in-memory store
+2026-02-02 22:35:22.383 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Creating new Trainer (in-memory)
+2026-02-02 22:35:22.388 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Updating Trainer: bob01
+2026-02-02 22:35:22.465 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee created successfully: john
+2026-02-02 22:35:22.482 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee updated successfully: john
+2026-02-02 22:35:22.483 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Total Trainees found: 2
+2026-02-02 22:35:22.566 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee deleted: john
+2026-02-02 22:35:22.671 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer updated successfully: Mike.Johnson -> Mike.Johnson
+2026-02-02 22:35:22.690 [main] ERROR o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer not found for update: Mike.Johnson
+2026-02-02 22:35:22.712 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Total trainers fetched: 1
+2026-02-02 22:35:22.843 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 1
+2026-02-02 22:35:22.846 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee deleted successfully: john.doe
+2026-02-02 22:35:22.851 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee updated successfully: John.Doe
+2026-02-02 22:35:22.853 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 0
+2026-02-02 22:35:22.855 [main] ERROR o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for update: john.doe
+2026-02-02 22:35:22.858 [main] WARN  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for deletion: john.doe
+2026-02-02 22:35:22.863 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Creating trainee with generated username: John.Doe
+2026-02-02 22:35:22.863 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - User created successfully: John.Doe
+2026-02-02 22:35:22.863 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee created successfully: John.Doe
+2026-02-02 22:35:22.863 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - JWT token generated for trainee: John.Doe
+2026-02-02 22:35:22.938 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 total trainings
+2026-02-02 22:35:22.940 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainer trainings for username=trainer01
+2026-02-02 22:35:22.942 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainee trainings for username=john
+2026-02-02 22:35:22.958 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Training found: Yoga
+2026-02-02 22:35:22.965 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for update: john
+2026-02-02 22:35:22.971 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found: john
+2026-02-02 22:35:22.974 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User created: null
+2026-02-02 22:35:22.980 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for deletion: john
+2026-02-02 22:35:22.982 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User updated: john
+2026-02-02 22:35:22.983 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - Fetched 2 users
+2026-02-02 22:35:22.984 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User deleted: john
+2026-02-02 22:35:49.376 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainers
+2026-02-02 22:35:49.385 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainees
+2026-02-02 22:35:49.391 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainings
+2026-02-02 22:35:49.782 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:49.806 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:49.816 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:49.834 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:49.840 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - null
+2026-02-02 22:35:49.851 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:49.859 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Token expired
+2026-02-02 22:35:49.877 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:49.888 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:49.896 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:49.911 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to:  - Invalid credentials
+2026-02-02 22:35:49.916 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:49.991 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/admin/dashboard - Invalid credentials
+2026-02-02 22:35:50.032 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:50.038 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:50.056 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:35:50.140 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:50.150 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:50.155 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/protected/resource - Insufficient permissions
+2026-02-02 22:35:50.157 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:50.162 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:50.167 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:50.174 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:50.178 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:50.182 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:50.189 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:50.199 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:50.208 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:50.217 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:35:50.951 [main] INFO  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ✅ JWT token valid for user: testuser accessing: /api/users/profile
+2026-02-02 22:35:50.975 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ User not found: User not found for request: /api/users/profile
+2026-02-02 22:35:51.056 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Invalid JWT token for user: testuser
+2026-02-02 22:35:51.068 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Username could not be extracted from token for request: /api/users/profile
+2026-02-02 22:35:51.100 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Malformed JWT token for request: /api/users/profile - Malformed token
+2026-02-02 22:35:51.121 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ JWT token expired for request: /api/users/profile - Token expired
+2026-02-02 22:35:51.135 [main] ERROR o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ JWT Authentication failed for /api/users/profile: Unexpected error
+java.lang.RuntimeException: Unexpected error
+	at org.example.security.filter.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:69)
+	at org.example.security.filter.JwtAuthenticationFilterTest.doFilterInternal_WithGenericException_ShouldClearSecurityContext(JwtAuthenticationFilterTest.java:275)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+2026-02-02 22:35:51.148 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Username could not be extracted from token for request: /api/users/profile
+2026-02-02 22:35:51.162 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Invalid JWT signature for request: /api/users/profile - Invalid signature
+2026-02-02 22:35:51.271 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user2
+2026-02-02 22:35:51.272 [main] ERROR o.e.security.service.AuthService - [TxId:] [User:] [ ] - Authentication failed for user: user2 - Bad credentials
+2026-02-02 22:35:51.276 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user3
+2026-02-02 22:35:51.276 [main] ERROR o.e.security.service.AuthService - [TxId:] [User:] [ ] - Authentication failed for user: user3 - Bad credentials
+2026-02-02 22:35:51.283 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user1
+2026-02-02 22:35:51.283 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - User user1 logged in successfully with JWT
+2026-02-02 22:35:51.373 [main] WARN  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - User user2 is blocked. Time remaining: 3 minutes
+2026-02-02 22:35:51.374 [main] INFO  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - Resetting login attempts for user: user5 (previous attempts: 2)
+2026-02-02 22:35:51.378 [main] WARN  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - User user4 blocked after 3 failed attempts. Blocked until: 2026-02-02T22:40:51.378135
+2026-02-02 22:35:51.379 [main] INFO  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - Failed login attempt 1 of 3 for user: user3
+2026-02-02 22:35:51.412 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: testuser
+2026-02-02 22:35:51.413 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: nonexistent
+2026-02-02 22:35:51.415 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: 
+2026-02-02 22:35:51.416 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: null
+2026-02-02 22:35:51.419 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer1
+2026-02-02 22:35:51.420 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer2
+2026-02-02 22:35:51.421 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainers. Total count: 2
+2026-02-02 22:35:51.422 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2026-02-02 22:35:51.422 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2026-02-02 22:35:51.422 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Updated Trainer: trainer01
+2026-02-02 22:35:51.423 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2026-02-02 22:35:51.427 [main] WARN  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Attempted to delete non-existent Trainee: ghost01
+2026-02-02 22:35:51.428 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t1
+2026-02-02 22:35:51.429 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t2
+2026-02-02 22:35:51.429 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainees. Total count: 2
+2026-02-02 22:35:51.429 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2026-02-02 22:35:51.431 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2026-02-02 22:35:51.431 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Updated Trainee: john01
+2026-02-02 22:35:51.433 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: alice01
+2026-02-02 22:35:51.436 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2026-02-02 22:35:51.436 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Deleted Trainee: john01
+2026-02-02 22:35:51.446 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Spring Boot Basics
+2026-02-02 22:35:51.450 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Python Data
+2026-02-02 22:35:51.450 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Java Masterclass
+2026-02-02 22:35:51.450 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainings. Total count: 2
+2026-02-02 22:35:51.450 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: React Advanced
+2026-02-02 22:35:51.607 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: john123
+2026-02-02 22:35:51.608 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee found: john123
+2026-02-02 22:35:51.617 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Creating new trainee: John Doe
+2026-02-02 22:35:51.617 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee created successfully with username: john123
+2026-02-02 22:35:51.618 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Updating trainee: john123
+2026-02-02 22:35:51.618 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee updated successfully: john123
+2026-02-02 22:35:51.619 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching all trainees
+2026-02-02 22:35:51.619 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetched 2 trainees
+2026-02-02 22:35:51.621 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: unknown
+2026-02-02 22:35:51.621 [main] WARN  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee not found: unknown
+2026-02-02 22:35:51.622 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Deleting trainee: john123
+2026-02-02 22:35:51.622 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee deleted successfully: john123
+2026-02-02 22:35:51.649 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Pilates
+2026-02-02 22:35:51.650 [main] WARN  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type not found: Pilates
+2026-02-02 22:35:51.651 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching all training types
+2026-02-02 22:35:51.653 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetched 2 training types
+2026-02-02 22:35:51.655 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Yoga
+2026-02-02 22:35:51.656 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type found: Yoga
+2026-02-02 22:35:51.780 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Updating trainer: alice123
+2026-02-02 22:35:51.780 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer updated successfully: alice123
+2026-02-02 22:35:51.781 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching all trainers
+2026-02-02 22:35:51.781 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetched 2 trainers
+2026-02-02 22:35:51.783 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: alice123
+2026-02-02 22:35:51.784 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer found: alice123
+2026-02-02 22:35:51.785 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: unknown
+2026-02-02 22:35:51.785 [main] WARN  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer not found: unknown
+2026-02-02 22:35:51.815 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user1
+2026-02-02 22:35:51.816 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login successful for username: user1
+2026-02-02 22:35:51.818 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user2
+2026-02-02 22:35:51.824 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Logout request received
+2026-02-02 22:35:51.895 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
+2026-02-02 22:35:51.896 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - User not found: user1
+2026-02-02 22:35:51.903 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2026-02-02 22:35:51.903 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Password changed successfully for user: user1
+2026-02-02 22:35:51.916 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
+2026-02-02 22:35:51.916 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Active status changed for user: user1 to true
+2026-02-02 22:35:51.923 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2026-02-02 22:35:51.925 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Old password does not match for user: user1
+2026-02-02 22:35:51.927 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2026-02-02 22:35:51.927 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Missing old or new password for user: user1
+2026-02-02 22:35:52.034 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching all trainings
+2026-02-02 22:35:52.034 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 2 trainings
+2026-02-02 22:35:52.040 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainee: trainee1 with filters - from: null, to: null, trainerName: null, trainingType: null
+2026-02-02 22:35:52.041 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainee: trainee1
+2026-02-02 22:35:52.043 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching training by name: Yoga
+2026-02-02 22:35:52.043 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Training found: Yoga
+2026-02-02 22:35:52.048 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainer: trainer1 with filters - from: null, to: null, traineeName: null
+2026-02-02 22:35:52.049 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainer: trainer1
+2026-02-02 22:35:52.213 [main] INFO  o.e.s.impl.AuthenticationServiceImpl - [TxId:] [User:] [ ] - User authenticated successfully: john
+2026-02-02 22:35:52.218 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> true
+2026-02-02 22:35:52.221 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
+2026-02-02 22:35:52.222 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe
+2026-02-02 22:35:52.223 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
+2026-02-02 22:35:52.223 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe1
+2026-02-02 22:35:52.228 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Password updated for john.doe
+2026-02-02 22:35:52.230 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> false
+2026-02-02 22:35:52.260 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training retrieved: Python for Data
+2026-02-02 22:35:52.262 [main] WARN  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training not found: Unknown
+2026-02-02 22:35:52.262 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 trainings
+2026-02-02 22:35:52.263 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training created: Spring Boot Basics
+2026-02-02 22:35:52.299 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: alice
+2026-02-02 22:35:52.300 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: alice
+2026-02-02 22:35:52.305 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: john
+2026-02-02 22:35:52.305 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: john
+2026-02-02 22:35:52.307 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 users from in-memory store
+2026-02-02 22:35:52.367 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Creating new Trainer (in-memory)
+2026-02-02 22:35:52.372 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Updating Trainer: bob01
+2026-02-02 22:35:52.404 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee created successfully: john
+2026-02-02 22:35:52.409 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee updated successfully: john
+2026-02-02 22:35:52.411 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Total Trainees found: 2
+2026-02-02 22:35:52.423 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee deleted: john
+2026-02-02 22:35:52.567 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer updated successfully: Mike.Johnson -> Mike.Johnson
+2026-02-02 22:35:52.575 [main] ERROR o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer not found for update: Mike.Johnson
+2026-02-02 22:35:52.597 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Total trainers fetched: 1
+2026-02-02 22:35:52.707 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 1
+2026-02-02 22:35:52.708 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee deleted successfully: john.doe
+2026-02-02 22:35:52.710 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee updated successfully: John.Doe
+2026-02-02 22:35:52.712 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 0
+2026-02-02 22:35:52.715 [main] ERROR o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for update: john.doe
+2026-02-02 22:35:52.717 [main] WARN  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for deletion: john.doe
+2026-02-02 22:35:52.721 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Creating trainee with generated username: John.Doe
+2026-02-02 22:35:52.721 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - User created successfully: John.Doe
+2026-02-02 22:35:52.721 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee created successfully: John.Doe
+2026-02-02 22:35:52.721 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - JWT token generated for trainee: John.Doe
+2026-02-02 22:35:52.795 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 total trainings
+2026-02-02 22:35:52.799 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainer trainings for username=trainer01
+2026-02-02 22:35:52.801 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainee trainings for username=john
+2026-02-02 22:35:52.819 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Training found: Yoga
+2026-02-02 22:35:52.831 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for update: john
+2026-02-02 22:35:52.832 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found: john
+2026-02-02 22:35:52.839 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User created: null
+2026-02-02 22:35:52.842 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for deletion: john
+2026-02-02 22:35:52.843 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User updated: john
+2026-02-02 22:35:52.844 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - Fetched 2 users
+2026-02-02 22:35:52.845 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User deleted: john
+2026-02-02 22:47:29.884 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 total trainings
+2026-02-02 22:47:29.904 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainer trainings for username=trainer01
+2026-02-02 22:47:29.909 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainee trainings for username=john
+2026-02-02 22:47:29.936 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Training found: Yoga
+2026-02-02 22:48:20.928 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 total trainings
+2026-02-02 22:48:20.947 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainer trainings for username=trainer01
+2026-02-02 22:48:20.952 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainee trainings for username=john
+2026-02-02 22:48:20.965 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Training found: Yoga
+2026-02-02 22:48:48.781 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainers
+2026-02-02 22:48:48.785 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainees
+2026-02-02 22:48:48.787 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainings
+2026-02-02 22:48:48.882 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:48:48.889 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:48:48.891 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:48:48.894 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:48:48.896 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - null
+2026-02-02 22:48:48.900 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:48:48.902 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Token expired
+2026-02-02 22:48:48.905 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:48:48.907 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:48:48.910 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:48:48.912 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to:  - Invalid credentials
+2026-02-02 22:48:48.915 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:48:48.918 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/admin/dashboard - Invalid credentials
+2026-02-02 22:48:48.922 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:48:48.924 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:48:48.927 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-02-02 22:48:48.937 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:48:48.941 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:48:48.945 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/protected/resource - Insufficient permissions
+2026-02-02 22:48:48.948 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:48:48.949 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:48:48.952 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:48:48.956 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:48:48.957 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:48:48.961 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:48:48.964 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:48:48.967 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:48:48.969 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:48:48.971 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-02-02 22:48:49.094 [main] INFO  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ✅ JWT token valid for user: testuser accessing: /api/users/profile
+2026-02-02 22:48:49.104 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ User not found: User not found for request: /api/users/profile
+2026-02-02 22:48:49.134 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Invalid JWT token for user: testuser
+2026-02-02 22:48:49.142 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Username could not be extracted from token for request: /api/users/profile
+2026-02-02 22:48:49.150 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Malformed JWT token for request: /api/users/profile - Malformed token
+2026-02-02 22:48:49.155 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ JWT token expired for request: /api/users/profile - Token expired
+2026-02-02 22:48:49.164 [main] ERROR o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ JWT Authentication failed for /api/users/profile: Unexpected error
+java.lang.RuntimeException: Unexpected error
+	at org.example.security.filter.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:69)
+	at org.example.security.filter.JwtAuthenticationFilterTest.doFilterInternal_WithGenericException_ShouldClearSecurityContext(JwtAuthenticationFilterTest.java:275)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+2026-02-02 22:48:49.169 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Username could not be extracted from token for request: /api/users/profile
+2026-02-02 22:48:49.181 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Invalid JWT signature for request: /api/users/profile - Invalid signature
+2026-02-02 22:48:49.225 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user2
+2026-02-02 22:48:49.226 [main] ERROR o.e.security.service.AuthService - [TxId:] [User:] [ ] - Authentication failed for user: user2 - Bad credentials
+2026-02-02 22:48:49.228 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user3
+2026-02-02 22:48:49.229 [main] ERROR o.e.security.service.AuthService - [TxId:] [User:] [ ] - Authentication failed for user: user3 - Bad credentials
+2026-02-02 22:48:49.235 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user1
+2026-02-02 22:48:49.236 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - User user1 logged in successfully with JWT
+2026-02-02 22:48:49.295 [main] WARN  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - User user2 is blocked. Time remaining: 3 minutes
+2026-02-02 22:48:49.296 [main] INFO  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - Resetting login attempts for user: user5 (previous attempts: 2)
+2026-02-02 22:48:49.299 [main] WARN  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - User user4 blocked after 3 failed attempts. Blocked until: 2026-02-02T22:53:49.299792
+2026-02-02 22:48:49.300 [main] INFO  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - Failed login attempt 1 of 3 for user: user3
+2026-02-02 22:48:49.331 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: testuser
+2026-02-02 22:48:49.333 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: nonexistent
+2026-02-02 22:48:49.337 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: 
+2026-02-02 22:48:49.339 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: null
+2026-02-02 22:48:49.345 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer1
+2026-02-02 22:48:49.345 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer2
+2026-02-02 22:48:49.345 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainers. Total count: 2
+2026-02-02 22:48:49.345 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2026-02-02 22:48:49.346 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2026-02-02 22:48:49.346 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Updated Trainer: trainer01
+2026-02-02 22:48:49.346 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2026-02-02 22:48:49.349 [main] WARN  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Attempted to delete non-existent Trainee: ghost01
+2026-02-02 22:48:49.349 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t1
+2026-02-02 22:48:49.350 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t2
+2026-02-02 22:48:49.351 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainees. Total count: 2
+2026-02-02 22:48:49.352 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2026-02-02 22:48:49.353 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2026-02-02 22:48:49.353 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Updated Trainee: john01
+2026-02-02 22:48:49.354 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: alice01
+2026-02-02 22:48:49.355 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2026-02-02 22:48:49.355 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Deleted Trainee: john01
+2026-02-02 22:48:49.362 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Spring Boot Basics
+2026-02-02 22:48:49.365 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Python Data
+2026-02-02 22:48:49.365 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Java Masterclass
+2026-02-02 22:48:49.365 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainings. Total count: 2
+2026-02-02 22:48:49.369 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: React Advanced
+2026-02-02 22:48:49.482 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: john123
+2026-02-02 22:48:49.483 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee found: john123
+2026-02-02 22:48:49.490 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Creating new trainee: John Doe
+2026-02-02 22:48:49.490 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee created successfully with username: john123
+2026-02-02 22:48:49.491 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Updating trainee: john123
+2026-02-02 22:48:49.491 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee updated successfully: john123
+2026-02-02 22:48:49.492 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching all trainees
+2026-02-02 22:48:49.493 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetched 2 trainees
+2026-02-02 22:48:49.494 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: unknown
+2026-02-02 22:48:49.494 [main] WARN  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee not found: unknown
+2026-02-02 22:48:49.495 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Deleting trainee: john123
+2026-02-02 22:48:49.495 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee deleted successfully: john123
+2026-02-02 22:48:49.520 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Pilates
+2026-02-02 22:48:49.520 [main] WARN  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type not found: Pilates
+2026-02-02 22:48:49.522 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching all training types
+2026-02-02 22:48:49.523 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetched 2 training types
+2026-02-02 22:48:49.524 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Yoga
+2026-02-02 22:48:49.524 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type found: Yoga
+2026-02-02 22:48:49.551 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Updating trainer: alice123
+2026-02-02 22:48:49.552 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer updated successfully: alice123
+2026-02-02 22:48:49.553 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching all trainers
+2026-02-02 22:48:49.553 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetched 2 trainers
+2026-02-02 22:48:49.554 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: alice123
+2026-02-02 22:48:49.555 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer found: alice123
+2026-02-02 22:48:49.556 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: unknown
+2026-02-02 22:48:49.556 [main] WARN  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer not found: unknown
+2026-02-02 22:48:49.579 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user1
+2026-02-02 22:48:49.579 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login successful for username: user1
+2026-02-02 22:48:49.581 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user2
+2026-02-02 22:48:49.582 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Logout request received
+2026-02-02 22:48:49.605 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
+2026-02-02 22:48:49.605 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - User not found: user1
+2026-02-02 22:48:49.607 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2026-02-02 22:48:49.607 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Password changed successfully for user: user1
+2026-02-02 22:48:49.609 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
+2026-02-02 22:48:49.609 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Active status changed for user: user1 to true
+2026-02-02 22:48:49.610 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2026-02-02 22:48:49.610 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Old password does not match for user: user1
+2026-02-02 22:48:49.611 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2026-02-02 22:48:49.611 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Missing old or new password for user: user1
+2026-02-02 22:48:49.671 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching all trainings
+2026-02-02 22:48:49.672 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 2 trainings
+2026-02-02 22:48:49.676 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainee: trainee1 with filters - from: null, to: null, trainerName: null, trainingType: null
+2026-02-02 22:48:49.678 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainee: trainee1
+2026-02-02 22:48:49.680 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching training by name: Yoga
+2026-02-02 22:48:49.680 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Training found: Yoga
+2026-02-02 22:48:49.688 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainer: trainer1 with filters - from: null, to: null, traineeName: null
+2026-02-02 22:48:49.689 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainer: trainer1
+2026-02-02 22:48:49.870 [main] INFO  o.e.s.impl.AuthenticationServiceImpl - [TxId:] [User:] [ ] - User authenticated successfully: john
+2026-02-02 22:48:49.885 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> true
+2026-02-02 22:48:49.886 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
+2026-02-02 22:48:49.887 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe
+2026-02-02 22:48:49.888 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
+2026-02-02 22:48:49.890 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe1
+2026-02-02 22:48:49.899 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Password updated for john.doe
+2026-02-02 22:48:49.905 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> false
+2026-02-02 22:48:50.002 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training retrieved: Python for Data
+2026-02-02 22:48:50.006 [main] WARN  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training not found: Unknown
+2026-02-02 22:48:50.007 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 trainings
+2026-02-02 22:48:50.009 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training created: Spring Boot Basics
+2026-02-02 22:48:50.128 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: alice
+2026-02-02 22:48:50.128 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: alice
+2026-02-02 22:48:50.134 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: john
+2026-02-02 22:48:50.135 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: john
+2026-02-02 22:48:50.140 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 users from in-memory store
+2026-02-02 22:48:50.235 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Creating new Trainer (in-memory)
+2026-02-02 22:48:50.239 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Updating Trainer: bob01
+2026-02-02 22:48:50.263 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee created successfully: john
+2026-02-02 22:48:50.265 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee updated successfully: john
+2026-02-02 22:48:50.268 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Total Trainees found: 2
+2026-02-02 22:48:50.274 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee deleted: john
+2026-02-02 22:48:50.480 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer updated successfully: Mike.Johnson -> Mike.Johnson
+2026-02-02 22:48:50.482 [main] ERROR o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer not found for update: Mike.Johnson
+2026-02-02 22:48:50.496 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Total trainers fetched: 1
+2026-02-02 22:48:50.596 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 1
+2026-02-02 22:48:50.599 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee deleted successfully: john.doe
+2026-02-02 22:48:50.602 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee updated successfully: John.Doe
+2026-02-02 22:48:50.603 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 0
+2026-02-02 22:48:50.605 [main] ERROR o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for update: john.doe
+2026-02-02 22:48:50.611 [main] WARN  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for deletion: john.doe
+2026-02-02 22:48:50.618 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Creating trainee with generated username: John.Doe
+2026-02-02 22:48:50.619 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - User created successfully: John.Doe
+2026-02-02 22:48:50.619 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee created successfully: John.Doe
+2026-02-02 22:48:50.619 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - JWT token generated for trainee: John.Doe
+2026-02-02 22:48:50.699 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 total trainings
+2026-02-02 22:48:50.704 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainer trainings for username=trainer01
+2026-02-02 22:48:50.706 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainee trainings for username=john
+2026-02-02 22:48:50.710 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Training found: Yoga
+2026-02-02 22:48:50.713 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for update: john
+2026-02-02 22:48:50.718 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found: john
+2026-02-02 22:48:50.722 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User created: null
+2026-02-02 22:48:50.723 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for deletion: john
+2026-02-02 22:48:50.724 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User updated: john
+2026-02-02 22:48:50.724 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - Fetched 2 users
+2026-02-02 22:48:50.726 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User deleted: john
+2026-02-02 22:50:51.958 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Gym Management REST API with Spring Boot...
+2026-02-02 22:50:52.207 [background-preinit] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-02 22:50:52.232 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Application using Java 25 with PID 90548 (/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes started by cyber in /Users/cyber/IdeaProjects/epam/spring-core-epam)
+2026-02-02 22:50:52.233 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - No active profile set, falling back to 1 default profile: "default"
+2026-02-02 22:50:52.872 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-02 22:50:52.968 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 91 ms. Found 6 JPA repository interfaces.
+2026-02-02 22:50:53.139 [main] INFO  o.s.cloud.context.scope.GenericScope - [TxId:] [User:] [ ] - BeanFactory id=056ad32b-1ba6-3f3d-aa06-cf4a713203a7
+2026-02-02 22:50:53.606 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - [TxId:] [User:] [ ] - Tomcat initialized with port 8080 (http)
+2026-02-02 22:50:53.613 [main] INFO  o.a.coyote.http11.Http11NioProtocol - [TxId:] [User:] [ ] - Initializing ProtocolHandler ["http-nio-8080"]
+2026-02-02 22:50:53.614 [main] INFO  o.a.catalina.core.StandardService - [TxId:] [User:] [ ] - Starting service [Tomcat]
+2026-02-02 22:50:53.614 [main] INFO  o.a.catalina.core.StandardEngine - [TxId:] [User:] [ ] - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2026-02-02 22:50:53.650 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [TxId:] [User:] [ ] - Initializing Spring embedded WebApplicationContext
+2026-02-02 22:50:53.650 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [TxId:] [User:] [ ] - Root WebApplicationContext: initialization completed in 1394 ms
+2026-02-02 22:50:53.873 [main] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2026-02-02 22:50:53.986 [main] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-02 22:50:54.021 [main] INFO  org.hibernate.Version - [TxId:] [User:] [ ] - HHH000412: Hibernate ORM core version 6.4.1.Final
+2026-02-02 22:50:54.040 [main] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2026-02-02 22:50:54.151 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-02 22:50:54.166 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Starting...
+2026-02-02 22:50:54.506 [main] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1784a296
+2026-02-02 22:50:54.507 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Start completed.
+2026-02-02 22:50:55.690 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-02 22:50:55.925 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-02 22:50:56.134 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - [TxId:] [User:] [ ] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-02 22:50:56.420 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationManager bean created
+2026-02-02 22:50:56.444 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationProvider configured with UserDetailsService and PasswordEncoder
+2026-02-02 22:50:57.356 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - [TxId:] [User:] [ ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-02 22:50:57.782 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - [TxId:] [User:] [ ] - Exposing 4 endpoint(s) beneath base path '/actuator'
+2026-02-02 22:50:57.833 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring Security Filter Chain with JWT authentication
+2026-02-02 22:50:57.834 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - CORS configuration enabled for allowed origins
+2026-02-02 22:50:57.837 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring authorization rules...
+2026-02-02 22:50:57.847 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Authorization configured:
+2026-02-02 22:50:57.848 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainees/** (no authentication)
+2026-02-02 22:50:57.848 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainings/** (no authentication)
+2026-02-02 22:50:57.848 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: POST /api/trainers (registration only)
+2026-02-02 22:50:57.848 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: /api/auth/**
+2026-02-02 22:50:57.848 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Swagger UI and API docs
+2026-02-02 22:50:57.848 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Actuator endpoints
+2026-02-02 22:50:57.848 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Protected: GET/PUT/DELETE /api/trainers/** (requires JWT)
+2026-02-02 22:50:57.848 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Session management set to STATELESS - JWT authentication only
+2026-02-02 22:50:57.848 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Security Filter Chain configured successfully
+2026-02-02 22:50:57.891 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4f496628, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@755ed2e1, org.springframework.security.web.context.SecurityContextHolderFilter@203cab01, org.springframework.security.web.header.HeaderWriterFilter@cce1aeb, org.springframework.web.filter.CorsFilter@1d20aae4, org.springframework.security.web.authentication.logout.LogoutFilter@21bd386c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@58721f69, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7c5abd91, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3c242c57, org.springframework.security.web.session.SessionManagementFilter@40d96dd4, org.springframework.security.web.access.ExceptionTranslationFilter@50769bc1, org.springframework.security.web.access.intercept.AuthorizationFilter@61cb973d]
+2026-02-02 22:50:58.583 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - [TxId:] [User:] [ ] - Eureka HTTP Client uses RestTemplate.
+2026-02-02 22:50:58.650 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - [TxId:] [User:] [ ] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-02-02 22:50:58.700 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - [TxId:] [User:] [ ] - Setting initial instance status as: STARTING
+2026-02-02 22:50:58.716 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Initializing Eureka in region us-east-1
+2026-02-02 22:50:58.719 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - [TxId:] [User:] [ ] - Resolving eureka endpoints via configuration
+2026-02-02 22:50:58.724 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Disable delta property : false
+2026-02-02 22:50:58.724 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Single vip registry refresh property : null
+2026-02-02 22:50:58.724 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Force full registry fetch : false
+2026-02-02 22:50:58.724 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Application is null : false
+2026-02-02 22:50:58.725 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Registered Applications size is zero : true
+2026-02-02 22:50:58.725 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Application version is -1: true
+2026-02-02 22:50:58.725 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Getting all instance registry info from the eureka server
+2026-02-02 22:50:58.853 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - The response status is 200
+2026-02-02 22:50:58.853 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Starting heartbeat executor: renew interval is: 30
+2026-02-02 22:50:58.854 [main] INFO  c.n.discovery.InstanceInfoReplicator - [TxId:] [User:] [ ] - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-02-02 22:50:58.855 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Discovery Client initialized at timestamp 1770054658855 with initial instances count: 1
+2026-02-02 22:50:58.866 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - [TxId:] [User:] [ ] - Registering application UNKNOWN with eureka with status UP
+2026-02-02 22:50:58.866 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Saw local status change event StatusChangeEvent [timestamp=1770054658866, current=UP, previous=STARTING]
+2026-02-02 22:50:58.867 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - DiscoveryClient_UNKNOWN/192.168.1.45: registering service...
+2026-02-02 22:50:58.867 [main] INFO  o.a.coyote.http11.Http11NioProtocol - [TxId:] [User:] [ ] - Starting ProtocolHandler ["http-nio-8080"]
+2026-02-02 22:50:58.871 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - [TxId:] [User:] [ ] - Unregistering application UNKNOWN with eureka with status DOWN
+2026-02-02 22:50:58.871 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Saw local status change event StatusChangeEvent [timestamp=1770054658871, current=DOWN, previous=UP]
+2026-02-02 22:50:58.871 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - [TxId:] [User:] [ ] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-02-02 22:50:58.879 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-02 22:50:58.880 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Shutdown initiated...
+2026-02-02 22:50:58.881 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Shutdown completed.
+2026-02-02 22:50:58.882 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Shutting down DiscoveryClient ...
+2026-02-02 22:50:58.914 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - DiscoveryClient_UNKNOWN/192.168.1.45 - registration status: 204
+2026-02-02 22:50:58.914 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - DiscoveryClient_UNKNOWN/192.168.1.45: registering service...
+2026-02-02 22:50:58.919 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - DiscoveryClient_UNKNOWN/192.168.1.45 - registration status: 204
+2026-02-02 22:50:58.920 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Unregistering ...
+2026-02-02 22:50:58.978 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - DiscoveryClient_UNKNOWN/192.168.1.45 - deregister  status: 200
+2026-02-02 22:50:58.978 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Completed shut down of DiscoveryClient
+2026-02-02 22:50:58.995 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - [TxId:] [User:] [ ] - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-02-02 22:50:59.010 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - [TxId:] [User:] [ ] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2026-02-02 22:54:16.359 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Gym Management REST API with Spring Boot...
+2026-02-02 22:54:16.550 [background-preinit] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-02 22:54:16.575 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Application using Java 25 with PID 90896 (/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes started by cyber in /Users/cyber/IdeaProjects/epam/spring-core-epam)
+2026-02-02 22:54:16.576 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - No active profile set, falling back to 1 default profile: "default"
+2026-02-02 22:54:17.447 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-02 22:54:17.534 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 83 ms. Found 6 JPA repository interfaces.
+2026-02-02 22:54:17.699 [main] INFO  o.s.cloud.context.scope.GenericScope - [TxId:] [User:] [ ] - BeanFactory id=056ad32b-1ba6-3f3d-aa06-cf4a713203a7
+2026-02-02 22:54:18.101 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - [TxId:] [User:] [ ] - Tomcat initialized with port 8081 (http)
+2026-02-02 22:54:18.107 [main] INFO  o.a.coyote.http11.Http11NioProtocol - [TxId:] [User:] [ ] - Initializing ProtocolHandler ["http-nio-8081"]
+2026-02-02 22:54:18.108 [main] INFO  o.a.catalina.core.StandardService - [TxId:] [User:] [ ] - Starting service [Tomcat]
+2026-02-02 22:54:18.108 [main] INFO  o.a.catalina.core.StandardEngine - [TxId:] [User:] [ ] - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2026-02-02 22:54:18.144 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [TxId:] [User:] [ ] - Initializing Spring embedded WebApplicationContext
+2026-02-02 22:54:18.144 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [TxId:] [User:] [ ] - Root WebApplicationContext: initialization completed in 1549 ms
+2026-02-02 22:54:18.351 [main] ERROR o.s.b.w.e.tomcat.TomcatStarter - [TxId:] [User:] [ ] - Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'jwtAuthenticationFilter' defined in file [/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes/org/example/security/filter/JwtAuthenticationFilter.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'tokenServiceImpl' defined in file [/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes/org/example/services/impl/TokenServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'app-org.example.api.config.AppProperties': Could not bind properties to 'AppProperties' : prefix=app, ignoreInvalidFields=false, ignoreUnknownFields=true
+2026-02-02 22:54:18.361 [main] INFO  o.a.catalina.core.StandardService - [TxId:] [User:] [ ] - Stopping service [Tomcat]
+2026-02-02 22:54:18.365 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - [TxId:] [User:] [ ] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
+2026-02-02 22:54:18.376 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - [TxId:] [User:] [ ] - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-02-02 22:54:18.388 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - [TxId:] [User:] [ ] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Binding to target org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'app' to org.example.api.config.AppProperties failed:
+
+    Property: app.name
+    Value: "null"
+    Reason: Application name cannot be blank
+
+
+Action:
+
+Update your application's configuration
+
+2026-02-02 22:55:19.029 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Gym Management REST API with Spring Boot...
+2026-02-02 22:55:19.237 [background-preinit] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-02 22:55:19.266 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Application using Java 25 with PID 91080 (/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes started by cyber in /Users/cyber/IdeaProjects/epam/spring-core-epam)
+2026-02-02 22:55:19.266 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - No active profile set, falling back to 1 default profile: "default"
+2026-02-02 22:55:19.802 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-02 22:55:19.892 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 86 ms. Found 6 JPA repository interfaces.
+2026-02-02 22:55:20.065 [main] INFO  o.s.cloud.context.scope.GenericScope - [TxId:] [User:] [ ] - BeanFactory id=056ad32b-1ba6-3f3d-aa06-cf4a713203a7
+2026-02-02 22:55:20.529 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - [TxId:] [User:] [ ] - Tomcat initialized with port 8081 (http)
+2026-02-02 22:55:20.535 [main] INFO  o.a.coyote.http11.Http11NioProtocol - [TxId:] [User:] [ ] - Initializing ProtocolHandler ["http-nio-8081"]
+2026-02-02 22:55:20.536 [main] INFO  o.a.catalina.core.StandardService - [TxId:] [User:] [ ] - Starting service [Tomcat]
+2026-02-02 22:55:20.536 [main] INFO  o.a.catalina.core.StandardEngine - [TxId:] [User:] [ ] - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2026-02-02 22:55:20.580 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [TxId:] [User:] [ ] - Initializing Spring embedded WebApplicationContext
+2026-02-02 22:55:20.581 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [TxId:] [User:] [ ] - Root WebApplicationContext: initialization completed in 1294 ms
+2026-02-02 22:55:20.793 [main] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2026-02-02 22:55:20.898 [main] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-02 22:55:20.927 [main] INFO  org.hibernate.Version - [TxId:] [User:] [ ] - HHH000412: Hibernate ORM core version 6.4.1.Final
+2026-02-02 22:55:20.950 [main] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2026-02-02 22:55:21.142 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-02 22:55:21.162 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Starting...
+2026-02-02 22:55:21.311 [main] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1dd6e400
+2026-02-02 22:55:21.312 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Start completed.
+2026-02-02 22:55:21.998 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-02 22:55:22.074 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-02 22:55:22.234 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - [TxId:] [User:] [ ] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-02 22:55:22.496 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationManager bean created
+2026-02-02 22:55:22.519 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationProvider configured with UserDetailsService and PasswordEncoder
+2026-02-02 22:55:23.556 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - [TxId:] [User:] [ ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-02 22:55:23.941 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - [TxId:] [User:] [ ] - Exposing 4 endpoint(s) beneath base path '/actuator'
+2026-02-02 22:55:23.990 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring Security Filter Chain with JWT authentication
+2026-02-02 22:55:23.991 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - CORS configuration enabled for allowed origins
+2026-02-02 22:55:23.994 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring authorization rules...
+2026-02-02 22:55:24.005 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Authorization configured:
+2026-02-02 22:55:24.005 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainees/** (no authentication)
+2026-02-02 22:55:24.005 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: ALL /api/trainings/** (no authentication)
+2026-02-02 22:55:24.005 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: POST /api/trainers (registration only)
+2026-02-02 22:55:24.005 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: /api/auth/**
+2026-02-02 22:55:24.005 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Swagger UI and API docs
+2026-02-02 22:55:24.005 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Public: Actuator endpoints
+2026-02-02 22:55:24.005 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] -   - Protected: GET/PUT/DELETE /api/trainers/** (requires JWT)
+2026-02-02 22:55:24.005 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Session management set to STATELESS - JWT authentication only
+2026-02-02 22:55:24.005 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Security Filter Chain configured successfully
+2026-02-02 22:55:24.047 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5257f99d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7f2d4421, org.springframework.security.web.context.SecurityContextHolderFilter@2bcacf82, org.springframework.security.web.header.HeaderWriterFilter@13365eb9, org.springframework.web.filter.CorsFilter@48a8a298, org.springframework.security.web.authentication.logout.LogoutFilter@76022ebd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7e30dfa4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@28872a33, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6051e328, org.springframework.security.web.session.SessionManagementFilter@72219922, org.springframework.security.web.access.ExceptionTranslationFilter@425eb98a, org.springframework.security.web.access.intercept.AuthorizationFilter@47c57d0f]
+2026-02-02 22:55:24.709 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - [TxId:] [User:] [ ] - Eureka HTTP Client uses RestTemplate.
+2026-02-02 22:55:24.767 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - [TxId:] [User:] [ ] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-02-02 22:55:24.809 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - [TxId:] [User:] [ ] - Setting initial instance status as: STARTING
+2026-02-02 22:55:24.823 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Initializing Eureka in region us-east-1
+2026-02-02 22:55:24.825 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - [TxId:] [User:] [ ] - Resolving eureka endpoints via configuration
+2026-02-02 22:55:24.830 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Disable delta property : false
+2026-02-02 22:55:24.830 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Single vip registry refresh property : null
+2026-02-02 22:55:24.830 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Force full registry fetch : false
+2026-02-02 22:55:24.830 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Application is null : false
+2026-02-02 22:55:24.830 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Registered Applications size is zero : true
+2026-02-02 22:55:24.830 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Application version is -1: true
+2026-02-02 22:55:24.830 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Getting all instance registry info from the eureka server
+2026-02-02 22:55:24.952 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - The response status is 200
+2026-02-02 22:55:24.953 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Starting heartbeat executor: renew interval is: 30
+2026-02-02 22:55:24.954 [main] INFO  c.n.discovery.InstanceInfoReplicator - [TxId:] [User:] [ ] - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-02-02 22:55:24.954 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Discovery Client initialized at timestamp 1770054924954 with initial instances count: 2
+2026-02-02 22:55:24.965 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - [TxId:] [User:] [ ] - Registering application SPRING-CORE-EPAM with eureka with status UP
+2026-02-02 22:55:24.965 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Saw local status change event StatusChangeEvent [timestamp=1770054924965, current=UP, previous=STARTING]
+2026-02-02 22:55:24.966 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - DiscoveryClient_SPRING-CORE-EPAM/192.168.1.45:spring-core-epam:8081: registering service...
+2026-02-02 22:55:24.967 [main] INFO  o.a.coyote.http11.Http11NioProtocol - [TxId:] [User:] [ ] - Starting ProtocolHandler ["http-nio-8081"]
+2026-02-02 22:55:24.978 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - [TxId:] [User:] [ ] - Tomcat started on port 8081 (http) with context path ''
+2026-02-02 22:55:24.978 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - [TxId:] [User:] [ ] - Updating port to 8081
+2026-02-02 22:55:24.990 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - DiscoveryClient_SPRING-CORE-EPAM/192.168.1.45:spring-core-epam:8081 - registration status: 204
+2026-02-02 22:55:24.994 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Started Application in 5.921 seconds (process running for 6.166)
+2026-02-02 22:55:25.058 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Spring Boot application started successfully
+2026-02-02 22:55:25.058 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Server running on http://localhost:8080
+2026-02-02 22:55:25.058 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ API base path: http://localhost:8080/api
+2026-02-02 22:55:25.058 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ API documentation: http://localhost:8080/swagger-ui.html
+2026-02-02 22:55:25.058 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Spring Security JWT authentication is ACTIVE
+2026-02-02 22:55:25.058 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Active Spring profile(s): [default]
+2026-02-02 22:55:25.058 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Actuator health: http://localhost:8080/actuator/health
+2026-02-02 22:55:25.058 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Actuator metrics: http://localhost:8080/actuator/metrics
+2026-02-02 22:55:25.058 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Actuator prometheus: http://localhost:8080/actuator/prometheus
+2026-02-02 23:00:01.519 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m10s98ms).
+2026-02-02 23:01:26.299 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [TxId:] [User:] [ ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-02 23:01:26.300 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Initializing Servlet 'dispatcherServlet'
+2026-02-02 23:01:26.325 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Completed initialization in 24 ms
+2026-02-02 23:04:04.930 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - [TxId:] [User:] [ ] - Resolving eureka endpoints via configuration
+2026-02-02 23:06:31.641 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m30s75ms).
+2026-02-02 23:08:42.710 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m11s69ms).
+2026-02-02 23:11:01.615 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m18s905ms).
+2026-02-02 23:26:59.109 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m27s405ms).
+2026-02-02 23:42:57.325 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m28s193ms).
+2026-02-02 23:43:30.383 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - [TxId:] [User:] [ ] - Resolving eureka endpoints via configuration
+2026-02-02 23:59:56.072 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m28s741ms).

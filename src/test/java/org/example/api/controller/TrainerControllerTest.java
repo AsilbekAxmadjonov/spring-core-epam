@@ -1,7 +1,7 @@
 package org.example.api.controller;
 
-import org.example.api.controller.TrainerController;
 import org.example.api.dto.request.TrainerRequest;
+import org.example.integration.workload.dto.TrainerRegistrationResponse;
 import org.example.exception.UserNotFoundException;
 import org.example.persistance.model.Trainer;
 import org.example.services.TrainerService;
@@ -38,9 +38,9 @@ class TrainerControllerTest {
         request.setLastName("Smith");
         request.setSpecialization("Yoga");
 
-        Trainer created = Trainer.builder()
+        TrainerRegistrationResponse created = TrainerRegistrationResponse.builder()
                 .username("alice123")
-                .password("pass123".toCharArray())
+                .temporaryPassword("pass123")
                 .token("token123")
                 .build();
 
@@ -50,6 +50,13 @@ class TrainerControllerTest {
 
         assertEquals(201, response.getStatusCodeValue());
         assertNotNull(response.getBody());
+        assertTrue(response.getBody() instanceof TrainerRegistrationResponse);
+
+        TrainerRegistrationResponse body = (TrainerRegistrationResponse) response.getBody();
+        assertEquals("alice123", body.getUsername());
+        assertEquals("pass123", body.getTemporaryPassword());
+        assertEquals("token123", body.getToken());
+
         verify(trainerService, times(1)).createTrainer(any(Trainer.class));
     }
 
@@ -68,6 +75,7 @@ class TrainerControllerTest {
         ResponseEntity<Trainer> response = trainerController.getTrainerByUsername(username);
 
         assertEquals(200, response.getStatusCodeValue());
+        assertNotNull(response.getBody());
         assertEquals(username, response.getBody().getUsername());
         verify(trainerService, times(1)).getTrainerByUsername(username);
     }
@@ -93,6 +101,7 @@ class TrainerControllerTest {
         ResponseEntity<List<Trainer>> response = trainerController.getAllTrainers();
 
         assertEquals(200, response.getStatusCodeValue());
+        assertNotNull(response.getBody());
         assertEquals(2, response.getBody().size());
         verify(trainerService, times(1)).getAllTrainers();
     }
@@ -119,6 +128,7 @@ class TrainerControllerTest {
         ResponseEntity<Trainer> response = trainerController.updateTrainer(username, request);
 
         assertEquals(200, response.getStatusCodeValue());
+        assertNotNull(response.getBody());
         assertEquals(username, response.getBody().getUsername());
         verify(trainerService, times(1)).updateTrainer(eq(username), any(Trainer.class));
     }

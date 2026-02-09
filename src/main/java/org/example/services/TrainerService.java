@@ -1,6 +1,7 @@
 package org.example.services;
 
 import jakarta.validation.Valid;
+import org.example.integration.workload.dto.TrainerRegistrationResponse;
 import org.example.persistance.model.Trainer;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.Optional;
 
 public interface TrainerService {
 
-    Trainer createTrainer(@Valid Trainer trainer);
+    TrainerRegistrationResponse createTrainer(@Valid Trainer trainer);
 
     Optional<Trainer> getTrainerByUsername(String username);
 

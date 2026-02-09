@@ -2,6 +2,7 @@ package org.example.services.impl.dbImpl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.example.integration.workload.dto.TrainerRegistrationResponse;
 import org.example.persistance.entity.TrainerEntity;
 import org.example.persistance.entity.TrainingTypeEntity;
 import org.example.persistance.entity.UserEntity;
@@ -44,34 +45,24 @@ public class TrainerServiceDbImpl implements TrainerService {
     private static final int PASSWORD_LENGTH = 10;
     private static final SecureRandom random = new SecureRandom();
 
+
     @Override
     @Transactional
-    public Trainer createTrainer(Trainer trainer) {
-
-        MDC.put("operation", "createTrainer");
+    public TrainerRegistrationResponse createTrainer(Trainer trainer) {
 
         String baseUsername = trainer.getFirstName() + "." + trainer.getLastName();
         String username = generateUniqueUsername(baseUsername);
 
         String plainPassword = generateRandomPassword();
 
-        trainer.setUsername(username);
-        trainer.setPassword(plainPassword.toCharArray());
-
-        MDC.put("username", username);
-        log.info("Creating trainer with generated username: {}", username);
-
         UserEntity userEntity = new UserEntity();
         userEntity.setUsername(username);
         userEntity.setFirstName(trainer.getFirstName());
         userEntity.setLastName(trainer.getLastName());
-
-        String encodedPassword = passwordEncoder.encode(plainPassword);
-        userEntity.setPassword(encodedPassword.toCharArray());
+        userEntity.setPassword(passwordEncoder.encode(plainPassword).toCharArray());
         userEntity.setIsActive(true);
 
         UserEntity savedUser = userRepo.save(userEntity);
-        log.info("User created successfully: {}", username);
 
         TrainingTypeEntity trainingType = trainingTypeRepo.findByTrainingTypeName(trainer.getSpecialization())
                 .orElseThrow(() -> new IllegalArgumentException("Invalid specialization: " + trainer.getSpecialization()));
@@ -80,17 +71,15 @@ public class TrainerServiceDbImpl implements TrainerService {
         trainerEntity.setUserEntity(savedUser);
         trainerEntity.setSpecialization(trainingType);
 
-        TrainerEntity savedTrainer = trainerRepo.save(trainerEntity);
-        log.info("Trainer created successfully: {}", username);
+        trainerRepo.save(trainerEntity);
 
         String token = tokenService.generateToken(savedUser.getUsername());
-        log.info("JWT token generated for trainer: {}", username);
 
-        Trainer trainerModel = trainerMapper.toTrainerModel(savedTrainer);
-        trainerModel.setToken(token);
-        trainerModel.setPassword(plainPassword.toCharArray());
-
-        return trainerModel;
+        return TrainerRegistrationResponse.builder()
+                .username(username)
+                .temporaryPassword(plainPassword) // ✅ returned ONLY here
+                .token(token)
+                .build();
     }
 
     private String generateUniqueUsername(String baseUsername) {

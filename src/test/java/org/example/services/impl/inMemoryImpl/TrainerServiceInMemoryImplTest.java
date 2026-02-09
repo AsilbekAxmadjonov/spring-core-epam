@@ -1,5 +1,6 @@
 package org.example.services.impl.inMemoryImpl;
 
+import org.example.integration.workload.dto.TrainerRegistrationResponse;
 import org.example.dao.TrainerDao;
 import org.example.persistance.model.Trainer;
 import org.example.security.AuthenticationContext;
@@ -39,7 +40,6 @@ class TrainerServiceInMemoryImplTest {
                 .username(username)
                 .firstName(first)
                 .lastName(last)
-                .password("123".toCharArray())
                 .isActive(true)
                 .build();
     }
@@ -48,10 +48,12 @@ class TrainerServiceInMemoryImplTest {
     void testCreateTrainer() {
         Trainer trainer = createTrainer("john01", "John", "Doe");
 
-        Trainer result = trainerService.createTrainer(trainer);
+        TrainerRegistrationResponse result = trainerService.createTrainer(trainer);
 
-        verify(trainerDao, times(1)).save(trainer);
-        assertEquals(trainer, result);
+        verify(trainerDao, times(1)).save(any(Trainer.class));
+        assertNotNull(result);
+        assertNotNull(result.getUsername());
+        assertNotNull(result.getTemporaryPassword()); // since registration returns password
     }
 
     @Test

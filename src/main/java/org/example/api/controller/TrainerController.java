@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.api.dto.request.TrainerRequest;
 import org.example.api.dto.response.ErrorResponse;
-import org.example.api.dto.response.TrainerResponse;
+import org.example.integration.workload.dto.TrainerRegistrationResponse;
 import org.example.exception.UserNotFoundException;
 import org.example.persistance.model.Trainer;
 import org.example.services.TrainerService;
@@ -39,8 +39,8 @@ public class TrainerController {
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "201",
-                    description = "Trainer created successfully with generated username and password",
-                    content = @Content(schema = @Schema(implementation = TrainerResponse.class))
+                    description = "Trainer created successfully with generated username and temporary password",
+                    content = @Content(schema = @Schema(implementation = TrainerRegistrationResponse.class))
             ),
             @ApiResponse(
                     responseCode = "400",
@@ -50,8 +50,7 @@ public class TrainerController {
     })
 
     @PostMapping
-    public ResponseEntity<TrainerResponse> createTrainer(@Valid @RequestBody TrainerRequest request) {
-        log.info("Creating new trainer: {} {}", request.getFirstName(), request.getLastName());
+    public ResponseEntity<TrainerRegistrationResponse> createTrainer(@Valid @RequestBody TrainerRequest request) {
 
         Trainer trainer = Trainer.builder()
                 .firstName(request.getFirstName())
@@ -60,16 +59,8 @@ public class TrainerController {
                 .isActive(true)
                 .build();
 
-        Trainer created = trainerService.createTrainer(trainer);
-
-        log.info("Trainer created successfully with username: {}", created.getUsername());
-
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(TrainerResponse.builder()
-                        .username(created.getUsername())
-                        .password(created.getPassword())
-                        .token(created.getToken())
-                        .build());
+                .body(trainerService.createTrainer(trainer));
     }
 
     @Operation(

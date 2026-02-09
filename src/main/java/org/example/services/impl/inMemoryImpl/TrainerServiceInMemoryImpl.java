@@ -2,6 +2,7 @@ package org.example.services.impl.inMemoryImpl;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.example.integration.workload.dto.TrainerRegistrationResponse;
 import org.example.dao.TrainerDao;
 import org.example.persistance.model.Trainer;
 import org.example.security.AuthenticationContext;
@@ -26,11 +27,24 @@ public class TrainerServiceInMemoryImpl implements TrainerService {
     }
 
     @Override
-    public Trainer createTrainer(@Valid Trainer trainer) {
-        log.info("Creating new Trainer: {}", trainer.getUsername());
+    public TrainerRegistrationResponse createTrainer(@Valid Trainer trainer) {
+        log.info("Creating new Trainer (in-memory)");
+
+        if (trainer.getUsername() == null || trainer.getUsername().isBlank()) {
+            trainer.setUsername((trainer.getFirstName() + "." + trainer.getLastName()).toLowerCase());
+        }
+
+        String tempPassword = "pass123";
+
         trainerDao.save(trainer);
-        return trainer;
+
+        return TrainerRegistrationResponse.builder()
+                .username(trainer.getUsername())
+                .temporaryPassword(tempPassword)
+                .token(null)
+                .build();
     }
+
 
     @Override
     public Optional<Trainer> getTrainerByUsername(String username) {
