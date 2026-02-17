@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.api.dto.request.TrainingRequest;
 import org.example.integration.workload.WorkloadServiceClient;
 import org.example.integration.workload.dto.TrainerWorkloadEventRequest;
+import org.example.mapper.TrainerWorkloadEventMapper;
 import org.example.persistance.entity.*;
 import org.example.exception.UserNotFoundException;
 import org.example.mapper.TrainingMapper;
@@ -41,6 +42,8 @@ public class TrainingServiceDbImpl implements TrainingService {
     private final TrainingMapper trainingMapper;
     private final TrainingTypeRepo trainingTypeRepo;
     private final WorkloadServiceClient workloadServiceClient;
+    private final TrainerWorkloadEventMapper trainerWorkloadEventMapper;
+
 
 
     @Override
@@ -137,19 +140,9 @@ public class TrainingServiceDbImpl implements TrainingService {
         TrainingEntity saved = trainingRepo.save(entity);
 
         String eventId = UUID.randomUUID().toString();
+        TrainerWorkloadEventRequest event = trainerWorkloadEventMapper.toAddEvent(saved, trainerUser);
 
-        TrainerWorkloadEventRequest event = TrainerWorkloadEventRequest.builder()
-                .trainingId(saved.getId().toString())
-                .username(trainerUser.getUsername())
-                .firstName(trainerUser.getFirstName())
-                .lastName(trainerUser.getLastName())
-                .isActive(Boolean.TRUE.equals(trainerUser.getIsActive()))
-                .trainingDate(saved.getTrainingDate())
-                .trainingDurationMinutes(saved.getTrainingDurationMinutes())
-                .actionType(TrainerWorkloadEventRequest.ActionType.ADD)
-                .build();
-
-        workloadServiceClient.sendEvent(eventId,event);
+        workloadServiceClient.sendEvent(eventId, event);
 
         return trainingMapper.toTrainingModel(saved);
     }

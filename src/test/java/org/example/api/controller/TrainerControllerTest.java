@@ -4,12 +4,14 @@ import org.example.api.dto.request.TrainerRequest;
 import org.example.integration.workload.dto.TrainerRegistrationResponse;
 import org.example.exception.UserNotFoundException;
 import org.example.persistance.model.Trainer;
+import org.example.persistance.model.TrainerRegistrationResult;
 import org.example.services.TrainerService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -33,32 +35,34 @@ class TrainerControllerTest {
 
     @Test
     void testCreateTrainer() {
-        TrainerRequest request = new TrainerRequest();
-        request.setFirstName("Alice");
-        request.setLastName("Smith");
-        request.setSpecialization("Yoga");
+        Trainer trainer = new Trainer();
+        trainer.setFirstName("Alice");
+        trainer.setLastName("Smith");
+        trainer.setSpecialization("Yoga");
 
-        TrainerRegistrationResponse created = TrainerRegistrationResponse.builder()
+        TrainerRegistrationResult result = TrainerRegistrationResult.builder()
                 .username("alice123")
                 .temporaryPassword("pass123")
                 .token("token123")
                 .build();
 
-        when(trainerService.createTrainer(any(Trainer.class))).thenReturn(created);
+        when(trainerService.createTrainer(any(Trainer.class))).thenReturn(result);
 
-        ResponseEntity<?> response = trainerController.createTrainer(request);
+        ResponseEntity<TrainerRegistrationResponse> response = trainerController.createTrainer(trainer);
 
-        assertEquals(201, response.getStatusCodeValue());
+        // avoid deprecated getStatusCodeValue()
+        assertEquals(HttpStatus.OK, response.getStatusCode());
         assertNotNull(response.getBody());
-        assertTrue(response.getBody() instanceof TrainerRegistrationResponse);
 
-        TrainerRegistrationResponse body = (TrainerRegistrationResponse) response.getBody();
+        TrainerRegistrationResponse body = response.getBody();
         assertEquals("alice123", body.getUsername());
         assertEquals("pass123", body.getTemporaryPassword());
         assertEquals("token123", body.getToken());
 
         verify(trainerService, times(1)).createTrainer(any(Trainer.class));
     }
+
+
 
     @Test
     void testGetTrainerByUsernameFound() {

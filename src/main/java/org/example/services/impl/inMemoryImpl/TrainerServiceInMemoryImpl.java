@@ -2,9 +2,9 @@ package org.example.services.impl.inMemoryImpl;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-import org.example.integration.workload.dto.TrainerRegistrationResponse;
 import org.example.dao.TrainerDao;
 import org.example.persistance.model.Trainer;
+import org.example.persistance.model.TrainerRegistrationResult;
 import org.example.security.AuthenticationContext;
 import org.example.services.TrainerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,23 +27,25 @@ public class TrainerServiceInMemoryImpl implements TrainerService {
     }
 
     @Override
-    public TrainerRegistrationResponse createTrainer(@Valid Trainer trainer) {
-        log.info("Creating new Trainer (in-memory)");
+    public TrainerRegistrationResult createTrainer(@Valid Trainer trainer) {
 
         if (trainer.getUsername() == null || trainer.getUsername().isBlank()) {
             trainer.setUsername((trainer.getFirstName() + "." + trainer.getLastName()).toLowerCase());
         }
 
-        String tempPassword = "pass123";
+        log.info("Creating new Trainer (in-memory), username={}", trainer.getUsername());
 
+        String tempPassword = "pass123";
         trainerDao.save(trainer);
 
-        return TrainerRegistrationResponse.builder()
+        return TrainerRegistrationResult.builder()
                 .username(trainer.getUsername())
                 .temporaryPassword(tempPassword)
                 .token(null)
                 .build();
     }
+
+
 
 
     @Override

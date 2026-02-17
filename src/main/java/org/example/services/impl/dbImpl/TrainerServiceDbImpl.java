@@ -2,13 +2,13 @@ package org.example.services.impl.dbImpl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.integration.workload.dto.TrainerRegistrationResponse;
 import org.example.persistance.entity.TrainerEntity;
 import org.example.persistance.entity.TrainingTypeEntity;
 import org.example.persistance.entity.UserEntity;
 import org.example.exception.UserNotFoundException;
 import org.example.mapper.TrainerMapper;
 import org.example.persistance.model.Trainer;
+import org.example.persistance.model.TrainerRegistrationResult;
 import org.example.persistance.repository.TrainerRepo;
 import org.example.persistance.repository.TrainingTypeRepo;
 import org.example.persistance.repository.UserRepo;
@@ -48,7 +48,7 @@ public class TrainerServiceDbImpl implements TrainerService {
 
     @Override
     @Transactional
-    public TrainerRegistrationResponse createTrainer(Trainer trainer) {
+    public TrainerRegistrationResult createTrainer(Trainer trainer) {
 
         String baseUsername = trainer.getFirstName() + "." + trainer.getLastName();
         String username = generateUniqueUsername(baseUsername);
@@ -75,12 +75,13 @@ public class TrainerServiceDbImpl implements TrainerService {
 
         String token = tokenService.generateToken(savedUser.getUsername());
 
-        return TrainerRegistrationResponse.builder()
+        return TrainerRegistrationResult.builder()
                 .username(username)
-                .temporaryPassword(plainPassword) // ✅ returned ONLY here
+                .temporaryPassword(plainPassword)
                 .token(token)
                 .build();
     }
+
 
     private String generateUniqueUsername(String baseUsername) {
         String username = baseUsername;

@@ -16,6 +16,7 @@ import org.example.api.dto.response.ErrorResponse;
 import org.example.integration.workload.dto.TrainerRegistrationResponse;
 import org.example.exception.UserNotFoundException;
 import org.example.persistance.model.Trainer;
+import org.example.persistance.model.TrainerRegistrationResult;
 import org.example.services.TrainerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,17 +51,17 @@ public class TrainerController {
     })
 
     @PostMapping
-    public ResponseEntity<TrainerRegistrationResponse> createTrainer(@Valid @RequestBody TrainerRequest request) {
+    public ResponseEntity<TrainerRegistrationResponse> createTrainer(@Valid @RequestBody Trainer trainer) {
 
-        Trainer trainer = Trainer.builder()
-                .firstName(request.getFirstName())
-                .lastName(request.getLastName())
-                .specialization(request.getSpecialization())
-                .isActive(true)
+        TrainerRegistrationResult result = trainerService.createTrainer(trainer);
+
+        TrainerRegistrationResponse response = TrainerRegistrationResponse.builder()
+                .username(result.getUsername())
+                .temporaryPassword(result.getTemporaryPassword())
+                .token(result.getToken())
                 .build();
 
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(trainerService.createTrainer(trainer));
+        return ResponseEntity.ok(response);
     }
 
     @Operation(

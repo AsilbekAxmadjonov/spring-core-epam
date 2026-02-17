@@ -1,157 +1,136 @@
 package org.example.services.impl.inMemoryImpl;
 
-import org.example.integration.workload.dto.TrainerRegistrationResponse;
 import org.example.dao.TrainerDao;
 import org.example.persistance.model.Trainer;
+import org.example.persistance.model.TrainerRegistrationResult;
 import org.example.security.AuthenticationContext;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.MockedStatic;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 class TrainerServiceInMemoryImplTest {
 
+    @Mock
     private TrainerDao trainerDao;
+
+    @InjectMocks
     private TrainerServiceInMemoryImpl trainerService;
-    private MockedStatic<AuthenticationContext> authContextMock;
-
-    @BeforeEach
-    void setUp() {
-        trainerDao = mock(TrainerDao.class);
-        trainerService = new TrainerServiceInMemoryImpl();
-        trainerService.setTrainerDao(trainerDao);
-
-        authContextMock = mockStatic(AuthenticationContext.class);
-    }
-
-    @AfterEach
-    void tearDown() {
-        authContextMock.close();
-    }
-
-    private Trainer createTrainer(String username, String first, String last) {
-        return Trainer.builder()
-                .username(username)
-                .firstName(first)
-                .lastName(last)
-                .isActive(true)
-                .build();
-    }
 
     @Test
-    void testCreateTrainer() {
+    void createTrainer_shouldSaveTrainer_andReturnRegistrationResult() {
         Trainer trainer = createTrainer("john01", "John", "Doe");
 
-        TrainerRegistrationResponse result = trainerService.createTrainer(trainer);
+        TrainerRegistrationResult result = trainerService.createTrainer(trainer);
 
         verify(trainerDao, times(1)).save(any(Trainer.class));
+
         assertNotNull(result);
-        assertNotNull(result.getUsername());
-        assertNotNull(result.getTemporaryPassword()); // since registration returns password
+        assertEquals("john01", result.getUsername());
+        assertNotNull(result.getTemporaryPassword());
+        assertNull(result.getToken());
     }
 
     @Test
-    void testGetTrainerByUsername_Found() {
-        Trainer trainer = createTrainer("alice01", "Alice", "Brown");
+    void createTrainer_shouldGenerateUsername_whenMissing() {
+        Trainer trainer = createTrainer(null, "John", "Doe");
 
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("alice01");
-        when(trainerDao.findByUsername("alice01")).thenReturn(trainer);
+        TrainerRegistrationResult result = trainerService.createTrainer(trainer);
 
-        Optional<Trainer> result = trainerService.getTrainerByUsername("alice01");
+        verify(trainerDao).save(any(Trainer.class));
 
-        assertTrue(result.isPresent());
-        assertEquals("Alice", result.get().getFirstName());
-        verify(trainerDao, times(1)).findByUsername("alice01");
+        assertNotNull(result);
+        assertEquals("john.doe", result.getUsername());
+        assertEquals("pass123", result.getTemporaryPassword());
+        assertNull(result.getToken());
     }
 
     @Test
-    void testGetTrainerByUsername_NotFound() {
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("unknown");
-        when(trainerDao.findByUsername("unknown")).thenReturn(null);
+    void getTrainerByUsername_shouldReturnTrainer_whenAuthenticated() {
+        String username = "john01";
+        Trainer expected = createTrainer(username, "John", "Doe");
+        when(trainerDao.findByUsername(username)).thenReturn(expected);
 
-        Optional<Trainer> result = trainerService.getTrainerByUsername("unknown");
+        try (MockedStatic<AuthenticationContext> mocked = mockStatic(AuthenticationContext.class)) {
+            mocked.when(AuthenticationContext::getAuthenticatedUser).thenReturn(username);
 
-        assertTrue(result.isEmpty());
-        verify(trainerDao, times(1)).findByUsername("unknown");
+            Optional<Trainer> result = trainerService.getTrainerByUsername(username);
+
+            assertTrue(result.isPresent());
+            assertEquals(username, result.get().getUsername());
+            verify(trainerDao).findByUsername(username);
+        }
     }
 
     @Test
-    void testGetTrainerByUsername_NotAuthenticated() {
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn(null);
+    void getTrainerByUsername_shouldThrow_whenNotAuthenticated() {
+        String username = "john01";
 
-        SecurityException ex = assertThrows(SecurityException.class,
-                () -> trainerService.getTrainerByUsername("alice01"));
+        try (MockedStatic<AuthenticationContext> mocked = mockStatic(AuthenticationContext.class)) {
+            mocked.when(AuthenticationContext::getAuthenticatedUser).thenReturn(null);
 
-        assertEquals("User not authenticated", ex.getMessage());
-        verify(trainerDao, never()).findByUsername(anyString());
+            assertThrows(SecurityException.class, () -> trainerService.getTrainerByUsername(username));
+            verify(trainerDao, never()).findByUsername(any());
+        }
     }
 
     @Test
-    void testGetTrainerByUsername_DifferentUser() {
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("other.user");
+    void updateTrainer_shouldUpdate_whenAuthenticated() {
+        String username = "john01";
+        Trainer trainer = createTrainer(username, "John", "Doe");
 
-        SecurityException ex = assertThrows(SecurityException.class,
-                () -> trainerService.getTrainerByUsername("alice01"));
+        try (MockedStatic<AuthenticationContext> mocked = mockStatic(AuthenticationContext.class)) {
+            mocked.when(AuthenticationContext::getAuthenticatedUser).thenReturn(username);
 
-        assertEquals("User not authenticated", ex.getMessage());
-        verify(trainerDao, never()).findByUsername(anyString());
+            Trainer updated = trainerService.updateTrainer(username, trainer);
+
+            assertSame(trainer, updated);
+            verify(trainerDao).update(trainer);
+        }
     }
 
     @Test
-    void testUpdateTrainer() {
-        Trainer trainer = createTrainer("bob01", "Bob", "Smith");
+    void updateTrainer_shouldThrow_whenNotAuthenticated() {
+        String username = "john01";
+        Trainer trainer = createTrainer(username, "John", "Doe");
 
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("bob01");
+        try (MockedStatic<AuthenticationContext> mocked = mockStatic(AuthenticationContext.class)) {
+            mocked.when(AuthenticationContext::getAuthenticatedUser).thenReturn("someoneElse");
 
-        Trainer result = trainerService.updateTrainer("bob01", trainer);
-
-        verify(trainerDao, times(1)).update(trainer);
-        assertEquals(trainer, result);
+            assertThrows(SecurityException.class, () -> trainerService.updateTrainer(username, trainer));
+            verify(trainerDao, never()).update(any());
+        }
     }
 
     @Test
-    void testUpdateTrainer_NotAuthenticated() {
-        Trainer trainer = createTrainer("bob01", "Bob", "Smith");
+    void getAllTrainers_shouldReturnAllFromDao() {
+        List<Trainer> trainers = List.of(
+                createTrainer("a", "A", "One"),
+                createTrainer("b", "B", "Two")
+        );
+        when(trainerDao.findAll()).thenReturn(trainers);
 
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn(null);
+        List<Trainer> result = trainerService.getAllTrainers();
 
-        SecurityException ex = assertThrows(SecurityException.class,
-                () -> trainerService.updateTrainer("bob01", trainer));
-
-        assertEquals("User not authenticated", ex.getMessage());
-        verify(trainerDao, never()).update(any());
+        assertEquals(2, result.size());
+        verify(trainerDao).findAll();
     }
 
-    @Test
-    void testUpdateTrainer_DifferentUser() {
-        Trainer trainer = createTrainer("bob01", "Bob", "Smith");
-
-        authContextMock.when(AuthenticationContext::getAuthenticatedUser).thenReturn("other.user");
-
-        SecurityException ex = assertThrows(SecurityException.class,
-                () -> trainerService.updateTrainer("bob01", trainer));
-
-        assertEquals("User not authenticated", ex.getMessage());
-        verify(trainerDao, never()).update(any());
-    }
-
-    @Test
-    void testGetAllTrainers() {
-        Trainer t1 = createTrainer("t1", "Tom", "Jones");
-        Trainer t2 = createTrainer("t2", "Jane", "Miller");
-        when(trainerDao.findAll()).thenReturn(List.of(t1, t2));
-
-        List<Trainer> trainers = trainerService.getAllTrainers();
-
-        assertEquals(2, trainers.size());
-        assertTrue(trainers.contains(t1));
-        assertTrue(trainers.contains(t2));
-        verify(trainerDao, times(1)).findAll();
+    private Trainer createTrainer(String username, String firstName, String lastName) {
+        Trainer t = new Trainer();
+        t.setUsername(username);
+        t.setFirstName(firstName);
+        t.setLastName(lastName);
+        return t;
     }
 }

@@ -44,7 +44,6 @@ public class SecurityConfig {
     private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
     private final JwtAccessDeniedHandler jwtAccessDeniedHandler;
 
-    // ✅ ADD THIS
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Bean
@@ -113,7 +112,6 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
 
-                // ✅ MOST IMPORTANT LINE:
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         log.info("✅ Security Filter Chain configured successfully");

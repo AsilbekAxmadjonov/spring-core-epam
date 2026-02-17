@@ -1,19 +1,21 @@
 package org.example.services.impl.dbImpl;
 
-import org.example.integration.workload.dto.TrainerRegistrationResponse;
+import org.example.exception.UserNotFoundException;
+import org.example.mapper.TrainerMapper;
 import org.example.persistance.entity.TrainerEntity;
 import org.example.persistance.entity.TrainingTypeEntity;
 import org.example.persistance.entity.UserEntity;
-import org.example.exception.UserNotFoundException;
-import org.example.mapper.TrainerMapper;
 import org.example.persistance.model.Trainer;
+import org.example.persistance.model.TrainerRegistrationResult;
 import org.example.persistance.repository.TrainerRepo;
 import org.example.persistance.repository.TrainingTypeRepo;
 import org.example.persistance.repository.UserRepo;
 import org.example.services.TokenService;
+import org.example.services.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -23,28 +25,19 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class TrainerServiceDbImplTest {
 
-    @Mock
-    private TrainerRepo trainerRepo;
-
-    @Mock
-    private TrainerMapper trainerMapper;
-
-    @Mock
-    private TrainingTypeRepo trainingTypeRepo;
-
-    @Mock
-    private UserRepo userRepo;
-
-    @Mock
-    private PasswordEncoder passwordEncoder;
-
-    @Mock
-    private TokenService tokenService;
+    @Mock private TrainerRepo trainerRepo;
+    @Mock private TrainerMapper trainerMapper;
+    @Mock private TrainingTypeRepo trainingTypeRepo;
+    @Mock private UserRepo userRepo;
+    @Mock private PasswordEncoder passwordEncoder;
+    @Mock private TokenService tokenService;
+    @Mock private UserService userService; // required by constructor
 
     @InjectMocks
     private TrainerServiceDbImpl trainerService;
@@ -81,38 +74,77 @@ class TrainerServiceDbImplTest {
 
     @Test
     void createTrainer_success() {
+        // username availability check: first call returns empty => username is free
         when(userRepo.findByUsername(anyString())).thenReturn(Optional.empty());
+
         when(passwordEncoder.encode(anyString())).thenReturn("encoded-password");
-        when(userRepo.save(any(UserEntity.class))).thenReturn(userEntity);
+        when(userRepo.save(any(UserEntity.class))).thenAnswer(inv -> inv.getArgument(0));
 
         when(trainingTypeRepo.findByTrainingTypeName("Fitness")).thenReturn(Optional.of(trainingType));
         when(trainerRepo.save(any(TrainerEntity.class))).thenReturn(trainerEntity);
 
         when(tokenService.generateToken(anyString())).thenReturn("jwt-token");
 
-        TrainerRegistrationResponse result = trainerService.createTrainer(trainerModel);
+        TrainerRegistrationResult result = trainerService.createTrainer(trainerModel);
 
         assertNotNull(result);
         assertNotNull(result.getUsername());
         assertNotNull(result.getTemporaryPassword());
         assertNotNull(result.getToken());
 
-        verify(tokenService).generateToken(anyString());
+        // password is random; just validate expectations
+        assertEquals(10, result.getTemporaryPassword().length());
+        assertEquals("jwt-token", result.getToken());
+
         verify(userRepo).save(any(UserEntity.class));
         verify(trainerRepo).save(any(TrainerEntity.class));
+        verify(tokenService).generateToken(anyString());
+
+        // verify user password was encoded and stored as char[]
+        ArgumentCaptor<UserEntity> userCaptor = ArgumentCaptor.forClass(UserEntity.class);
+        verify(userRepo).save(userCaptor.capture());
+        UserEntity savedUser = userCaptor.getValue();
+        assertNotNull(savedUser.getPassword());
+        assertArrayEquals("encoded-password".toCharArray(), savedUser.getPassword());
+        assertTrue(Boolean.TRUE.equals(savedUser.getIsActive()));
+    }
+
+    @Test
+    void createTrainer_shouldAppendCounter_whenUsernameAlreadyExists() {
+        // base username "Mike.Johnson" is taken, then "Mike.Johnson1" is free
+        when(userRepo.findByUsername("Mike.Johnson")).thenReturn(Optional.of(userEntity));
+        when(userRepo.findByUsername("Mike.Johnson1")).thenReturn(Optional.empty());
+
+        when(passwordEncoder.encode(anyString())).thenReturn("encoded-password");
+        when(userRepo.save(any(UserEntity.class))).thenAnswer(inv -> inv.getArgument(0));
+        when(trainingTypeRepo.findByTrainingTypeName("Fitness")).thenReturn(Optional.of(trainingType));
+        when(trainerRepo.save(any(TrainerEntity.class))).thenReturn(trainerEntity);
+        when(tokenService.generateToken(anyString())).thenReturn("jwt-token");
+
+        TrainerRegistrationResult result = trainerService.createTrainer(trainerModel);
+
+        assertEquals("Mike.Johnson1", result.getUsername());
     }
 
     @Test
     void createTrainer_trainingTypeNotFound() {
         when(userRepo.findByUsername(anyString())).thenReturn(Optional.empty());
-        when(passwordEncoder.encode(anyString())).thenReturn("encoded-password");
-        when(userRepo.save(any(UserEntity.class))).thenReturn(userEntity);
 
+        // ✅ needed to avoid NPE on toCharArray()
+        when(passwordEncoder.encode(anyString())).thenReturn("encoded-password");
+
+        when(userRepo.save(any(UserEntity.class))).thenAnswer(inv -> inv.getArgument(0));
+
+        // ✅ trigger your expected exception
         when(trainingTypeRepo.findByTrainingTypeName("Fitness")).thenReturn(Optional.empty());
 
         assertThrows(IllegalArgumentException.class,
                 () -> trainerService.createTrainer(trainerModel));
+
+        verify(trainerRepo, never()).save(any());
     }
+
+
 
     @Test
     void getTrainerByUsername_found() {
@@ -122,7 +154,9 @@ class TrainerServiceDbImplTest {
         Optional<Trainer> result = trainerService.getTrainerByUsername("Mike.Johnson");
 
         assertTrue(result.isPresent());
+        assertEquals("Mike", result.get().getFirstName());
         verify(trainerRepo).findByUsername("Mike.Johnson");
+        verify(trainerMapper).toTrainerModel(trainerEntity);
     }
 
     @Test
@@ -132,19 +166,63 @@ class TrainerServiceDbImplTest {
         Optional<Trainer> result = trainerService.getTrainerByUsername("Mike.Johnson");
 
         assertTrue(result.isEmpty());
+        verify(trainerMapper, never()).toTrainerModel(any());
     }
 
     @Test
-    void updateTrainer_success() {
+    void updateTrainer_success_nameNotChanged_shouldNotRegenerateUsername() {
         when(trainerRepo.findByUsername("Mike.Johnson")).thenReturn(Optional.of(trainerEntity));
-        when(trainerRepo.save(trainerEntity)).thenReturn(trainerEntity);
-        when(trainerMapper.toTrainerModel(trainerEntity)).thenReturn(trainerModel);
+        when(trainerRepo.save(any(TrainerEntity.class))).thenAnswer(inv -> inv.getArgument(0));
+        when(trainerMapper.toTrainerModel(any(TrainerEntity.class))).thenReturn(trainerModel);
 
-        Trainer result = trainerService.updateTrainer("Mike.Johnson", trainerModel);
+        Trainer updatedTrainer = Trainer.builder()
+                .firstName("Mike")
+                .lastName("Johnson")
+                .specialization("Fitness")
+                .build();
+
+        Trainer result = trainerService.updateTrainer("Mike.Johnson", updatedTrainer);
 
         assertNotNull(result);
-        verify(trainerMapper).updateEntity(trainerModel, trainerEntity);
+        verify(trainerMapper).updateEntity(updatedTrainer, trainerEntity);
         verify(trainerRepo).save(trainerEntity);
+
+        // username should remain the same
+        assertEquals("Mike.Johnson", trainerEntity.getUserEntity().getUsername());
+        verify(userRepo, never()).findByUsername(anyString()); // generateUniqueUsername should NOT be called
+    }
+
+    @Test
+    void updateTrainer_success_nameChanged_shouldRegenerateUsername() {
+        when(trainerRepo.findByUsername("Mike.Johnson")).thenReturn(Optional.of(trainerEntity));
+
+        // when name changes, service calls generateUniqueUsername(base)
+        when(userRepo.findByUsername("New.Name")).thenReturn(Optional.empty());
+
+        // trainerRepo.save returns entity with updated username (same object in this case)
+        when(trainerRepo.save(any(TrainerEntity.class))).thenAnswer(inv -> inv.getArgument(0));
+
+        Trainer mappedResult = Trainer.builder()
+                .firstName("New")
+                .lastName("Name")
+                .specialization("Fitness")
+                .build();
+        when(trainerMapper.toTrainerModel(any(TrainerEntity.class))).thenReturn(mappedResult);
+
+        Trainer updatedTrainer = Trainer.builder()
+                .firstName("New")
+                .lastName("Name")
+                .specialization("Fitness")
+                .build();
+
+        Trainer result = trainerService.updateTrainer("Mike.Johnson", updatedTrainer);
+
+        assertNotNull(result);
+        verify(trainerMapper).updateEntity(updatedTrainer, trainerEntity);
+        verify(userRepo).findByUsername("New.Name");
+        verify(trainerRepo).save(trainerEntity);
+
+        assertEquals("New.Name", trainerEntity.getUserEntity().getUsername());
     }
 
     @Test
@@ -164,5 +242,6 @@ class TrainerServiceDbImplTest {
 
         assertEquals(1, result.size());
         verify(trainerRepo).findAll();
+        verify(trainerMapper).toTrainerModels(anyList());
     }
 }
