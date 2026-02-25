@@ -1,8 +1,62 @@
+server:
+  address: 0.0.0.0
+  port: 8081
+  tomcat:
+    connection-timeout: 20000
+    keep-alive-timeout: 20000
+    accept-count: 100
+    max-connections: 10000
+    threads:
+      max: 200
+      min-spare: 10
+
+spring:
+  application:
+    name: spring-core-epam
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/hibernate
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 20000
+      idle-timeout: 300000
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+
+  cloud:
+    openfeign:
+      client:
+        config:
+          workload-service:
+            connectTimeout: 2000
+            readTimeout: 3000
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    hostname: localhost
+    instance-id: ${spring.application.name}:${server.port}
+
+
 app:
   name: spring-core-epam
   security:
     jwt-secret: mySecretKeyThatIsAtLeast256BitsLongForHS256Algorithm123456
     jwt-expiration: 3600000
+
   data:
     trainers:
       path: data/trainers.json
@@ -10,6 +64,7 @@ app:
       path: data/trainees.json
     trainings:
       path: data/trainings.json
+
   cors:
     allowed-origins:
       - http://localhost:3000
@@ -28,23 +83,6 @@ app:
     allow-credentials: true
     max-age: 3600
 
-
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5433/hibernate
-    username: postgres
-    password: postgres
-    driver-class-name: org.postgresql.Driver
-
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate:
-        jdbc:
-          time_zone: UTC
-
 management:
   endpoints:
     web:
@@ -53,3 +91,31 @@ management:
   endpoint:
     health:
       show-details: always
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      workloadCB:
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slowCallRateThreshold: 50
+        slowCallDurationThreshold: 2s
+  retry:
+    instances:
+      workloadRetry:
+        maxAttempts: 3
+        waitDuration: 300ms
+        retryExceptions:
+          - feign.RetryableException
+          - java.io.IOException
+        ignoreExceptions:
+          - feign.FeignException
+
+logging:
+  level:
+    org.example.security.filter.JwtAuthenticationFilter: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{transactionId}] %-5level %logger{36} - %msg%n"

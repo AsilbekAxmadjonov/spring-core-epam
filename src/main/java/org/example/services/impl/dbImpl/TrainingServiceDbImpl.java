@@ -4,10 +4,10 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.api.dto.request.TrainingRequest;
-import org.example.persistance.entity.TraineeEntity;
-import org.example.persistance.entity.TrainerEntity;
-import org.example.persistance.entity.TrainingEntity;
-import org.example.persistance.entity.TrainingTypeEntity;
+import org.example.integration.workload.WorkloadServiceClient;
+import org.example.integration.workload.dto.TrainerWorkloadEventRequest;
+import org.example.mapper.TrainerWorkloadEventMapper;
+import org.example.persistance.entity.*;
 import org.example.exception.UserNotFoundException;
 import org.example.mapper.TrainingMapper;
 import org.example.persistance.model.Training;
@@ -18,12 +18,15 @@ import org.example.persistance.repository.TrainingTypeRepo;
 import org.example.services.TrainingService;
 import org.slf4j.MDC;
 import org.springframework.context.annotation.Primary;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 @Slf4j
 @Service
@@ -38,6 +41,10 @@ public class TrainingServiceDbImpl implements TrainingService {
     private final TrainerRepo trainerRepo;
     private final TrainingMapper trainingMapper;
     private final TrainingTypeRepo trainingTypeRepo;
+    private final WorkloadServiceClient workloadServiceClient;
+    private final TrainerWorkloadEventMapper trainerWorkloadEventMapper;
+
+
 
     @Override
     @Transactional(readOnly = true)
@@ -106,17 +113,21 @@ public class TrainingServiceDbImpl implements TrainingService {
     public Training createTraining(@Valid TrainingRequest request) {
 
         TraineeEntity traineeEntity = traineeRepo.findByUsername(request.getTraineeUsername())
-                .orElseThrow(() ->
-                        new UserNotFoundException("Trainee not found: " + request.getTraineeUsername()));
+                .orElseThrow(() -> new UserNotFoundException("Trainee not found: " + request.getTraineeUsername()));
 
         TrainerEntity trainerEntity = trainerRepo.findByUsername(request.getTrainerUsername())
-                .orElseThrow(() ->
-                        new UserNotFoundException("Trainer not found: " + request.getTrainerUsername()));
+                .orElseThrow(() -> new UserNotFoundException("Trainer not found: " + request.getTrainerUsername()));
+
+        UserEntity trainerUser = trainerEntity.getUserEntity();
+        if (trainerUser == null) {
+            throw new IllegalStateException(
+                    "TrainerEntity.userEntity is null for trainer username: " + request.getTrainerUsername()
+            );
+        }
 
         TrainingTypeEntity trainingTypeEntity = trainingTypeRepo
                 .findByTrainingTypeName(request.getTrainingType())
-                .orElseThrow(() ->
-                        new IllegalArgumentException("Invalid training type: " + request.getTrainingType()));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid training type: " + request.getTrainingType()));
 
         TrainingEntity entity = new TrainingEntity();
         entity.setTrainingName(request.getTrainingName());
@@ -128,9 +139,13 @@ public class TrainingServiceDbImpl implements TrainingService {
 
         TrainingEntity saved = trainingRepo.save(entity);
 
+        String eventId = UUID.randomUUID().toString();
+        TrainerWorkloadEventRequest event = trainerWorkloadEventMapper.toAddEvent(saved, trainerUser);
+
+        workloadServiceClient.sendEvent(eventId, event);
+
         return trainingMapper.toTrainingModel(saved);
     }
-
 
     @Override
     @Transactional(readOnly = true)

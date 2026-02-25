@@ -18,3 +18,9 @@ management:
     web:
       exposure:
         include: health,info
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-prod:8761/eureka/

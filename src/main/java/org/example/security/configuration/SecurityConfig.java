@@ -3,11 +3,13 @@ package org.example.security.configuration;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.api.config.AppProperties;
+import org.example.security.filter.JwtAuthenticationFilter;
 import org.example.security.handler.JwtAccessDeniedHandler;
 import org.example.security.handler.JwtAuthenticationEntryPoint;
 import org.example.security.service.GymUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -19,11 +21,13 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
+
 import static org.example.security.constants.SecurityConstants.*;
 
 @Slf4j
@@ -36,8 +40,11 @@ public class SecurityConfig {
     private final GymUserDetailsService userDetailsService;
     private final PasswordEncoder passwordEncoder;
     private final AppProperties appProperties;
+
     private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
     private final JwtAccessDeniedHandler jwtAccessDeniedHandler;
+
+    private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Bean
     public AuthenticationProvider authenticationProvider() {
@@ -68,7 +75,6 @@ public class SecurityConfig {
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
-
         return source;
     }
 
@@ -79,41 +85,6 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-                .authorizeHttpRequests(auth -> {
-                    log.info("Configuring authorization rules...");
-                    auth
-                            // Public authentication endpoints
-                            .requestMatchers(AUTH_PATH).permitAll()
-
-                            // Public endpoints for trainees
-                            .requestMatchers(TRAINEES_PATH ).permitAll()
-
-                            // Public endpoints for trainings
-                            .requestMatchers(TRAININGS_PATH ).permitAll()
-
-                            // Public POST for trainer registration
-                            .requestMatchers(POST, TRAINERS_PATH).permitAll()
-
-                            .requestMatchers(
-                                    SWAGGER_API_DOCS_PATH,
-                                    SWAGGER_UI_PATH,
-                                    SWAGGER_CONFIG_PATH,
-                                    SWAGGER_RESOURCES_PATH,
-                                    WEBJARS_PATH
-                            ).permitAll()
-
-                            .requestMatchers(ACTUATOR_ALL_PATH).permitAll()
-
-                            .requestMatchers(FAVICON_PATH).permitAll()
-
-                            // Error endpoint
-                            .requestMatchers(ERROR_PATH).permitAll()
-
-                            // All other requests require authentication
-                            .anyRequest().authenticated();
-
-                    logAuthorizationRules();
-                })
                 .sessionManagement(session -> {
                     session.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
                     log.info("✅ Session management set to STATELESS - JWT authentication only");
@@ -122,21 +93,28 @@ public class SecurityConfig {
                 .exceptionHandling(exception -> exception
                         .authenticationEntryPoint(jwtAuthenticationEntryPoint)
                         .accessDeniedHandler(jwtAccessDeniedHandler)
-                );
+                )
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(AUTH_PATH).permitAll()
+                        .requestMatchers(TRAINEES_PATH).permitAll()
+                        .requestMatchers(TRAININGS_PATH).permitAll()
+                        .requestMatchers(HttpMethod.POST, TRAINERS_PATH).permitAll()
+                        .requestMatchers(
+                                SWAGGER_API_DOCS_PATH,
+                                SWAGGER_UI_PATH,
+                                SWAGGER_CONFIG_PATH,
+                                SWAGGER_RESOURCES_PATH,
+                                WEBJARS_PATH
+                        ).permitAll()
+                        .requestMatchers(ACTUATOR_ALL_PATH).permitAll()
+                        .requestMatchers(FAVICON_PATH).permitAll()
+                        .requestMatchers(ERROR_PATH).permitAll()
+                        .anyRequest().authenticated()
+                )
+
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         log.info("✅ Security Filter Chain configured successfully");
         return http.build();
     }
-
-    private void logAuthorizationRules() {
-        log.info("✅ Authorization configured:");
-        log.info("  - Public: ALL {} (no authentication)", TRAINEES_PATH);
-        log.info("  - Public: ALL {} (no authentication)", TRAININGS_PATH);
-        log.info("  - Public: {} {} (registration only)", POST, TRAINERS_PATH);
-        log.info("  - Public: {}", AUTH_PATH);
-        log.info("  - Public: Swagger UI and API docs");
-        log.info("  - Public: Actuator endpoints");
-        log.info("  - Protected: GET/PUT/DELETE {} (requires JWT)", TRAINERS_ALL_PATH);
-    }
-
 }

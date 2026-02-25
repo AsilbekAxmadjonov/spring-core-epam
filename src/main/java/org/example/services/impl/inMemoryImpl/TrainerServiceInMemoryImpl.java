@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.example.dao.TrainerDao;
 import org.example.persistance.model.Trainer;
+import org.example.persistance.model.TrainerRegistrationResult;
 import org.example.security.AuthenticationContext;
 import org.example.services.TrainerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +27,26 @@ public class TrainerServiceInMemoryImpl implements TrainerService {
     }
 
     @Override
-    public Trainer createTrainer(@Valid Trainer trainer) {
-        log.info("Creating new Trainer: {}", trainer.getUsername());
+    public TrainerRegistrationResult createTrainer(@Valid Trainer trainer) {
+
+        if (trainer.getUsername() == null || trainer.getUsername().isBlank()) {
+            trainer.setUsername((trainer.getFirstName() + "." + trainer.getLastName()).toLowerCase());
+        }
+
+        log.info("Creating new Trainer (in-memory), username={}", trainer.getUsername());
+
+        String tempPassword = "pass123";
         trainerDao.save(trainer);
-        return trainer;
+
+        return TrainerRegistrationResult.builder()
+                .username(trainer.getUsername())
+                .temporaryPassword(tempPassword)
+                .token(null)
+                .build();
     }
+
+
+
 
     @Override
     public Optional<Trainer> getTrainerByUsername(String username) {
