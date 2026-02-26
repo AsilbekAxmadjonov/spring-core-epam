@@ -105,7 +105,7 @@ management:
 resilience4j:
   circuitbreaker:
     instances:
-      workloadCB:
+      jmsPublishCB:
         slidingWindowSize: 10
         minimumNumberOfCalls: 5
         failureRateThreshold: 50
@@ -115,10 +115,11 @@ resilience4j:
         slowCallDurationThreshold: 2s
   retry:
     instances:
-      workloadRetry:
+      jmsPublishRetry:
         maxAttempts: 3
         waitDuration: 300ms
         retryExceptions:
+          - org.springframework.jms.JmsException
           - java.io.IOException
 
 

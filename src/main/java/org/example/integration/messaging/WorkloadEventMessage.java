@@ -9,5 +9,6 @@ import org.example.integration.workload.dto.TrainerWorkloadEventRequest;
 @Builder
 public class WorkloadEventMessage {
     private String eventId;
+    private String transactionId;
     private TrainerWorkloadEventRequest request;
 }

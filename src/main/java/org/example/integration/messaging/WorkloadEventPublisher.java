@@ -14,13 +14,21 @@ public class WorkloadEventPublisher {
     private final JmsTemplate jmsTemplate;
     private final ObjectMapper objectMapper;
 
-    public void publish(Object message) {
+    public void publish(WorkloadEventMessage message) {
         try {
             String json = objectMapper.writeValueAsString(message);
+
             jmsTemplate.convertAndSend(Queues.WORKLOAD_EVENTS, json);
-            log.info("Published JMS message to {} payload={}", Queues.WORKLOAD_EVENTS, json);
+
+            log.info(
+                    "Published JMS -> queue={} eventId={} txId={}",
+                    Queues.WORKLOAD_EVENTS,
+                    message.getEventId(),
+                    message.getTransactionId()
+            );
+
         } catch (Exception e) {
-            log.error("Failed to publish workload event", e);
+            log.error("JMS publish failed eventId={}", message.getEventId(), e);
             throw new RuntimeException("Failed to publish workload event", e);
         }
     }
