@@ -18,7 +18,6 @@ import org.example.exception.UserNotFoundException;
 import org.example.persistance.model.Trainer;
 import org.example.persistance.model.TrainerRegistrationResult;
 import org.example.services.TrainerService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

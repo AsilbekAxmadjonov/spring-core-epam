@@ -4,7 +4,9 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.api.dto.request.TrainingRequest;
-import org.example.integration.workload.WorkloadServiceClient;
+import org.example.integration.messaging.WorkloadEventMessage;
+import org.example.integration.messaging.WorkloadEventPublisher;
+import org.example.integration.workload.TransactionIdFilter;
 import org.example.integration.workload.dto.TrainerWorkloadEventRequest;
 import org.example.mapper.TrainerWorkloadEventMapper;
 import org.example.persistance.entity.*;
@@ -18,10 +20,10 @@ import org.example.persistance.repository.TrainingTypeRepo;
 import org.example.services.TrainingService;
 import org.slf4j.MDC;
 import org.springframework.context.annotation.Primary;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.TransactionSynchronization;
+import org.springframework.transaction.support.TransactionSynchronizationManager;
 import org.springframework.validation.annotation.Validated;
 
 import java.time.LocalDate;
@@ -41,8 +43,8 @@ public class TrainingServiceDbImpl implements TrainingService {
     private final TrainerRepo trainerRepo;
     private final TrainingMapper trainingMapper;
     private final TrainingTypeRepo trainingTypeRepo;
-    private final WorkloadServiceClient workloadServiceClient;
     private final TrainerWorkloadEventMapper trainerWorkloadEventMapper;
+    private final WorkloadEventPublisher workloadEventPublisher;
 
 
 
@@ -142,7 +144,24 @@ public class TrainingServiceDbImpl implements TrainingService {
         String eventId = UUID.randomUUID().toString();
         TrainerWorkloadEventRequest event = trainerWorkloadEventMapper.toAddEvent(saved, trainerUser);
 
-        workloadServiceClient.sendEvent(eventId, event);
+        String txId = MDC.get(TransactionIdFilter.MDC_KEY);
+        WorkloadEventMessage msg = WorkloadEventMessage.builder()
+                .eventId(eventId)
+                .transactionId(txId)
+                .request(event)
+                .build();
+
+        if (TransactionSynchronizationManager.isActualTransactionActive()) {
+            TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
+                @Override
+                public void afterCommit() {
+                    workloadEventPublisher.publish(msg);
+                }
+            });
+        } else {
+            // if method is not transactional, publish immediately
+            workloadEventPublisher.publish(msg);
+        }
 
         return trainingMapper.toTrainingModel(saved);
     }
