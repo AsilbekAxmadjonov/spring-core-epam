@@ -30,7 +30,7 @@ public class TrainingComponentSteps {
     private int port;
 
     @Autowired
-    private UserRepo userRepo;          // FIX 1: was missing entirely
+    private UserRepo userRepo;
 
     @Autowired
     private TraineeRepo traineeRepo;
@@ -64,12 +64,10 @@ public class TrainingComponentSteps {
 
     @Before
     public void cleanDb() {
-        // FIX 2: correct FK-safe deletion order:
-        //   training → trainee → trainer → users → training_type
         trainingRepo.deleteAll();
         traineeRepo.deleteAll();
         trainerRepo.deleteAll();
-        userRepo.deleteAll();           // FIX 2: was missing, causing stale user rows
+        userRepo.deleteAll();
         trainingTypeRepo.deleteAll();
         reset(workloadEventPublisher);
 
@@ -86,24 +84,21 @@ public class TrainingComponentSteps {
         user.setLastName("Last");
         user.setPassword("password123".toCharArray());
         user.setIsActive(true);
-        userRepo.save(user);            // persist parent first → gives user an ID
+        userRepo.save(user);
 
         TraineeEntity trainee = new TraineeEntity();
-        trainee.setUserEntity(user);    // user is now a managed entity with ID
+        trainee.setUserEntity(user);
         traineeRepo.save(trainee);
     }
 
     @Given("trainer {string} exists")
     @Transactional
     public void trainer_exists(String username) {
-        // FIX 4: fetch TrainingTypeEntity fresh from the repo so it is a
-        // managed (not detached) entity in the current session
         TrainingTypeEntity specialization = trainingTypeRepo.findByTrainingTypeName("Yoga")
                 .orElseGet(() -> trainingTypeRepo.save(
                         TrainingTypeEntity.builder().trainingTypeName("Yoga").build()
                 ));
 
-        // FIX 5: UserEntity must be persisted BEFORE TrainerEntity
         UserEntity trainerUser = new UserEntity();
         trainerUser.setFirstName("Jane");
         trainerUser.setLastName("Smith");

@@ -51,8 +51,6 @@ public class AuthenticationComponentSteps {
 
     @Before
     public void cleanDb() {
-        // Keep deletion order consistent with training component steps to avoid FK violations:
-        // training → trainee → trainer → users → training_type
         trainingRepo.deleteAll();
         traineeRepo.deleteAll();
         trainerRepo.deleteAll();
