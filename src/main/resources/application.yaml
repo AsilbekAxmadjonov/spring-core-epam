@@ -11,15 +11,15 @@ server:
       min-spare: 10
 
 spring:
-  spring:
-    activemq:
-      broker-url: tcp://localhost:61616
-      user: admin
-      password: admin
-      packages:
-        trust-all: true
-    jms:
-      pub-sub-domain: false
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+    password: admin
+    packages:
+      trust-all: true
+
+  jms:
+    pub-sub-domain: false
 
   application:
     name: spring-core-epam
@@ -52,14 +52,12 @@ spring:
             connectTimeout: 2000
             readTimeout: 3000
 
-
 eureka:
   instance:
     prefer-ip-address: true
     ip-address: 127.0.0.1
     hostname: localhost
     instance-id: ${spring.application.name}:${server.port}
-
 
 app:
   name: spring-core-epam
@@ -122,10 +120,8 @@ resilience4j:
           - org.springframework.jms.JmsException
           - java.io.IOException
 
-
 logging:
   level:
     org.example.security.filter.JwtAuthenticationFilter: DEBUG
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{transactionId}] %-5level %logger{36} - %msg%n"
-
