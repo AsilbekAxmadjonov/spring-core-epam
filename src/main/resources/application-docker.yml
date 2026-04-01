@@ -1,0 +1,23 @@
+spring:
+  config:
+    activate:
+      on-profile: docker
+
+  datasource:
+    url: jdbc:postgresql://postgres-db:5432/hibernate
+    username: postgres
+    password: postgres
+
+  activemq:
+    broker-url: tcp://activemq:61616
+
+eureka:
+  client:
+    enabled: false
+    register-with-eureka: false
+    fetch-registry: false
+
+management:
+  health:
+    jms:
+      enabled: false    # ← disables JMS from health check
