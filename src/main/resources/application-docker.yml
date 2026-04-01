@@ -10,14 +10,16 @@ spring:
 
   activemq:
     broker-url: tcp://activemq:61616
+    user: admin
+    password: admin
 
 eureka:
   client:
-    enabled: false
-    register-with-eureka: false
-    fetch-registry: false
-
-management:
-  health:
-    jms:
-      enabled: false    # ← disables JMS from health check
+    enabled: true
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://discovery-server:8761/eureka/
+  instance:
+    hostname: main-service
+    prefer-ip-address: false
