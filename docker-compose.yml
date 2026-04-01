@@ -1,0 +1,52 @@
+services:
+
+  postgres-db:
+    image: postgres:15
+    container_name: postgres-db
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: hibernate
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d hibernate"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  main-service:
+    build: .
+    container_name: main-service
+    restart: always
+    ports:
+      - "8081:8081"          # ← was 8081:8080, fixed to match EXPOSE 8081
+    depends_on:
+      postgres-db:
+        condition: service_healthy  # ← waits until Postgres is truly ready
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      INTEGRATIONS_ENABLED: false
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-db:5432/hibernate
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      EUREKA_CLIENT_ENABLED: "false"
+      EUREKA_CLIENT_FETCH_REGISTRY: "false"
+      EUREKA_CLIENT_REGISTER_WITH_EUREKA: "false"
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    restart: always
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    depends_on:
+      - main-service
+
+volumes:
+  postgres_data:
