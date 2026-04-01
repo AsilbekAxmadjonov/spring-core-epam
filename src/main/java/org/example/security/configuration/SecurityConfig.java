@@ -106,7 +106,7 @@ public class SecurityConfig {
                                 SWAGGER_RESOURCES_PATH,
                                 WEBJARS_PATH
                         ).permitAll()
-                        .requestMatchers(ACTUATOR_ALL_PATH).permitAll()
+                        .requestMatchers("/actuator/**").permitAll()
                         .requestMatchers(FAVICON_PATH).permitAll()
                         .requestMatchers(ERROR_PATH).permitAll()
                         .anyRequest().authenticated()

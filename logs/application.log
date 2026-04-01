@@ -1,461 +1,42 @@
-2026-03-04 10:06:50.513 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Gym Management REST API with Spring Boot...
-2026-03-04 10:06:50.874 [background-preinit] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
-2026-03-04 10:06:50.894 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Application using Java 25 with PID 39588 (/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes started by cyber in /Users/cyber/IdeaProjects/epam/spring-core-epam)
-2026-03-04 10:06:50.895 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - No active profile set, falling back to 1 default profile: "default"
-2026-03-04 10:06:52.055 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-03-04 10:06:52.323 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 261 ms. Found 6 JPA repository interfaces.
-2026-03-04 10:06:53.037 [main] INFO  o.s.cloud.context.scope.GenericScope - [TxId:] [User:] [ ] - BeanFactory id=4c9c8dd1-e07f-38ea-817f-c95f5bad3369
-2026-03-04 10:06:53.881 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - [TxId:] [User:] [ ] - Tomcat initialized with port 8081 (http)
-2026-03-04 10:06:53.887 [main] INFO  o.a.coyote.http11.Http11NioProtocol - [TxId:] [User:] [ ] - Initializing ProtocolHandler ["http-nio-0.0.0.0-8081"]
-2026-03-04 10:06:53.890 [main] INFO  o.a.catalina.core.StandardService - [TxId:] [User:] [ ] - Starting service [Tomcat]
-2026-03-04 10:06:53.890 [main] INFO  o.a.catalina.core.StandardEngine - [TxId:] [User:] [ ] - Starting Servlet engine: [Apache Tomcat/10.1.18]
-2026-03-04 10:06:53.954 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [TxId:] [User:] [ ] - Initializing Spring embedded WebApplicationContext
-2026-03-04 10:06:53.954 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [TxId:] [User:] [ ] - Root WebApplicationContext: initialization completed in 3033 ms
-2026-03-04 10:06:54.194 [main] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
-2026-03-04 10:06:54.338 [main] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-03-04 10:06:54.379 [main] INFO  org.hibernate.Version - [TxId:] [User:] [ ] - HHH000412: Hibernate ORM core version 6.4.1.Final
-2026-03-04 10:06:54.399 [main] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
-2026-03-04 10:06:54.533 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-03-04 10:06:54.549 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Starting...
-2026-03-04 10:06:54.710 [main] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@54cce500
-2026-03-04 10:06:54.710 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Start completed.
-2026-03-04 10:06:55.379 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-03-04 10:06:55.549 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-03-04 10:06:55.730 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - [TxId:] [User:] [ ] - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-03-04 10:06:55.984 [main] DEBUG o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - Filter 'jwtAuthenticationFilter' configured for use
-2026-03-04 10:06:56.043 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationManager bean created
-2026-03-04 10:06:56.069 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationProvider configured with UserDetailsService and PasswordEncoder
-2026-03-04 10:06:57.023 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - [TxId:] [User:] [ ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-03-04 10:06:57.502 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - [TxId:] [User:] [ ] - Exposing 4 endpoint(s) beneath base path '/actuator'
-2026-03-04 10:06:57.581 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring Security Filter Chain with JWT authentication
-2026-03-04 10:06:57.582 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - CORS configuration enabled for allowed origins
-2026-03-04 10:06:57.584 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Session management set to STATELESS - JWT authentication only
-2026-03-04 10:06:57.596 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Security Filter Chain configured successfully
-2026-03-04 10:06:57.646 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@122f8970, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@184db8d7, org.springframework.security.web.context.SecurityContextHolderFilter@5b0d50a7, org.springframework.security.web.header.HeaderWriterFilter@7dbafe9d, org.springframework.web.filter.CorsFilter@6a355f4e, org.springframework.security.web.authentication.logout.LogoutFilter@381f7b8e, org.example.security.filter.JwtAuthenticationFilter@17bda3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1f33e4b5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4a70561f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4cdd4500, org.springframework.security.web.session.SessionManagementFilter@ffeb49c, org.springframework.security.web.access.ExceptionTranslationFilter@485f3327, org.springframework.security.web.access.intercept.AuthorizationFilter@662438f1]
-2026-03-04 10:06:58.894 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - [TxId:] [User:] [ ] - Eureka HTTP Client uses RestTemplate.
-2026-03-04 10:06:59.090 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - [TxId:] [User:] [ ] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2026-03-04 10:06:59.174 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - [TxId:] [User:] [ ] - Setting initial instance status as: STARTING
-2026-03-04 10:06:59.201 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Initializing Eureka in region us-east-1
-2026-03-04 10:06:59.209 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - [TxId:] [User:] [ ] - Resolving eureka endpoints via configuration
-2026-03-04 10:06:59.223 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Disable delta property : false
-2026-03-04 10:06:59.223 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Single vip registry refresh property : null
-2026-03-04 10:06:59.224 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Force full registry fetch : false
-2026-03-04 10:06:59.224 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Application is null : false
-2026-03-04 10:06:59.224 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Registered Applications size is zero : true
-2026-03-04 10:06:59.224 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Application version is -1: true
-2026-03-04 10:06:59.224 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Getting all instance registry info from the eureka server
-2026-03-04 10:06:59.457 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - The response status is 200
-2026-03-04 10:06:59.457 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Starting heartbeat executor: renew interval is: 30
-2026-03-04 10:06:59.458 [main] INFO  c.n.discovery.InstanceInfoReplicator - [TxId:] [User:] [ ] - InstanceInfoReplicator onDemand update allowed rate per min is 4
-2026-03-04 10:06:59.459 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Discovery Client initialized at timestamp 1772600819459 with initial instances count: 0
-2026-03-04 10:06:59.474 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - [TxId:] [User:] [ ] - Registering application SPRING-CORE-EPAM with eureka with status UP
-2026-03-04 10:06:59.476 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Saw local status change event StatusChangeEvent [timestamp=1772600819476, current=UP, previous=STARTING]
-2026-03-04 10:06:59.477 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - DiscoveryClient_SPRING-CORE-EPAM/spring-core-epam:8081: registering service...
-2026-03-04 10:06:59.478 [main] INFO  o.a.coyote.http11.Http11NioProtocol - [TxId:] [User:] [ ] - Starting ProtocolHandler ["http-nio-0.0.0.0-8081"]
-2026-03-04 10:06:59.499 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - [TxId:] [User:] [ ] - Tomcat started on port 8081 (http) with context path ''
-2026-03-04 10:06:59.500 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - [TxId:] [User:] [ ] - Updating port to 8081
-2026-03-04 10:06:59.520 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - DiscoveryClient_SPRING-CORE-EPAM/spring-core-epam:8081 - registration status: 204
-2026-03-04 10:06:59.522 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Started Application in 8.924 seconds (process running for 9.449)
-2026-03-04 10:06:59.566 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Spring Boot application started successfully
-2026-03-04 10:06:59.566 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Server running on http://localhost:8080
-2026-03-04 10:06:59.566 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ API base path: http://localhost:8080/api
-2026-03-04 10:06:59.566 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ API documentation: http://localhost:8080/swagger-ui.html
-2026-03-04 10:06:59.566 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Spring Security JWT authentication is ACTIVE
-2026-03-04 10:06:59.566 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Active Spring profile(s): [default]
-2026-03-04 10:06:59.566 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Actuator health: http://localhost:8080/actuator/health
-2026-03-04 10:06:59.566 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Actuator metrics: http://localhost:8080/actuator/metrics
-2026-03-04 10:06:59.566 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Actuator prometheus: http://localhost:8080/actuator/prometheus
-2026-03-04 10:07:29.464 [DiscoveryClient-CacheRefreshExecutor-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Disable delta property : false
-2026-03-04 10:07:29.465 [DiscoveryClient-CacheRefreshExecutor-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Single vip registry refresh property : null
-2026-03-04 10:07:29.465 [DiscoveryClient-CacheRefreshExecutor-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Force full registry fetch : false
-2026-03-04 10:07:29.465 [DiscoveryClient-CacheRefreshExecutor-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Application is null : false
-2026-03-04 10:07:29.465 [DiscoveryClient-CacheRefreshExecutor-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Registered Applications size is zero : true
-2026-03-04 10:07:29.465 [DiscoveryClient-CacheRefreshExecutor-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Application version is -1: false
-2026-03-04 10:07:29.465 [DiscoveryClient-CacheRefreshExecutor-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Getting all instance registry info from the eureka server
-2026-03-04 10:07:29.542 [DiscoveryClient-CacheRefreshExecutor-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - The response status is 200
-2026-03-04 10:09:07.038 [http-nio-0.0.0.0-8081-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [TxId:] [User:] [ ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-03-04 10:09:07.040 [http-nio-0.0.0.0-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Initializing Servlet 'dispatcherServlet'
-2026-03-04 10:09:07.066 [http-nio-0.0.0.0-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - [TxId:] [User:] [ ] - Completed initialization in 26 ms
-2026-03-04 10:09:07.109 [http-nio-0.0.0.0-8081-exec-2] DEBUG o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - === JWT Filter Processing: POST /api/auth/login ===
-2026-03-04 10:09:07.110 [http-nio-0.0.0.0-8081-exec-2] DEBUG o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - Public endpoint detected: /api/auth/login - Skipping JWT validation
-2026-03-04 10:09:07.160 [http-nio-0.0.0.0-8081-exec-2] INFO  o.e.api.controller.LoginController - [TxId:9d330779-5c56-4208-9799-d6d68d679cc5] [User:] [POST /api/auth/login] - Login request received for username: John.Asilbek
-2026-03-04 10:09:07.160 [http-nio-0.0.0.0-8081-exec-2] INFO  o.e.security.service.AuthService - [TxId:9d330779-5c56-4208-9799-d6d68d679cc5] [User:] [POST /api/auth/login] - Login attempt for user: John.Asilbek
-2026-03-04 10:09:07.551 [http-nio-0.0.0.0-8081-exec-2] INFO  o.e.security.service.AuthService - [TxId:9d330779-5c56-4208-9799-d6d68d679cc5] [User:] [POST /api/auth/login] - User John.Asilbek logged in successfully with JWT
-2026-03-04 10:09:07.552 [http-nio-0.0.0.0-8081-exec-2] INFO  o.e.api.controller.LoginController - [TxId:9d330779-5c56-4208-9799-d6d68d679cc5] [User:] [POST /api/auth/login] - Login successful for username: John.Asilbek
-2026-03-04 10:11:59.231 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - [TxId:] [User:] [ ] - Resolving eureka endpoints via configuration
-2026-03-04 10:16:59.237 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - [TxId:] [User:] [ ] - Resolving eureka endpoints via configuration
-2026-03-04 10:21:29.027 [SpringApplicationShutdownHook] INFO  o.s.c.n.e.s.EurekaServiceRegistry - [TxId:] [User:] [ ] - Unregistering application SPRING-CORE-EPAM with eureka with status DOWN
-2026-03-04 10:21:29.030 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Saw local status change event StatusChangeEvent [timestamp=1772601689030, current=DOWN, previous=UP]
-2026-03-04 10:21:29.032 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - DiscoveryClient_SPRING-CORE-EPAM/spring-core-epam:8081: registering service...
-2026-03-04 10:21:29.099 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - DiscoveryClient_SPRING-CORE-EPAM/spring-core-epam:8081 - registration status: 204
-2026-03-04 10:21:29.331 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-03-04 10:21:29.394 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Shutdown initiated...
-2026-03-04 10:21:29.416 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Shutdown completed.
-2026-03-04 10:21:29.422 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Shutting down DiscoveryClient ...
-2026-03-04 10:21:32.430 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Unregistering ...
-2026-03-04 10:21:32.431 [DiscoveryClient-%d] WARN  c.n.discovery.TimedSupervisorTask - [TxId:] [User:] [ ] - task supervisor shutting down, can't accept the task
-2026-03-04 10:21:32.513 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - DiscoveryClient_SPRING-CORE-EPAM/spring-core-epam:8081 - deregister  status: 200
-2026-03-04 10:21:32.514 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Completed shut down of DiscoveryClient
-2026-03-04 10:21:41.633 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Gym Management REST API with Spring Boot...
-2026-03-04 10:21:41.917 [background-preinit] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
-2026-03-04 10:21:41.937 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Application using Java 25 with PID 41206 (/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes started by cyber in /Users/cyber/IdeaProjects/epam/spring-core-epam)
-2026-03-04 10:21:41.938 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - No active profile set, falling back to 1 default profile: "default"
-2026-03-04 10:21:42.539 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-03-04 10:21:42.631 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 89 ms. Found 6 JPA repository interfaces.
-2026-03-04 10:21:42.795 [main] INFO  o.s.cloud.context.scope.GenericScope - [TxId:] [User:] [ ] - BeanFactory id=4c9c8dd1-e07f-38ea-817f-c95f5bad3369
-2026-03-04 10:21:43.234 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - [TxId:] [User:] [ ] - Tomcat initialized with port 8081 (http)
-2026-03-04 10:21:43.239 [main] INFO  o.a.coyote.http11.Http11NioProtocol - [TxId:] [User:] [ ] - Initializing ProtocolHandler ["http-nio-0.0.0.0-8081"]
-2026-03-04 10:21:43.239 [main] INFO  o.a.catalina.core.StandardService - [TxId:] [User:] [ ] - Starting service [Tomcat]
-2026-03-04 10:21:43.240 [main] INFO  o.a.catalina.core.StandardEngine - [TxId:] [User:] [ ] - Starting Servlet engine: [Apache Tomcat/10.1.18]
-2026-03-04 10:21:43.279 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [TxId:] [User:] [ ] - Initializing Spring embedded WebApplicationContext
-2026-03-04 10:21:43.279 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [TxId:] [User:] [ ] - Root WebApplicationContext: initialization completed in 1319 ms
-2026-03-04 10:21:43.521 [main] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
-2026-03-04 10:21:43.633 [main] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-03-04 10:21:43.664 [main] INFO  org.hibernate.Version - [TxId:] [User:] [ ] - HHH000412: Hibernate ORM core version 6.4.1.Final
-2026-03-04 10:21:43.680 [main] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
-2026-03-04 10:21:43.789 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-03-04 10:21:43.806 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Starting...
-2026-03-04 10:21:44.013 [main] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@532e00bd
-2026-03-04 10:21:44.014 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Start completed.
-2026-03-04 10:21:44.610 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-03-04 10:21:44.724 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-03-04 10:21:44.936 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - [TxId:] [User:] [ ] - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-03-04 10:21:45.177 [main] DEBUG o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - Filter 'jwtAuthenticationFilter' configured for use
-2026-03-04 10:21:45.227 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationManager bean created
-2026-03-04 10:21:45.252 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationProvider configured with UserDetailsService and PasswordEncoder
-2026-03-04 10:21:46.026 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - [TxId:] [User:] [ ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-03-04 10:21:46.456 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - [TxId:] [User:] [ ] - Exposing 4 endpoint(s) beneath base path '/actuator'
-2026-03-04 10:21:46.507 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring Security Filter Chain with JWT authentication
-2026-03-04 10:21:46.508 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - CORS configuration enabled for allowed origins
-2026-03-04 10:21:46.510 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Session management set to STATELESS - JWT authentication only
-2026-03-04 10:21:46.520 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Security Filter Chain configured successfully
-2026-03-04 10:21:46.564 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@122f8970, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@184db8d7, org.springframework.security.web.context.SecurityContextHolderFilter@7c1e325d, org.springframework.security.web.header.HeaderWriterFilter@63ccc72c, org.springframework.web.filter.CorsFilter@6a355f4e, org.springframework.security.web.authentication.logout.LogoutFilter@2a4d39fa, org.example.security.filter.JwtAuthenticationFilter@6fb94c36, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@230a9783, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@a175266, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4cdd4500, org.springframework.security.web.session.SessionManagementFilter@191fe3e3, org.springframework.security.web.access.ExceptionTranslationFilter@76ae320f, org.springframework.security.web.access.intercept.AuthorizationFilter@662438f1]
-2026-03-04 10:21:47.352 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - [TxId:] [User:] [ ] - Eureka HTTP Client uses RestTemplate.
-2026-03-04 10:21:47.417 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - [TxId:] [User:] [ ] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2026-03-04 10:21:47.472 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - [TxId:] [User:] [ ] - Setting initial instance status as: STARTING
-2026-03-04 10:21:47.487 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Initializing Eureka in region us-east-1
-2026-03-04 10:21:47.489 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - [TxId:] [User:] [ ] - Resolving eureka endpoints via configuration
-2026-03-04 10:21:47.494 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Disable delta property : false
-2026-03-04 10:21:47.494 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Single vip registry refresh property : null
-2026-03-04 10:21:47.494 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Force full registry fetch : false
-2026-03-04 10:21:47.494 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Application is null : false
-2026-03-04 10:21:47.494 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Registered Applications size is zero : true
-2026-03-04 10:21:47.494 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Application version is -1: true
-2026-03-04 10:21:47.494 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Getting all instance registry info from the eureka server
-2026-03-04 10:21:47.722 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - The response status is 200
-2026-03-04 10:21:47.724 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Starting heartbeat executor: renew interval is: 30
-2026-03-04 10:21:47.724 [main] INFO  c.n.discovery.InstanceInfoReplicator - [TxId:] [User:] [ ] - InstanceInfoReplicator onDemand update allowed rate per min is 4
-2026-03-04 10:21:47.725 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Discovery Client initialized at timestamp 1772601707725 with initial instances count: 3
-2026-03-04 10:21:47.739 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - [TxId:] [User:] [ ] - Registering application SPRING-CORE-EPAM with eureka with status UP
-2026-03-04 10:21:47.740 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Saw local status change event StatusChangeEvent [timestamp=1772601707740, current=UP, previous=STARTING]
-2026-03-04 10:21:47.741 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - DiscoveryClient_SPRING-CORE-EPAM/spring-core-epam:8081: registering service...
-2026-03-04 10:21:47.741 [main] INFO  o.a.coyote.http11.Http11NioProtocol - [TxId:] [User:] [ ] - Starting ProtocolHandler ["http-nio-0.0.0.0-8081"]
-2026-03-04 10:21:47.750 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - [TxId:] [User:] [ ] - Tomcat started on port 8081 (http) with context path ''
-2026-03-04 10:21:47.751 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - [TxId:] [User:] [ ] - Updating port to 8081
-2026-03-04 10:21:47.768 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - DiscoveryClient_SPRING-CORE-EPAM/spring-core-epam:8081 - registration status: 204
-2026-03-04 10:21:47.769 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Started Application in 6.089 seconds (process running for 6.338)
-2026-03-04 10:21:47.832 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Spring Boot application started successfully
-2026-03-04 10:21:47.832 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Server running on http://localhost:8080
-2026-03-04 10:21:47.832 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ API base path: http://localhost:8080/api
-2026-03-04 10:21:47.832 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ API documentation: http://localhost:8080/swagger-ui.html
-2026-03-04 10:21:47.832 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Spring Security JWT authentication is ACTIVE
-2026-03-04 10:21:47.832 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Active Spring profile(s): [default]
-2026-03-04 10:21:47.832 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Actuator health: http://localhost:8080/actuator/health
-2026-03-04 10:21:47.832 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Actuator metrics: http://localhost:8080/actuator/metrics
-2026-03-04 10:21:47.832 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - ✓ Actuator prometheus: http://localhost:8080/actuator/prometheus
-=======
-2026-02-17 15:56:23.791 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer updated successfully: Mike.Johnson -> Mike.Johnson
-2026-02-17 15:56:23.806 [main] ERROR o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer not found for update: Mike.Johnson
-2026-02-17 15:56:23.830 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer updated successfully: Mike.Johnson -> New.Name
-2026-02-17 15:56:23.834 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Total trainers fetched: 1
-2026-02-17 15:58:58.582 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer updated successfully: Mike.Johnson -> Mike.Johnson
-2026-02-17 15:58:58.589 [main] ERROR o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer not found for update: Mike.Johnson
-2026-02-17 15:58:58.605 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer updated successfully: Mike.Johnson -> New.Name
-2026-02-17 15:58:58.609 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Total trainers fetched: 1
-2026-02-17 15:59:10.194 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user2
-2026-02-17 15:59:10.197 [main] ERROR o.e.security.service.AuthService - [TxId:] [User:] [ ] - Authentication failed for user: user2 - Bad credentials
-2026-02-17 15:59:10.208 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user3
-2026-02-17 15:59:10.208 [main] ERROR o.e.security.service.AuthService - [TxId:] [User:] [ ] - Authentication failed for user: user3 - Bad credentials
-2026-02-17 15:59:10.247 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user1
-2026-02-17 15:59:10.248 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - User user1 logged in successfully with JWT
-2026-02-17 15:59:10.294 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Updating trainer: alice123
-2026-02-17 15:59:10.295 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer updated successfully: alice123
-2026-02-17 15:59:10.297 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching all trainers
-2026-02-17 15:59:10.297 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetched 2 trainers
-2026-02-17 15:59:10.299 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: alice123
-2026-02-17 15:59:10.300 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer found: alice123
-2026-02-17 15:59:10.303 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: unknown
-2026-02-17 15:59:10.303 [main] WARN  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer not found: unknown
-2026-02-17 15:59:10.428 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:10.431 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:10.434 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:10.436 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:10.438 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - null
-2026-02-17 15:59:10.441 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:10.444 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Token expired
-2026-02-17 15:59:10.447 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:10.450 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:10.452 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:10.454 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to:  - Invalid credentials
-2026-02-17 15:59:10.457 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:10.460 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/admin/dashboard - Invalid credentials
-2026-02-17 15:59:10.464 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:10.467 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:10.469 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:10.473 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:10.476 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:10.479 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/protected/resource - Insufficient permissions
-2026-02-17 15:59:10.482 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:10.484 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:10.487 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:10.490 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:10.493 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:10.496 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:10.499 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:10.501 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:10.506 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:10.508 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:10.530 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user1
-2026-02-17 15:59:10.530 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login successful for username: user1
-2026-02-17 15:59:10.531 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user2
-2026-02-17 15:59:10.533 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Logout request received
-2026-02-17 15:59:10.549 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: testuser
-2026-02-17 15:59:10.551 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: nonexistent
-2026-02-17 15:59:10.554 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: 
-2026-02-17 15:59:10.556 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: null
-2026-02-17 15:59:10.619 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> true
-2026-02-17 15:59:10.620 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
-2026-02-17 15:59:10.621 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe
-2026-02-17 15:59:10.623 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
-2026-02-17 15:59:10.625 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe1
-2026-02-17 15:59:10.634 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Password updated for john.doe
-2026-02-17 15:59:10.637 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> false
-2026-02-17 15:59:10.688 [main] INFO  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ✅ JWT token valid for user: testuser accessing: /api/users/profile
-2026-02-17 15:59:10.694 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ User not found: User not found for request: /api/users/profile
-2026-02-17 15:59:10.701 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Invalid JWT token for user: testuser
-2026-02-17 15:59:10.709 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Username could not be extracted from token for request: /api/users/profile
-2026-02-17 15:59:10.718 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Malformed JWT token for request: /api/users/profile - Malformed token
-2026-02-17 15:59:10.723 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ JWT token expired for request: /api/users/profile - Token expired
-2026-02-17 15:59:10.728 [main] ERROR o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ JWT Authentication failed for /api/users/profile: Unexpected error
-java.lang.RuntimeException: Unexpected error
-	at org.example.security.filter.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:69)
-	at org.example.security.filter.JwtAuthenticationFilterTest.doFilterInternal_WithGenericException_ShouldClearSecurityContext(JwtAuthenticationFilterTest.java:275)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
-	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
-	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
-	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
-	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
-	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
-	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
-	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:63)
-	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:66)
-	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
-	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
-	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
-	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237)
-	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
-2026-02-17 15:59:10.734 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Username could not be extracted from token for request: /api/users/profile
-2026-02-17 15:59:10.739 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Invalid JWT signature for request: /api/users/profile - Invalid signature
-2026-02-17 15:59:10.755 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Pilates
-2026-02-17 15:59:10.755 [main] WARN  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type not found: Pilates
-2026-02-17 15:59:10.757 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching all training types
-2026-02-17 15:59:10.757 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetched 2 training types
-2026-02-17 15:59:10.759 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Yoga
-2026-02-17 15:59:10.759 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type found: Yoga
-2026-02-17 15:59:10.774 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
-2026-02-17 15:59:10.774 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - User not found: user1
-2026-02-17 15:59:10.776 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
-2026-02-17 15:59:10.776 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Password changed successfully for user: user1
-2026-02-17 15:59:10.777 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
-2026-02-17 15:59:10.777 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Active status changed for user: user1 to true
-2026-02-17 15:59:10.779 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
-2026-02-17 15:59:10.779 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Old password does not match for user: user1
-2026-02-17 15:59:10.780 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
-2026-02-17 15:59:10.780 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Missing old or new password for user: user1
-2026-02-17 15:59:10.844 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer updated successfully: Mike.Johnson -> Mike.Johnson
-2026-02-17 15:59:10.847 [main] ERROR o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer not found for update: Mike.Johnson
-2026-02-17 15:59:10.855 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer updated successfully: Mike.Johnson -> New.Name
-2026-02-17 15:59:10.857 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Total trainers fetched: 1
-2026-02-17 15:59:10.916 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 1
-2026-02-17 15:59:10.918 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee deleted successfully: john.doe
-2026-02-17 15:59:10.921 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee updated successfully: John.Doe
-2026-02-17 15:59:10.923 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 0
-2026-02-17 15:59:10.925 [main] ERROR o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for update: john.doe
-2026-02-17 15:59:10.927 [main] WARN  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for deletion: john.doe
-2026-02-17 15:59:10.930 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Creating trainee with generated username: John.Doe
-2026-02-17 15:59:10.931 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - User created successfully: John.Doe
-2026-02-17 15:59:10.931 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee created successfully: John.Doe
-2026-02-17 15:59:10.931 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - JWT token generated for trainee: John.Doe
-2026-02-17 15:59:10.932 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer1
-2026-02-17 15:59:10.932 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer2
-2026-02-17 15:59:10.932 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainers. Total count: 2
-2026-02-17 15:59:10.934 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
-2026-02-17 15:59:10.934 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
-2026-02-17 15:59:10.934 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Updated Trainer: trainer01
-2026-02-17 15:59:10.935 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
-2026-02-17 15:59:10.961 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training retrieved: Python for Data
-2026-02-17 15:59:10.963 [main] WARN  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training not found: Unknown
-2026-02-17 15:59:10.964 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 trainings
-2026-02-17 15:59:10.966 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training created: Spring Boot Basics
-2026-02-17 15:59:10.998 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee created successfully: john
-2026-02-17 15:59:11.001 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee updated successfully: john
-2026-02-17 15:59:11.002 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Total Trainees found: 2
-2026-02-17 15:59:11.011 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee deleted: john
-2026-02-17 15:59:11.027 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: john123
-2026-02-17 15:59:11.028 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee found: john123
-2026-02-17 15:59:11.029 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Creating new trainee: John Doe
-2026-02-17 15:59:11.029 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee created successfully with username: john123
-2026-02-17 15:59:11.030 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Updating trainee: john123
-2026-02-17 15:59:11.030 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee updated successfully: john123
-2026-02-17 15:59:11.031 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching all trainees
-2026-02-17 15:59:11.032 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetched 2 trainees
-2026-02-17 15:59:11.033 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: unknown
-2026-02-17 15:59:11.033 [main] WARN  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee not found: unknown
-2026-02-17 15:59:11.034 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Deleting trainee: john123
-2026-02-17 15:59:11.034 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee deleted successfully: john123
-2026-02-17 15:59:11.050 [main] INFO  o.e.s.impl.AuthenticationServiceImpl - [TxId:] [User:] [ ] - User authenticated successfully: john
-2026-02-17 15:59:11.090 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 total trainings
-2026-02-17 15:59:11.093 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainer trainings for username=trainer01
-2026-02-17 15:59:11.096 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainee trainings for username=john
-2026-02-17 15:59:11.101 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Training found: Yoga
-2026-02-17 15:59:11.121 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: alice
-2026-02-17 15:59:11.121 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: alice
-2026-02-17 15:59:11.125 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: john
-2026-02-17 15:59:11.125 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: john
-2026-02-17 15:59:11.127 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 users from in-memory store
-2026-02-17 15:59:11.147 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Creating new Trainer (in-memory), username=john.doe
-2026-02-17 15:59:11.152 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Creating new Trainer (in-memory), username=john01
-2026-02-17 15:59:11.156 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Updating Trainer: john01
-2026-02-17 15:59:11.157 [main] WARN  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Attempted to delete non-existent Trainee: ghost01
-2026-02-17 15:59:11.158 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t1
-2026-02-17 15:59:11.158 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t2
-2026-02-17 15:59:11.158 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainees. Total count: 2
-2026-02-17 15:59:11.159 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
-2026-02-17 15:59:11.159 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
-2026-02-17 15:59:11.159 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Updated Trainee: john01
-2026-02-17 15:59:11.160 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: alice01
-2026-02-17 15:59:11.160 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
-2026-02-17 15:59:11.160 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Deleted Trainee: john01
-2026-02-17 15:59:11.191 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching all trainings
-2026-02-17 15:59:11.191 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 2 trainings
-2026-02-17 15:59:11.192 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainee: trainee1 with filters - from: null, to: null, trainerName: null, trainingType: null
-2026-02-17 15:59:11.192 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainee: trainee1
-2026-02-17 15:59:11.193 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching training by name: Yoga
-2026-02-17 15:59:11.193 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Training found: Yoga
-2026-02-17 15:59:11.195 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainer: trainer1 with filters - from: null, to: null, traineeName: null
-2026-02-17 15:59:11.195 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainer: trainer1
-2026-02-17 15:59:11.218 [main] WARN  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - User user2 is blocked. Time remaining: 3 minutes
-2026-02-17 15:59:11.219 [main] INFO  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - Resetting login attempts for user: user5 (previous attempts: 2)
-2026-02-17 15:59:11.222 [main] WARN  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - User user4 blocked after 3 failed attempts. Blocked until: 2026-02-17T16:04:11.221997
-2026-02-17 15:59:11.222 [main] INFO  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - Failed login attempt 1 of 3 for user: user3
-2026-02-17 15:59:11.239 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for update: john
-2026-02-17 15:59:11.240 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found: john
-2026-02-17 15:59:11.243 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User created: null
-2026-02-17 15:59:11.244 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for deletion: john
-2026-02-17 15:59:11.246 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User updated: john
-2026-02-17 15:59:11.247 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - Fetched 2 users
-2026-02-17 15:59:11.248 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User deleted: john
-2026-02-17 15:59:11.408 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainers
-2026-02-17 15:59:11.411 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainees
-2026-02-17 15:59:11.413 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainings
-2026-02-17 15:59:11.414 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Spring Boot Basics
-2026-02-17 15:59:11.415 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Python Data
-2026-02-17 15:59:11.415 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Java Masterclass
-2026-02-17 15:59:11.415 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainings. Total count: 2
-2026-02-17 15:59:11.415 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: React Advanced
-2026-02-17 15:59:29.666 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainers
-2026-02-17 15:59:29.671 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainees
-2026-02-17 15:59:29.673 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainings
-2026-02-17 15:59:29.770 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:29.777 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:29.780 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:29.783 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:29.785 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - null
-2026-02-17 15:59:29.791 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:29.793 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Token expired
-2026-02-17 15:59:29.796 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:29.798 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:29.801 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:29.804 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to:  - Invalid credentials
-2026-02-17 15:59:29.806 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:29.810 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/admin/dashboard - Invalid credentials
-2026-02-17 15:59:29.814 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:29.817 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:29.819 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
-2026-02-17 15:59:29.825 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:29.828 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:29.831 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/protected/resource - Insufficient permissions
-2026-02-17 15:59:29.835 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:29.838 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:29.840 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:29.842 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:29.844 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:29.847 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:29.849 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:29.851 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:29.853 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:29.855 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
-2026-02-17 15:59:29.954 [main] INFO  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ✅ JWT token valid for user: testuser accessing: /api/users/profile
-2026-02-17 15:59:29.963 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ User not found: User not found for request: /api/users/profile
-2026-02-17 15:59:29.991 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Invalid JWT token for user: testuser
-2026-02-17 15:59:29.997 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Username could not be extracted from token for request: /api/users/profile
-2026-02-17 15:59:30.006 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Malformed JWT token for request: /api/users/profile - Malformed token
-2026-02-17 15:59:30.013 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ JWT token expired for request: /api/users/profile - Token expired
-2026-02-17 15:59:30.019 [main] ERROR o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ JWT Authentication failed for /api/users/profile: Unexpected error
+2026-03-31 22:06:33.401 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainers
+2026-03-31 22:06:33.408 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainees
+2026-03-31 22:06:33.411 [main] INFO  org.example.init.StorageInitializer - [TxId:] [User:] [ ] - Loaded 1 trainings
+2026-03-31 22:06:33.526 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-03-31 22:06:33.535 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-03-31 22:06:33.538 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-03-31 22:06:33.541 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-03-31 22:06:33.544 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - null
+2026-03-31 22:06:33.549 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-03-31 22:06:33.551 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Token expired
+2026-03-31 22:06:33.554 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-03-31 22:06:33.557 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-03-31 22:06:33.560 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-03-31 22:06:33.562 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to:  - Invalid credentials
+2026-03-31 22:06:33.566 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-03-31 22:06:33.569 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/admin/dashboard - Invalid credentials
+2026-03-31 22:06:33.571 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-03-31 22:06:33.574 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-03-31 22:06:33.577 [main] WARN  o.e.s.h.JwtAuthenticationEntryPoint - [TxId:] [User:] [ ] - ❌ Unauthorized access attempt to: /api/secure/resource - Invalid credentials
+2026-03-31 22:06:33.583 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-03-31 22:06:33.585 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-03-31 22:06:33.589 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/protected/resource - Insufficient permissions
+2026-03-31 22:06:33.591 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-03-31 22:06:33.593 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-03-31 22:06:33.597 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-03-31 22:06:33.599 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-03-31 22:06:33.602 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-03-31 22:06:33.609 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-03-31 22:06:33.615 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-03-31 22:06:33.620 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-03-31 22:06:33.626 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-03-31 22:06:33.628 [main] WARN  o.e.s.handler.JwtAccessDeniedHandler - [TxId:] [User:] [ ] - ❌ Access denied to: /api/admin/users - Insufficient permissions
+2026-03-31 22:06:33.754 [main] INFO  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ✅ JWT token valid for user: testuser accessing: /api/users/profile
+2026-03-31 22:06:33.763 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ User not found: User not found for request: /api/users/profile
+2026-03-31 22:06:33.790 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Invalid JWT token for user: testuser
+2026-03-31 22:06:33.796 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Username could not be extracted from token for request: /api/users/profile
+2026-03-31 22:06:33.802 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Malformed JWT token for request: /api/users/profile - Malformed token
+2026-03-31 22:06:33.810 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ JWT token expired for request: /api/users/profile - Token expired
+2026-03-31 22:06:33.814 [main] ERROR o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ JWT Authentication failed for /api/users/profile: Unexpected error
 java.lang.RuntimeException: Unexpected error
 	at org.example.security.filter.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:69)
 	at org.example.security.filter.JwtAuthenticationFilterTest.doFilterInternal_WithGenericException_ShouldClearSecurityContext(JwtAuthenticationFilterTest.java:275)
@@ -528,139 +109,711 @@ java.lang.RuntimeException: Unexpected error
 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-2026-02-17 15:59:30.026 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Username could not be extracted from token for request: /api/users/profile
-2026-02-17 15:59:30.036 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Invalid JWT signature for request: /api/users/profile - Invalid signature
-2026-02-17 15:59:30.075 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user2
-2026-02-17 15:59:30.075 [main] ERROR o.e.security.service.AuthService - [TxId:] [User:] [ ] - Authentication failed for user: user2 - Bad credentials
-2026-02-17 15:59:30.077 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user3
-2026-02-17 15:59:30.077 [main] ERROR o.e.security.service.AuthService - [TxId:] [User:] [ ] - Authentication failed for user: user3 - Bad credentials
-2026-02-17 15:59:30.084 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user1
-2026-02-17 15:59:30.084 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - User user1 logged in successfully with JWT
-2026-02-17 15:59:30.141 [main] WARN  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - User user2 is blocked. Time remaining: 3 minutes
-2026-02-17 15:59:30.142 [main] INFO  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - Resetting login attempts for user: user5 (previous attempts: 2)
-2026-02-17 15:59:30.145 [main] WARN  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - User user4 blocked after 3 failed attempts. Blocked until: 2026-02-17T16:04:30.145358
-2026-02-17 15:59:30.146 [main] INFO  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - Failed login attempt 1 of 3 for user: user3
-2026-02-17 15:59:30.169 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: testuser
-2026-02-17 15:59:30.172 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: nonexistent
-2026-02-17 15:59:30.177 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: 
-2026-02-17 15:59:30.180 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: null
-2026-02-17 15:59:30.189 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer1
-2026-02-17 15:59:30.189 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer2
-2026-02-17 15:59:30.189 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainers. Total count: 2
-2026-02-17 15:59:30.190 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
-2026-02-17 15:59:30.192 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
-2026-02-17 15:59:30.192 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Updated Trainer: trainer01
-2026-02-17 15:59:30.195 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
-2026-02-17 15:59:30.199 [main] WARN  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Attempted to delete non-existent Trainee: ghost01
-2026-02-17 15:59:30.201 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t1
-2026-02-17 15:59:30.201 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t2
-2026-02-17 15:59:30.201 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainees. Total count: 2
-2026-02-17 15:59:30.203 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
-2026-02-17 15:59:30.204 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
-2026-02-17 15:59:30.204 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Updated Trainee: john01
-2026-02-17 15:59:30.204 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: alice01
-2026-02-17 15:59:30.204 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
-2026-02-17 15:59:30.205 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Deleted Trainee: john01
-2026-02-17 15:59:30.208 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Spring Boot Basics
-2026-02-17 15:59:30.210 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Python Data
-2026-02-17 15:59:30.210 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Java Masterclass
-2026-02-17 15:59:30.210 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainings. Total count: 2
-2026-02-17 15:59:30.211 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: React Advanced
-2026-02-17 15:59:30.311 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: john123
-2026-02-17 15:59:30.312 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee found: john123
-2026-02-17 15:59:30.320 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Creating new trainee: John Doe
-2026-02-17 15:59:30.320 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee created successfully with username: john123
-2026-02-17 15:59:30.321 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Updating trainee: john123
-2026-02-17 15:59:30.321 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee updated successfully: john123
-2026-02-17 15:59:30.322 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching all trainees
-2026-02-17 15:59:30.322 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetched 2 trainees
-2026-02-17 15:59:30.323 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: unknown
-2026-02-17 15:59:30.323 [main] WARN  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee not found: unknown
-2026-02-17 15:59:30.324 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Deleting trainee: john123
-2026-02-17 15:59:30.324 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee deleted successfully: john123
-2026-02-17 15:59:30.345 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Pilates
-2026-02-17 15:59:30.345 [main] WARN  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type not found: Pilates
-2026-02-17 15:59:30.346 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching all training types
-2026-02-17 15:59:30.347 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetched 2 training types
-2026-02-17 15:59:30.348 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Yoga
-2026-02-17 15:59:30.348 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type found: Yoga
-2026-02-17 15:59:30.369 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Updating trainer: alice123
-2026-02-17 15:59:30.369 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer updated successfully: alice123
-2026-02-17 15:59:30.370 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching all trainers
-2026-02-17 15:59:30.370 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetched 2 trainers
-2026-02-17 15:59:30.371 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: alice123
-2026-02-17 15:59:30.371 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer found: alice123
-2026-02-17 15:59:30.373 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: unknown
-2026-02-17 15:59:30.373 [main] WARN  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer not found: unknown
-2026-02-17 15:59:30.400 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user1
-2026-02-17 15:59:30.400 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login successful for username: user1
-2026-02-17 15:59:30.403 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user2
-2026-02-17 15:59:30.404 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Logout request received
-2026-02-17 15:59:30.426 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
-2026-02-17 15:59:30.426 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - User not found: user1
-2026-02-17 15:59:30.428 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
-2026-02-17 15:59:30.428 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Password changed successfully for user: user1
-2026-02-17 15:59:30.430 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
-2026-02-17 15:59:30.430 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Active status changed for user: user1 to true
-2026-02-17 15:59:30.431 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
-2026-02-17 15:59:30.431 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Old password does not match for user: user1
-2026-02-17 15:59:30.432 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
-2026-02-17 15:59:30.432 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Missing old or new password for user: user1
-2026-02-17 15:59:30.472 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching all trainings
-2026-02-17 15:59:30.473 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 2 trainings
-2026-02-17 15:59:30.474 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainee: trainee1 with filters - from: null, to: null, trainerName: null, trainingType: null
-2026-02-17 15:59:30.475 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainee: trainee1
-2026-02-17 15:59:30.476 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching training by name: Yoga
-2026-02-17 15:59:30.476 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Training found: Yoga
-2026-02-17 15:59:30.480 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainer: trainer1 with filters - from: null, to: null, traineeName: null
-2026-02-17 15:59:30.480 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainer: trainer1
-2026-02-17 15:59:30.538 [main] INFO  o.e.s.impl.AuthenticationServiceImpl - [TxId:] [User:] [ ] - User authenticated successfully: john
-2026-02-17 15:59:30.542 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> true
-2026-02-17 15:59:30.543 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
-2026-02-17 15:59:30.544 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe
-2026-02-17 15:59:30.546 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
-2026-02-17 15:59:30.546 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe1
-2026-02-17 15:59:30.550 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Password updated for john.doe
-2026-02-17 15:59:30.551 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> false
-2026-02-17 15:59:30.572 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training retrieved: Python for Data
-2026-02-17 15:59:30.573 [main] WARN  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training not found: Unknown
-2026-02-17 15:59:30.581 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 trainings
-2026-02-17 15:59:30.582 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training created: Spring Boot Basics
-2026-02-17 15:59:30.623 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: alice
-2026-02-17 15:59:30.623 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: alice
-2026-02-17 15:59:30.630 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: john
-2026-02-17 15:59:30.630 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: john
-2026-02-17 15:59:30.633 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 users from in-memory store
-2026-02-17 15:59:30.670 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Creating new Trainer (in-memory), username=john.doe
-2026-02-17 15:59:30.698 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Creating new Trainer (in-memory), username=john01
-2026-02-17 15:59:30.702 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Updating Trainer: john01
-2026-02-17 15:59:30.724 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee created successfully: john
-2026-02-17 15:59:30.725 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee updated successfully: john
-2026-02-17 15:59:30.725 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Total Trainees found: 2
-2026-02-17 15:59:30.730 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee deleted: john
-2026-02-17 15:59:30.804 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer updated successfully: Mike.Johnson -> Mike.Johnson
-2026-02-17 15:59:30.806 [main] ERROR o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer not found for update: Mike.Johnson
-2026-02-17 15:59:30.813 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer updated successfully: Mike.Johnson -> New.Name
-2026-02-17 15:59:30.814 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Total trainers fetched: 1
-2026-02-17 15:59:30.863 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 1
-2026-02-17 15:59:30.864 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee deleted successfully: john.doe
-2026-02-17 15:59:30.866 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee updated successfully: John.Doe
-2026-02-17 15:59:30.867 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 0
-2026-02-17 15:59:30.867 [main] ERROR o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for update: john.doe
-2026-02-17 15:59:30.868 [main] WARN  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for deletion: john.doe
-2026-02-17 15:59:30.870 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Creating trainee with generated username: John.Doe
-2026-02-17 15:59:30.871 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - User created successfully: John.Doe
-2026-02-17 15:59:30.871 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee created successfully: John.Doe
-2026-02-17 15:59:30.871 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - JWT token generated for trainee: John.Doe
-2026-02-17 15:59:30.925 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 total trainings
-2026-02-17 15:59:30.928 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainer trainings for username=trainer01
-2026-02-17 15:59:30.929 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainee trainings for username=john
-2026-02-17 15:59:30.932 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Training found: Yoga
-2026-02-17 15:59:30.935 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for update: john
-2026-02-17 15:59:30.936 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found: john
-2026-02-17 15:59:30.938 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User created: null
-2026-02-17 15:59:30.939 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for deletion: john
-2026-02-17 15:59:30.940 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User updated: john
-2026-02-17 15:59:30.940 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - Fetched 2 users
-2026-02-17 15:59:30.941 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User deleted: john
+2026-03-31 22:06:33.819 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Username could not be extracted from token for request: /api/users/profile
+2026-03-31 22:06:33.824 [main] WARN  o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - ❌ Invalid JWT signature for request: /api/users/profile - Invalid signature
+2026-03-31 22:06:33.884 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user2
+2026-03-31 22:06:33.886 [main] ERROR o.e.security.service.AuthService - [TxId:] [User:] [ ] - Authentication failed for user: user2 - Bad credentials
+2026-03-31 22:06:33.889 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user3
+2026-03-31 22:06:33.890 [main] ERROR o.e.security.service.AuthService - [TxId:] [User:] [ ] - Authentication failed for user: user3 - Bad credentials
+2026-03-31 22:06:33.904 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - Login attempt for user: user1
+2026-03-31 22:06:33.904 [main] INFO  o.e.security.service.AuthService - [TxId:] [User:] [ ] - User user1 logged in successfully with JWT
+2026-03-31 22:06:33.991 [main] WARN  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - User user2 is blocked. Time remaining: 3 minutes
+2026-03-31 22:06:33.992 [main] INFO  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - Resetting login attempts for user: user5 (previous attempts: 2)
+2026-03-31 22:06:33.996 [main] WARN  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - User user4 blocked after 3 failed attempts. Blocked until: 2026-03-31T22:11:33.996210
+2026-03-31 22:06:33.997 [main] INFO  o.e.s.s.BruteForceProtectionService - [TxId:] [User:] [ ] - Failed login attempt 1 of 3 for user: user3
+2026-03-31 22:06:34.037 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: testuser
+2026-03-31 22:06:34.039 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: nonexistent
+2026-03-31 22:06:34.041 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: 
+2026-03-31 22:06:34.042 [main] ERROR o.e.s.service.GymUserDetailsService - [TxId:] [User:] [ ] - User not found: null
+2026-03-31 22:06:34.045 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer1
+2026-03-31 22:06:34.045 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer2
+2026-03-31 22:06:34.046 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainers. Total count: 2
+2026-03-31 22:06:34.046 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2026-03-31 22:06:34.046 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2026-03-31 22:06:34.046 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Updated Trainer: trainer01
+2026-03-31 22:06:34.047 [main] INFO  org.example.dao.impl.TrainerDaoImpl - [TxId:] [User:] [ ] - Saved Trainer: trainer01
+2026-03-31 22:06:34.048 [main] WARN  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Attempted to delete non-existent Trainee: ghost01
+2026-03-31 22:06:34.049 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t1
+2026-03-31 22:06:34.049 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: t2
+2026-03-31 22:06:34.049 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainees. Total count: 2
+2026-03-31 22:06:34.050 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2026-03-31 22:06:34.051 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2026-03-31 22:06:34.051 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Updated Trainee: john01
+2026-03-31 22:06:34.051 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: alice01
+2026-03-31 22:06:34.052 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Saved new Trainee: john01
+2026-03-31 22:06:34.052 [main] INFO  org.example.dao.impl.TraineeDaoImpl - [TxId:] [User:] [ ] - Deleted Trainee: john01
+2026-03-31 22:06:34.056 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Spring Boot Basics
+2026-03-31 22:06:34.061 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Python Data
+2026-03-31 22:06:34.062 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: Java Masterclass
+2026-03-31 22:06:34.062 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Fetching all Trainings. Total count: 2
+2026-03-31 22:06:34.063 [main] INFO  o.example.dao.impl.TrainingDaoImpl - [TxId:] [User:] [ ] - Saved new Training: React Advanced
+2026-03-31 22:06:34.229 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: john123
+2026-03-31 22:06:34.230 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee found: john123
+2026-03-31 22:06:34.237 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Creating new trainee: John Doe
+2026-03-31 22:06:34.237 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee created successfully with username: john123
+2026-03-31 22:06:34.238 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Updating trainee: john123
+2026-03-31 22:06:34.238 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee updated successfully: john123
+2026-03-31 22:06:34.239 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching all trainees
+2026-03-31 22:06:34.239 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetched 2 trainees
+2026-03-31 22:06:34.239 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Fetching trainee by username: unknown
+2026-03-31 22:06:34.240 [main] WARN  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee not found: unknown
+2026-03-31 22:06:34.240 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Deleting trainee: john123
+2026-03-31 22:06:34.240 [main] INFO  o.e.api.controller.TraineeController - [TxId:] [User:] [ ] - Trainee deleted successfully: john123
+2026-03-31 22:06:34.262 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Pilates
+2026-03-31 22:06:34.262 [main] WARN  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type not found: Pilates
+2026-03-31 22:06:34.263 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching all training types
+2026-03-31 22:06:34.264 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetched 2 training types
+2026-03-31 22:06:34.265 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Fetching training type by name: Yoga
+2026-03-31 22:06:34.265 [main] INFO  o.e.a.c.TrainingTypeController - [TxId:] [User:] [ ] - Training type found: Yoga
+2026-03-31 22:06:34.297 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Updating trainer: alice123
+2026-03-31 22:06:34.297 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer updated successfully: alice123
+2026-03-31 22:06:34.298 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching all trainers
+2026-03-31 22:06:34.298 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetched 2 trainers
+2026-03-31 22:06:34.299 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: alice123
+2026-03-31 22:06:34.299 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer found: alice123
+2026-03-31 22:06:34.300 [main] INFO  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Fetching trainer by username: unknown
+2026-03-31 22:06:34.300 [main] WARN  o.e.api.controller.TrainerController - [TxId:] [User:] [ ] - Trainer not found: unknown
+2026-03-31 22:06:34.320 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user1
+2026-03-31 22:06:34.320 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login successful for username: user1
+2026-03-31 22:06:34.323 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Login request received for username: user2
+2026-03-31 22:06:34.327 [main] INFO  o.e.api.controller.LoginController - [TxId:] [User:] [ ] - Logout request received
+2026-03-31 22:06:34.380 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
+2026-03-31 22:06:34.381 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - User not found: user1
+2026-03-31 22:06:34.386 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2026-03-31 22:06:34.387 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Password changed successfully for user: user1
+2026-03-31 22:06:34.391 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing active status for user: user1
+2026-03-31 22:06:34.391 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Active status changed for user: user1 to true
+2026-03-31 22:06:34.392 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2026-03-31 22:06:34.392 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Old password does not match for user: user1
+2026-03-31 22:06:34.393 [main] INFO  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Changing password for user: user1
+2026-03-31 22:06:34.393 [main] WARN  o.e.api.controller.ProfileController - [TxId:] [User:] [ ] - Missing old or new password for user: user1
+2026-03-31 22:06:34.464 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching all trainings
+2026-03-31 22:06:34.464 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 2 trainings
+2026-03-31 22:06:34.465 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainee: trainee1 with filters - from: null, to: null, trainerName: null, trainingType: null
+2026-03-31 22:06:34.465 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainee: trainee1
+2026-03-31 22:06:34.466 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching training by name: Yoga
+2026-03-31 22:06:34.466 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Training found: Yoga
+2026-03-31 22:06:34.469 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetching trainings for trainer: trainer1 with filters - from: null, to: null, traineeName: null
+2026-03-31 22:06:34.470 [main] INFO  o.e.a.controller.TrainingController - [TxId:] [User:] [ ] - Fetched 1 trainings for trainer: trainer1
+2026-03-31 22:06:34.553 [main] INFO  o.e.s.impl.AuthenticationServiceImpl - [TxId:] [User:] [ ] - User authenticated successfully: john
+2026-03-31 22:06:34.559 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> true
+2026-03-31 22:06:34.560 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
+2026-03-31 22:06:34.560 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe
+2026-03-31 22:06:34.561 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Creating profile for user: John Doe
+2026-03-31 22:06:34.561 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Profile created successfully for username: John.Doe1
+2026-03-31 22:06:34.576 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Password updated for john.doe
+2026-03-31 22:06:34.577 [main] INFO  o.e.services.impl.ProfileServiceImpl - [TxId:] [User:] [ ] - Active status toggled for john.doe -> false
+2026-03-31 22:06:34.606 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training retrieved: Python for Data
+2026-03-31 22:06:34.607 [main] WARN  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training not found: Unknown
+2026-03-31 22:06:34.608 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 trainings
+2026-03-31 22:06:34.609 [main] INFO  o.e.s.i.i.TrainingServiceInMemoryImpl - [TxId:] [User:] [ ] - Training created: Spring Boot Basics
+2026-03-31 22:06:34.652 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: alice
+2026-03-31 22:06:34.652 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: alice
+2026-03-31 22:06:34.656 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - User saved in-memory: john
+2026-03-31 22:06:34.656 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - In-memory user created: john
+2026-03-31 22:06:34.657 [main] INFO  o.e.s.i.i.UserServiceInMemoryImpl - [TxId:] [User:] [ ] - Fetched 2 users from in-memory store
+2026-03-31 22:06:34.683 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Creating new Trainer (in-memory), username=john.doe
+2026-03-31 22:06:34.720 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Creating new Trainer (in-memory), username=john01
+2026-03-31 22:06:34.722 [main] INFO  o.e.s.i.i.TrainerServiceInMemoryImpl - [TxId:] [User:] [ ] - Updating Trainer: john01
+2026-03-31 22:06:34.761 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee created successfully: john
+2026-03-31 22:06:34.764 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee updated successfully: john
+2026-03-31 22:06:34.764 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Total Trainees found: 2
+2026-03-31 22:06:34.774 [main] INFO  o.e.s.i.i.TraineeServiceInMemoryImpl - [TxId:] [User:] [ ] - Trainee deleted: john
+2026-03-31 22:06:34.909 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer updated successfully: Mike.Johnson -> Mike.Johnson
+2026-03-31 22:06:34.911 [main] ERROR o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer not found for update: Mike.Johnson
+2026-03-31 22:06:34.925 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Trainer updated successfully: Mike.Johnson -> New.Name
+2026-03-31 22:06:34.926 [main] INFO  o.e.s.i.dbImpl.TrainerServiceDbImpl - [TxId:] [User:] [ ] - Total trainers fetched: 1
+2026-03-31 22:06:35.012 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 1
+2026-03-31 22:06:35.013 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee deleted successfully: john.doe
+2026-03-31 22:06:35.014 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee updated successfully: John.Doe
+2026-03-31 22:06:35.016 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Total trainees fetched: 0
+2026-03-31 22:06:35.017 [main] ERROR o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for update: john.doe
+2026-03-31 22:06:35.020 [main] WARN  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee not found for deletion: john.doe
+2026-03-31 22:06:35.026 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Creating trainee with generated username: John.Doe
+2026-03-31 22:06:35.027 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - User created successfully: John.Doe
+2026-03-31 22:06:35.027 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - Trainee created successfully: John.Doe
+2026-03-31 22:06:35.027 [main] INFO  o.e.s.i.dbImpl.TraineeServiceDbImpl - [TxId:] [User:] [ ] - JWT token generated for trainee: John.Doe
+2026-03-31 22:06:35.081 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 total trainings
+2026-03-31 22:06:35.085 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainer trainings for username=trainer01
+2026-03-31 22:06:35.086 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Fetched 1 trainee trainings for username=john
+2026-03-31 22:06:35.089 [main] INFO  o.e.s.i.dbImpl.TrainingServiceDbImpl - [TxId:] [User:] [ ] - Training found: Yoga
+2026-03-31 22:06:35.094 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for update: john
+2026-03-31 22:06:35.096 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found: john
+2026-03-31 22:06:35.097 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User created: null
+2026-03-31 22:06:35.098 [main] ERROR o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User not found for deletion: john
+2026-03-31 22:06:35.099 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User updated: john
+2026-03-31 22:06:35.100 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - Fetched 2 users
+2026-03-31 22:06:35.100 [main] INFO  o.e.s.impl.dbImpl.UserServiceDbImpl - [TxId:] [User:] [ ] - User deleted: john
+2026-03-31 23:56:11.855 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Gym Management REST API with Spring Boot...
+2026-03-31 23:56:12.230 [background-preinit] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
+2026-03-31 23:56:12.252 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Application using Java 25 with PID 506 (/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes started by cyber in /Users/cyber/IdeaProjects/epam/spring-core-epam)
+2026-03-31 23:56:12.253 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - No active profile set, falling back to 1 default profile: "default"
+2026-03-31 23:56:12.900 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-31 23:56:12.991 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 88 ms. Found 6 JPA repository interfaces.
+2026-03-31 23:56:13.157 [main] INFO  o.s.cloud.context.scope.GenericScope - [TxId:] [User:] [ ] - BeanFactory id=e416b896-f14a-37a1-9af3-1ae8ba5b46ba
+2026-03-31 23:56:14.166 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - [TxId:] [User:] [ ] - Tomcat initialized with port 8081 (http)
+2026-03-31 23:56:14.176 [main] INFO  o.a.coyote.http11.Http11NioProtocol - [TxId:] [User:] [ ] - Initializing ProtocolHandler ["http-nio-0.0.0.0-8081"]
+2026-03-31 23:56:14.178 [main] INFO  o.a.catalina.core.StandardService - [TxId:] [User:] [ ] - Starting service [Tomcat]
+2026-03-31 23:56:14.178 [main] INFO  o.a.catalina.core.StandardEngine - [TxId:] [User:] [ ] - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2026-03-31 23:56:14.237 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [TxId:] [User:] [ ] - Initializing Spring embedded WebApplicationContext
+2026-03-31 23:56:14.238 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [TxId:] [User:] [ ] - Root WebApplicationContext: initialization completed in 1964 ms
+2026-03-31 23:56:14.615 [main] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2026-03-31 23:56:14.736 [main] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-31 23:56:14.771 [main] INFO  org.hibernate.Version - [TxId:] [User:] [ ] - HHH000412: Hibernate ORM core version 6.4.1.Final
+2026-03-31 23:56:14.791 [main] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2026-03-31 23:56:14.924 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-31 23:56:14.941 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Starting...
+2026-03-31 23:56:15.114 [main] INFO  com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3f1e18b1
+2026-03-31 23:56:15.115 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Start completed.
+2026-03-31 23:56:15.790 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - [TxId:] [User:] [ ] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-31 23:56:15.976 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-31 23:56:16.235 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - [TxId:] [User:] [ ] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-31 23:56:16.539 [main] DEBUG o.e.s.filter.JwtAuthenticationFilter - [TxId:] [User:] [ ] - Filter 'jwtAuthenticationFilter' configured for use
+2026-03-31 23:56:16.609 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationManager bean created
+2026-03-31 23:56:16.637 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - AuthenticationProvider configured with UserDetailsService and PasswordEncoder
+2026-03-31 23:56:17.851 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - [TxId:] [User:] [ ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-31 23:56:18.499 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - [TxId:] [User:] [ ] - Exposing 4 endpoint(s) beneath base path '/actuator'
+2026-03-31 23:56:18.580 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - Configuring Security Filter Chain with JWT authentication
+2026-03-31 23:56:18.581 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - CORS configuration enabled for allowed origins
+2026-03-31 23:56:18.585 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Session management set to STATELESS - JWT authentication only
+2026-03-31 23:56:18.625 [main] INFO  o.e.s.configuration.SecurityConfig - [TxId:] [User:] [ ] - ✅ Security Filter Chain configured successfully
+2026-03-31 23:56:18.756 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - [TxId:] [User:] [ ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@615a5152, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@67aadf64, org.springframework.security.web.context.SecurityContextHolderFilter@7bd9e2f7, org.springframework.security.web.header.HeaderWriterFilter@509c1d50, org.springframework.web.filter.CorsFilter@64a07d55, org.springframework.security.web.authentication.logout.LogoutFilter@20b22a4, org.example.security.filter.JwtAuthenticationFilter@4b2164a9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@68801feb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4a0d46d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5e9feddd, org.springframework.security.web.session.SessionManagementFilter@5e977703, org.springframework.security.web.access.ExceptionTranslationFilter@56b3dcff, org.springframework.security.web.access.intercept.AuthorizationFilter@e31b415]
+2026-03-31 23:56:19.687 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - [TxId:] [User:] [ ] - Eureka HTTP Client uses RestTemplate.
+2026-03-31 23:56:19.776 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - [TxId:] [User:] [ ] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-03-31 23:56:19.839 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - [TxId:] [User:] [ ] - Setting initial instance status as: STARTING
+2026-03-31 23:56:19.860 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Initializing Eureka in region us-east-1
+2026-03-31 23:56:19.862 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - [TxId:] [User:] [ ] - Resolving eureka endpoints via configuration
+2026-03-31 23:56:19.866 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Disable delta property : false
+2026-03-31 23:56:19.867 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Single vip registry refresh property : null
+2026-03-31 23:56:19.867 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Force full registry fetch : false
+2026-03-31 23:56:19.867 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Application is null : false
+2026-03-31 23:56:19.867 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Registered Applications size is zero : true
+2026-03-31 23:56:19.867 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Application version is -1: true
+2026-03-31 23:56:19.867 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Getting all instance registry info from the eureka server
+2026-03-31 23:56:20.100 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - The response status is 200
+2026-03-31 23:56:20.101 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Starting heartbeat executor: renew interval is: 30
+2026-03-31 23:56:20.102 [main] INFO  c.n.discovery.InstanceInfoReplicator - [TxId:] [User:] [ ] - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-03-31 23:56:20.103 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Discovery Client initialized at timestamp 1774983380103 with initial instances count: 1
+2026-03-31 23:56:20.116 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - [TxId:] [User:] [ ] - Registering application SPRING-CORE-EPAM with eureka with status UP
+2026-03-31 23:56:20.116 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Saw local status change event StatusChangeEvent [timestamp=1774983380116, current=UP, previous=STARTING]
+2026-03-31 23:56:20.117 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - DiscoveryClient_SPRING-CORE-EPAM/spring-core-epam:8081: registering service...
+2026-03-31 23:56:20.117 [main] INFO  o.a.coyote.http11.Http11NioProtocol - [TxId:] [User:] [ ] - Starting ProtocolHandler ["http-nio-0.0.0.0-8081"]
+2026-03-31 23:56:20.125 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - [TxId:] [User:] [ ] - Unregistering application SPRING-CORE-EPAM with eureka with status DOWN
+2026-03-31 23:56:20.125 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Saw local status change event StatusChangeEvent [timestamp=1774983380125, current=DOWN, previous=UP]
+2026-03-31 23:56:20.126 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - [TxId:] [User:] [ ] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-03-31 23:56:20.135 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-31 23:56:20.136 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Shutdown initiated...
+2026-03-31 23:56:20.138 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Shutdown completed.
+2026-03-31 23:56:20.138 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Shutting down DiscoveryClient ...
+2026-03-31 23:56:20.209 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - DiscoveryClient_SPRING-CORE-EPAM/spring-core-epam:8081 - registration status: 204
+2026-03-31 23:56:20.209 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - DiscoveryClient_SPRING-CORE-EPAM/spring-core-epam:8081: registering service...
+2026-03-31 23:56:20.217 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - DiscoveryClient_SPRING-CORE-EPAM/spring-core-epam:8081 - registration status: 204
+2026-03-31 23:56:20.217 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Unregistering ...
+2026-03-31 23:56:20.322 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - DiscoveryClient_SPRING-CORE-EPAM/spring-core-epam:8081 - deregister  status: 200
+2026-03-31 23:56:20.323 [main] INFO  c.netflix.discovery.DiscoveryClient - [TxId:] [User:] [ ] - Completed shut down of DiscoveryClient
+2026-03-31 23:56:20.345 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - [TxId:] [User:] [ ] - 
 
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-03-31 23:56:20.361 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - [TxId:] [User:] [ ] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+
+2026-03-31 23:57:42.977 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Gym Management REST API with Spring Boot...
+2026-03-31 23:57:43.228 [background-preinit] INFO  o.h.validator.internal.util.Version - [TxId:] [User:] [ ] - HV000001: Hibernate Validator 8.0.1.Final
+2026-03-31 23:57:43.246 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - Starting Application using Java 25 with PID 1188 (/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes started by cyber in /Users/cyber/IdeaProjects/epam/spring-core-epam)
+2026-03-31 23:57:43.246 [main] INFO  org.example.Application - [TxId:] [User:] [ ] - No active profile set, falling back to 1 default profile: "default"
+2026-03-31 23:57:43.833 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-31 23:57:43.922 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [TxId:] [User:] [ ] - Finished Spring Data repository scanning in 85 ms. Found 6 JPA repository interfaces.
+2026-03-31 23:57:44.080 [main] INFO  o.s.cloud.context.scope.GenericScope - [TxId:] [User:] [ ] - BeanFactory id=e416b896-f14a-37a1-9af3-1ae8ba5b46ba
+2026-03-31 23:57:44.488 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - [TxId:] [User:] [ ] - Tomcat initialized with port 8081 (http)
+2026-03-31 23:57:44.492 [main] INFO  o.a.coyote.http11.Http11NioProtocol - [TxId:] [User:] [ ] - Initializing ProtocolHandler ["http-nio-0.0.0.0-8081"]
+2026-03-31 23:57:44.493 [main] INFO  o.a.catalina.core.StandardService - [TxId:] [User:] [ ] - Starting service [Tomcat]
+2026-03-31 23:57:44.493 [main] INFO  o.a.catalina.core.StandardEngine - [TxId:] [User:] [ ] - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2026-03-31 23:57:44.528 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [TxId:] [User:] [ ] - Initializing Spring embedded WebApplicationContext
+2026-03-31 23:57:44.528 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [TxId:] [User:] [ ] - Root WebApplicationContext: initialization completed in 1259 ms
+2026-03-31 23:57:44.736 [main] INFO  o.e.services.impl.TokenServiceImpl - [TxId:] [User:] [ ] - TokenService initialized with expiration time: 3600000 ms
+2026-03-31 23:57:44.845 [main] INFO  o.h.jpa.internal.util.LogHelper - [TxId:] [User:] [ ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-31 23:57:44.875 [main] INFO  org.hibernate.Version - [TxId:] [User:] [ ] - HHH000412: Hibernate ORM core version 6.4.1.Final
+2026-03-31 23:57:44.892 [main] INFO  o.h.c.i.RegionFactoryInitiator - [TxId:] [User:] [ ] - HHH000026: Second-level cache disabled
+2026-03-31 23:57:45.000 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - [TxId:] [User:] [ ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-31 23:57:45.014 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TxId:] [User:] [ ] - HikariPool-1 - Starting...
+2026-03-31 23:57:46.046 [main] ERROR com.zaxxer.hikari.pool.HikariPool - [TxId:] [User:] [ ] - HikariPool-1 - Exception during pool initialization.
+org.postgresql.util.PSQLException: Connection to localhost:5433 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:346)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
+	at org.postgresql.Driver.makeConnection(Driver.java:446)
+	at org.postgresql.Driver.connect(Driver.java:298)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:428)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:276)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:107)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:129)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:170)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1820)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:685)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1164)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1684)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1433)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:907)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:785)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1354)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1191)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:907)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:785)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1354)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1191)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:907)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:785)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1354)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1191)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:210)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:173)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:168)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:153)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:86)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:266)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:240)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4866)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:845)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:240)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:917)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:488)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:126)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:105)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:499)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:218)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:188)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:618)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.example.Application.main(Application.java:23)
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:543)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:594)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:284)
+	at java.base/java.net.Socket.connect(Socket.java:659)
+	at org.postgresql.core.PGStream.createSocket(PGStream.java:243)
+	at org.postgresql.core.PGStream.<init>(PGStream.java:98)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:136)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:262)
+	... 147 common frames omitted
+2026-03-31 23:57:46.056 [main] WARN  o.h.e.j.e.i.JdbcEnvironmentInitiator - [TxId:] [User:] [ ] - HHH000342: Could not obtain connection to query metadata
+java.lang.NullPointerException: Cannot invoke "org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(java.sql.SQLException, String)" because the return value of "org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.sqlExceptionHelper()" is null
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:276)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:107)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:129)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:170)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1820)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:685)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1164)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1684)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1433)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:907)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:785)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1354)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1191)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:907)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:785)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1354)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1191)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:907)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:785)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1354)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1191)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:210)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:173)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:168)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:153)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:86)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:266)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:240)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4866)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:845)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:240)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:917)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:488)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:126)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:105)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:499)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:218)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:188)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:618)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.example.Application.main(Application.java:23)
+2026-03-31 23:57:46.058 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - [TxId:] [User:] [ ] - Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+2026-03-31 23:57:46.058 [main] ERROR o.s.b.w.e.tomcat.TomcatStarter - [TxId:] [User:] [ ] - Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'jwtAuthenticationFilter' defined in file [/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes/org/example/security/filter/JwtAuthenticationFilter.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'gymUserDetailsService' defined in file [/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes/org/example/security/service/GymUserDetailsService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userServiceDbImpl' defined in file [/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes/org/example/services/impl/dbImpl/UserServiceDbImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userRepo' defined in org.example.persistance.repository.UserRepo defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager'
+2026-03-31 23:57:46.078 [main] INFO  o.a.catalina.core.StandardService - [TxId:] [User:] [ ] - Stopping service [Tomcat]
+2026-03-31 23:57:46.083 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - [TxId:] [User:] [ ] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
+2026-03-31 23:57:46.099 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - [TxId:] [User:] [ ] - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-03-31 23:57:46.108 [main] ERROR o.s.boot.SpringApplication - [TxId:] [User:] [ ] - Application run failed
+org.springframework.context.ApplicationContextException: Unable to start web server
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:165)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:618)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.example.Application.main(Application.java:23)
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:145)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:105)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:499)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:218)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:188)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162)
+	... 6 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'jwtAuthenticationFilter' defined in file [/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes/org/example/security/filter/JwtAuthenticationFilter.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'gymUserDetailsService' defined in file [/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes/org/example/security/service/GymUserDetailsService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userServiceDbImpl' defined in file [/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes/org/example/services/impl/dbImpl/UserServiceDbImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userRepo' defined in org.example.persistance.repository.UserRepo defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager'
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1354)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1191)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:210)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:173)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:168)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:153)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:86)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:266)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:240)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4866)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:845)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:149)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:240)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:917)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:488)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:126)
+	... 11 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'gymUserDetailsService' defined in file [/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes/org/example/security/service/GymUserDetailsService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userServiceDbImpl' defined in file [/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes/org/example/services/impl/dbImpl/UserServiceDbImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userRepo' defined in org.example.persistance.repository.UserRepo defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager'
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1354)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1191)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:907)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:785)
+	... 52 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userServiceDbImpl' defined in file [/Users/cyber/IdeaProjects/epam/spring-core-epam/target/classes/org/example/services/impl/dbImpl/UserServiceDbImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userRepo' defined in org.example.persistance.repository.UserRepo defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager'
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1354)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1191)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:907)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:785)
+	... 66 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userRepo' defined in org.example.persistance.repository.UserRepo defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager'
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:377)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1684)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1433)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:907)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:785)
+	... 80 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaSharedEM_entityManagerFactory': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:377)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:685)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1164)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365)
+	... 94 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1773)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365)
+	... 106 common frames omitted
+Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:276)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:170)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1820)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
+	... 113 common frames omitted
+Caused by: org.hibernate.HibernateException: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:191)
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:87)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentWithDefaults(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:348)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:107)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:129)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	... 128 common frames omitted
